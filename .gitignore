@@ -1,0 +1,7 @@
+*.jsonl
+*.log
+__pycache__/
+*.py[cod]
+.venv/
+.env
+config.json
