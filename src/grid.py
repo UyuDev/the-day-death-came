@@ -1,13 +1,28 @@
 import pygame
 from enum import Enum
 from constants import TILE_SIZE, SCREEN_WIDTH, SCREEN_HEIGHT, MAP_HEIGHT
-from maps import house_map
+from map_dict import MAPS
 
-class TileType(Enum):
+class TileColors(Enum):
     BLANK = "black"
-    FLOOR = 90, 60, 35
-    WALL = 150, 105, 65
-    DOOR = 90, 60, 35
+    FLOOR = 81, 57, 24
+    DOOR = 181, 173, 166
+    DUNGEON = 50, 56, 50
+    STAIRS = 90, 60, 35
+    TABLE = 90, 60, 35
+    WALL = 163, 123, 90
+
+
+
+TILE_MAPPING = {
+    "0": TileColors.BLANK,
+    "f": TileColors.FLOOR,
+    "d": TileColors.DOOR,
+    "D": TileColors.DUNGEON,
+    "S": TileColors.STAIRS,
+    "t": TileColors.TABLE,
+    "1": TileColors.WALL,
+}
 
 
 
@@ -16,57 +31,33 @@ class Grid:
         self.width = SCREEN_WIDTH // TILE_SIZE
         self.height = MAP_HEIGHT // TILE_SIZE
         self.grid = []
+        self.setup_grid()
 
     def setup_grid(self):
         for i in range(self.height):
             self.grid.append([])
-            for j in range(self.width):
-                tile = Tile(TileType.BLANK, j, i)
-                self.grid[i].append(tile)
+            for _ in range(self.width):
+                self.grid[i].append("0")
 
     def load_map(self, map):
-        x = 0
-        y = 0
-        if map == "house":
-            for row in house_map:
-                # the height is 5 chars which needs to become 10, so double
-                for i in range(1): # was 2
-                    for char in row:
-                        # the width is 8 chars which needs to become 8 out of 32, so keep the same and do 12 blank on each side
-                        if char == "b":
-                            for j in range(12):
-                                blank_tile = Tile(TileType.BLANK, x, y)
-                                self.grid[y][x] = blank_tile
-                                x += 1
-                        elif char == "#":
-                            wall_tile = Tile(TileType.WALL, x, y)
-                            self.grid[y][x] = wall_tile
-                            x += 1
-                        elif char == ".":
-                            floor_tile = Tile(TileType.FLOOR, x, y)
-                            self.grid[y][x] = floor_tile
-                            x += 1
-                        elif char == "d":
-                            door_tile = Tile(TileType.DOOR, x, y)
-                            self.grid[y][x] = door_tile
-                            x += 1
-                    y += 1
-                    x = 0
-        else:
+        if map not in MAPS:
             raise NotImplementedError("This map hasn't been implemented")
+        self.grid = MAPS[map]
+
+            
 
                     
 
     def draw(self, screen):
-        for row in self.grid:
-            for tile in row:
-                rect = pygame.Rect(tile.x * TILE_SIZE, tile.y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
-                pygame.draw.rect(screen, tile.color, rect)       
+        for y, row in enumerate(self.grid):
+            for x, tile in enumerate(row):
+                rect = pygame.Rect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
+                pygame.draw.rect(screen, TILE_MAPPING[tile].value, rect)       
 
 
 
 class Tile:
-    def __init__(self, tile_type: TileType, x: int, y: int):
+    def __init__(self, tile_type: TileColors, x: int, y: int):
         self.type = tile_type
         self.x = x
         self.y =y

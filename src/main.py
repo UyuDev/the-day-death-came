@@ -1,6 +1,6 @@
 import pygame
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT, BACKGROUND_COLOR, FPS
-from grid import Grid, Tile, TileType
+from grid import Grid
 
 
 def main():
@@ -12,7 +12,6 @@ def main():
     dt = 0.0
     #create grid
     grid = Grid()
-    grid.setup_grid()
     grid.load_map("house")
     while True:
         #log if implemented
