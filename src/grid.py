@@ -26,11 +26,13 @@ TILE_MAPPING = {
 
 
 
+
 class Grid:
-    def __init__(self):
+    def __init__(self, tile_images):
         self.width = SCREEN_WIDTH // TILE_SIZE
         self.height = MAP_HEIGHT // TILE_SIZE
         self.grid = []
+        self.tile_images = tile_images
         self.setup_grid()
 
     def setup_grid(self):
@@ -44,15 +46,27 @@ class Grid:
             raise NotImplementedError("This map hasn't been implemented")
         self.grid = MAPS[map]
 
-            
 
                     
 
     def draw(self, screen):
         for y, row in enumerate(self.grid):
             for x, tile in enumerate(row):
-                rect = pygame.Rect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
-                pygame.draw.rect(screen, TILE_MAPPING[tile].value, rect)       
+                if tile == "0":
+                    rect = pygame.Rect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
+                    pygame.draw.rect(screen, "black", rect) 
+                else:
+                    image = self.tile_images[tile]
+                    screen.blit(
+                        image,
+                        (x * TILE_SIZE, y * TILE_SIZE)
+                    ) 
+
+    def draw_rect(self, screen):
+            for y, row in enumerate(self.grid):
+                for x, tile in enumerate(row):
+                    rect = pygame.Rect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
+                    pygame.draw.rect(screen, TILE_MAPPING[tile].value, rect)       
 
 
 
