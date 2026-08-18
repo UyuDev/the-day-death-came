@@ -33,6 +33,9 @@ class Dialogue():
         #     self.current = "intro"
         if "options" in current_node:
             self.current = current_node["options"][choice]["next"]
+        elif "map" in current_node:
+            self.current = current_node["next"]
+            return current_node["map"]
         else:
             self.current = current_node["next"]
 

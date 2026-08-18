@@ -7,6 +7,7 @@ class TileColors(Enum):
     BLANK = "black"
     FLOOR = 81, 57, 24
     DOOR = 181, 173, 166
+    BED = 181, 173, 166
     DUNGEON = 50, 56, 50
     STAIRS = 90, 60, 35
     TABLE = 90, 60, 35
@@ -18,6 +19,7 @@ TILE_MAPPING = {
     "0": TileColors.BLANK,
     "f": TileColors.FLOOR,
     "d": TileColors.DOOR,
+    "b": TileColors.BED,
     "D": TileColors.DUNGEON,
     "S": TileColors.STAIRS,
     "t": TileColors.TABLE,

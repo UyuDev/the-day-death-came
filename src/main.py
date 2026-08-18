@@ -33,7 +33,7 @@ def main():
             if game_state == "MENU":
                 choice = menu.handle_input(event)
                 if choice == 1:
-                    grid.load_map("house")
+                    grid.load_map("house_upstairs")
                     game_state = "INTRO"
                 elif choice == 2:
                     # game_state = "LOAD"
@@ -44,7 +44,9 @@ def main():
                 choice = dialogue.handle_input(event)
                 # ignore random events so only keypressed are passed 
                 if choice is not None:
-                    dialogue.advance(choice)
+                    result = dialogue.advance(choice)
+                    if result:
+                        grid.load_map(result)
 
 
 
