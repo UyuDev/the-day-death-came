@@ -5,8 +5,9 @@ from dialogue_data import DIALOGUE
 
 
 class Dialogue():
-    def __init__(self):
+    def __init__(self, language_data):
         self.current = "intro"
+        self.language_data = language_data
 
 
     def handle_input(self, event):

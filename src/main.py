@@ -4,11 +4,14 @@ from grid import Grid
 from assets import load_assets
 from menu import Menu
 from dialogue import Dialogue
+from settings import load_settings, save_settings, edit_settings, load_language
 
 def main():
     print(f"Starting Fantasy RPG with pygame version: {pygame.version.ver}")
     print(f"Screen width: {SCREEN_WIDTH}\nScreen height: {SCREEN_HEIGHT}")
     pygame.init()
+    settings = load_settings()
+    language_data = load_language(settings["language"])
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     tile_images = load_assets()
     clock = pygame.time.Clock()
@@ -16,8 +19,8 @@ def main():
     title_font = pygame.font.Font("assets/fonts/Bitfantasy.ttf", 48)
     #create grid
     grid = Grid(tile_images)
-    menu = Menu()
-    dialogue = Dialogue()
+    menu = Menu(language_data)
+    dialogue = Dialogue(language_data)
     game_state = "MENU"
     #update with game loop
     while True:
@@ -39,7 +42,24 @@ def main():
                     # game_state = "LOAD"
                     print("Not yet implemented")
                 elif choice == 3:
+                    # settings
+                    game_state = "SETTINGS"
+                    print("Not yet implemented")
+                elif choice == 4:
                     return
+            elif game_state == "SETTINGS":
+                choice = menu.handle_input(event)
+                # ignore random events so only keypressed are passed 
+                if choice is not None:
+                    if choice == 3:
+                        game_state = "MENU"
+                    else:
+                        result = edit_settings(settings, choice)
+                        save_settings(result)
+                    # if result:
+                        # some other action
+
+
             elif game_state == "INTRO":
                 choice = dialogue.handle_input(event)
                 # ignore random events so only keypressed are passed 
@@ -55,6 +75,10 @@ def main():
         if game_state == "MENU":
             grid.draw(screen)
             menu.draw(screen, title_font, ui_font)
+
+        elif game_state == "SETTINGS":
+            grid.draw(screen)
+            menu.draw_settings(screen, title_font, ui_font, settings)
 
         elif game_state == "INTRO":
             grid.draw(screen)

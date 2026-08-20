@@ -4,11 +4,18 @@ from constants import SCREEN_WIDTH, SCREEN_HEIGHT, MAP_HEIGHT
 
 
 class Menu():
-    def __init__(self):
+    def __init__(self, language_data):
+        self.language_data = language_data
         self.options = {
             1: "Start Game",
             2: "Load Game",
-            3: "Exit"
+            3: "Settings",
+            4: "Exit"
+        }
+        self.settings = {
+            1: "Change Language",
+            2: "Toggle Hardcore",
+            3: "Main Menu"
         }
 
 
@@ -41,6 +48,29 @@ class Menu():
         SCREEN_HEIGHT - MAP_HEIGHT
         )
         for number, option in self.options.items():
+            text = ui_font.render(f"{number}. {option}", True, "black")
+            position = (
+                dialogue_rect.x + 20,
+                dialogue_rect.y + 20 + (number - 1) * 40
+            )
+            screen.blit(text, position)
+
+    def draw_settings(self, screen, title_font, ui_font, settings):
+        if settings["hardcore"] == True:
+            difficulty = "Hardcore"
+        else:
+            difficulty = "Normal"
+        language = settings["language"]
+        title = title_font.render(f"Settings - Difficulty: {difficulty} Language: {language}", True, "Yellow")
+        rect = title.get_rect(center=(SCREEN_WIDTH // 2, 100))
+        screen.blit(title, rect)
+        dialogue_rect = pygame.Rect(
+        0,
+        MAP_HEIGHT,
+        SCREEN_WIDTH,
+        SCREEN_HEIGHT - MAP_HEIGHT
+        )
+        for number, option in self.settings.items():
             text = ui_font.render(f"{number}. {option}", True, "black")
             position = (
                 dialogue_rect.x + 20,
