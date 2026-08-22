@@ -7,15 +7,15 @@ class Menu():
     def __init__(self, language_data):
         self.language_data = language_data
         self.options = {
-            1: "Start Game",
-            2: "Load Game",
-            3: "Settings",
-            4: "Exit"
+            1: "menu.start_game",
+            2: "menu.load_game",
+            3: "menu.settings",
+            4: "menu.exit"
         }
         self.settings = {
-            1: "Change Language",
-            2: "Toggle Hardcore",
-            3: "Main Menu"
+            1: "settings.change_language",
+            2: "settings.toggle_hardcore",
+            3: "settings.main_menu"
         }
 
 
@@ -38,7 +38,8 @@ class Menu():
                 return 6
 
     def draw(self, screen, title_font, ui_font):
-        title = title_font.render("Fantasy RPG", True, "Yellow")
+        title_text = self.language_data["menu.title"]
+        title = title_font.render(title_text, True, "Yellow")
         rect = title.get_rect(center=(SCREEN_WIDTH // 2, 100))
         screen.blit(title, rect)
         dialogue_rect = pygame.Rect(
@@ -48,7 +49,7 @@ class Menu():
         SCREEN_HEIGHT - MAP_HEIGHT
         )
         for number, option in self.options.items():
-            text = ui_font.render(f"{number}. {option}", True, "black")
+            text = ui_font.render(f"{number}. {self.language_data[option]}", True, "black")
             position = (
                 dialogue_rect.x + 20,
                 dialogue_rect.y + 20 + (number - 1) * 40
@@ -56,12 +57,14 @@ class Menu():
             screen.blit(text, position)
 
     def draw_settings(self, screen, title_font, ui_font, settings):
-        if settings["hardcore"] == True:
-            difficulty = "Hardcore"
+        if settings["hardcore"]:
+            difficulty = self.language_data["settings.difficulty_hard"]
         else:
-            difficulty = "Normal"
+            difficulty = self.language_data["settings.difficulty_normal"]
         language = settings["language"]
-        title = title_font.render(f"Settings - Difficulty: {difficulty} Language: {language}", True, "Yellow")
+        text_1 = self.language_data["settings.part_1"]
+        text_2 = self.language_data["settings.part_2"]
+        title = title_font.render(f"{text_1}{difficulty}{text_2}{language}", True, "Yellow")
         rect = title.get_rect(center=(SCREEN_WIDTH // 2, 100))
         screen.blit(title, rect)
         dialogue_rect = pygame.Rect(
@@ -71,7 +74,7 @@ class Menu():
         SCREEN_HEIGHT - MAP_HEIGHT
         )
         for number, option in self.settings.items():
-            text = ui_font.render(f"{number}. {option}", True, "black")
+            text = ui_font.render(f"{number}. {self.language_data[option]}", True, "black")
             position = (
                 dialogue_rect.x + 20,
                 dialogue_rect.y + 20 + (number - 1) * 40

@@ -2,163 +2,165 @@
 
 DIALOGUE = {
     "intro": {
-        "text": "You suddenly wake up and get out of bed.",
+        "text_id": "dialogue.intro",
         "next": "look around upstairs"
     },
 
     "look around downstairs": {
-        "text": "What do you want to do?",
+        "text_id": "dialogue.look_around_downstairs",
         "options": {
             1: {
-                "text": "Open the trapdoor",
+                "text_id": "dialogue.option.open_trapdoor",
                 "next": "trapdoor"
             },
             2: {
-                "text": "Go upstairs",
+                "text_id": "dialogue.option.go_upstairs",
                 "next": "stairs upward"
             },
             3: {
-                "text": "Leave through the door",
+                "text_id": "dialogue.option.leave_door",
                 "next": "door"
             },
             4: {
-                "text": "Examine the table",
+                "text_id": "dialogue.option.examine_table",
                 "next": "table"
             }
         }
     },
 
     "trapdoor": {
-        "text": "You open the trapdoor and climb down...",
+        "text_id": "dialogue.trapdoor",
         "next": "trapdoor fail"
     },
 
     "trapdoor fail": {
-        "text": "Upon reaching the ground you feel intense pain as a bright light surrounds you.",
+        "text_id": "dialogue.trapdoor_fail",
         "next": "You died"
     },
 
     "stairs upward": {
-        "text": "You walk up the stairs...",
+        "text_id": "dialogue.stairs_to_upstairs",
         "next": "upstairs",
         "map": "house_upstairs"
     },
 
     "upstairs": {
-        "text": "You are back upstairs",
+        "text_id": "dialogue.upstairs",
         "next": "look around upstairs"
     },
 
     "look around upstairs": {
-        "text": "What do you want to do?",
+        "text_id": "dialogue.look_around_upstairs",
         "options": {
             1: {
-                "text": "Go to the bed",
+                "text_id": "dialogue.option.go_to_bed",
                 "next": "bed"
             },
             2: {
-                "text": "Go downstairs",
+                "text_id": "dialogue.option.go_downstairs",
                 "next": "stairs downward"
             },
             3: {
-                "text": "Inspect the left bookshelf",
+                "text_id": "dialogue.option.inspect_left_bookshelf",
                 "next": "left bookshelf"
             },
             4: {
-                "text": "Inspect the right bookshelf",
+                "text_id": "dialogue.option.inspect_right_bookshelf",
                 "next": "right bookshelf"
                 }
             }
         },
 
     "bed": {
-            "text": "You get in bed and fall asleep.",
+            "text_id": "dialogue.sleep_1",
             "next": "sleep"
         },
 
     "sleep": {
-                "text": "Your dream gets interrupted by a strange sensation.",
+                "text_id": "dialogue.sleep_2",
                 "next": "intro"
             },
 
     "stairs downward": {
-        "text": "You go down the stairs...",
+        "text_id": "dialogue.stairs_downward",
         "next": "look around downstairs",
         "map": "house"
     },
 
     "left bookshelf": {
-        "text": "You find a book titled 'A Dark Descent'.",
+        "text_id": "dialogue.left_bookshelf",
         "next": "flip pages dark"
     },
 
     "flip pages dark": {
-        "text": "You find a passage labeled 'opening incantation'.",
+        "text_id": "dialogue.dark_incant_flip",
         "next": "close pages dark"
     },
 
     "close pages dark": {
-        "text": "You close the book and step away.",
+        "text_id": "dialogue.dark_incant_close",
         "next": "look around upstairs"
     },
 
     "right bookshelf": {
-        "text": "You find a book titled 'Forbidden Knowledge'.",
+        "text_id": "dialogue.right_bookshelf",
         "next": "reaction forbidden"
     },
 
     "reaction forbidden": {
-        "text": "How exciting! I wonder what secrets this contains...",
+        "text_id": "dialogue.forbidden_react",
         "next": "open book forbidden"
     },
 
     "open book forbidden": {
-        "text": "You open the book and read the foreword.",
+        "text_id": "dialogue.forbidden_open",
         "next": "foreword forbidden"
     },
 
     "foreword forbidden": {
-        "text": "In red letters it is written: He who readeth this booke shall die.",
+        "text_id": "dialogue.forbidden_foreword",
         "next": "bad reaction forbidden"
     },
 
     "bad reaction forbidden": {
-        "text": "I don't feel so good.",
+        "text_id": "dialogue.forbidden_bad_react",
         "next": "You collapse on the floor"
     },
 
     "door": {
-        "text": "You leave through the door...",
+        "text_id": "dialogue.leave_door",
         "next": "You collapse on the floor"
     },
 
     "You collapse on the floor": {
-        "text": "You collapse on the floor and the room goes dark.",
+        "text_id": "dialogue.collapse_floor",
         "next": "You died"
     },
 
     "You died": {
-        "text": "You died.",
-        "next": "intro"
+        "text_id": "dialogue.died",
+        "next": "intro",
+        "map": "house_upstairs"
     },
 
     "table": {
-        "text": "There is a wooden table covered in dust.",
+        "text_id": "dialogue.table",
         "next": "inspect table"
     },
 
     "inspect table": {
-        "text": "You find a book titled 'Tales of the Past'",
+        "text_id": "dialogue.inspect_table",
         "next": "flip pages tales"
     },
 
     "flip pages tales": {
-        "text": "You open up the book and flip through the pages.",
+        "text_id": "dialogue.flip_pages_tales",
         "next": "sudden flash"
     },
 
     "sudden flash": {
-        "text": "There is a sudden flash of light.",
-        "next": "intro"
+        "text_id": "dialogue.sudden_flash",
+        "next": "intro",
+        "map": "house_upstairs"
     },
 }

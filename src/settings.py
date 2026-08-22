@@ -22,9 +22,5 @@ def edit_settings(settings, choice):
     return settings
 
 def load_language(language):
-    if language == "en":
-        with open("en.json", "r") as file:
-            return json.load(file)
-    if language == "ko":
-        with open("ko.json", "r") as file:
-            return json.load(file)
+    with open(f"localization/{language}.json", "r") as file:
+        return json.load(file)

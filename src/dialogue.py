@@ -49,21 +49,21 @@ class Dialogue():
         )
         current_node = DIALOGUE[self.current]
         if "options" in current_node:
-            question_text = ui_font.render(current_node["text"], True, "black")
+            question_text = ui_font.render(self.language_data[current_node["text_id"]], True, "black")
             position = (
                 dialogue_rect.x + 20,
                 dialogue_rect.y + 20
             )
             screen.blit(question_text, position)
             for number, option in current_node["options"].items():
-                option_text = ui_font.render(f"{number}. {option['text']}", True, "black")
+                option_text = ui_font.render(f"{number}. {self.language_data[option['text_id']]}", True, "black")
                 position = (
                     dialogue_rect.x + 20,
                     dialogue_rect.y + 60 + (number - 1) * 40
                 )
                 screen.blit(option_text, position)
         else:
-            text = ui_font.render(current_node["text"], True, "black")
+            text = ui_font.render(self.language_data[current_node["text_id"]], True, "black")
             rect = text.get_rect(center=dialogue_rect.center)
             screen.blit(text, rect)
         

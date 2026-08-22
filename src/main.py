@@ -55,6 +55,10 @@ def main():
                         game_state = "MENU"
                     else:
                         result = edit_settings(settings, choice)
+                        if choice == 1:
+                            language_data = load_language(settings["language"])
+                            menu.language_data = language_data
+                            dialogue.language_data = language_data
                         save_settings(result)
                     # if result:
                         # some other action
