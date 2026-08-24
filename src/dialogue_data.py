@@ -2,12 +2,32 @@
 
 DIALOGUE = {
     "intro": {
-        "text_id": "dialogue.intro_wake",
+        "text_id": "dialogue.intro_1",
         "next": "intro 2"
     },
 
     "intro 2": {
-        "text_id": "dialogue.intro_2",
+            "text_id": "dialogue.intro_2",
+            "next": "intro 3"
+        },
+
+    "intro 3": {
+            "text_id": "dialogue.intro_3",
+            "next": "intro 4"
+        },
+
+    "intro 4": {
+            "text_id": "dialogue.intro_4",
+            "next": "intro 5"
+        },
+
+    "intro 5": {
+            "text_id": "dialogue.intro_5",
+            "next": "look around upstairs"
+        },
+
+    "intro wake": {
+        "text_id": "dialogue.intro_wake",
         "next": "look around upstairs"
     },
 
@@ -83,7 +103,7 @@ DIALOGUE = {
 
     "sleep": {
                 "text_id": "dialogue.sleep_2",
-                "next": "intro_wake"
+                "next": "intro wake"
             },
 
     "stairs downward": {
