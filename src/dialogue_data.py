@@ -2,7 +2,12 @@
 
 DIALOGUE = {
     "intro": {
-        "text_id": "dialogue.intro",
+        "text_id": "dialogue.intro_wake",
+        "next": "intro 2"
+    },
+
+    "intro 2": {
+        "text_id": "dialogue.intro_2",
         "next": "look around upstairs"
     },
 
@@ -78,7 +83,7 @@ DIALOGUE = {
 
     "sleep": {
                 "text_id": "dialogue.sleep_2",
-                "next": "intro"
+                "next": "intro_wake"
             },
 
     "stairs downward": {
