@@ -68,7 +68,10 @@ def main():
 
 
             elif game_state == "INTRO":
-                choice = dialogue.handle_input(event)
+                if dialogue.has_options():
+                    choice = dialogue.handle_input(event)
+                else:
+                    choice = dialogue.handle_input_continue(event)
                 # ignore random events so only keypressed are passed 
                 if choice is not None:
                     result = dialogue.advance(choice)

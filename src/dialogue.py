@@ -12,10 +12,7 @@ class Dialogue():
 
     def handle_input(self, event):
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE or event.key == pygame.K_RETURN:
-                    return "Continue"
-                elif event.key == pygame.K_1:
-                    print(pygame.K_1)
+                if event.key == pygame.K_1:
                     return 1
                 elif event.key == pygame.K_2:
                     return 2
@@ -27,6 +24,17 @@ class Dialogue():
                     return 5
                 elif event.key == pygame.K_6:
                     return 6
+
+    def handle_input_continue(self, event):
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE or event.key == pygame.K_RETURN:
+                return "Continue"
+
+    def has_options(self):
+        current_node = DIALOGUE[self.current]
+        if "options" in current_node:
+            return True
+        return False
 
     def set_current(self, node):
         self.current = node
@@ -40,7 +48,11 @@ class Dialogue():
             self.current = current_node["options"][choice]["next"]
             return []
         elif "actions" in current_node:
-            return current_node["actions"]
+            actions = current_node["actions"]
+            if "next" in current_node:
+                self.current = current_node["next"]
+
+            return actions
         else:
             self.current = current_node["next"]
             return []

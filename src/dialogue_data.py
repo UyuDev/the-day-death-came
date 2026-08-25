@@ -173,7 +173,7 @@ DIALOGUE = {
 
     "bad reaction forbidden": {
         "text_id": "dialogue.forbidden_bad_react",
-        "next": "You collapse on the floor"
+        "next": "You collapse on the floor book"
     },
 
     "door": {
@@ -231,7 +231,7 @@ DIALOGUE = {
 
     "You died": {
         "text_id": "dialogue.died",
-        "next": "intro",
+        "next": "intro wake",
         "actions": [
             {   
                 "type": "map",
@@ -257,7 +257,7 @@ DIALOGUE = {
 
     "sudden flash": {
         "text_id": "dialogue.sudden_flash",
-        "next": "intro",
+        "next": "intro wake",
         "actions": [
             {   
                 "type": "map",
