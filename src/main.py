@@ -5,6 +5,8 @@ from assets import load_assets
 from menu import Menu
 from dialogue import Dialogue
 from settings import load_settings, save_settings, edit_settings, load_language
+from character import Character
+from actions import handle_action
 
 def main():
     print(f"Starting Fantasy RPG with pygame version: {pygame.version.ver}")
@@ -21,6 +23,7 @@ def main():
     grid = Grid(tile_images)
     menu = Menu(language_data)
     dialogue = Dialogue(language_data)
+    player = Character()
     game_state = "MENU"
     #update with game loop
     while True:
@@ -69,8 +72,8 @@ def main():
                 # ignore random events so only keypressed are passed 
                 if choice is not None:
                     result = dialogue.advance(choice)
-                    if result:
-                        grid.load_map(result)
+                    for action in result:
+                        handle_action(action, player, grid, dialogue)
 
 
 

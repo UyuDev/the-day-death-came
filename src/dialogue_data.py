@@ -66,7 +66,12 @@ DIALOGUE = {
     "stairs upward": {
         "text_id": "dialogue.stairs_to_upstairs",
         "next": "upstairs",
-        "map": "house_upstairs"
+        "actions": [
+            {   
+                "type": "map",
+                "target": "house_upstairs"
+            }
+        ]
     },
 
     "upstairs": {
@@ -109,7 +114,12 @@ DIALOGUE = {
     "stairs downward": {
         "text_id": "dialogue.stairs_downward",
         "next": "look around downstairs",
-        "map": "house"
+        "actions": [
+            {   
+                "type": "map",
+                "target": "house"
+            }
+        ]
     },
 
     "left bookshelf": {
@@ -119,8 +129,22 @@ DIALOGUE = {
 
     "flip pages dark": {
         "text_id": "dialogue.dark_incant_flip",
-        "next": "close pages dark"
+        "next": "unlock incantation dark"
     },
+
+    "unlock incantation dark": {
+            "text_id": "dialogue.dark_incant_unlock",
+            "next": "close pages dark",
+            "actions": [
+                {   
+                    "type": "set_flag",
+                    "target": "house_upstairs",
+                    "value": "True"
+                }
+            ]
+        },
+
+    
 
     "close pages dark": {
         "text_id": "dialogue.dark_incant_close",
@@ -154,18 +178,66 @@ DIALOGUE = {
 
     "door": {
         "text_id": "dialogue.leave_door",
+        "next": "door encounter"
+    },
+
+    "door encounter": {
+        "text_id": "dialogue.door_encounter",
+        "actions": [
+            {   
+                "type": "combat",
+                "target": "door_encounter",
+                "on_win": "door victory",
+                "on_loss": "door death"
+            }
+        ]
+    },
+
+    "door death 1": {
+        "text_id": "dialogue.door_death_1",
         "next": "You collapse on the floor"
     },
 
+    "door death 2": {
+        "text_id": "dialogue.door_death_2",
+        "next": "You collapse on the floor"
+    },
+
+    "door death 3": {
+        "text_id": "dialogue.door_death_3",
+        "next": "You collapse on the floor"
+    },
+
+    "door death 4": {
+        "text_id": "dialogue.door_death_4",
+        "next": "You collapse on the floor"
+    },
+
+
     "You collapse on the floor": {
         "text_id": "dialogue.collapse_floor",
+        "next": "You collapse on the floor 2"
+    },
+
+    "You collapse on the floor 2": {
+        "text_id": "dialogue.collapse_floor_2",
+        "next": "You died"
+    },
+
+    "You collapse on the floor book": {
+        "text_id": "dialogue.collapse_floor_book",
         "next": "You died"
     },
 
     "You died": {
         "text_id": "dialogue.died",
         "next": "intro",
-        "map": "house_upstairs"
+        "actions": [
+            {   
+                "type": "map",
+                "target": "house_upstairs"
+            }
+        ]
     },
 
     "table": {
@@ -186,6 +258,11 @@ DIALOGUE = {
     "sudden flash": {
         "text_id": "dialogue.sudden_flash",
         "next": "intro",
-        "map": "house_upstairs"
+        "actions": [
+            {   
+                "type": "map",
+                "target": "house_upstairs"
+            }
+        ]
     },
 }

@@ -11,3 +11,4 @@ class Character:
         self.game_class = None
         self.buffs = []
         self.debuffs = []
+        self.inventory = []

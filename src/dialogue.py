@@ -28,17 +28,24 @@ class Dialogue():
                 elif event.key == pygame.K_6:
                     return 6
 
+    def set_current(self, node):
+        self.current = node
+
+
     def advance(self, choice):
         current_node = DIALOGUE[self.current]
         # if self.current == "You died.":
         #     self.current = "intro"
         if "options" in current_node:
             self.current = current_node["options"][choice]["next"]
-        elif "map" in current_node:
-            self.current = current_node["next"]
-            return current_node["map"]
+            return []
+        elif "actions" in current_node:
+            return current_node["actions"]
         else:
             self.current = current_node["next"]
+            return []
+
+        
 
     def draw(self, screen, ui_font):
         dialogue_rect = pygame.Rect(
