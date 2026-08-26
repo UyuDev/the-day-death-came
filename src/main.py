@@ -7,6 +7,7 @@ from dialogue import Dialogue
 from settings import load_settings, save_settings, edit_settings, load_language
 from character import Character
 from actions import handle_action
+from world_state import WorldState
 
 def main():
     print(f"Starting Fantasy RPG with pygame version: {pygame.version.ver}")
@@ -24,6 +25,7 @@ def main():
     menu = Menu(language_data)
     dialogue = Dialogue(language_data)
     player = Character()
+    world_state = WorldState()
     game_state = "MENU"
     #update with game loop
     while True:
@@ -76,7 +78,7 @@ def main():
                 if choice is not None:
                     result = dialogue.advance(choice)
                     for action in result:
-                        handle_action(action, player, grid, dialogue)
+                        handle_action(action, player, grid, dialogue, world_state)
 
 
 

@@ -12,6 +12,8 @@ class TileColors(Enum):
     STAIRS = 90, 60, 35
     TABLE = 90, 60, 35
     WALL = 163, 123, 90
+    TOOLS = "black"
+    DUNGEONENT = "black"
 
 
 
@@ -24,6 +26,8 @@ TILE_MAPPING = {
     "S": TileColors.STAIRS,
     "t": TileColors.TABLE,
     "1": TileColors.WALL,
+    "T": TileColors.TOOLS,
+    "E": TileColors.DUNGEONENT,
 }
 
 

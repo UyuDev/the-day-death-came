@@ -12,5 +12,9 @@ def load_assets():
     "S": pygame.image.load("assets/wood_stairs_1.png").convert_alpha(),
     "t": pygame.image.load("assets/wood_table_1.png").convert_alpha(),
     "1": pygame.image.load("assets/wood_wall_3.png").convert_alpha(),
+    "T": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "E": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "C": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "L": pygame.image.load("assets/placeholder.png").convert_alpha(),
 }
 
