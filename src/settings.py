@@ -12,13 +12,18 @@ def edit_settings(settings, choice):
     if choice == 1:
         if settings["language"] == "en":
             settings["language"] = "ko"
-        elif settings["language"] == "ko":
+        else:
             settings["language"] = "en"
     elif choice == 2:
         if settings["hardcore"] == True:
             settings["hardcore"] = False
-        elif settings["hardcore"] == False:
+        else:
             settings["hardcore"] = True
+    elif choice == 3:
+        if settings["art"] == "tiles":
+            settings["art"] = "illustrations"
+        else:
+            settings["art"] = "tiles"
     return settings
 
 def load_language(language):

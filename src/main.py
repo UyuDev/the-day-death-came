@@ -1,6 +1,7 @@
 import pygame
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT, BACKGROUND_COLOR, FPS
 from grid import Grid
+from scene import Scene
 from assets import load_assets
 from menu import Menu
 from dialogue import Dialogue
@@ -16,13 +17,16 @@ def main():
     settings = load_settings()
     language_data = load_language(settings["language"])
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    tile_images = load_assets()
+    assets = load_assets()
     clock = pygame.time.Clock()
     ui_font = pygame.font.Font("assets/fonts/Rockboxcond12.ttf", 24)
     title_font = pygame.font.Font("assets/fonts/Bitfantasy.ttf", 48)
     #create grid
-    grid = Grid(tile_images)
-    menu = Menu(language_data)
+    if settings["art"] == "tiles":
+        renderer = Grid(assets)
+    else:
+        renderer = Scene(assets)
+    menu = Menu(language_data, assets)
     dialogue = Dialogue(language_data)
     player = Character()
     world_state = WorldState()
@@ -41,7 +45,7 @@ def main():
             if game_state == "MENU":
                 choice = menu.handle_input(event)
                 if choice == 1:
-                    grid.load_map("house_upstairs")
+                    renderer.load_map("house_upstairs")
                     game_state = "INTRO"
                 elif choice == 2:
                     # game_state = "LOAD"
@@ -56,7 +60,7 @@ def main():
                 choice = menu.handle_input(event)
                 # ignore random events so only keypressed are passed 
                 if choice is not None:
-                    if choice == 3:
+                    if choice == 4:
                         game_state = "MENU"
                     else:
                         result = edit_settings(settings, choice)
@@ -64,6 +68,13 @@ def main():
                             language_data = load_language(settings["language"])
                             menu.language_data = language_data
                             dialogue.language_data = language_data
+                        if choice == 2:
+                            print("Not yet implemented.")
+                        if choice == 3:
+                            if settings["art"] == "tiles":
+                                renderer = Grid(assets)
+                            else:
+                                renderer = Scene(assets)
                         save_settings(result)
                     # if result:
                         # some other action
@@ -78,22 +89,22 @@ def main():
                 if choice is not None:
                     result = dialogue.advance(choice)
                     for action in result:
-                        handle_action(action, player, grid, dialogue, world_state)
+                        handle_action(action, player, renderer, dialogue, world_state)
 
 
 
         # grid.draw(screen)
         screen.fill((BACKGROUND_COLOR))
         if game_state == "MENU":
-            grid.draw(screen)
+            renderer.draw(screen)
             menu.draw(screen, title_font, ui_font)
 
         elif game_state == "SETTINGS":
-            grid.draw(screen)
+            renderer.draw(screen)
             menu.draw_settings(screen, title_font, ui_font, settings)
 
         elif game_state == "INTRO":
-            grid.draw(screen)
+            renderer.draw(screen)
             dialogue.draw(screen, ui_font)
 
         pygame.display.flip()

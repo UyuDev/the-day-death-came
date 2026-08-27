@@ -14,12 +14,16 @@ class TileColors(Enum):
     WALL = 163, 123, 90
     TOOLS = "black"
     DUNGEONENT = "black"
+    CHEST = "black"
+    BOOKSHELF = "black"
+    WOODFLOOR = "black"
 
 
 
 TILE_MAPPING = {
     "0": TileColors.BLANK,
     "f": TileColors.FLOOR,
+    "W": TileColors.WOODFLOOR,
     "d": TileColors.DOOR,
     "b": TileColors.BED,
     "D": TileColors.DUNGEON,
@@ -28,6 +32,8 @@ TILE_MAPPING = {
     "1": TileColors.WALL,
     "T": TileColors.TOOLS,
     "E": TileColors.DUNGEONENT,
+    "C": TileColors.CHEST,
+    "B": TileColors.BOOKSHELF,
 }
 
 
@@ -80,7 +86,7 @@ class Tile:
     def __init__(self, tile_type: TileColors, x: int, y: int):
         self.type = tile_type
         self.x = x
-        self.y =y
+        self.y = y
         self.color = tile_type.value
 
     def __str__(self):
