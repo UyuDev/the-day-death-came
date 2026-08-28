@@ -5,7 +5,7 @@ import pygame
 
 def load_assets():
     return {
-    "menuscreen_art": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "menuscreen_art": pygame.image.load("assets/main_temp_b.png").convert_alpha(),
 
 
     "house": pygame.image.load("assets/placeholder.png").convert_alpha(),

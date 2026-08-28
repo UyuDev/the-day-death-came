@@ -96,11 +96,11 @@ def main():
         # grid.draw(screen)
         screen.fill((BACKGROUND_COLOR))
         if game_state == "MENU":
-            renderer.draw(screen)
+            # renderer.draw(screen)
             menu.draw(screen, title_font, ui_font)
 
         elif game_state == "SETTINGS":
-            renderer.draw(screen)
+            # renderer.draw(screen)
             menu.draw_settings(screen, title_font, ui_font, settings)
 
         elif game_state == "INTRO":
