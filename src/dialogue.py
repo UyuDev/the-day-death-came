@@ -42,22 +42,19 @@ class Dialogue():
 
     def advance(self, choice):
         current_node = DIALOGUE[self.current]
-        # if self.current == "You died.":
-        #     self.current = "intro"
         if "options" in current_node:
             self.current = current_node["options"][choice]["next"]
-            return []
-        elif "actions" in current_node:
-            actions = current_node["actions"]
-            if "next" in current_node:
-                self.current = current_node["next"]
+        elif "next" in current_node:
+            self.current = current_node["next"]
 
+
+    def get_actions(self):
+        current_node = DIALOGUE[self.current]
+        if "actions" in current_node:
+            actions = current_node["actions"]       
             return actions
         else:
-            self.current = current_node["next"]
             return []
-
-        
 
     def draw(self, screen, ui_font):
         dialogue_rect = pygame.Rect(

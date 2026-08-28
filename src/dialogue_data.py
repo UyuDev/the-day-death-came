@@ -111,7 +111,13 @@ DIALOGUE = {
 
     "trapdoor fail 2": {
         "text_id": "dialogue.trapdoor_fail_2",
-        "next": "You died"
+        "next": "You died",
+        "actions": [
+            {   
+                "type": "show_scene",
+                "target": "trapdoor death"
+            }
+        ]
     },
 
     "trapdoor pass 1": {
@@ -243,13 +249,18 @@ DIALOGUE = {
         "actions": [
             {   
                 "type": "set_flag",
-                "target": "basement_unlocked",
+                "target": "left_bookshelf_empty",
                 "value": True
             },
             {   
                 "type": "item",
                 "target": "Old Tome",
                 "value": 1
+            },
+            {   
+                "type": "set_flag",
+                "target": "basement_unlocked",
+                "value": True
             }
         ]
     },
@@ -353,28 +364,58 @@ DIALOGUE = {
 
     "door death 1": {
         "text_id": "dialogue.door_death_1",
-        "next": "You collapse on the floor"
+        "next": "You collapse on the floor",
+        "actions": [
+            {   
+                "type": "show_scene",
+                "target": "door death spear"
+            }
+        ]
     },
 
     "door death 2": {
         "text_id": "dialogue.door_death_2",
-        "next": "You collapse on the floor"
+        "next": "You collapse on the floor",
+        "actions": [
+            {   
+                "type": "show_scene",
+                "target": "door death arrow"
+            }
+        ]
     },
 
     "door death 3": {
         "text_id": "dialogue.door_death_3",
-        "next": "You collapse on the floor"
+        "next": "You collapse on the floor",
+        "actions": [
+            {   
+                "type": "show_scene",
+                "target": "door death leg"
+            }
+        ]
     },
 
     "door death 4": {
         "text_id": "dialogue.door_death_4",
-        "next": "You collapse on the floor"
+        "next": "You collapse on the floor",
+        "actions": [
+            {   
+                "type": "show_scene",
+                "target": "door death mind"
+            }
+        ]
     },
 
 
     "You collapse on the floor": {
         "text_id": "dialogue.collapse_floor",
-        "next": "You collapse on the floor 2"
+        "next": "You collapse on the floor 2",
+        "actions": [
+            {   
+                "type": "show_scene",
+                "target": "door death collapse"
+            }
+        ]
     },
 
     "You collapse on the floor 2": {
@@ -384,7 +425,13 @@ DIALOGUE = {
 
     "You collapse on the floor book": {
         "text_id": "dialogue.collapse_floor_book",
-        "next": "You died"
+        "next": "You died",
+        "actions": [
+            {   
+                "type": "show_scene",
+                "target": "collapse book"
+            }
+        ]
     },
 
 
@@ -392,6 +439,10 @@ DIALOGUE = {
         "text_id": "dialogue.died",
         "next": "intro wake",
         "actions": [
+            {   
+                "type": "clear_scene",
+                "target": ""
+            },
             {   
                 "type": "map",
                 "target": "house_upstairs"

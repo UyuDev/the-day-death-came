@@ -87,8 +87,9 @@ def main():
                     choice = dialogue.handle_input_continue(event)
                 # ignore random events so only keypressed are passed 
                 if choice is not None:
-                    result = dialogue.advance(choice)
-                    for action in result:
+                    dialogue.advance(choice)
+                    actions = dialogue.get_actions()
+                    for action in actions:
                         handle_action(action, player, renderer, dialogue, world_state)
 
 

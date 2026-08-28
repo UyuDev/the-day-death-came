@@ -7,13 +7,23 @@ def load_assets():
     return {
     "menuscreen_art": pygame.image.load("assets/main_temp_b.png").convert_alpha(),
 
+    # art
+    "trapdoor death": pygame.image.load("assets/trapdoor_burn_temp.png").convert_alpha(), 
+    "collapse book": pygame.image.load("assets/collapse_book_temp.png").convert_alpha(),
+    "door death spear": pygame.image.load("assets/door_death_spear_temp.png").convert_alpha(),
+    "door death arrow": pygame.image.load("assets/door_death_arrow_temp.png").convert_alpha(), 
+    "door death leg": pygame.image.load("assets/door_death_leg_temp.png").convert_alpha(),
+    "door death mind": pygame.image.load("assets/door_death_mind_temp.png").convert_alpha(),
+    "door death collapse": pygame.image.load("assets/door_death_collapse_temp.png").convert_alpha(),
 
-    "house": pygame.image.load("assets/placeholder.png").convert_alpha(),
-    "house_upstairs": pygame.image.load("assets/placeholder.png").convert_alpha(),
-    "basement": pygame.image.load("assets/placeholder.png").convert_alpha(),
-    "pitch black": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    # maps
+    "house": pygame.image.load("assets/home_map.png").convert_alpha(),
+    "house_upstairs": pygame.image.load("assets/upstairs_map.png").convert_alpha(),
+    "basement": pygame.image.load("assets/basement_map.png").convert_alpha(),
+    "pitch black": pygame.image.load("assets/basement_map.png").convert_alpha(),
     "dungeon": pygame.image.load("assets/placeholder.png").convert_alpha(),
 
+    # tiles
     "f": pygame.image.load("assets/stone_floor.png").convert_alpha(),
     "d": pygame.image.load("assets/wood_door_2.png").convert_alpha(),
     "b": pygame.image.load("assets/bed.png").convert_alpha(),

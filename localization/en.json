@@ -68,7 +68,7 @@
     "dialogue.leave_door": "You open the door and step outside.",
     "dialogue.door_encounter": "Stepping outside, you hear screaming and suddenly turn to your left",
     "dialogue.door_death_1": "You are suddenly impaled by a spear in your chest.",
-    "dialogue.door_death_2": "You feel a sharp pain. You were shot in your chest.",
+    "dialogue.door_death_2": "You feel a sharp pain. You were shot by an arrow in your chest.",
     "dialogue.door_death_3": "You fall over suddenly as your leg is severed.",
     "dialogue.door_death_4": "You let out a scream as a sharp pain fills your mind.",
     "dialogue.collapse_floor": "You collapse on the floor and your vision fades.",
