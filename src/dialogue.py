@@ -8,6 +8,7 @@ class Dialogue():
     def __init__(self, language_data):
         self.current = "intro"
         self.language_data = language_data
+        self.option_page = 0
 
 
     def handle_input(self, event):
@@ -71,6 +72,24 @@ class Dialogue():
                 dialogue_rect.y + 20
             )
             screen.blit(question_text, position)
+            # options = list(current_node["options"].items())
+            # if len(options) > 4:
+            #     start = self.options_page * 3
+            #     end = start + 3
+            #     visible_options = options[start:end]
+            #     for i in range(len(visible_options)):
+
+            #         option_text = ui_font.render(f"{i+1}. {self.language_data[visible_options['text_id']]}", True, "black")
+            #         position = (
+            #             dialogue_rect.x + 20,
+            #             dialogue_rect.y + 60 + (number - 1) * 40
+            #         )
+            #         screen.blit(option_text, position)
+            #     if len(options) <= 6:
+            #         start = self.options_page * 3
+            #         end = start + 3
+            #         visible_options = options[start:end]
+                
             for number, option in current_node["options"].items():
                 option_text = ui_font.render(f"{number}. {self.language_data[option['text_id']]}", True, "black")
                 position = (

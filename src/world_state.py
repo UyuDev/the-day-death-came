@@ -5,7 +5,8 @@ class WorldState():
     def __init__(self):
         self.flags = {
             "basement_unlocked": False,
-            "footlocker_empty": False,
+            "bed_chest_empty": False,
+            "inventory_unlocked": False,
             "dresser_empty": False,
             "left_bookshelf_empty": False,
             "right_bookshelf_empty": False,

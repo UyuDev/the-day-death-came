@@ -164,24 +164,87 @@ DIALOGUE = {
         "text_id": "dialogue.look_around_upstairs",
         "options": {
             1: {
+                "text_id": "dialogue.option.inspect_bed_chest",
+                "next": "bed chest"
+            },
+            2: {
                 "text_id": "dialogue.option.go_to_bed",
                 "next": "bed"
             },
-            2: {
+            3: {
                 "text_id": "dialogue.option.go_downstairs",
                 "next": "stairs downward"
             },
-            3: {
+            4: {
+                "text_id": "dialogue.more_options",
+                "next": "look around upstairs 2"
+                }
+            }
+        },
+    "look around upstairs 2": {
+        "text_id": "dialogue.look_around_upstairs",
+        "options": {
+            1: {
                 "text_id": "dialogue.option.inspect_left_bookshelf",
                 "next": "left bookshelf"
             },
-            4: {
+            2: {
                 "text_id": "dialogue.option.inspect_right_bookshelf",
                 "next": "right bookshelf"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "look around upstairs 2"
+            },
+            4: {
+                "text_id": "dialogue.previous_options",
+                "next": "look around upstairs"
                 }
             }
         },
 
+
+    "bed chest": {
+            "text_id": "dialogue.bed_chest_1",
+            "next": "bed chest 2"
+        },
+
+    "bed chest 2": {
+            "text_id": "dialogue.bed_chest_2",
+            "next": "bed chest 3"
+        },
+
+    "bed chest 3": {
+            "text_id": "dialogue.bed_chest_3",
+            "next": "bed chest 4"
+        },
+
+    "bed chest 4": {
+            "text_id": "dialogue.bed_chest_4",
+            "next": "bed chest 5"
+        },
+
+    "bed chest 5": {
+            "text_id": "dialogue.bed_chest_5",
+            "next": "bed chest 6"
+        },
+
+    "bed chest 6": {
+            "text_id": "dialogue.bed_chest_6",
+            "next": "look around upstairs",
+            "actions": [
+                {
+                   "type": "set_flag",
+                    "target": "inventory_unlocked",
+                    "value": True 
+                },
+                {
+                    "type": "set_flag",
+                    "target": "bed_chest_empty",
+                    "value": True 
+                },
+            ]
+        },
 
 
     "bed": {
@@ -219,12 +282,24 @@ DIALOGUE = {
                 "value": False,
                 "if_pass": "tome open",
                 "if_fail": "left bookshelf empty",
+            },
+            {   
+                "type": "check_flag",
+                "target": "inventory_unlocked",
+                "value": True,
+                "if_pass": "tome open",
+                "if_fail": "no inventory",
             }
         ]
     },
 
     "left bookshelf empty": {
         "text_id": "dialogue.left_bookshelf_empty",
+        "next": "look around upstairs"
+    },
+
+    "no inventory": {
+        "text_id": "dialogue.no_inventory",
         "next": "look around upstairs"
     },
 
@@ -460,8 +535,22 @@ DIALOGUE = {
                 "type": "check_flag",
                 "target": "downstairs_table_empty",
                 "value": False,
-                "if_pass": "inspect table",
+                "if_pass": "table check inventory",
                 "if_fail": "table empty",
+            }
+        ]
+    },
+
+    "table check inventory": {
+        "text_id": "dialogue.table",
+        "next": "inspect table",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "inventory_unlocked",
+                "value": True,
+                "if_pass": "inspect table",
+                "if_fail": "no inventory",
             }
         ]
     },
