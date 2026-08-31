@@ -38,6 +38,29 @@ DIALOGUE = {
         "text_id": "dialogue.look_around_downstairs",
         "options": {
             1: {
+                "text_id": "dialogue.option.leave_door",
+                "next": "door"
+                
+            },
+            2: {
+                "text_id": "dialogue.option.boots_by_door",
+                "next": "boots by door"
+            },
+            3: {
+                "text_id": "dialogue.option.check_window",
+                "next": "check window"
+            },
+            4: {
+                "text_id": "dialogue.more_options",
+                "next": "look around downstairs 2"
+            }
+        }
+    },
+
+    "look around downstairs 2": {
+        "text_id": "dialogue.look_around_downstairs",
+        "options": {
+            1: {
                 "text_id": "dialogue.option.open_trapdoor",
                 "next": "trapdoor"
             },
@@ -46,19 +69,40 @@ DIALOGUE = {
                 "next": "stairs upward"
             },
             3: {
-                "text_id": "dialogue.option.leave_door",
-                "next": "door"
-            },
-            4: {
                 "text_id": "dialogue.option.examine_table",
                 "next": "table"
+            },
+            4: {
+                "text_id": "dialogue.previous_options",
+                "next": "look around downstairs"
             }
         }
     },
 
+    "boots by door": {
+        "text_id": "dialogue.boots_by_door",
+        "next": "take boots",
+
+    },
+
+    "take boots": {
+        "text_id": "dialogue.take_boots",
+        "next": "look around downstairs",
+
+    },
 
 
+    "check window": {
+        "text_id": "dialogue.check_window",
+        "next": "window react",
 
+    },
+
+    "window react": {
+        "text_id": "dialogue.window_react",
+        "next": "look around downstairs",
+
+    },
 
     "trapdoor": {
         "text_id": "dialogue.trapdoor",
