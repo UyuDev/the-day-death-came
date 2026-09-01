@@ -27,6 +27,8 @@ def handle_action(action, player, renderer, dialogue, world_state):
         world_state.flags[action["target"]] = action["value"]
     elif action["type"] == "item":
         player.inventory.extend([action["target"]] * action["value"])
+    elif action["type"] == "equip":
+        player.equipped[action["slot"]] = action["target"]
     elif action["type"] == "show_scene":
         renderer.show_scene(action["target"])
     elif action["type"] == "clear_scene":

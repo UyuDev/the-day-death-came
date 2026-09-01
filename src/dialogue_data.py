@@ -140,8 +140,9 @@ DIALOGUE = {
                 "value": True
             },
             {   
-                "type": "item",
+                "type": "equip",
                 "target": "Sturdy brown boots",
+                "slot": "shoes",
                 "value": 1
             }
         ]
@@ -176,7 +177,15 @@ DIALOGUE = {
             2: {
                 "text_id": "dialogue.option.leave_hunt_sword",
                 "next": "leave hunting sword"
-            }
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "downstairs chest choice"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "downstairs chest choice"
+            },
         }
     },
 
@@ -244,7 +253,15 @@ DIALOGUE = {
             2: {
                 "text_id": "dialogue.option.trapdoor_step_away",
                 "next": "trapdoor walk away"
-            }
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "trapdoor choice"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "trapdoor choice"
+            },
         }
     },
 
@@ -374,7 +391,21 @@ DIALOGUE = {
 
     "bed chest": {
             "text_id": "dialogue.bed_chest_1",
-            "next": "bed chest 2"
+            "next": "bed chest 2",
+            "actions": [
+                {   
+                    "type": "check_flag",
+                    "target": "inventory_unlocked",
+                    "value": False,
+                    "if_pass": "bed chest 2",
+                    "if_fail": "bed chest empty",
+                }
+            ]
+        },
+
+    "bed chest empty": {
+            "text_id": "dialogue.bed_chest_empty",
+            "next": "look around upstairs"
         },
 
     "bed chest 2": {
@@ -389,7 +420,33 @@ DIALOGUE = {
 
     "bed chest 4": {
             "text_id": "dialogue.bed_chest_4",
-            "next": "bed chest 5"
+            "next": "bed chest 5",
+            "actions": [
+                {   
+                    "type": "equip",
+                    "target": "White Linen Shirt",
+                    "slot": "shirt",
+                    "value": 1
+                },
+                {   
+                    "type": "equip",
+                    "target": "Dark Brown Trousers",
+                    "slot": "pants",
+                    "value": 1
+                },
+                {   
+                    "type": "equip",
+                    "target": "Leather Belt",
+                    "slot": "waist",
+                    "value": 1
+                },
+                {   
+                    "type": "equip",
+                    "target": "wool stockings",
+                    "slot": "feet",
+                    "value": 1
+                }
+            ]
         },
 
     "bed chest 5": {
@@ -405,12 +462,7 @@ DIALOGUE = {
                    "type": "set_flag",
                     "target": "inventory_unlocked",
                     "value": True 
-                },
-                {
-                    "type": "set_flag",
-                    "target": "bed_chest_empty",
-                    "value": True 
-                },
+                }
             ]
         },
 
@@ -446,17 +498,23 @@ DIALOGUE = {
         "actions": [
             {   
                 "type": "check_flag",
+                "target": "inventory_unlocked",
+                "value": True,
+                "if_pass": "left bookshelf check empty",
+                "if_fail": "no inventory",
+            }
+        ]
+    },
+
+    "left bookshelf check empty": {
+        "text_id": "dialogue.left_bookshelf",
+        "actions": [
+            {   
+                "type": "check_flag",
                 "target": "left_bookshelf_empty",
                 "value": False,
                 "if_pass": "tome open",
                 "if_fail": "left bookshelf empty",
-            },
-            {   
-                "type": "check_flag",
-                "target": "inventory_unlocked",
-                "value": True,
-                "if_pass": "tome open",
-                "if_fail": "no inventory",
             }
         ]
     },
@@ -521,7 +579,34 @@ DIALOGUE = {
         "actions": [
             {   
                 "type": "check_flag",
-                "target": "right_bookshelf_empty",
+                "target": "inventory_unlocked",
+                "value": True,
+                "if_pass": "right bookshelf check treatise",
+                "if_fail": "no inventory",
+            }
+        ]
+    },
+
+
+    "right bookshelf check treatise": {
+        "text_id": "dialogue.right_bookshelf",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "combat_treatise_taken",
+                "value": False,
+                "if_pass": "treatise choice",
+                "if_fail": "right bookshelf check forbidden",
+            }
+        ]
+    },
+
+    "right bookshelf check forbidden": {
+        "text_id": "dialogue.right_bookshelf",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "forbidden_book_taken",
                 "value": False,
                 "if_pass": "forbidden react",
                 "if_fail": "right bookshelf empty",
@@ -529,9 +614,71 @@ DIALOGUE = {
         ]
     },
 
+
     "right bookshelf empty": {
         "text_id": "dialogue.right_bookshelf_empty",
         "next": "look around upstairs"
+    },
+
+
+    "treatise choice": {
+        "text_id": "dialogue.treatise_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.treatise_read",
+                "next": "treatise read"
+            },
+            2: {
+                "text_id": "dialogue.option.treatise_leave",
+                "next": "treatise leave"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "treatise choice"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "treatise choice"
+            },
+        }
+    },
+
+    "treatise leave": {
+        "text_id": "dialogue.treatise_leave",
+        "next": "look around upstairs"
+    },
+
+
+    "treatise read": {
+        "text_id": "dialogue.treatise_read",
+        "next": "treatise read 2"
+    },
+
+    "treatise read 2": {
+        "text_id": "dialogue.treatise_read_2",
+        "next": "forbidden covered",
+        "actions": [
+            {   
+                "type": "set_flag",
+                "target": "combat_treatise_taken",
+                "value": True
+            },
+            {   
+                "type": "item",
+                "target": "Combat Treatise",
+                "value": 1
+            }
+        ]
+    },
+
+    "forbidden covered": {
+        "text_id": "dialogue.forbidden covered",
+        "next": "forbidden covered 2"
+    },
+
+    "forbidden covered 2": {
+        "text_id": "dialogue.forbidden covered 2",
+        "next": "forbidden react"
     },
 
     "forbidden react": {
@@ -544,7 +691,15 @@ DIALOGUE = {
             2: {
                 "text_id": "dialogue.option.forbidden_dont_read",
                 "next": "forbidden in inventory"
-            }
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "forbidden react"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "forbidden react"
+            },
         }
     },
 
@@ -554,7 +709,7 @@ DIALOGUE = {
         "actions": [
             {   
                 "type": "set_flag",
-                "target": "right_bookshelf_empty",
+                "target": "forbidden_book_taken",
                 "value": True
             },
             {   
@@ -738,7 +893,15 @@ DIALOGUE = {
             2: {
                 "text_id": "dialogue.option.dont_take_bread",
                 "next": "table didn't take bread"
-            }
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "inspect table"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "inspect table"
+            },
         }
     },
 

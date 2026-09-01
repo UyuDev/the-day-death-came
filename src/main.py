@@ -81,7 +81,10 @@ def main():
 
 
             elif game_state == "INTRO":
-                if dialogue.has_options():
+                choice = None
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_b:
+                    print(player.inventory)
+                elif dialogue.has_options():
                     choice = dialogue.handle_input(event)
                 else:
                     choice = dialogue.handle_input_continue(event)
