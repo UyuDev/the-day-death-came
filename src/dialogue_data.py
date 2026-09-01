@@ -44,7 +44,7 @@ DIALOGUE = {
             },
             2: {
                 "text_id": "dialogue.option.boots_by_door",
-                "next": "boots by door"
+                "next": "check by door"
             },
             3: {
                 "text_id": "dialogue.option.check_window",
@@ -73,11 +73,56 @@ DIALOGUE = {
                 "next": "table"
             },
             4: {
+                "text_id": "dialogue.more_options",
+                "next": "look around downstairs 3"
+            }
+        }
+    },
+
+    "look around downstairs 3": {
+        "text_id": "dialogue.look_around_downstairs",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.inspect_downstairs_chest",
+                "next": "inspect downstairs chest"
+            },
+            2: {
+                "text_id": "dialogue.option.empty",
+                "next": "look around downstairs 3"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "look around downstairs 3"
+            },
+            4: {
                 "text_id": "dialogue.previous_options",
                 "next": "look around downstairs"
             }
         }
     },
+
+
+    "check by door": {
+        "text_id": "dialogue.check_by_door",
+        "next": "boots by door",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "downstairs_boots_taken",
+                "value": False,
+                "if_pass": "boots by door",
+                "if_fail": "boots taken",
+            }
+        ]
+
+    },
+
+    "boots taken": {
+        "text_id": "dialogue.boots_taken",
+        "next": "look around downstairs",
+
+    },
+
 
     "boots by door": {
         "text_id": "dialogue.boots_by_door",
@@ -88,9 +133,88 @@ DIALOGUE = {
     "take boots": {
         "text_id": "dialogue.take_boots",
         "next": "look around downstairs",
+        "actions": [
+            {   
+                "type": "set_flag",
+                "target": "downstairs_boots_taken",
+                "value": True
+            },
+            {   
+                "type": "item",
+                "target": "Sturdy brown boots",
+                "value": 1
+            }
+        ]
+    },
+
+    "inspect downstairs chest": {
+        "text_id": "dialogue.inspect_downstairs_chest",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "downstairs_chest_empty",
+                "value": False,
+                "if_pass": "open downstairs chest",
+                "if_fail": "downstairs chest empty",
+            }
+        ]
+    },
+
+    "open downstairs chest": {
+        "text_id": "dialogue.open_downstairs_chest",
+        "next": "take hunting sword",
 
     },
 
+    "downstairs chest choice": {
+        "text_id": "dialogue.downstairs_chest_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.take_hunt_sword",
+                "next": "take hunting sword"
+            },
+            2: {
+                "text_id": "dialogue.option.leave_hunt_sword",
+                "next": "leave hunting sword"
+            }
+        }
+    },
+
+    "leave hunting sword": {
+        "text_id": "dialogue.leave_hunt_sword",
+        "next": "look around downstairs",
+
+    },
+
+
+    "take hunting sword": {
+        "text_id": "dialogue.take_hunt_sword",
+        "next": "take hunting sword 2",
+        "actions": [
+            {   
+                "type": "set_flag",
+                "target": "downstairs_chest_empty",
+                "value": True
+            },
+            {   
+                "type": "item",
+                "target": "Hunting Sword",
+                "value": 1
+            }
+        ]
+    },
+
+    "take hunting sword 2": {
+        "text_id": "dialogue.take_hunt_sword_2",
+        "next": "look around downstairs",
+
+    },
+
+    "downstairs chest empty": {
+        "text_id": "dialogue.downstairs_chest_empty",
+        "next": "look around downstairs",
+
+    },
 
     "check window": {
         "text_id": "dialogue.check_window",
@@ -608,20 +732,20 @@ DIALOGUE = {
         "text_id": "dialogue.inspect_table",
         "options": {
             1: {
-                "text_id": "dialogue.option.take_knife",
-                "next": "table took knife"
+                "text_id": "dialogue.option.take_bread",
+                "next": "table took bread"
             },
             2: {
-                "text_id": "dialogue.option.dont_take_knife",
-                "next": "table didn't take knife"
+                "text_id": "dialogue.option.dont_take_bread",
+                "next": "table didn't take bread"
             }
         }
     },
 
 
 
-    "table took knife": {
-        "text_id": "dialogue.table_took_knife",
+    "table took bread": {
+        "text_id": "dialogue.table_took_bread",
         "next": "look around downstairs",
         "actions": [
             {   
@@ -631,15 +755,15 @@ DIALOGUE = {
             },
             {   
                 "type": "item",
-                "target": "Knife",
+                "target": "Bread",
                 "value": 1
             }
         ]
     },
 
 
-    "table didn't take knife": {
-        "text_id": "dialogue.table_didnt_take_knife",
+    "table didn't take bread": {
+        "text_id": "dialogue.table_didnt_take_bread",
         "next": "look around downstairs"
     },
 
@@ -669,6 +793,30 @@ DIALOGUE = {
                 }
             }
         },
+
+
+    "Not Yet Implemented": {
+        "text_id": "dialogue.not_yet_implemented",
+        "next": "look around the basement"
+    },
+
+    "Not Yet Implemented": {
+        "text_id": "dialogue.not_yet_implemented",
+        "next": "look around the basement"
+    },
+
+    "Not Yet Implemented": {
+        "text_id": "dialogue.not_yet_implemented",
+        "next": "look around the basement"
+    },
+
+
+
+
+
+
+
+
 
     "Not Yet Implemented": {
         "text_id": "dialogue.not_yet_implemented",
