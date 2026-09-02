@@ -20,6 +20,7 @@ def load_assets():
     "house": pygame.image.load("assets/home_map.png").convert_alpha(),
     "house_upstairs": pygame.image.load("assets/upstairs_map.png").convert_alpha(),
     "basement": pygame.image.load("assets/basement_map.png").convert_alpha(),
+    "basement 2": pygame.image.load("assets/basement_map_2.png").convert_alpha(),
     "pitch black": pygame.image.load("assets/basement_map.png").convert_alpha(),
     "dungeon": pygame.image.load("assets/placeholder.png").convert_alpha(),
 

@@ -275,6 +275,19 @@ DIALOGUE = {
         "actions": [
             {   
                 "type": "check_flag",
+                "target": "inventory_unlocked",
+                "value": True,
+                "if_pass": "trapdoor climb down 2",
+                "if_fail": "trapdoor need bag",
+            }
+        ]
+    },
+
+    "trapdoor climb down 2": {
+        "text_id": "dialogue.trapdoor_climb_down",
+        "actions": [
+            {   
+                "type": "check_flag",
                 "target": "basement_unlocked",
                 "value": True,
                 "if_pass": "trapdoor pass 1",
@@ -282,6 +295,12 @@ DIALOGUE = {
             }
         ]
     },
+
+    "trapdoor need bag": {
+        "text_id": "dialogue.no_inventory",
+        "next": "look around downstairs",
+    },
+
 
     "trapdoor fail 1": {
         "text_id": "dialogue.trapdoor_fail_1",
@@ -307,14 +326,33 @@ DIALOGUE = {
 
     "trapdoor pass 1": {
         "text_id": "dialogue.trapdoor_pass_1",
-        "next": "trapdoor pass 2",
         "actions": [
             {   
                 "type": "map",
                 "target": "pitch black"
+            },
+            {   
+                "type": "check_flag",
+                "target": "basement_walls_broken",
+                "value": True,
+                "if_pass": "trapdoor pass b2",
+                "if_fail": "trapdoor pass 2",
             }
         ]
     },
+
+
+    "trapdoor pass b2": {
+        "text_id": "dialogue.trapdoor_climb_down",
+        "next": "basement 2",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "basement 2"
+            }
+        ]
+    },
+
 
     "trapdoor pass 2": {
         "text_id": "dialogue.trapdoor_pass_2",
@@ -939,43 +977,428 @@ DIALOGUE = {
         "text_id": "dialogue.look_around_basement",
         "options": {
             1: {
-                "text_id": "dialogue.not_yet_implemented",
-                "next": "Not Yet Implemented"
+                "text_id": "dialogue.option.inspect_tools",
+                "next": "inspect tools"
             },
             2: {
-                "text_id": "dialogue.not_yet_implemented",
+                "text_id": "dialogue.option.inspect_crates",
                 "next": "Not Yet Implemented"
             },
             3: {
-                "text_id": "dialogue.not_yet_implemented",
-                "next": "Not Yet Implemented"
+                "text_id": "dialogue.option.inspect_walls",
+                "next": "inspect walls"
             },
             4: {
-                "text_id": "dialogue.not_yet_implemented",
-                "next": "Not Yet Implemented"
+                "text_id": "dialogue.option.return_main_floor",
+                "next": "climb to main floor"
                 }
             }
         },
 
 
-    "Not Yet Implemented": {
-        "text_id": "dialogue.not_yet_implemented",
+    "inspect tools": {
+        "text_id": "dialogue.inspect_tools",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "basement_tools_taken",
+                "value": False,
+                "if_pass": "tools choice",
+                "if_fail": "tools taken",
+            }
+        ]
+    },
+
+    "tools taken": {
+        "text_id": "dialogue.tools_taken",
         "next": "look around the basement"
     },
 
-    "Not Yet Implemented": {
-        "text_id": "dialogue.not_yet_implemented",
+    "tools choice": {
+        "text_id": "dialogue.tools_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.take_hammer_chisel",
+                "next": "take tools"
+            },
+            2: {
+                "text_id": "dialogue.option.take_nothing",
+                "next": "take nothing"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "tools choice"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "tools choice"
+            }
+        }
+    },
+
+    "take tools": {
+        "text_id": "dialogue.take_tools",
+        "next": "look around the basement",
+        "actions": [
+            {   
+                "type": "set_flag",
+                "target": "basement_tools_taken",
+                "value": True
+            },
+            {   
+                "type": "item",
+                "target": "Hammer",
+                "value": 1
+            },
+            {   
+                "type": "item",
+                "target": "Chisel",
+                "value": 1
+            }
+        ]
+    },
+
+    "take nothing": {
+        "text_id": "dialogue.take_nothing",
         "next": "look around the basement"
     },
 
-    "Not Yet Implemented": {
-        "text_id": "dialogue.not_yet_implemented",
+    "inspect walls": {
+        "text_id": "dialogue.inspect_walls",
+        "next": "walls choice"
+    },
+
+    "walls choice": {
+        "text_id": "dialogue.walls_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.inspect_left_wall",
+                "next": "inspect left wall"
+            },
+            2: {
+                "text_id": "dialogue.option.inspect_right_wall",
+                "next": "inspect right wall"
+            },
+            3: {
+                "text_id": "dialogue.option.inspect_top_wall",
+                "next": "inspect top wall"
+            },
+            4: {
+                "text_id": "dialogue.option.inspect_bottom_wall",
+                "next": "inspect bottom wall"
+            }
+        }
+    },
+
+    "inspect left wall": {
+        "text_id": "dialogue.inspect_left_wall",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "basement_left_wall_checked",
+                "value": False,
+                "if_pass": "wall normal",
+                "if_fail": "done wall",
+            }
+        ]
+    },
+
+    "inspect right wall": {
+        "text_id": "dialogue.inspect_right_wall",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "basement_right_wall_checked",
+                "value": False,
+                "if_pass": "right wall loose bricks",
+                "if_fail": "right wall loose bricks",
+            }
+        ]
+    },
+
+    "inspect top wall": {
+        "text_id": "dialogue.inspect_top_wall",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "basement_top_wall_checked",
+                "value": False,
+                "if_pass": "wall normal",
+                "if_fail": "done wall",
+            }
+        ]
+    },
+
+    "inspect bottom wall": {
+        "text_id": "dialogue.inspect_bottom_wall",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "basement_key_found",
+                "value": False,
+                "if_pass": "bottom wall loose bricks",
+                "if_fail": "done wall",
+            }
+        ]
+    },
+
+    "done wall": {
+        "text_id": "dialogue.checked_wall",
+        "next": "walls choice"
+    },
+
+    "wall normal": {
+        "text_id": "dialogue.wall_normal",
+        "next": "walls choice"
+    },
+
+    "right wall loose bricks": {
+        "text_id": "dialogue.right_wall_loose",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "basement_tools_taken",
+                "value": True,
+                "if_pass": "wall use tools R",
+                "if_fail": "wall need tools",
+            }
+        ]
+    },
+
+    "bottom wall loose bricks": {
+        "text_id": "dialogue.bottom_wall_loose",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "basement_tools_taken",
+                "value": True,
+                "if_pass": "wall use tools S",
+                "if_fail": "wall need tools",
+            }
+        ]
+    },
+
+    "wall need tools": {
+        "text_id": "dialogue.wall_need_tools",
         "next": "look around the basement"
+    },
+
+    "wall use tools S": {
+        "text_id": "dialogue.wall_use_tools",
+        "next": "basement key found"
+    },
+
+    "wall use tools R": {
+        "text_id": "dialogue.wall_use_tools",
+        "next": "basement door revealed"
+    },
+
+    "basement key found": {
+        "text_id": "dialogue.basement_key_found",
+        "next": "basement key check",
+        "actions": [
+            {   
+                "type": "set_flag",
+                "target": "basement_key_found",
+                "value": True
+            },
+            {   
+                "type": "item",
+                "target": "Basement Key",
+                "value": 1
+            }
+        ]
+    },
+
+    "basement key check": {
+        "text_id": "dialogue.basement_key_found",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "basement_walls_broken",
+                "value": False,
+                "if_pass": "look around the basement",
+                "if_fail": "look around the basement 2",
+            }
+        ]
     },
 
 
 
 
+    "basement door revealed": {
+        "text_id": "dialogue.basement_door_revealed",
+        "next": "basement door choice",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "basement_walls_broken",
+                "value": True
+            },
+            {   
+                "type": "map",
+                "target": "basement 2"
+            }
+        ]
+    },
+
+    "basement door choice": {
+        "text_id": "dialogue.basement_door_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.listen_door",
+                "next": "listen to door"
+            },
+            2: {
+                "text_id": "dialogue.option.open_door",
+                "next": "basement door inspect"
+            },
+            3: {
+                "text_id": "dialogue.option.step_away",
+                "next": "look around the basement 2"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "basement door choice"
+            }
+        }
+    },
+
+    "listen to door": {
+        "text_id": "dialogue.listen_door",
+        "next": "listen door 2"
+    },
+
+    "listen door 2": {
+        "text_id": "dialogue.listen_door_2",
+        "next": "basement door choice"
+    },
+
+    "basement door inspect": {
+        "text_id": "dialogue.basement_door_inspect",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "basement_key_found",
+                "value": False,
+                "if_pass": "basement door locked",
+                "if_fail": "basement door unlock",
+            }
+        ]
+    },
+
+    "basement door locked": {
+        "text_id": "dialogue.basement_door_locked",
+        "next": "look around the basement 2"
+    },
+
+    "basement door unlock": {
+        "text_id": "dialogue.basement_door_unlock",
+        "next": "enter dungeon check",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "basement_door_unlocked",
+                "value": True
+            }
+        ]
+    },
+
+    "enter dungeon check": {
+        "text_id": "dialogue.enter_dungeon_check",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.empty",
+                "next": "enter dungeon check"
+            },
+            2: {
+                "text_id": "dialogue.option.empty",
+                "next": "enter dungeon check"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "enter dungeon check"
+            },
+            4: {
+                "text_id": "dialogue.option.step_away",
+                "next": "look around the basement 2"
+            }
+        }
+    },
+
+
+
+
+    "inspect crates": {
+        "text_id": "dialogue.inspect_crates",
+        "next": "crates choice"
+    },
+
+    "crates choice": {
+        "text_id": "dialogue.crates_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.empty",
+                "next": "crates choice"
+            },
+            2: {
+                "text_id": "dialogue.option.empty",
+                "next": "crates choice"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "crates choice"
+            },
+            4: {
+                "text_id": "dialogue.option.take_nothing",
+                "next": "look around the basement"
+            }
+        }
+    },
+
+
+
+
+    "climb to main floor": {
+        "text_id": "dialogue.climb_to_main_floor",
+        "next": "look around downstairs",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "house"
+            }
+        ]
+    },
+
+
+
+    "basement 2": {
+        "text_id": "dialogue.basement_2",
+        "next": "look around the basement 2"
+    },
+
+
+    "look around the basement 2": {
+        "text_id": "dialogue.look_around_basement",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.inspect_basement_door",
+                "next": "basement door choice"
+            },
+            2: {
+                "text_id": "dialogue.option.empty",
+                "next": "look around the basement 2"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "look around the basement 2"
+            },
+            4: {
+                "text_id": "dialogue.option.return_main_floor",
+                "next": "climb to main floor"
+                }
+            }
+        },
 
 
 

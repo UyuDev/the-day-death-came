@@ -84,6 +84,8 @@ def main():
                 choice = None
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_b:
                     print(player.inventory)
+                elif event.type == pygame.KEYDOWN and event.key == pygame.K_c:
+                    print(player.equipped)
                 elif dialogue.has_options():
                     choice = dialogue.handle_input(event)
                 else:

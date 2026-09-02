@@ -14,7 +14,14 @@ class WorldState():
             "downstairs_table_empty": False,
             "downstairs_chest_empty": False,
             "downstairs_fireplace_empty": False,
-            "basement_tools_empty": False,
-            "dungeon_door_unlocked": False,
+            "basement_tools_taken": False,
+            "basement_left_wall_checked": False,
+            "basement_right_wall_checked": False,
+            "basement_top_wall_checked": False,
+            "basement_bottom_wall_checked": False,
+            "basement_walls_broken": False,
+            "basement_crate_empty": False,
+            "basement_key_found": False,
+            "basement_door_unlocked": False,
             "crypt_door_unlocked": False
         }
