@@ -392,7 +392,7 @@ DIALOGUE = {
             },
             2: {
                 "text_id": "dialogue.option.go_to_bed",
-                "next": "bed"
+                "next": "bed options"
             },
             3: {
                 "text_id": "dialogue.option.go_downstairs",
@@ -515,7 +515,118 @@ DIALOGUE = {
                 "next": "intro wake"
             },
 
+    "bed options": {
+        "text_id": "dialogue.bed_options",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.save_game",
+                "next": "save game"
+            },
+            2: {
+                "text_id": "dialogue.option.rest_in_bed",
+                "next": "rest bed"
+            },
+            3: {
+                "text_id": "dialogue.option.do_nothing",
+                "next": "look around upstairs"
+            },
+            4: {
+                "text_id": "dialogue.option.main_menu",
+                "next": "main menu"
+            }
+        }
+    },
 
+    "rest bed": {
+        "text_id": "dialogue.rest_bed",
+        "next": "restore bed"
+    },
+
+    "restore bed": {
+        "text_id": "dialogue.restore_bed",
+        "next": "intro wake",
+        "actions": [
+            {
+                "type": "restore_health",
+                "target": "full",
+                "value": 100
+            }
+        ]
+    },
+
+    "save game": {
+        "text_id": "dialogue.save_game",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.save_game_yes",
+                "next": "save game yes"
+            },
+            2: {
+                "text_id": "dialogue.option.save_game_no",
+                "next": "save game no"
+            },
+            3: {
+                "text_id": "dialogue.option.do_nothing",
+                "next": "look around upstairs"
+            },
+            4: {
+                "text_id": "dialogue.option.main_menu",
+                "next": "main menu"
+            }
+        }
+    },
+
+    "save game yes": {
+        "text_id": "dialogue.save_game_yes",
+        "next": "rest bed",
+        "actions": [
+            {
+                "type": "save_game"
+            }
+        ]
+    },
+
+    "save game no": {
+        "text_id": "dialogue.save_game_no",
+        "next": "bed options"
+    },
+
+    "main menu": {
+        "text_id": "dialogue.main_menu",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.main_menu_yes",
+                "next": "main menu yes"
+            },
+            2: {
+                "text_id": "dialogue.option.main_menu_no",
+                "next": "main menu no"
+            },
+            3: {
+                "text_id": "dialogue.option.do_nothing",
+                "next": "look around upstairs"
+            },
+            4: {
+                "text_id": "dialogue.option.do_nothing",
+                "next": "look around upstairs"
+            }
+        }
+    },
+
+
+    "main menu yes": {
+        "text_id": "dialogue.main_menu_yes",
+        "actions": [
+            {
+                "type": "main_menu"
+            }
+        ]
+    },
+
+    "main menu no": {
+        "text_id": "dialogue.main_menu_no",
+        "next": "bed options"
+    },
 
     "stairs downward": {
         "text_id": "dialogue.stairs_downward",

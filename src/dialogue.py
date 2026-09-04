@@ -21,10 +21,6 @@ class Dialogue():
                     return 3
                 elif event.key == pygame.K_4:
                     return 4
-                elif event.key == pygame.K_5:
-                    return 5
-                elif event.key == pygame.K_6:
-                    return 6
 
     def handle_input_continue(self, event):
         if event.type == pygame.KEYDOWN:

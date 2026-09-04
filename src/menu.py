@@ -12,7 +12,7 @@ class Menu():
             (SCREEN_WIDTH, MAP_HEIGHT)
         )
         self.options = {
-            1: "menu.start_game",
+            1: "menu.new_game",
             2: "menu.load_game",
             3: "menu.settings",
             4: "menu.exit"
@@ -38,10 +38,6 @@ class Menu():
                 return 3
             elif event.key == pygame.K_4:
                 return 4
-            elif event.key == pygame.K_5:
-                return 5
-            elif event.key == pygame.K_6:
-                return 6
 
     def draw(self, screen, title_font, ui_font):
         title_text = self.language_data["menu.title"]

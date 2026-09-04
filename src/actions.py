@@ -1,7 +1,7 @@
 import random
+from save import can_save, save_game
 
-
-def handle_action(action, player, renderer, dialogue, world_state):
+def handle_action(action, player, renderer, dialogue, world_state, save_menu, settings):
     if action["type"] == "combat":
         if action["target"] == "door_encounter":
             if player.level < 5:
@@ -12,7 +12,7 @@ def handle_action(action, player, renderer, dialogue, world_state):
                 dialogue.set_current(action["on_win"])
             new_actions = dialogue.get_actions()
             for new_action in new_actions:
-                handle_action(new_action, player, renderer, dialogue, world_state)
+                handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings)
     elif action["type"] == "check_flag":
         if world_state.flags[action["target"]] == action["value"]:
             dialogue.set_current(action[f"if_pass"])
@@ -20,7 +20,7 @@ def handle_action(action, player, renderer, dialogue, world_state):
             dialogue.set_current(action[f"if_fail"])
         new_actions = dialogue.get_actions()
         for new_action in new_actions:
-            handle_action(new_action, player, renderer, dialogue, world_state)
+            handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings)
     elif action["type"] == "map":
         renderer.load_map(action["target"])
     elif action["type"] == "set_flag":
@@ -29,9 +29,20 @@ def handle_action(action, player, renderer, dialogue, world_state):
         player.inventory.extend([action["target"]] * action["value"])
     elif action["type"] == "equip":
         player.equipped[action["slot"]] = action["target"]
+    elif action["type"] == "restore_health":
+        if action["target"] == "full":
+            player.health = 100
+    elif action["type"] == "main_menu":
+        return "MENU"
     elif action["type"] == "show_scene":
         renderer.show_scene(action["target"])
     elif action["type"] == "clear_scene":
         renderer.clear_scene()
-    
-    return
+    elif action["type"] == "save_game":
+        if can_save(settings, player):
+            save_game(
+                player,
+                world_state.flags,
+                world_state.save_location,
+                save_menu.current_slot
+            )

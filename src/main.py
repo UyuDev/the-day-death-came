@@ -4,6 +4,7 @@ from grid import Grid
 from scene import Scene
 from assets import load_assets
 from menu import Menu
+from save import SaveMenu, load_save, can_save, save_game, apply_save, SAVE_LOCATIONS
 from dialogue import Dialogue
 from settings import load_settings, save_settings, edit_settings, load_language
 from character import Character
@@ -27,6 +28,7 @@ def main():
     else:
         renderer = Scene(assets)
     menu = Menu(language_data, assets)
+    save_menu = SaveMenu(language_data, assets)
     dialogue = Dialogue(language_data)
     player = Character()
     world_state = WorldState()
@@ -46,14 +48,16 @@ def main():
                 choice = menu.handle_input(event)
                 if choice == 1:
                     renderer.load_map("house_upstairs")
+                    player = Character()
+                    world_state = WorldState()
+                    dialogue.set_current("intro")
                     game_state = "INTRO"
                 elif choice == 2:
-                    # game_state = "LOAD"
-                    print("Not yet implemented")
+                    game_state = "SAVE MENU"
+                    print("WORK IN PROGRESS")
                 elif choice == 3:
                     # settings
                     game_state = "SETTINGS"
-                    print("Not yet implemented")
                 elif choice == 4:
                     return
             elif game_state == "SETTINGS":
@@ -68,6 +72,7 @@ def main():
                             language_data = load_language(settings["language"])
                             menu.language_data = language_data
                             dialogue.language_data = language_data
+                            save_menu.language_data = language_data
                         if choice == 2:
                             print("Not yet implemented.")
                         if choice == 3:
@@ -78,6 +83,46 @@ def main():
                         save_settings(result)
                     # if result:
                         # some other action
+            # WIP
+            elif game_state == "SAVE MENU":
+                choice = save_menu.handle_input(event)
+                # ignore random events so only keypressed are passed 
+                if choice is not None:
+                    if choice == "new_game":
+                        renderer.load_map("house_upstairs")
+                        player = Character()
+                        world_state = WorldState()
+                        dialogue.set_current("intro")
+                        game_state = "INTRO"
+                    elif choice == "load_game":
+                        checkpoint = SAVE_LOCATIONS[world_state.save_location]
+
+                        renderer.load_map(checkpoint["map"])
+                        dialogue.set_current(checkpoint["dialogue"])
+                        game_state = "INTRO"
+                    elif choice == 4:
+                        game_state = "MENU"
+                    elif choice == 3:
+                        save_menu.change_page()
+                    else:
+                        if choice == 1 and save_menu.page == 1:
+                            save_data = load_save(1)
+                            save_menu.current_slot = 1
+                            save_menu.set_current(save_data)
+                        elif choice == 2 and save_menu.page == 1:
+                            save_data = load_save(2)
+                            save_menu.current_slot = 2
+                            save_menu.set_current(save_data)
+                        elif choice == 1 and save_menu.page == 2:
+                            save_data = load_save(3)
+                            save_menu.current_slot = 3
+                            save_menu.set_current(save_data)
+                        elif choice == 2 and save_menu.page == 2:
+                            save_data = load_save(4)
+                            save_menu.current_slot = 4
+                            save_menu.set_current(save_data)
+                        if save_data is not None:
+                            apply_save(save_data, player, world_state)
 
 
             elif game_state == "INTRO":
@@ -95,7 +140,11 @@ def main():
                     dialogue.advance(choice)
                     actions = dialogue.get_actions()
                     for action in actions:
-                        handle_action(action, player, renderer, dialogue, world_state)
+                        new_state = handle_action(action, player, renderer, dialogue, world_state, save_menu, settings)
+                        if new_state is not None:
+                            game_state = new_state
+                            break
+
 
 
 
@@ -108,6 +157,9 @@ def main():
         elif game_state == "SETTINGS":
             # renderer.draw(screen)
             menu.draw_settings(screen, title_font, ui_font, settings)
+
+        elif game_state == "SAVE MENU":
+            save_menu.draw_options(screen, title_font, ui_font)
 
         elif game_state == "INTRO":
             renderer.draw(screen)
