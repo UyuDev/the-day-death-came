@@ -33,7 +33,7 @@ equipment_slots = {
 class Character:
     def __init__(self):
         self.flags = {}
-        self.stats = stats
+        self.stats = stats.copy()
         self.health = 100
         self.mana = 100
         self.level = 1
@@ -42,5 +42,5 @@ class Character:
         self.buffs = []
         self.debuffs = []
         self.inventory = []
-        self.equipped = equipment_slots
+        self.equipped = equipment_slots.copy()
 
