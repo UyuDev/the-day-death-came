@@ -22,7 +22,14 @@ def load_assets():
     "basement": pygame.image.load("assets/basement_map.png").convert_alpha(),
     "basement 2": pygame.image.load("assets/basement_map_2.png").convert_alpha(),
     "pitch black": pygame.image.load("assets/basement_map.png").convert_alpha(),
-    "dungeon": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "tunnel 1": pygame.image.load("assets/tunnel_map_1.png").convert_alpha(),
+    "tunnel 2": pygame.image.load("assets/tunnel_map_2.png").convert_alpha(),
+    "sewer": pygame.image.load("assets/sewer_map.png").convert_alpha(),
+    "dungeon": pygame.image.load("assets/dungeon_map.png").convert_alpha(),
+    "crypt 1": pygame.image.load("assets/crypt_map_1.png").convert_alpha(),
+    "crypt 2": pygame.image.load("assets/crypt_map_2.png").convert_alpha(),
+    "crypt boss": pygame.image.load("assets/crypt_map_boss.png").convert_alpha(),
+    "farm outside": pygame.image.load("assets/farm_map.png").convert_alpha(),
 
     # tiles
     "f": pygame.image.load("assets/stone_floor.png").convert_alpha(),
