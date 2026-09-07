@@ -192,6 +192,6 @@
     "dialogue.inspect_crates": "You walk up to the stacked crates.",
     "dialogue.crates_choice": "Do you want to check the crates?",
     "dialogue.option.inspect_basement_door": "Go to the old door",
-    "dialogue.enter_dungeon_check": "Do you want to enter the dungeon?",
+    "dialogue.enter_tunnel_check": "Do you want to enter the dungeon?",
     "dialogue.not_yet_implemented": "Not Yet Implemented."
 }

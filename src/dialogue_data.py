@@ -1174,6 +1174,34 @@ DIALOGUE = {
         "next": "look around the basement"
     },
 
+
+    "inspect crates": {
+        "text_id": "dialogue.inspect_crates",
+        "next": "crates choice"
+    },
+
+    "crates choice": {
+        "text_id": "dialogue.crates_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.empty",
+                "next": "crates choice"
+            },
+            2: {
+                "text_id": "dialogue.option.empty",
+                "next": "crates choice"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "crates choice"
+            },
+            4: {
+                "text_id": "dialogue.option.take_nothing",
+                "next": "look around the basement"
+            }
+        }
+    },
+
     "inspect walls": {
         "text_id": "dialogue.inspect_walls",
         "next": "walls choice"
@@ -1415,61 +1443,6 @@ DIALOGUE = {
         ]
     },
 
-    "enter dungeon check": {
-        "text_id": "dialogue.enter_dungeon_check",
-        "options": {
-            1: {
-                "text_id": "dialogue.option.empty",
-                "next": "enter dungeon check"
-            },
-            2: {
-                "text_id": "dialogue.option.empty",
-                "next": "enter dungeon check"
-            },
-            3: {
-                "text_id": "dialogue.option.empty",
-                "next": "enter dungeon check"
-            },
-            4: {
-                "text_id": "dialogue.option.step_away",
-                "next": "look around the basement 2"
-            }
-        }
-    },
-
-
-
-
-    "inspect crates": {
-        "text_id": "dialogue.inspect_crates",
-        "next": "crates choice"
-    },
-
-    "crates choice": {
-        "text_id": "dialogue.crates_choice",
-        "options": {
-            1: {
-                "text_id": "dialogue.option.empty",
-                "next": "crates choice"
-            },
-            2: {
-                "text_id": "dialogue.option.empty",
-                "next": "crates choice"
-            },
-            3: {
-                "text_id": "dialogue.option.empty",
-                "next": "crates choice"
-            },
-            4: {
-                "text_id": "dialogue.option.take_nothing",
-                "next": "look around the basement"
-            }
-        }
-    },
-
-
-
-
     "climb to main floor": {
         "text_id": "dialogue.climb_to_main_floor",
         "next": "look around downstairs",
@@ -1513,16 +1486,238 @@ DIALOGUE = {
 
 
 
+    "enter tunnel check": {
+        "text_id": "dialogue.enter_tunnel_check",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.tunnel_enter",
+                "next": "enter tunnel 1"
+            },
+            2: {
+                "text_id": "dialogue.option.empty",
+                "next": "enter tunnel check"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "enter tunnel check"
+            },
+            4: {
+                "text_id": "dialogue.option.step_away",
+                "next": "look around the basement 2"
+            }
+        }
+    },
 
+
+
+    "enter tunnel 1": {
+        "text_id": "dialogue.enter_tunnel_1",
+        "next": "tunnel 1 intro",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "tunnel 1"
+            }
+        ]
+    },
+
+    "tunnel 1 intro": {
+        "text_id": "dialogue.tunnel_1_intro",
+        "next": "tunnel 1 cont"
+    },
+
+    "tunnel 1 cont": {
+        "text_id": "dialogue.tunnel_1_cont",
+        "next": "tunnel 1 encounter"
+    },
+
+    "tunnel 1 encounter": {
+        "text_id": "dialogue.tunnel_1_encounter",
+        "next": "tunnel 1 reaction 1",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "tunnel 1"
+            }
+        ]
+    },
+
+    "tunnel 1 reaction 1": {
+        "text_id": "dialogue.tunnel_1_reaction_1",
+        "next": "tunnel 1 reaction 2"
+    },
+
+    "tunnel 1 reaction 2": {
+        "text_id": "dialogue.tunnel_1_reaction_2",
+        "next": "tunnel 1 choice"
+    },
+
+
+    "tunnel 1 choice": {
+        "text_id": "dialogue.tunnel_1_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.tunnel_1_explore",
+                "next": "tunnel 1 explore 1"
+            },
+            2: {
+                "text_id": "dialogue.option.tunnel_1_enemies",
+                "next": "tunnel 1 enemies 1"
+            },
+            3: {
+                "text_id": "dialogue.option.tunnel_1_continue",
+                "next": "tunnel 1 continue"
+            },
+            4: {
+                "text_id": "dialogue.option.tunnel_1_return",
+                "next": "basement return"
+            }
+        }
+    },
+
+    "tunnel 1 explore 1": {
+        "text_id": "dialogue.tunnel_1_explore_1",
+        "next": "tunnel 1 explore 2",
+        "actions": [
+            {   
+                "type": "explore_items",
+                "target": "tunnel_1",
+            }
+        ]
+    },
+
+    "tunnel 1 explore 2": {
+        "text_id": "dialogue.tunnel_1_explore_2",
+        "next": "tunnel 1 choice",
+    },
+
+
+    "tunnel 1 enemies 1": {
+        "text_id": "dialogue.tunnel_1_enemies_1",
+        "next": "tunnel 1 enemies 2",
+        "actions": [
+            {   
+                "type": "seek_enemies",
+                "target": "tunnel_1",
+            }
+        ]
+    },
+
+
+    "tunnel 1 enemies 2": {
+        "text_id": "dialogue.tunnel_1_enemies_2",
+        "next": "tunnel 1 choice",
+    },
+
+
+    "climb to main floor": {
+        "text_id": "dialogue.climb_to_main_floor",
+        "next": "look around the basement",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "basement"
+            }
+        ]
+    },
+
+    "tunnel 1 continue": {
+        "text_id": "dialogue.tunnel_1_continue",
+        "next": "tunnel 1 continue choice",
+    },
+
+
+    "tunnel 1 continue choice": {
+        "text_id": "dialogue.tunnel_1_continue_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.tunnel_1_continue",
+                "next": "tunnel 1 continue check"
+            },
+            2: {
+                "text_id": "dialogue.option.empty",
+                "next": "tunnel 1 continue choice"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "tunnel 1 continue choice"
+            },
+            4: {
+                "text_id": "dialogue.option.tunnel_1_step_away",
+                "next": "tunnel 1 choice"
+            }
+        }
+    },
+
+
+    "tunnel 1 continue check": {
+        "text_id": "dialogue.tunnel_1_continue_check",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "tunnel_rope_found",
+                "value": True,
+                "if_pass": "tunnel 1 rope placed check",
+                "if_fail": "tunnel 1 rope missing 1",
+            }
+        ]
+    },
+
+    "tunnel 1 rope placed check": {
+        "text_id": "dialogue.tunnel_1_continue_check",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "tunnel_rope_placed",
+                "value": True,
+                "if_pass": "enter tunnel 2",
+                "if_fail": "tunnel 1 place rope",
+            }
+        ]
+    },
+
+
+    "tunnel 1 rope missing 1": {
+        "text_id": "dialogue.tunnel_1_rope_missing",
+        "next": "tunnel 1 rope missing 2"
+    },
+
+    "tunnel 1 rope missing 2": {
+        "text_id": "dialogue.tunnel_1_rope_missing_2",
+        "next": "tunnel 1 choice"
+    },
+
+    "tunnel 1 place rope": {
+        "text_id": "dialogue.tunnel_1_place_rope",
+        "next": "enter tunnel 2",
+        "actions": [
+            {   
+                "type": "set_flag",
+                "target": "tunnel_rope_placed",
+                "value": True
+            }
+        ]
+    },
+
+    "enter tunnel 2": {
+        "text_id": "dialogue.enter_tunnel_2",
+        "next": "tunnel 2 intro",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "tunnel 2"
+            }
+        ]
+    },
+
+    "tunnel 2 intro": {
+        "text_id": "dialogue.tunnel_2_intro",
+        "next": "tunnel 2 cont"
+    },
 
     "Not Yet Implemented": {
         "text_id": "dialogue.not_yet_implemented",
         "next": "look around the basement"
     },
-
-
-
-
-
 
 }
