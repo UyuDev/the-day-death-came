@@ -1,7 +1,7 @@
 import random
 from save import can_save, save_game
 
-def handle_action(action, player, renderer, dialogue, world_state, save_menu, settings):
+def handle_action(action, player, renderer, dialogue, world_state, save_menu, settings, exploration):
     if action["type"] == "combat":
         if action["target"] == "door_encounter":
             if player.level < 5:
@@ -46,3 +46,16 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
                 world_state.save_location,
                 save_menu.current_slot
             )
+    elif action["type"] == "explore_items":
+        result = exploration.explore_area(
+            action["target"],
+            player,
+            world_state
+        )
+
+    elif action["type"] == "seek_enemies":
+        result = exploration.seek_enemy(
+            action["target"],
+            player,
+            world_state
+        )
