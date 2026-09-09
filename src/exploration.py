@@ -1,6 +1,7 @@
 import pygame
 from combat import combat_placeholder, calc_loot
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT, MAP_HEIGHT
+import random
 
 
 # I need the equivalent of dialogue nodes here
@@ -110,8 +111,39 @@ class Exploration():
             screen.blit(text, rect)
 
 
-def explore_area(target, player, world_state):
-    print(f"WIP - current event: {target}")
+    def explore_encounter(self):
+        num = random.randint(1,5)
+        if num == 5:
+            return True
+        return False
 
-def seek_enemy(target, player, world_state):
-    print(f"WIP - current event: {target}")
+    def explore_area(self, target, player, world_state):
+        encounter = self.explore_encounter()
+        if encounter:
+            self.seek_enemy(target, player, world_state)
+        num = random.randint(1,5)
+        #temp
+        loot = "Gold Coin(s)"
+        player.inventory.extend(loot * num)
+        print(f"Rewarded item(s): {loot} x {num}")
+
+    def seek_enemy(self, target, player, world_state):
+        print(f"Encountered {target}.")
+        if player.level == target.level:
+            num = random.randint(1,100)
+            if num >= 95:
+                return "death"
+            else:
+                player.grant_exp(10)
+                print(f"You defeated {target.name}")
+        elif player.level <= target.level:
+            num = random.randint(1,100)
+            diff = target.level - player.level
+            if num >= (90 - diff):
+                return "death"
+            else:
+                player.grant_exp(10)
+                print(f"You defeated {target.name}")
+        else:
+            player.grant_exp(10)
+            print(f"You defeated {target.name}")

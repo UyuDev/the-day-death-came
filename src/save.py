@@ -55,6 +55,21 @@ SAVE_LOCATIONS = {
     }
 }
 
+def reload_current_save(player, world_state, save_menu, renderer, dialogue):
+    save_data = load_save(save_menu.current_slot)
+
+    if save_data is None:
+        return False
+
+    apply_save(save_data, player, world_state)
+
+    checkpoint = SAVE_LOCATIONS[world_state.save_location]
+    renderer.load_map(checkpoint["map"])
+    dialogue.set_current(checkpoint["dialogue"])
+    player.health = 100
+    return True
+
+
 class SaveMenu():
     def __init__(self, language_data, assets):
         self.language_data = language_data

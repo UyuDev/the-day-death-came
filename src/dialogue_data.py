@@ -984,20 +984,17 @@ DIALOGUE = {
 
     "You died": {
         "text_id": "dialogue.died",
-        "next": "intro wake",
+        "next": "reload after death"
+    },
+
+    "reload after death": {
+        "text_id": "dialogue.empty",
         "actions": [
-            {   
-                "type": "clear_scene",
-                "target": ""
-            },
-            {   
-                "type": "map",
-                "target": "house_upstairs"
+            {
+                "type": "death"
             }
         ]
     },
-
-
 
     "table": {
         "text_id": "dialogue.table",
@@ -1610,13 +1607,13 @@ DIALOGUE = {
     },
 
 
-    "climb to main floor": {
-        "text_id": "dialogue.climb_to_main_floor",
-        "next": "look around the basement",
+    "basement return": {
+        "text_id": "dialogue.return_to_basement",
+        "next": "look around the basement 2",
         "actions": [
             {   
                 "type": "map",
-                "target": "basement"
+                "target": "basement 2"
             }
         ]
     },
@@ -1631,7 +1628,7 @@ DIALOGUE = {
         "text_id": "dialogue.tunnel_1_continue_choice",
         "options": {
             1: {
-                "text_id": "dialogue.option.tunnel_1_continue",
+                "text_id": "dialogue.option.tunnel_1_continue_2",
                 "next": "tunnel 1 continue check"
             },
             2: {
@@ -1715,12 +1712,12 @@ DIALOGUE = {
 
     "tunnel 2 intro": {
         "text_id": "dialogue.tunnel_2_intro",
-        "next": "tunnel 2 cont"
+        "next": "Not Yet Implemented"
     },
 
     "Not Yet Implemented": {
         "text_id": "dialogue.not_yet_implemented",
-        "next": "look around the basement"
+        "next": "Not Yet Implemented"
     },
 
 }

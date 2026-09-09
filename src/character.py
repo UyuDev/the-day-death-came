@@ -43,4 +43,5 @@ class Character:
         self.debuffs = []
         self.inventory = []
         self.equipped = equipment_slots.copy()
+        self.name = "Temp"
 
