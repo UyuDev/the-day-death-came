@@ -1,15 +1,27 @@
 import pygame
 from combat import combat_placeholder, calc_loot
+from character import Character
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT, MAP_HEIGHT
 import random
+from enemy_data import ENEMIES
 
 
+TESTING = True
 # I need the equivalent of dialogue nodes here
 DIALOGUE = {}
 
 
-
-
+ENCOUNTERS = {
+    "door_encounter": {
+        "enemies": ["farm_bandit", "farm_bandit", "farm_bandit", "farm_bandit"],
+    },
+    "tunnel_1_encounter": {
+        "enemies": ["tunnel_bandit"],
+    },
+    "tunnel_1_enemies": {
+        "enemies": ["tunnel_bandit", "tunnel_bandit", "tunnel_bandit"],
+    }
+}
 
 
 class Exploration():
@@ -117,33 +129,121 @@ class Exploration():
             return True
         return False
 
-    def explore_area(self, target, player, world_state):
+    def explore_area(self, target, player):
         encounter = self.explore_encounter()
         if encounter:
-            self.seek_enemy(target, player, world_state)
+            result = self.seek_enemy(target, player)
+            if result == "death":
+                return "death"
         num = random.randint(1,5)
         #temp
-        loot = "Gold Coin(s)"
-        player.inventory.extend(loot * num)
-        print(f"Rewarded item(s): {loot} x {num}")
-
-    def seek_enemy(self, target, player, world_state):
-        print(f"Encountered {target}.")
-        if player.level == target.level:
-            num = random.randint(1,100)
-            if num >= 95:
-                return "death"
-            else:
-                player.grant_exp(10)
-                print(f"You defeated {target.name}")
-        elif player.level <= target.level:
-            num = random.randint(1,100)
-            diff = target.level - player.level
-            if num >= (90 - diff):
-                return "death"
-            else:
-                player.grant_exp(10)
-                print(f"You defeated {target.name}")
+        player.coins += num
+        if num == 1:
+            print(f"You receive 1 coin.")
         else:
-            player.grant_exp(10)
-            print(f"You defeated {target.name}")
+            print(f"You receive {num} coins.")
+
+    def seek_enemy_old(self, encounter_data, player):
+        if not isinstance(encounter_data, Character):
+            enemy = Character()
+            # name, level: 1, game_class, inventory, equipment
+            enemy_type = ENEMIES[encounter_data]
+            enemy.create(enemy_type["name"], enemy_type["level"], enemy_type["game_class"], enemy_type["inventory"], enemy_type["coins"], enemy_type["equipment"])
+        else:
+            enemy = encounter_data
+            print("Update the encounter function before release")
+        print(f"You encounter: {enemy}.")
+        if combat_placeholder(player, enemy) == False:
+            return "death"
+        else:
+            print(f"You defeated {enemy.name}")
+            if TESTING:
+                player.level += 1
+                print(f"You have reached level {player.level}.")
+            else:
+                player.grant_exp(10)
+                print(f"You gain 10 experience.")
+            loot, coins = calc_loot(enemy)
+            print(f"You receive loot: {loot}.")
+            if coins != 0:
+                player.coins += coins
+                if coins == 1:
+                    print(f"You receive 1 coin.")
+                else:
+                    print(f"You receive {coins} coins.")
+            return "win"
+
+
+    def seek_enemy(self, encounter_data, player):
+        enemies = []
+        if not isinstance(encounter_data, Character):
+            for enemy_unit in ENCOUNTERS[encounter_data]["enemies"]:
+                enemy = Character()
+                # name, level: 1, game_class, inventory, equipment
+                enemy_type = ENEMIES[enemy_unit]
+                enemy.create(enemy_type["name"], enemy_type["level"], enemy_type["game_class"], enemy_type["inventory"], enemy_type["coins"], enemy_type["equipped"])
+                enemies.append(enemy)
+        #in case the enemy is being passed for some reason
+        else:
+            enemy = encounter_data
+            print("Update the encounter function before release")
+        for enemy in enemies:
+            print(f"You encounter: {enemy.name}.")
+            if combat_placeholder(player, enemy) == False:
+                return "death"
+            else:
+                print(f"You defeated {enemy.name}")
+                if TESTING:
+                    player.level += 1
+                    print(f"You have reached level {player.level}.")
+                else:
+                    player.grant_exp(10)
+                    print(f"You gain 10 experience.")
+                loot, coins = calc_loot(enemy)
+                print(f"You receive loot: {loot}.")
+                if coins != 0:
+                    player.coins += coins
+                    if coins == 1:
+                        print(f"You receive 1 coin.")
+                    else:
+                        print(f"You receive {coins} coins.")
+                        return "win"
+                return "win"
+
+
+
+    def encounter(self, encounter_data, player):
+        enemies = []
+        if not isinstance(encounter_data, Character):
+            for enemy_unit in ENCOUNTERS[encounter_data]["enemies"]:
+                enemy = Character()
+                # name, level: 1, game_class, inventory, equipment
+                enemy_type = ENEMIES[enemy_unit]
+                enemy.create(enemy_type["name"], enemy_type["level"], enemy_type["game_class"], enemy_type["inventory"], enemy_type["coins"], enemy_type["equipped"])
+                enemies.append(enemy)
+        #in case the enemy is being passed for some reason
+        else:
+            enemy = encounter_data
+            print("Update the encounter function before release")
+        for enemy in enemies:
+            print(f"You encounter: {enemy.name}.")
+            if combat_placeholder(player, enemy) == False:
+                return "death"
+            else:
+                print(f"You defeated {enemy.name}")
+                if TESTING:
+                    player.level += 1
+                    print(f"You have reached level {player.level}.")
+                else:
+                    player.grant_exp(10)
+                    print(f"You gain 10 experience.")
+                loot, coins = calc_loot(enemy)
+                print(f"You receive loot: {loot}.")
+                if coins != 0:
+                    player.coins += coins
+                    if coins == 1:
+                        print(f"You receive 1 coin.")
+                    else:
+                        print(f"You receive {coins} coins.")
+                        return "win"
+                return "win"

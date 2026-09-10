@@ -1,5 +1,5 @@
 import pygame
-
+from game_classes import GAME_CLASSES
 
 stats = {
     "strength": 1,
@@ -42,6 +42,17 @@ class Character:
         self.buffs = []
         self.debuffs = []
         self.inventory = []
+        self.coins = 0
         self.equipped = equipment_slots.copy()
         self.name = "Temp"
 
+    # I made this a method for custom logic I am considering.
+    def create(self, name, level: 1, game_class, inventory, coins, equipment):
+        self.name = name
+        self.level = level
+        self.health += level * 5
+        self.game_class = GAME_CLASSES[game_class]
+        self.inventory = inventory.copy()
+        self.coins += coins
+        if equipment:
+            self.equipped = equipment

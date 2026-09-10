@@ -2,17 +2,47 @@ import random
 from save import can_save, save_game, reload_current_save
 
 def handle_action(action, player, renderer, dialogue, world_state, save_menu, settings, exploration):
-    if action["type"] == "combat":
+    if action["type"] == "encounter":
         if action["target"] == "door_encounter":
-            if player.level < 5:
+            if player.level < 10:
                 number = random.randint(1, 4)
                 dialogue.set_current(action[f"on_loss"] + f" {number}")
             else:
                 # later implement the combat
+                result = exploration.encounter(action["target"], player)
+                if result == "death":
+                    reload_current_save(
+                        player,
+                        world_state,
+                        save_menu,
+                        renderer,
+                        dialogue
+                    )
+                    return "INTRO"
                 dialogue.set_current(action["on_win"])
             new_actions = dialogue.get_actions()
             for new_action in new_actions:
-                handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
+                result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
+                if result is not None:
+                    return result
+        if action["target"] == "tunnel_1_encounter":
+            result = exploration.encounter(action["target"], player)
+            if result == "win":
+                dialogue.set_current(action["on_win"])
+                new_actions = dialogue.get_actions()
+                for new_action in new_actions:
+                    result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
+                    if result is not None:
+                        return result
+            elif result == "death":
+                reload_current_save(
+                    player,
+                    world_state,
+                    save_menu,
+                    renderer,
+                    dialogue
+                )
+                return "INTRO"
     elif action["type"] == "check_flag":
         if world_state.flags[action["target"]] == action["value"]:
             dialogue.set_current(action[f"if_pass"])
@@ -49,8 +79,7 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
     elif action["type"] == "explore_items":
         result = exploration.explore_area(
             action["target"],
-            player,
-            world_state
+            player
         )
         if result == "death":
             reload_current_save(
@@ -65,9 +94,17 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
     elif action["type"] == "seek_enemies":
         result = exploration.seek_enemy(
             action["target"],
-            player,
-            world_state
+            player
         )
+        if result == "death":
+            reload_current_save(
+                player,
+                world_state,
+                save_menu,
+                renderer,
+                dialogue
+            )
+            return "INTRO"
     elif action["type"] == "death":
         reload_current_save(
             player,

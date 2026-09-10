@@ -901,7 +901,7 @@ DIALOGUE = {
         "text_id": "dialogue.door_encounter",
         "actions": [
             {   
-                "type": "combat",
+                "type": "encounter",
                 "target": "door_encounter",
                 "on_win": "door victory",
                 "on_loss": "door death"
@@ -1430,7 +1430,7 @@ DIALOGUE = {
 
     "basement door unlock": {
         "text_id": "dialogue.basement_door_unlock",
-        "next": "enter dungeon check",
+        "next": "enter tunnel check",
         "actions": [
             {
                 "type": "set_flag",
@@ -1530,11 +1530,11 @@ DIALOGUE = {
 
     "tunnel 1 encounter": {
         "text_id": "dialogue.tunnel_1_encounter",
-        "next": "tunnel 1 reaction 1",
         "actions": [
             {   
                 "type": "encounter",
-                "target": "tunnel 1"
+                "target": "tunnel_1_encounter",
+                "on_win": "tunnel 1 reaction 1"
             }
         ]
     },
@@ -1595,7 +1595,7 @@ DIALOGUE = {
         "actions": [
             {   
                 "type": "seek_enemies",
-                "target": "tunnel_1",
+                "target": "tunnel_1_enemies",
             }
         ]
     },
