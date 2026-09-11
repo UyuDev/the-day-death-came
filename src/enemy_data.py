@@ -36,13 +36,29 @@ ENEMIES = {
         "name": "Zombie",
         "level": 8
     },
+    "skeleton_fighter": {
+        "name": "Skeleton Fighter",
+        "level": 10
+    },
+    "cultist_acolyte": {
+        "name": "Cultist Acolyte",
+        "level": 10
+    },
     "skeleton_warrior": {
         "name": "Skeleton Warrior",
-        "level": 10
+        "level": 15
     },
     "skeleton_mage": {
         "name": "Skeleton mage",
-        "level": 10
+        "level": 15
+    },
+    "skeleton_knight": {
+        "name": "Skeleton Knight",
+        "level": 20
+    },
+    "skeleton_darkmaster": {
+        "name": "Skeleton Darkmaster",
+        "level": 20
     },
     "farm_bandit": {
         "name": "Bandit",
@@ -56,8 +72,20 @@ ENEMIES = {
         "name": "Lord Graye",
         "level": 20
     },
-    "reaper_boss": {
+    "reaper_boss_1": {
         "name": "Sa, the Banished Reaper",
+        "level": 20
+    },
+    "reaper_boss_2": {
+        "name": "Sa, the Hungering Reaper",
+        "level": 40
+    },
+    "reaper_boss_3": {
+        "name": "Sa, the Furious Reaper",
+        "level": 70
+    },
+    "reaper_boss_4": {
+        "name": "Sa, the Unleashed Reaper",
         "level": 100
     }
 }

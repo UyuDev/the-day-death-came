@@ -19,7 +19,28 @@ ENCOUNTERS = {
         "enemies": ["tunnel_bandit"],
     },
     "tunnel_1_enemies": {
-        "enemies": ["tunnel_bandit", "tunnel_bandit", "tunnel_bandit"],
+        "enemies": ["giant_rat", "giant_rat", "giant_rat"],
+    },
+    "tunnel_2_enemies": {
+        "enemies": ["cave_goblin", "cave_goblin", "cave_goblin", "cave_goblin"],
+    },
+    "sewer_enemies": {
+        "enemies": ["sewer_bandit", "sewer_bandit", "sewer_bandit", "sewer_bandit", "sewer_bandit"],
+    },
+    "dungeon_enemies": {
+        "enemies": ["dungeon_bandit", "dungeon_bandit", "dungeon_bandit", "dungeon_bandit", "dungeon_bandit", "dungeon_bandit"],
+    },
+    "crypt_1_enemies_1": {
+        "enemies": ["skeleton", "skeleton", "zombie", "zombie"],
+    },
+    "crypt_1_enemies_2": {
+        "enemies": ["skeleton_fighter", "cultist_acolyte", "skeleton_fighter", "cultist_acolyte"],
+    },
+    "crypt_2_enemies_1": {
+        "enemies": ["skeleton_warrior", "skeleton_mage", "skeleton_warrior", "skeleton_mage"],
+    },
+    "crypt_2_enemies_2": {
+        "enemies": ["skeleton_knight", "skeleton_darkmaster", "skeleton_knight", "skeleton_darkmaster"],
     }
 }
 
