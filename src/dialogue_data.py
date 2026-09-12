@@ -1089,7 +1089,7 @@ DIALOGUE = {
                 "next": "inspect tools"
             },
             2: {
-                "text_id": "dialogue.option.inspect_crates",
+                "text_id": "dialogue.option.inspect_basement_chest",
                 "next": "Not Yet Implemented"
             },
             3: {

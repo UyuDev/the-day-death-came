@@ -147,7 +147,25 @@ def main():
                             game_state = new_state
                             break
 
-
+            elif game_state == "EXPLORATION":
+                choice = None
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_b:
+                    print(player.inventory)
+                elif event.type == pygame.KEYDOWN and event.key == pygame.K_c:
+                    print(player.equipped)
+                elif exploration.has_options():
+                    choice = exploration.handle_input(event)
+                else:
+                    choice = exploration.handle_input_continue(event)
+                # ignore random events so only keypressed are passed 
+                if choice is not None:
+                    exploration.advance(choice)
+                    actions = exploration.get_actions()
+                    for action in actions:
+                        new_state = handle_action(action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
+                        if new_state is not None:
+                            game_state = new_state
+                            break
 
 
         # grid.draw(screen)
@@ -166,6 +184,10 @@ def main():
         elif game_state == "INTRO":
             renderer.draw(screen)
             dialogue.draw(screen, ui_font)
+
+        elif game_state == "EXPLORATION":
+            renderer.draw(screen)
+            exploration.draw(screen, ui_font)
 
         pygame.display.flip()
         clock.tick(FPS)

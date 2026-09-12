@@ -114,3 +114,5 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
             dialogue
         )
         return "INTRO"
+    elif action["type"] == "exit_exploration":
+        return "INTRO"

@@ -8,7 +8,15 @@ from enemy_data import ENEMIES
 
 TESTING = True
 # I need the equivalent of dialogue nodes here
-DIALOGUE = {}
+DIALOGUE = {
+    "encounter": {
+        "text_id": "dialogue.encounter",
+        "next": "result"
+    },
+    "result": {...},
+    "loot": {...},
+    "search_again": {...},
+}
 
 
 ENCOUNTERS = {
@@ -41,6 +49,24 @@ ENCOUNTERS = {
     },
     "crypt_2_enemies_2": {
         "enemies": ["skeleton_knight", "skeleton_darkmaster", "skeleton_knight", "skeleton_darkmaster"],
+    },
+    "crypt_3_enemies_1": {
+        "enemies": ["honor_guard", "honor_guard", "honor_guard", "honor_guard"],
+    },
+    "crypt_3_enemies_2": {
+        "enemies": ["lord_graye", "honor_guard", "honor_guard"],
+    },
+    "crypt_3_boss_1": {
+        "enemies": ["reaper_boss_1"],
+    },
+    "crypt_3_boss_2": {
+        "enemies": ["reaper_boss_2"],
+    },
+    "crypt_3_boss_3": {
+        "enemies": ["reaper_boss_3"],
+    },
+    "crypt_3_boss_4": {
+        "enemies": ["reaper_boss_4"],
     }
 }
 
@@ -53,6 +79,12 @@ class Exploration():
         self.text = None
         self.options = None
         self.option_page = 0
+        self.encounter_id = None
+        self.enemy = None
+        self.result = None
+        self.loot = None
+        self.return_node = None
+
 
 
     def handle_input(self, event):

@@ -151,7 +151,7 @@
     "dialogue.basement_2": "You have safely returned to the basement.",
     "dialogue.look_around_basement": "What do you want to do?",
     "dialogue.option.inspect_tools": "Inspect the tools",
-    "dialogue.option.inspect_crates": "Inspect the crates",
+    "dialogue.option.inspect_basement_chest": "Inspect the dusty chest",
     "dialogue.option.inspect_walls": "Inspect the walls",
     "dialogue.option.return_main_floor": "Return to the main floor",
     "dialogue.inspect_tools": "You inspect the tools and notice a hammer and chisel.",
