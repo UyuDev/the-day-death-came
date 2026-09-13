@@ -4,7 +4,7 @@ from grid import Grid
 from scene import Scene
 from assets import load_assets
 from menu import Menu
-from save import SaveMenu, load_save, can_save, save_game, apply_save, SAVE_LOCATIONS
+from save import SaveMenu, load_save, can_save, save_game, apply_save, SAVE_LOCATIONS, reload_current_save
 from dialogue import Dialogue
 from settings import load_settings, save_settings, edit_settings, load_language
 from character import Character
@@ -153,19 +153,21 @@ def main():
                     print(player.inventory)
                 elif event.type == pygame.KEYDOWN and event.key == pygame.K_c:
                     print(player.equipped)
-                elif exploration.has_options():
-                    choice = exploration.handle_input(event)
                 else:
                     choice = exploration.handle_input_continue(event)
                 # ignore random events so only keypressed are passed 
                 if choice is not None:
-                    exploration.advance(choice)
-                    actions = exploration.get_actions()
-                    for action in actions:
-                        new_state = handle_action(action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
-                        if new_state is not None:
-                            game_state = new_state
-                            break
+                    result = exploration.advance(choice)
+                    if result == "death":
+                        reload_current_save(
+                            player,
+                            world_state,
+                            save_menu,
+                            renderer,
+                            dialogue
+                        )
+                    game_state = "INTRO"
+                    
 
 
         # grid.draw(screen)

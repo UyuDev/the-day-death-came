@@ -220,5 +220,12 @@
     "dialogue.tunnel_1_place_rope": "You secure the rope and drop it down the ledge.",
     "dialogue.enter_tunnel_2": "You climb down the rope and delve deeper into the tunnels.",
     "dialogue.tunnel_2_intro": "You slowly descend the narrowing corridors.",
-    "dialogue.not_yet_implemented": "Not Yet Implemented."
+    "dialogue.not_yet_implemented": "Not Yet Implemented.",
+    "exploration.combat_engage": "{player} (Level {player_level}, {player_class}) engages in combat with {enemy} (Level {enemy_level}, {enemy_class}).",
+    "exploration.win": "You defeated {enemy}!",
+    "exploration.loss": "You have been slain by {enemy}!",
+    "exploration.xp": "You receive {exp} experience.",
+    "exploration.loot": "You receive the following loot:\n{loot}",
+    "exploration.tunnel_1_loot": "You find an old chest",
+    "exploration.search": "You attempt to open it...",    
 }
