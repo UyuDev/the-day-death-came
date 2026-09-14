@@ -7,7 +7,7 @@ def load_assets():
     return {
     "menuscreen_art": pygame.image.load("assets/main_temp_b.png").convert_alpha(),
 
-    # art
+    # art deaths
     "trapdoor death": pygame.image.load("assets/trapdoor_burn_temp.png").convert_alpha(), 
     "collapse book": pygame.image.load("assets/collapse_book_temp.png").convert_alpha(),
     "door death spear": pygame.image.load("assets/door_death_spear_temp.png").convert_alpha(),
@@ -15,6 +15,26 @@ def load_assets():
     "door death leg": pygame.image.load("assets/door_death_leg_temp.png").convert_alpha(),
     "door death mind": pygame.image.load("assets/door_death_mind_temp.png").convert_alpha(),
     "door death collapse": pygame.image.load("assets/door_death_collapse_temp.png").convert_alpha(),
+
+    # art items
+    "small chest": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "tomb": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "chest": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "crate": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "crates": pygame.image.load("assets/placeholder.png").convert_alpha(),
+
+    # art enemies
+    "bandit": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "giant_rat": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "cave_goblin": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "skeleton": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "zombie": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "skeleton_warrior": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "cultist_acolyte": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "skeleton_mage": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "honor_guard": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "lord_graye": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "reaper_boss": pygame.image.load("assets/placeholder.png").convert_alpha(),
 
     # maps
     "house": pygame.image.load("assets/home_map.png").convert_alpha(),

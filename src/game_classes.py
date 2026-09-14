@@ -29,10 +29,11 @@ class Beast():
 
 
 GAME_CLASSES = {
-    "Beast": Default,
+    "Beast": Beast,
     "Warrior": Default,
     "Rogue": Default,
     "Mage": Default,
     "Paladin": Default,
-    "Reaper": Default
+    "Reaper": Default,
+    "Warlock": Default
 }

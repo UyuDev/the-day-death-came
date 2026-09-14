@@ -227,5 +227,5 @@
     "exploration.xp": "You receive {exp} experience.",
     "exploration.loot": "You receive the following loot:\n{loot}",
     "exploration.tunnel_1_loot": "You find an old chest",
-    "exploration.search": "You attempt to open it...",    
+    "exploration.search": "You attempt to open it..."
 }

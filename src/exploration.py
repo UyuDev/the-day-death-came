@@ -107,86 +107,99 @@ SEARCH_AREAS = {
         "containers": [
             {
                 "type": "chest",
+                "text_id": "exploration.chest_1",
+                "image": "chest",
                 "loot": ["Leather Gloves"],
                 "coins": 5
             }
-        ],
-        "text_id": "exploration.tunnel_1_loot"
+        ]
     },
     "tunnel_2": {
         "containers": [
             {
                 "type": "crate",
+                "text_id": "exploration.crate_1",
+                "images": "crate",
                 "loot": ["Strange Herb"],
                 "coins": 0
             },
             {
                 "type": "chest",
+                "text_id": "exploration.chest_1",
+                "images": "chest",
                 "loot": ["Gambeson"],
                 "coins": 5
             }
-        ],
-        "text_id": "exploration.tunnel_2_loot"
+        ]
     },
     "sewer": {
         "containers": [
             {
                 "type": "crates",
+                "text_id": "exploration.crates_1",
+                "images": "crates",
                 "loot": ["Strange Herb", "Alchemy Kit"],
                 "coins": 0
             },
             {
                 "type": "chest",
+                "text_id": "exploration.chest_1",
+                "images": "chest",
                 "loot": ["Longsword"],
                 "coins": 5
             }
-        ],
-        "text_id": "exploration.sewer_loot"
+        ]
     },
     "dungeon": {
         "containers": [
             {
                 "type": "crates",
+                "text_id": "exploration.crates_1",
+                "images": "crates",
                 "loot": ["Strange Herb", "Rare Ingredient"],
                 "coins": 0
             },
             {
                 "type": "chest",
+                "text_id": "exploration.chest_1",
+                "images": "chest",
                 "loot": ["Chainmail Hauberk"],
                 "coins": 8
             }
-        ],
-        "text_id": "exploration.dungeon_loot"
+        ]
     },
     "crypt_1": {
         "containers": [
             {
-                "type": "Tomb",
+                "type": "tomb",
+                "text_id": "exploration.tomb_1",
+                "images": "tomb",
                 "loot": ["Old Journal Page"],
                 "coins": 0
             }
-        ],
-        "text_id": "exploration.crypt_1_loot"
+        ]
     },
     "crypt_2": {
         "containers": [
             {
                 "type": "Tomb",
+                "text_id": "exploration.tomb_1",
+                "images": "tomb",
                 "loot": ["Old Necklace"],
                 "coins": 0
             }
-        ],
-        "text_id": "exploration.crypt_2_loot"
+        ]
     },
     "crypt_3": {
         "containers": [
             {
                 "type": "Small Chest",
+                "text_id": "exploration.small_chest",
+                "images": "small chest",
                 "loot": ["Shiny Key"],
                 "coins": 0
             }
-        ],
-        "text_id": "exploration.crypt_3_loot"
+        ]
     }
 }
 
