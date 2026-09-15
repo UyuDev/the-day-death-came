@@ -30,7 +30,7 @@ def main():
         renderer = Scene(assets)
     menu = Menu(language_data, assets)
     save_menu = SaveMenu(language_data, assets)
-    dialogue = Dialogue(language_data)
+    dialogue = Dialogue(language_data, assets)
     exploration = Exploration(language_data)
     player = Character()
     world_state = WorldState()

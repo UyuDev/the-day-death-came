@@ -11,6 +11,10 @@ class Menu():
             self.assets["menuscreen_art"],
             (SCREEN_WIDTH, MAP_HEIGHT)
         )
+        self.ui = pygame.transform.scale(
+            self.assets["ui_image"],
+            (SCREEN_WIDTH, SCREEN_HEIGHT)
+        )
         self.options = {
             1: "menu.new_game",
             2: "menu.load_game",
@@ -44,6 +48,7 @@ class Menu():
         title = title_font.render(title_text, True, "Yellow")
         rect = title.get_rect(center=(SCREEN_WIDTH // 2, 100))
         screen.blit(self.menu_art, (0, 0))
+        screen.blit(self.ui, (0, 0))
         screen.blit(title, rect)
         dialogue_rect = pygame.Rect(
         0,
@@ -76,6 +81,7 @@ class Menu():
         title = title_font.render(f"{text_1}{difficulty}{text_2}{language}{text_3}{art}{text_last}", True, "Yellow")
         rect = title.get_rect(center=(SCREEN_WIDTH // 2, 100))
         screen.blit(self.menu_art, (0, 0))
+        screen.blit(self.ui, (0, 0))
         screen.blit(title, rect)
         dialogue_rect = pygame.Rect(
         0,

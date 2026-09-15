@@ -33,6 +33,9 @@ TEXT_NODES = {
     "search_interrupted": {
         "text_id": "exploration.search_interrupted"
     },
+    "search_victory": {
+        "text_id": "exploration.search_victory"
+    }
 }
 
 ENCOUNTERS = {
@@ -119,14 +122,14 @@ SEARCH_AREAS = {
             {
                 "type": "crate",
                 "text_id": "exploration.crate_1",
-                "images": "crate",
+                "image": "crate",
                 "loot": ["Strange Herb"],
                 "coins": 0
             },
             {
                 "type": "chest",
                 "text_id": "exploration.chest_1",
-                "images": "chest",
+                "image": "chest",
                 "loot": ["Gambeson"],
                 "coins": 5
             }
@@ -137,14 +140,14 @@ SEARCH_AREAS = {
             {
                 "type": "crates",
                 "text_id": "exploration.crates_1",
-                "images": "crates",
+                "image": "crates",
                 "loot": ["Strange Herb", "Alchemy Kit"],
                 "coins": 0
             },
             {
                 "type": "chest",
                 "text_id": "exploration.chest_1",
-                "images": "chest",
+                "image": "chest",
                 "loot": ["Longsword"],
                 "coins": 5
             }
@@ -155,14 +158,14 @@ SEARCH_AREAS = {
             {
                 "type": "crates",
                 "text_id": "exploration.crates_1",
-                "images": "crates",
+                "image": "crates",
                 "loot": ["Strange Herb", "Rare Ingredient"],
                 "coins": 0
             },
             {
                 "type": "chest",
                 "text_id": "exploration.chest_1",
-                "images": "chest",
+                "image": "chest",
                 "loot": ["Chainmail Hauberk"],
                 "coins": 8
             }
@@ -173,7 +176,7 @@ SEARCH_AREAS = {
             {
                 "type": "tomb",
                 "text_id": "exploration.tomb_1",
-                "images": "tomb",
+                "image": "tomb",
                 "loot": ["Old Journal Page"],
                 "coins": 0
             }
@@ -184,7 +187,7 @@ SEARCH_AREAS = {
             {
                 "type": "Tomb",
                 "text_id": "exploration.tomb_1",
-                "images": "tomb",
+                "image": "tomb",
                 "loot": ["Old Necklace"],
                 "coins": 0
             }
@@ -195,7 +198,7 @@ SEARCH_AREAS = {
             {
                 "type": "Small Chest",
                 "text_id": "exploration.small_chest",
-                "images": "small chest",
+                "image": "small chest",
                 "loot": ["Shiny Key"],
                 "coins": 0
             }
@@ -287,20 +290,62 @@ class Exploration():
     def start_loot_search(self, encounter_id, player):
         self.sequence = []
         scenario = SEARCH_AREAS[encounter_id]
-        self.sequence.append(scenario["text_id"])
         containers = scenario["containers"]
         for container in containers:
-            node = TEXT_NODES["engage"].copy()
+            node = container.copy()
+            self.sequence.append(node)
+            node_2 = TEXT_NODES["search"].copy()
+            self.sequence.append(node_2)
+            encounter = self.explore_encounter()
+            if encounter:
+                node = TEXT_NODES["search_interrupted"].copy()
+                self.sequence.append(node)
+                # I think I need to create custom encounters for this
+                self.add_encounter_to_sequence(encounter_id, player)
+                node = TEXT_NODES["search_victory"].copy()
+                self.sequence.append(node)
+                node = TEXT_NODES["loot"].copy()
+                loot = container["loot"]
+                coins = container["coins"]
+                loot_lines = [f"{coins} Coins"] + loot
+                loot_text = "\n".join(loot_lines)
+                node["variables"] = {
+                    "loot": loot_text
+                }
+                self.sequence.append(node)
+            else:
+                node = TEXT_NODES["search_success"].copy()
+                self.sequence.append(node)
+                node = TEXT_NODES["loot"].copy()
+                loot = container["loot"]
+                coins = container["coins"]
+                loot_lines = [f"{coins} Coins"] + loot
+                loot_text = "\n".join(loot_lines)
+                node["variables"] = {
+                    "loot": loot_text
+                }
+                self.sequence.append(node)
+
+
 
     def add_encounter_to_sequence(self, encounter_id, player):
         encounter = ENCOUNTERS[encounter_id]
         # detect correct initial text
         self.sequence.append(encounter["text_id"])
         enemies = encounter["enemies"]
-        for enemy in enemies:
+        for enemy_id in enemies:
             # generate encounter text
             node = TEXT_NODES["engage"].copy()
-
+            enemy_data = ENEMIES[enemy_id]
+            enemy = Character()
+            enemy.create(
+                enemy_data["name"],
+                enemy_data["level"],
+                enemy_data["game_class"],
+                enemy_data["inventory"],
+                enemy_data["coins"],
+                enemy_data["equipped"]
+            )
             node["variables"] = {
                 "player": player.name,
                 "player_level": player.level,
@@ -309,6 +354,7 @@ class Exploration():
                 "enemy_level": enemy.level,
                 "enemy_class": enemy.game_class
             }
+            node["image"] = enemy_data["image"]
             self.sequence.append(node)
             # run encounter logic and store result
             result = self.simulate_encounter(player, enemy)

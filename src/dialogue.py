@@ -5,9 +5,14 @@ from dialogue_data import DIALOGUE
 
 
 class Dialogue():
-    def __init__(self, language_data):
+    def __init__(self, language_data, assets):
         self.current = "intro"
         self.language_data = language_data
+        self.assets = assets
+        self.ui = pygame.transform.scale(
+            self.assets["ui_image"],
+            (SCREEN_WIDTH, SCREEN_HEIGHT)
+        )
         self.option_page = 0
 
 
@@ -67,6 +72,7 @@ class Dialogue():
                 dialogue_rect.x + 20,
                 dialogue_rect.y + 20
             )
+            screen.blit(self.ui, (0, 0))
             screen.blit(question_text, position)
             # options = list(current_node["options"].items())
             # if len(options) > 4:
@@ -96,5 +102,6 @@ class Dialogue():
         else:
             text = ui_font.render(self.language_data[current_node["text_id"]], True, "black")
             rect = text.get_rect(center=dialogue_rect.center)
+            screen.blit(self.ui, (0, 0))
             screen.blit(text, rect)
         
