@@ -56,3 +56,13 @@ class Character:
         self.coins += coins
         if equipment:
             self.equipped = equipment
+
+
+    def grant_exp(self, exp_gain):
+        self.experience += exp_gain
+        while self.experience >= self.exp_to_level(self.level + 1):
+            self.level +=1
+
+
+    def exp_to_level(self, level):
+        return 50 * (level - 1) ** 2

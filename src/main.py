@@ -31,7 +31,7 @@ def main():
     menu = Menu(language_data, assets)
     save_menu = SaveMenu(language_data, assets)
     dialogue = Dialogue(language_data, assets)
-    exploration = Exploration(language_data)
+    exploration = Exploration(language_data, assets)
     player = Character()
     world_state = WorldState()
     game_state = "MENU"
@@ -158,15 +158,16 @@ def main():
                 # ignore random events so only keypressed are passed 
                 if choice is not None:
                     result = exploration.advance(choice)
-                    if result == "death":
-                        reload_current_save(
-                            player,
-                            world_state,
-                            save_menu,
-                            renderer,
-                            dialogue
-                        )
-                    game_state = "INTRO"
+                    if result is not None:
+                        if result == "death":
+                            reload_current_save(
+                                player,
+                                world_state,
+                                save_menu,
+                                renderer,
+                                dialogue
+                            )
+                        game_state = "INTRO"
                     
 
 
@@ -188,7 +189,7 @@ def main():
             dialogue.draw(screen, ui_font)
 
         elif game_state == "EXPLORATION":
-            renderer.draw(screen)
+            # renderer.draw(screen)
             exploration.draw(screen, ui_font)
 
         pygame.display.flip()

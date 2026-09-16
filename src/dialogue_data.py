@@ -1530,11 +1530,11 @@ DIALOGUE = {
 
     "tunnel 1 encounter": {
         "text_id": "dialogue.tunnel_1_encounter",
+        "next": "tunnel 1 reaction 1",
         "actions": [
             {   
                 "type": "encounter",
-                "target": "tunnel_1_encounter",
-                "on_win": "tunnel 1 reaction 1"
+                "target": "tunnel_1_encounter"
             }
         ]
     },
@@ -1574,11 +1574,29 @@ DIALOGUE = {
 
     "tunnel 1 explore 1": {
         "text_id": "dialogue.tunnel_1_explore_1",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "tunnel_1_empty",
+                "value": False,
+                "if_pass": "tunnel 1 explore start",
+                "if_fail": "tunnel 1 explore 2",
+            }
+        ]
+    },
+
+    "tunnel 1 explore start": {
+        "text_id": "dialogue.tunnel_1_explore_1",
         "next": "tunnel 1 explore 2",
         "actions": [
             {   
                 "type": "explore_items",
                 "target": "tunnel_1",
+            },
+            {
+                "type": "set_flag",
+                "target": "tunnel_1_empty",
+                "value": True
             }
         ]
     },
@@ -1594,7 +1612,7 @@ DIALOGUE = {
         "next": "tunnel 1 enemies 2",
         "actions": [
             {   
-                "type": "seek_enemies",
+                "type": "encounter",
                 "target": "tunnel_1_enemies",
             }
         ]

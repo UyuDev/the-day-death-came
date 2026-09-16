@@ -51,16 +51,32 @@ ENCOUNTERS = {
         "enemies": ["giant_rat", "giant_rat", "giant_rat"],
         "text_id": "exploration.tunnel_1_enemies"
     },
+    "tunnel_1_ambush": {
+        "enemies": ["giant_rat"],
+        "text_id": "exploration.tunnel_1_enemies"
+    },
     "tunnel_2": {
         "enemies": ["cave_goblin", "cave_goblin", "cave_goblin", "cave_goblin"],
+        "text_id": "exploration.tunnel_2_enemies"
+    },
+    "tunnel_2_ambush": {
+        "enemies": ["cave_goblin"],
         "text_id": "exploration.tunnel_2_enemies"
     },
     "sewer": {
         "enemies": ["sewer_bandit", "sewer_bandit", "sewer_bandit", "sewer_bandit", "sewer_bandit"],
         "text_id": "exploration.sewer_enemies"
     },
+    "sewer_ambush": {
+        "enemies": ["sewer_bandit"],
+        "text_id": "exploration.sewer_enemies"
+    },
     "dungeon": {
         "enemies": ["dungeon_bandit", "dungeon_bandit", "dungeon_bandit", "dungeon_bandit", "dungeon_bandit", "dungeon_bandit"],
+        "text_id": "exploration.dungeon_enemies"
+    },
+    "dungeon_ambush": {
+        "enemies": ["dungeon_bandit", "dungeon_bandit"],
         "text_id": "exploration.dungeon_enemies"
     },
     "crypt_1_enemies_1": {
@@ -71,6 +87,10 @@ ENCOUNTERS = {
         "enemies": ["skeleton_fighter", "cultist_acolyte", "skeleton_fighter", "cultist_acolyte"],
         "text_id": "exploration.crypt_1_enemies_2"
     },
+    "crypt_1_ambush": {
+        "enemies": ["skeleton_fighter", "cultist_acolyte"],
+        "text_id": "exploration.crypt_1_enemies_2"
+    },
     "crypt_2_enemies_1": {
         "enemies": ["skeleton_warrior", "skeleton_mage", "skeleton_warrior", "skeleton_mage"],
         "text_id": "exploration.crypt_2_enemies_1"
@@ -79,12 +99,20 @@ ENCOUNTERS = {
         "enemies": ["skeleton_knight", "skeleton_darkmaster", "skeleton_knight", "skeleton_darkmaster"],
         "text_id": "exploration.crypt_2_enemies_2"
     },
+    "crypt_2_ambush": {
+        "enemies": ["skeleton_knight", "skeleton_darkmaster"],
+        "text_id": "exploration.crypt_2_enemies_2"
+    },
     "crypt_3_enemies_1": {
         "enemies": ["honor_guard", "honor_guard", "honor_guard", "honor_guard"],
         "text_id": "exploration.crypt_3_enemies_1"
     },
     "crypt_3_enemies_2": {
         "enemies": ["lord_graye", "honor_guard", "honor_guard"],
+        "text_id": "exploration.crypt_3_enemies_2"
+    },
+    "crypt_3_ambush": {
+        "enemies": ["honor_guard", "honor_guard"],
         "text_id": "exploration.crypt_3_enemies_2"
     },
     "crypt_3_boss_1": {
@@ -112,6 +140,7 @@ SEARCH_AREAS = {
                 "type": "chest",
                 "text_id": "exploration.chest_1",
                 "image": "chest",
+                "encounter": "tunnel_1_ambush",
                 "loot": ["Leather Gloves"],
                 "coins": 5
             }
@@ -123,6 +152,7 @@ SEARCH_AREAS = {
                 "type": "crate",
                 "text_id": "exploration.crate_1",
                 "image": "crate",
+                "encounter": "tunnel_2_ambush",
                 "loot": ["Strange Herb"],
                 "coins": 0
             },
@@ -130,6 +160,7 @@ SEARCH_AREAS = {
                 "type": "chest",
                 "text_id": "exploration.chest_1",
                 "image": "chest",
+                "encounter": "tunnel_2_ambush",
                 "loot": ["Gambeson"],
                 "coins": 5
             }
@@ -141,6 +172,7 @@ SEARCH_AREAS = {
                 "type": "crates",
                 "text_id": "exploration.crates_1",
                 "image": "crates",
+                "encounter": "sewer_ambush",
                 "loot": ["Strange Herb", "Alchemy Kit"],
                 "coins": 0
             },
@@ -148,6 +180,7 @@ SEARCH_AREAS = {
                 "type": "chest",
                 "text_id": "exploration.chest_1",
                 "image": "chest",
+                "encounter": "sewer_ambush",
                 "loot": ["Longsword"],
                 "coins": 5
             }
@@ -159,6 +192,7 @@ SEARCH_AREAS = {
                 "type": "crates",
                 "text_id": "exploration.crates_1",
                 "image": "crates",
+                "encounter": "dungeon_ambush",
                 "loot": ["Strange Herb", "Rare Ingredient"],
                 "coins": 0
             },
@@ -166,6 +200,7 @@ SEARCH_AREAS = {
                 "type": "chest",
                 "text_id": "exploration.chest_1",
                 "image": "chest",
+                "encounter": "dungeon_ambush",
                 "loot": ["Chainmail Hauberk"],
                 "coins": 8
             }
@@ -177,6 +212,7 @@ SEARCH_AREAS = {
                 "type": "tomb",
                 "text_id": "exploration.tomb_1",
                 "image": "tomb",
+                "encounter": "crypt_1_ambush",
                 "loot": ["Old Journal Page"],
                 "coins": 0
             }
@@ -188,6 +224,7 @@ SEARCH_AREAS = {
                 "type": "Tomb",
                 "text_id": "exploration.tomb_1",
                 "image": "tomb",
+                "encounter": "crypt_2_ambush",
                 "loot": ["Old Necklace"],
                 "coins": 0
             }
@@ -199,6 +236,7 @@ SEARCH_AREAS = {
                 "type": "Small Chest",
                 "text_id": "exploration.small_chest",
                 "image": "small chest",
+                "encounter": "crypt_3_ambush",
                 "loot": ["Shiny Key"],
                 "coins": 0
             }
@@ -209,9 +247,14 @@ SEARCH_AREAS = {
 
 
 class Exploration():
-    def __init__(self, language_data):
+    def __init__(self, language_data, assets):
         self.current = "intro"
+        self.assets = assets
         self.language_data = language_data
+        self.ui = pygame.transform.scale(
+            self.assets["ui_image"],
+            (SCREEN_WIDTH, SCREEN_HEIGHT)
+        )
         self.area = None
         self.text = None
         self.options = None
@@ -219,6 +262,7 @@ class Exploration():
         self.nodes = []
         self.current_index = 0
         self.result = None
+        self.return_node = None
 
 
 
@@ -238,7 +282,7 @@ class Exploration():
             if event.key == pygame.K_SPACE or event.key == pygame.K_RETURN:
                 return "Continue"
 
-
+    #not used
     def set_current(self, node):
         self.current = node
 
@@ -262,29 +306,35 @@ class Exploration():
         SCREEN_WIDTH,
         SCREEN_HEIGHT - MAP_HEIGHT
         )
-        current_node = self.nodes[self.current_index]
-        if "options" in current_node:
-            question_text = ui_font.render(self.language_data[current_node["text_id"]], True, "black")
-            position = (
-                dialogue_rect.x + 20,
-                dialogue_rect.y + 20
-            )
-            screen.blit(question_text, position)               
-            for number, option in current_node["options"].items():
-                option_text = ui_font.render(f"{number}. {self.language_data[option['text_id']]}", True, "black")
-                position = (
-                    dialogue_rect.x + 20,
-                    dialogue_rect.y + 60 + (number - 1) * 40
-                )
-                screen.blit(option_text, position)
-        else:
-            text = ui_font.render(self.language_data[current_node["text_id"]], True, "black")
-            rect = text.get_rect(center=dialogue_rect.center)
+        
+        node = self.sequence[self.current_index]
+        text_string = self.language_data[node["text_id"]].format(
+            **node.get("variables", {})
+        )
+        # AI-assisted: multiline text rendering and vertical centering logic
+        # I wanted to move on top multiple lines, but it was beyond my skillset + the project has already taken longer than intended
+        lines = text_string.split("\n")
+        line_height = ui_font.get_linesize()
+        total_height = len(lines) * line_height
+        y = dialogue_rect.centery - total_height // 2
+
+        for line in lines:
+            text = ui_font.render(line, True, "black")
+            rect = text.get_rect(centerx=dialogue_rect.centerx, y=y)
             screen.blit(text, rect)
+            y += line_height
+
+        if "image" in node:
+            image = self.assets[node["image"]]
+            screen.blit(image, (0, 0))
+        screen.blit(self.ui, (0, 0))
+        screen.blit(text, rect)
 
 
-    def start_encounter(self, encounter_id, player):
+
+    def start_encounter(self, encounter_id, player, return_node):
         self.sequence = []
+        self.return_node = return_node
         self.add_encounter_to_sequence(encounter_id, player)
 
     def start_loot_search(self, encounter_id, player):
@@ -301,12 +351,19 @@ class Exploration():
                 node = TEXT_NODES["search_interrupted"].copy()
                 self.sequence.append(node)
                 # I think I need to create custom encounters for this
-                self.add_encounter_to_sequence(encounter_id, player)
+                result = self.add_encounter_to_sequence(
+                    container["encounter"],
+                    player
+                )
+                if result == "death":
+                    break
                 node = TEXT_NODES["search_victory"].copy()
                 self.sequence.append(node)
                 node = TEXT_NODES["loot"].copy()
                 loot = container["loot"]
                 coins = container["coins"]
+                player.inventory.extend(loot)
+                player.coins += coins
                 loot_lines = [f"{coins} Coins"] + loot
                 loot_text = "\n".join(loot_lines)
                 node["variables"] = {
@@ -319,6 +376,8 @@ class Exploration():
                 node = TEXT_NODES["loot"].copy()
                 loot = container["loot"]
                 coins = container["coins"]
+                player.inventory.extend(loot)
+                player.coins += coins
                 loot_lines = [f"{coins} Coins"] + loot
                 loot_text = "\n".join(loot_lines)
                 node["variables"] = {
@@ -365,7 +424,7 @@ class Exploration():
                     "enemy": enemy.name
                 }
                 self.sequence.append(node)
-                break
+                return "death"
             # win
             else:
                 exp, loot, coins = result
@@ -388,6 +447,7 @@ class Exploration():
                     "loot": loot_text
                 }
                 self.sequence.append(node)
+                return "win"
 
     def explore_encounter(self):
         num = random.randint(1,5)
@@ -450,13 +510,13 @@ class Exploration():
 
 
     def simulate_encounter(self, enemy, player):
-        if combat_placeholder(player, enemy) == False:
+        if not combat_placeholder(player, enemy):
             return "death"
 
         loot, coins = calc_loot(enemy)
-        exp = enemy.level
+        exp = enemy.level * 25
 
-        player.experience += exp
+        player.grant_exp(exp)
         player.inventory.extend(loot)
         player.coins += coins
 

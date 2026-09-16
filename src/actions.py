@@ -26,7 +26,7 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
                 if result is not None:
                     return result
         else:
-            exploration.start_encounter(action["target"], player)
+            exploration.start_encounter(action["target"], player, action["on_win"])
             return "EXPLORATION"
     elif action["type"] == "check_flag":
         if world_state.flags[action["target"]] == action["value"]:
@@ -35,7 +35,9 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
             dialogue.set_current(action[f"if_fail"])
         new_actions = dialogue.get_actions()
         for new_action in new_actions:
-            handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
+            result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
+            if result is not None:
+                return result
     elif action["type"] == "map":
         renderer.load_map(action["target"])
     elif action["type"] == "set_flag":
