@@ -33,6 +33,7 @@ def main():
     dialogue = Dialogue(language_data, assets)
     exploration = Exploration(language_data, assets)
     player = Character()
+    player.create("Nicholas", 1, "Farmer", None, 0, None)
     world_state = WorldState()
     game_state = "MENU"
     #update with game loop
@@ -51,6 +52,7 @@ def main():
                 if choice == 1:
                     renderer.load_map("house_upstairs")
                     player = Character()
+                    player.create("Nicholas", 1, "Farmer", None, 0, None)
                     world_state = WorldState()
                     dialogue.set_current("intro")
                     game_state = "INTRO"
@@ -93,6 +95,7 @@ def main():
                     if choice == "new_game":
                         renderer.load_map("house_upstairs")
                         player = Character()
+                        player.create("Nicholas", 1, "Farmer", None, 0, None)
                         world_state = WorldState()
                         dialogue.set_current("intro")
                         game_state = "INTRO"

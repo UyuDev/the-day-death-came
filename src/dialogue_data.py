@@ -1589,14 +1589,14 @@ DIALOGUE = {
         "text_id": "dialogue.tunnel_1_explore_1",
         "next": "tunnel 1 explore 2",
         "actions": [
-            {   
-                "type": "explore_items",
-                "target": "tunnel_1",
-            },
             {
                 "type": "set_flag",
                 "target": "tunnel_1_empty",
                 "value": True
+            },
+            {   
+                "type": "explore_items",
+                "target": "tunnel_1",
             }
         ]
     },
@@ -1613,7 +1613,7 @@ DIALOGUE = {
         "actions": [
             {   
                 "type": "encounter",
-                "target": "tunnel_1_enemies",
+                "target": "tunnel_1",
             }
         ]
     },
@@ -1673,12 +1673,12 @@ DIALOGUE = {
                 "target": "tunnel_rope_placed",
                 "value": True,
                 "if_pass": "enter tunnel 2",
-                "if_fail": "tunnel 1 rope placed check",
+                "if_fail": "tunnel 1 rope looted check",
             }
         ]
     },
 
-    "tunnel 1 rope placed check": {
+    "tunnel 1 rope looted check": {
         "text_id": "dialogue.tunnel_1_continue_check",
         "actions": [
             {   
@@ -1778,14 +1778,14 @@ DIALOGUE = {
         "text_id": "dialogue.tunnel_2_explore_1",
         "next": "tunnel 2 explore 2",
         "actions": [
-            {   
-                "type": "explore_items",
-                "target": "tunnel_2",
-            },
             {
                 "type": "set_flag",
                 "target": "tunnel_2_empty",
                 "value": True
+            },
+            {   
+                "type": "explore_items",
+                "target": "tunnel_2",
             }
         ]
     },
@@ -1802,7 +1802,7 @@ DIALOGUE = {
         "actions": [
             {   
                 "type": "encounter",
-                "target": "tunnel_2_enemies",
+                "target": "tunnel_2",
             }
         ]
     },

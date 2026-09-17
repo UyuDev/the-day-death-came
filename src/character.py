@@ -52,7 +52,8 @@ class Character:
         self.level = level
         self.health += level * 5
         self.game_class = GAME_CLASSES[game_class]
-        self.inventory = inventory.copy()
+        if inventory:
+            self.inventory = inventory.copy()
         self.coins += coins
         if equipment:
             self.equipped = equipment.copy()

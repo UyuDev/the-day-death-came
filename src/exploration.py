@@ -335,10 +335,12 @@ class Exploration():
 
     def start_encounter(self, encounter_id, player):
         self.sequence = []
+        self.current_index = 0
         self.add_encounter_to_sequence(encounter_id, player)
 
     def start_loot_search(self, encounter_id, player):
         self.sequence = []
+        self.current_index = 0
         scenario = SEARCH_AREAS[encounter_id]
         containers = scenario["containers"]
         for container in containers:
@@ -411,7 +413,7 @@ class Exploration():
             node["variables"] = {
                 "player": player.name,
                 "player_level": player.level,
-                "player_class": player.game_class,
+                "player_class": player.game_class.__name__,
                 "enemy": enemy.name,
                 "enemy_level": enemy.level,
                 "enemy_class": enemy.game_class.__name__

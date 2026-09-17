@@ -13,6 +13,13 @@ class Default():
         self.name = "Default"
         self.abilities = default_abilities
 
+class Farmer():
+    def __init__(self):
+        self.name = "Default"
+        self.abilities = default_abilities
+    def __str__(self):
+        return "Farmer"
+
 beast_abilities = {
     "main": "bite",
     "ultimate": "ravage",
@@ -30,6 +37,7 @@ class Beast():
 
 GAME_CLASSES = {
     "Beast": Beast,
+    "Farmer": Farmer,
     "Warrior": Default,
     "Rogue": Default,
     "Mage": Default,
