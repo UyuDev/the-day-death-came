@@ -55,7 +55,7 @@ class Character:
         self.inventory = inventory.copy()
         self.coins += coins
         if equipment:
-            self.equipped = equipment
+            self.equipped = equipment.copy()
 
 
     def grant_exp(self, exp_gain):

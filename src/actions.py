@@ -26,7 +26,7 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
                 if result is not None:
                     return result
         else:
-            exploration.start_encounter(action["target"], player, action["on_win"])
+            exploration.start_encounter(action["target"], player)
             return "EXPLORATION"
     elif action["type"] == "check_flag":
         if world_state.flags[action["target"]] == action["value"]:

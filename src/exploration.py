@@ -308,6 +308,10 @@ class Exploration():
         )
         
         node = self.sequence[self.current_index]
+        if "image" in node:
+            image = self.assets[node["image"]]
+            screen.blit(image, (0, 0))
+        screen.blit(self.ui, (0, 0))
         text_string = self.language_data[node["text_id"]].format(
             **node.get("variables", {})
         )
@@ -324,17 +328,13 @@ class Exploration():
             screen.blit(text, rect)
             y += line_height
 
-        if "image" in node:
-            image = self.assets[node["image"]]
-            screen.blit(image, (0, 0))
-        screen.blit(self.ui, (0, 0))
+        
         screen.blit(text, rect)
 
 
 
-    def start_encounter(self, encounter_id, player, return_node):
+    def start_encounter(self, encounter_id, player):
         self.sequence = []
-        self.return_node = return_node
         self.add_encounter_to_sequence(encounter_id, player)
 
     def start_loot_search(self, encounter_id, player):
@@ -390,7 +390,10 @@ class Exploration():
     def add_encounter_to_sequence(self, encounter_id, player):
         encounter = ENCOUNTERS[encounter_id]
         # detect correct initial text
-        self.sequence.append(encounter["text_id"])
+        node = {
+            "text_id": encounter["text_id"]
+        }
+        self.sequence.append(node)
         enemies = encounter["enemies"]
         for enemy_id in enemies:
             # generate encounter text
@@ -411,12 +414,12 @@ class Exploration():
                 "player_class": player.game_class,
                 "enemy": enemy.name,
                 "enemy_level": enemy.level,
-                "enemy_class": enemy.game_class
+                "enemy_class": enemy.game_class.__name__
             }
             node["image"] = enemy_data["image"]
             self.sequence.append(node)
             # run encounter logic and store result
-            result = self.simulate_encounter(player, enemy)
+            result = self.simulate_encounter(enemy, player)
             # loss
             if result == "death":
                 node = TEXT_NODES["loss"].copy()
@@ -441,13 +444,22 @@ class Exploration():
                 self.sequence.append(node)
                 # set loot text
                 node = TEXT_NODES["loot"].copy()
-                loot_lines = [f"{coins} Coins"] + loot
+                loot_lines = [f"{coins} Coins"] + enemy.inventory.copy()
+
+                equipped_items = [
+                    item for item in enemy.equipped.values()
+                    if item is not None
+                ]
+
+                if equipped_items:
+                    loot_lines.append("[Equipped Items]")
+
                 loot_text = "\n".join(loot_lines)
                 node["variables"] = {
                     "loot": loot_text
                 }
                 self.sequence.append(node)
-                return "win"
+        return "win"
 
     def explore_encounter(self):
         num = random.randint(1,5)
@@ -514,6 +526,7 @@ class Exploration():
             return "death"
 
         loot, coins = calc_loot(enemy)
+
         exp = enemy.level * 25
 
         player.grant_exp(exp)
