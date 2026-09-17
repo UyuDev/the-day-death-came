@@ -1670,10 +1670,10 @@ DIALOGUE = {
         "actions": [
             {   
                 "type": "check_flag",
-                "target": "tunnel_rope_found",
+                "target": "tunnel_rope_placed",
                 "value": True,
-                "if_pass": "tunnel 1 rope placed check",
-                "if_fail": "tunnel 1 rope missing 1",
+                "if_pass": "enter tunnel 2",
+                "if_fail": "tunnel 1 rope placed check",
             }
         ]
     },
@@ -1683,10 +1683,10 @@ DIALOGUE = {
         "actions": [
             {   
                 "type": "check_flag",
-                "target": "tunnel_rope_placed",
+                "target": "tunnel_1_empty",
                 "value": True,
-                "if_pass": "enter tunnel 2",
-                "if_fail": "tunnel 1 place rope",
+                "if_pass": "tunnel 1 place rope",
+                "if_fail": "tunnel 1 rope missing 1",
             }
         ]
     },
@@ -1730,8 +1730,198 @@ DIALOGUE = {
 
     "tunnel 2 intro": {
         "text_id": "dialogue.tunnel_2_intro",
-        "next": "Not Yet Implemented"
+        "next": "tunnel 2 cont"
     },
+
+    "tunnel 2 cont": {
+        "text_id": "dialogue.tunnel_2_cont",
+        "next": "tunnel 2 choice"
+    },
+
+
+    "tunnel 2 choice": {
+        "text_id": "dialogue.tunnel_2_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.tunnel_2_explore",
+                "next": "tunnel 2 explore 1"
+            },
+            2: {
+                "text_id": "dialogue.option.tunnel_2_enemies",
+                "next": "tunnel 2 enemies 1"
+            },
+            3: {
+                "text_id": "dialogue.option.tunnel_2_continue",
+                "next": "tunnel 2 continue"
+            },
+            4: {
+                "text_id": "dialogue.option.tunnel_2_return",
+                "next": "tunnel 1 return"
+            }
+        }
+    },
+
+    "tunnel 2 explore 1": {
+        "text_id": "dialogue.tunnel_2_explore_1",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "tunnel_2_empty",
+                "value": False,
+                "if_pass": "tunnel 2 explore start",
+                "if_fail": "tunnel 2 explore 2",
+            }
+        ]
+    },
+
+    "tunnel 2 explore start": {
+        "text_id": "dialogue.tunnel_2_explore_1",
+        "next": "tunnel 2 explore 2",
+        "actions": [
+            {   
+                "type": "explore_items",
+                "target": "tunnel_2",
+            },
+            {
+                "type": "set_flag",
+                "target": "tunnel_2_empty",
+                "value": True
+            }
+        ]
+    },
+
+    "tunnel 2 explore 2": {
+        "text_id": "dialogue.tunnel_2_explore_2",
+        "next": "tunnel 2 choice",
+    },
+
+
+    "tunnel 2 enemies 1": {
+        "text_id": "dialogue.tunnel_2_enemies_1",
+        "next": "tunnel 2 enemies 2",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "tunnel_2_enemies",
+            }
+        ]
+    },
+
+
+    "tunnel 2 enemies 2": {
+        "text_id": "dialogue.tunnel_2_enemies_2",
+        "next": "tunnel 2 choice",
+    },
+
+
+    "tunnel 1 return": {
+        "text_id": "dialogue.return_to_tunnel_1",
+        "next": "tunnel 1 choice",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "tunnel 1"
+            }
+        ]
+    },
+
+    "tunnel 2 continue": {
+        "text_id": "dialogue.tunnel_2_continue",
+        "next": "tunnel 2 continue choice",
+    },
+
+
+    "tunnel 2 continue choice": {
+        "text_id": "dialogue.tunnel_2_continue_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.tunnel_2_continue_2",
+                "next": "tunnel 2 continue check"
+            },
+            2: {
+                "text_id": "dialogue.option.empty",
+                "next": "tunnel 2 continue choice"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "tunnel 2 continue choice"
+            },
+            4: {
+                "text_id": "dialogue.option.tunnel_2_step_away",
+                "next": "tunnel 2 choice"
+            }
+        }
+    },
+
+
+    "tunnel 2 continue check": {
+        "text_id": "dialogue.tunnel_2_continue_check",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "sewer_door_unlocked",
+                "value": True,
+                "if_pass": "enter sewer",
+                "if_fail": "tunnel 2 sewer key check",
+            }
+        ]
+    },
+
+    "tunnel 2 sewer key check": {
+        "text_id": "dialogue.tunnel_2_continue_check",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "tunnel_2_empty",
+                "value": True,
+                "if_pass": "tunnel 2 unlock sewer",
+                "if_fail": "tunnel 2 sewer locked 1",
+            }
+        ]
+    },
+
+    "tunnel 2 sewer locked 1": {
+        "text_id": "dialogue.tunnel_2_sewer_locked_1",
+        "next": "tunnel 2 sewer locked 2"
+    },
+
+    "tunnel 2 sewer locked 2": {
+        "text_id": "dialogue.tunnel_2_sewer_locked_2",
+        "next": "tunnel 2 choice"
+    },
+
+    "tunnel 2 unlock sewer": {
+        "text_id": "dialogue.tunnel_2_unlock_sewer",
+        "next": "enter sewer",
+        "actions": [
+            {   
+                "type": "set_flag",
+                "target": "sewer_door_unlocked",
+                "value": True
+            }
+        ]
+    },
+
+
+
+
+    "enter sewer": {
+        "text_id": "dialogue.enter_sewer",
+        "next": "sewer intro",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "sewer"
+            }
+        ]
+    },
+
+
+
+
+
+
+
 
     "Not Yet Implemented": {
         "text_id": "dialogue.not_yet_implemented",

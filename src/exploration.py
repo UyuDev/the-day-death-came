@@ -141,7 +141,7 @@ SEARCH_AREAS = {
                 "text_id": "exploration.chest_1",
                 "image": "chest",
                 "encounter": "tunnel_1_ambush",
-                "loot": ["Leather Gloves"],
+                "loot": ["Leather Gloves", "Rope"],
                 "coins": 5
             }
         ]
@@ -161,7 +161,7 @@ SEARCH_AREAS = {
                 "text_id": "exploration.chest_1",
                 "image": "chest",
                 "encounter": "tunnel_2_ambush",
-                "loot": ["Gambeson"],
+                "loot": ["Gambeson", "Sewer Key"],
                 "coins": 5
             }
         ]
@@ -181,7 +181,7 @@ SEARCH_AREAS = {
                 "text_id": "exploration.chest_1",
                 "image": "chest",
                 "encounter": "sewer_ambush",
-                "loot": ["Longsword"],
+                "loot": ["Longsword", "Dungeon Key"],
                 "coins": 5
             }
         ]
@@ -201,7 +201,7 @@ SEARCH_AREAS = {
                 "text_id": "exploration.chest_1",
                 "image": "chest",
                 "encounter": "dungeon_ambush",
-                "loot": ["Chainmail Hauberk"],
+                "loot": ["Chainmail Hauberk", "Crypt Key"],
                 "coins": 8
             }
         ]
