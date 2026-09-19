@@ -28,6 +28,10 @@ class WorldState():
             "tunnel_rope_placed": False,
             "tunnel_2_empty": False,
             "sewer_door_unlocked": False,
+            "sewer_empty": False,
             "dungeon_door_unlocked": False,
-            "crypt_door_unlocked": False
+            "dungeon_empty": False,
+            "crypt_door_unlocked": False,
+            "crypt_1_empty": False,
+            "crypt_2_empty": False
         }

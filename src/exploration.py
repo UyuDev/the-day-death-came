@@ -250,11 +250,17 @@ class Exploration():
     def __init__(self, language_data, assets):
         self.current = "intro"
         self.assets = assets
+        for key in ["unknown_enemy", "bandit", "cave_goblin", "giant_rat", "chest", "crate", "crates", "tomb", "small_chest"]:
+            self.assets[key] = pygame.transform.scale(
+                self.assets[key],
+                (SCREEN_WIDTH, MAP_HEIGHT)
+            )
         self.language_data = language_data
         self.ui = pygame.transform.scale(
             self.assets["ui_image"],
             (SCREEN_WIDTH, SCREEN_HEIGHT)
         )
+        self.current_image = "bandit"
         self.area = None
         self.text = None
         self.options = None
@@ -309,7 +315,15 @@ class Exploration():
         
         node = self.sequence[self.current_index]
         if "image" in node:
-            image = self.assets[node["image"]]
+            if self.current_image != node["image"]:
+                self.current_image = node["image"]
+                print(
+                    "IMAGE CHANGED:",
+                    self.current_image,
+                    self.assets[self.current_image].get_size()
+                )
+        if self.current_image is not None:
+            image = self.assets[self.current_image]
             screen.blit(image, (0, 0))
         screen.blit(self.ui, (0, 0))
         text_string = self.language_data[node["text_id"]].format(
@@ -329,7 +343,7 @@ class Exploration():
             y += line_height
 
         
-        screen.blit(text, rect)
+        # screen.blit(text, rect)
 
 
 
@@ -346,6 +360,7 @@ class Exploration():
         for container in containers:
             node = container.copy()
             self.sequence.append(node)
+            print("CURRENT CHEST:", self.assets["chest"].get_size())
             node_2 = TEXT_NODES["search"].copy()
             self.sequence.append(node_2)
             encounter = self.explore_encounter()
@@ -388,12 +403,12 @@ class Exploration():
                 self.sequence.append(node)
 
 
-
     def add_encounter_to_sequence(self, encounter_id, player):
         encounter = ENCOUNTERS[encounter_id]
         # detect correct initial text
         node = {
-            "text_id": encounter["text_id"]
+            "text_id": encounter["text_id"],
+            "image": "unknown_enemy"
         }
         self.sequence.append(node)
         enemies = encounter["enemies"]
@@ -422,13 +437,18 @@ class Exploration():
             self.sequence.append(node)
             # run encounter logic and store result
             result = self.simulate_encounter(enemy, player)
+            print("COMBAT RESULT:", result)
+            print("EXPLORATION RESULT:", self.result)
             # loss
             if result == "death":
+                self.result = "death"
                 node = TEXT_NODES["loss"].copy()
                 node["variables"] = {
                     "enemy": enemy.name
                 }
                 self.sequence.append(node)
+                if self.current_index >= len(self.sequence):
+                    print("SEQUENCE COMPLETE:", self.result)
                 return "death"
             # win
             else:
@@ -461,6 +481,8 @@ class Exploration():
                     "loot": loot_text
                 }
                 self.sequence.append(node)
+        if self.current_index >= len(self.sequence):
+            print("SEQUENCE COMPLETE:", self.result)
         return "win"
 
     def explore_encounter(self):

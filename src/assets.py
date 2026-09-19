@@ -18,13 +18,14 @@ def load_assets():
     "door death collapse": pygame.image.load("assets/door_death_collapse_temp.png").convert_alpha(),
 
     # art items
-    "small chest": pygame.image.load("assets/chest_temp.png").convert_alpha(),
+    "small_chest": pygame.image.load("assets/chest_temp.png").convert_alpha(),
     "tomb": pygame.image.load("assets/chest_temp.png").convert_alpha(),
     "chest": pygame.image.load("assets/chest_temp.png").convert_alpha(),
     "crate": pygame.image.load("assets/chest_temp.png").convert_alpha(),
     "crates": pygame.image.load("assets/chest_temp.png").convert_alpha(),
 
     # art enemies
+    "unknown_enemy": pygame.image.load("assets/unknown_enemy_temp.png").convert_alpha(),
     "bandit": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
     "giant_rat": pygame.image.load("assets/rat_temp.png").convert_alpha(),
     "cave_goblin": pygame.image.load("assets/goblin_temp.png").convert_alpha(),

@@ -1917,7 +1917,193 @@ DIALOGUE = {
     },
 
 
+    "sewer intro": {
+        "text_id": "dialogue.sewer_intro",
+        "next": "sewer cont"
+    },
 
+    "sewer cont": {
+        "text_id": "dialogue.sewer_cont",
+        "next": "sewer choice"
+    },
+
+
+    "sewer choice": {
+        "text_id": "dialogue.sewer_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.sewer_explore",
+                "next": "sewer explore 1"
+            },
+            2: {
+                "text_id": "dialogue.option.sewer_enemies",
+                "next": "sewer enemies 1"
+            },
+            3: {
+                "text_id": "dialogue.option.sewer_continue",
+                "next": "sewer continue"
+            },
+            4: {
+                "text_id": "dialogue.option.sewer_return",
+                "next": "tunnel 2 return"
+            }
+        }
+    },
+
+    "sewer explore 1": {
+        "text_id": "dialogue.sewer_explore_1",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "sewer_empty",
+                "value": False,
+                "if_pass": "sewer explore start",
+                "if_fail": "sewer explore 2",
+            }
+        ]
+    },
+
+    "sewer explore start": {
+        "text_id": "dialogue.sewer_explore_1",
+        "next": "sewer explore 2",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "sewer_empty",
+                "value": True
+            },
+            {   
+                "type": "explore_items",
+                "target": "sewer",
+            }
+        ]
+    },
+
+    "sewer explore 2": {
+        "text_id": "dialogue.sewer_explore_2",
+        "next": "sewer choice",
+    },
+
+
+    "sewer enemies 1": {
+        "text_id": "dialogue.sewer_enemies_1",
+        "next": "sewer enemies 2",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "sewer",
+            }
+        ]
+    },
+
+
+    "sewer enemies 2": {
+        "text_id": "dialogue.sewer_enemies_2",
+        "next": "sewer choice",
+    },
+
+
+    "tunnel 2 return": {
+        "text_id": "dialogue.return_to_tunnel_2",
+        "next": "tunnel 2 choice",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "tunnel 2"
+            }
+        ]
+    },
+
+    "sewer continue": {
+        "text_id": "dialogue.sewer_continue",
+        "next": "sewer continue choice",
+    },
+
+
+    "sewer continue choice": {
+        "text_id": "dialogue.sewer_continue_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.sewer_continue_2",
+                "next": "sewer continue check"
+            },
+            2: {
+                "text_id": "dialogue.option.empty",
+                "next": "sewer continue choice"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "sewer continue choice"
+            },
+            4: {
+                "text_id": "dialogue.option.sewer_step_away",
+                "next": "sewer choice"
+            }
+        }
+    },
+
+
+    "sewer continue check": {
+        "text_id": "dialogue.sewer_continue_check",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "dungeon_door_unlocked",
+                "value": True,
+                "if_pass": "enter dungeon",
+                "if_fail": "sewer dungeon key check",
+            }
+        ]
+    },
+
+    "sewer dungeon key check": {
+        "text_id": "dialogue.sewer_continue_check",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "sewer_empty",
+                "value": True,
+                "if_pass": "sewer unlock dungeon",
+                "if_fail": "sewer dungeon locked 1",
+            }
+        ]
+    },
+
+    "sewer dungeon locked 1": {
+        "text_id": "dialogue.sewer_dungeon_locked_1",
+        "next": "sewer dungeon locked 2"
+    },
+
+    "sewer dungeon locked 2": {
+        "text_id": "dialogue.sewer_dungeon_locked_2",
+        "next": "sewer choice"
+    },
+
+    "sewer unlock dungeon": {
+        "text_id": "dialogue.sewer_unlock_dungeon",
+        "next": "enter dungeon",
+        "actions": [
+            {   
+                "type": "set_flag",
+                "target": "dungeon_door_unlocked",
+                "value": True
+            }
+        ]
+    },
+
+
+
+
+    "enter dungeon": {
+        "text_id": "dialogue.enter_dungeon",
+        "next": "dungeon intro",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "dungeon"
+            }
+        ]
+    },
 
 
 
