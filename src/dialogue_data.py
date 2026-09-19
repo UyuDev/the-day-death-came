@@ -2092,8 +2092,6 @@ DIALOGUE = {
     },
 
 
-
-
     "enter dungeon": {
         "text_id": "dialogue.enter_dungeon",
         "next": "dungeon intro",
@@ -2104,6 +2102,194 @@ DIALOGUE = {
             }
         ]
     },
+
+
+
+    "dungeon intro": {
+        "text_id": "dialogue.dungeon_intro",
+        "next": "dungeon cont"
+    },
+
+    "dungeon cont": {
+        "text_id": "dialogue.dungeon_cont",
+        "next": "dungeon choice"
+    },
+
+
+    "dungeon choice": {
+        "text_id": "dialogue.dungeon_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.dungeon_explore",
+                "next": "dungeon explore 1"
+            },
+            2: {
+                "text_id": "dialogue.option.dungeon_enemies",
+                "next": "dungeon enemies 1"
+            },
+            3: {
+                "text_id": "dialogue.option.dungeon_continue",
+                "next": "dungeon continue"
+            },
+            4: {
+                "text_id": "dialogue.option.dungeon_return",
+                "next": "sewer return"
+            }
+        }
+    },
+
+    "dungeon explore 1": {
+        "text_id": "dialogue.dungeon_explore_1",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "dungeon_empty",
+                "value": False,
+                "if_pass": "dungeon explore start",
+                "if_fail": "dungeon explore 2",
+            }
+        ]
+    },
+
+    "dungeon explore start": {
+        "text_id": "dialogue.dungeon_explore_1",
+        "next": "dungeon explore 2",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "dungeon_empty",
+                "value": True
+            },
+            {   
+                "type": "explore_items",
+                "target": "dungeon",
+            }
+        ]
+    },
+
+    "dungeon explore 2": {
+        "text_id": "dialogue.dungeon_explore_2",
+        "next": "dungeon choice",
+    },
+
+
+    "dungeon enemies 1": {
+        "text_id": "dialogue.dungeon_enemies_1",
+        "next": "dungeon enemies 2",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "dungeon",
+            }
+        ]
+    },
+
+
+    "dungeon enemies 2": {
+        "text_id": "dialogue.dungeon_enemies_2",
+        "next": "dungeon choice",
+    },
+
+
+    "sewer return": {
+        "text_id": "dialogue.return_to_sewer",
+        "next": "sewer choice",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "sewer"
+            }
+        ]
+    },
+
+    "dungeon continue": {
+        "text_id": "dialogue.dungeon_continue",
+        "next": "dungeon continue choice",
+    },
+
+
+    "dungeon continue choice": {
+        "text_id": "dialogue.dungeon_continue_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.dungeon_continue_2",
+                "next": "dungeon continue check"
+            },
+            2: {
+                "text_id": "dialogue.option.empty",
+                "next": "dungeon continue choice"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "dungeon continue choice"
+            },
+            4: {
+                "text_id": "dialogue.option.dungeon_step_away",
+                "next": "dungeon choice"
+            }
+        }
+    },
+
+
+    "dungeon continue check": {
+        "text_id": "dialogue.dungeon_continue_check",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "crypt_door_unlocked",
+                "value": True,
+                "if_pass": "enter crypt 1",
+                "if_fail": "dungeon crypt key check",
+            }
+        ]
+    },
+
+    "dungeon crypt key check": {
+        "text_id": "dialogue.dungeon_continue_check",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "dungeon_empty",
+                "value": True,
+                "if_pass": "dungeon unlock crypt",
+                "if_fail": "dungeon crypt locked 1",
+            }
+        ]
+    },
+
+    "dungeon crypt locked 1": {
+        "text_id": "dialogue.dungeon_crypt_locked_1",
+        "next": "dungeon crypt locked 2"
+    },
+
+    "dungeon crypt locked 2": {
+        "text_id": "dialogue.dungeon_crypt_locked_2",
+        "next": "dungeon choice"
+    },
+
+    "dungeon unlock crypt": {
+        "text_id": "dialogue.dungeon_unlock_crypt",
+        "next": "enter crypt 1",
+        "actions": [
+            {   
+                "type": "set_flag",
+                "target": "crypt_door_unlocked",
+                "value": True
+            }
+        ]
+    },
+
+    "enter crypt 1": {
+        "text_id": "dialogue.enter_crypt_1",
+        "next": "crypt 1 intro",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "crypt 1"
+            }
+        ]
+    },
+
 
 
 
