@@ -1587,7 +1587,7 @@ DIALOGUE = {
 
     "tunnel 1 explore start": {
         "text_id": "dialogue.tunnel_1_explore_2",
-        "next": "tunnel 1 explore 2",
+        "next": "tunnel 1 choice",
         "actions": [
             {
                 "type": "set_flag",
@@ -1601,8 +1601,8 @@ DIALOGUE = {
         ]
     },
 
-    "tunnel 1 explore 2": {
-        "text_id": "dialogue.tunnel_1_explore_2",
+    "tunnel 1 explore empty": {
+        "text_id": "dialogue.tunnel_1_explore_empty",
         "next": "tunnel 1 choice",
     },
 
@@ -1769,14 +1769,14 @@ DIALOGUE = {
                 "target": "tunnel_2_empty",
                 "value": False,
                 "if_pass": "tunnel 2 explore start",
-                "if_fail": "tunnel 2 explore 2",
+                "if_fail": "tunnel 2 explore empty",
             }
         ]
     },
 
     "tunnel 2 explore start": {
         "text_id": "dialogue.tunnel_2_explore_2",
-        "next": "tunnel 2 explore 2",
+        "next": "tunnel 2 choice",
         "actions": [
             {
                 "type": "set_flag",
@@ -1790,8 +1790,8 @@ DIALOGUE = {
         ]
     },
 
-    "tunnel 2 explore 2": {
-        "text_id": "dialogue.tunnel_2_explore_2",
+    "tunnel 2 explore empty": {
+        "text_id": "dialogue.tunnel_2_explore_empty",
         "next": "tunnel 2 choice",
     },
 
@@ -1958,14 +1958,14 @@ DIALOGUE = {
                 "target": "sewer_empty",
                 "value": False,
                 "if_pass": "sewer explore start",
-                "if_fail": "sewer explore 2",
+                "if_fail": "sewer explore empty",
             }
         ]
     },
 
     "sewer explore start": {
         "text_id": "dialogue.sewer_explore_2",
-        "next": "sewer explore 2",
+        "next": "sewer choice",
         "actions": [
             {
                 "type": "set_flag",
@@ -1979,8 +1979,8 @@ DIALOGUE = {
         ]
     },
 
-    "sewer explore 2": {
-        "text_id": "dialogue.sewer_explore_2",
+    "sewer explore empty": {
+        "text_id": "dialogue.sewer_explore_empty",
         "next": "sewer choice",
     },
 
@@ -2146,14 +2146,14 @@ DIALOGUE = {
                 "target": "dungeon_empty",
                 "value": False,
                 "if_pass": "dungeon explore start",
-                "if_fail": "dungeon explore 2",
+                "if_fail": "dungeon explore empty",
             }
         ]
     },
 
     "dungeon explore start": {
         "text_id": "dialogue.dungeon_explore_2",
-        "next": "dungeon explore 2",
+        "next": "dungeon choice",
         "actions": [
             {
                 "type": "set_flag",
@@ -2167,8 +2167,8 @@ DIALOGUE = {
         ]
     },
 
-    "dungeon explore 2": {
-        "text_id": "dialogue.dungeon_explore_2",
+    "dungeon explore empty": {
+        "text_id": "dialogue.dungeon_explore_empty",
         "next": "dungeon choice",
     },
 
@@ -2336,14 +2336,10 @@ DIALOGUE = {
         ]
     },
 
-    "crypt 1 explore empty": {
-        "text_id": "dialogue.crypt_1_explore_empty",
-        "next": "crypt 1 choice",
-    },
 
     "crypt 1 explore start": {
         "text_id": "dialogue.crypt_1_explore_2",
-        "next": "crypt 1 explore 2",
+        "next": "crypt 1 choice",
         "actions": [
             {
                 "type": "set_flag",
@@ -2357,11 +2353,10 @@ DIALOGUE = {
         ]
     },
 
-    "crypt 1 explore 2": {
-        "text_id": "dialogue.crypt_1_explore_2",
+    "crypt 1 explore empty": {
+        "text_id": "dialogue.crypt_1_explore_empty",
         "next": "crypt 1 choice",
     },
-
 
     "crypt 1 enemies choice": {
         "text_id": "dialogue.crypt_1_enemies_choice",
@@ -2503,7 +2498,212 @@ DIALOGUE = {
     },
 
 
+    "crypt 2 intro": {
+        "text_id": "dialogue.crypt_2_intro",
+        "next": "crypt 2 cont"
+    },
 
+    "crypt 2 cont": {
+        "text_id": "dialogue.crypt_2_cont",
+        "next": "crypt 2 choice"
+    },
+
+
+    "crypt 2 choice": {
+        "text_id": "dialogue.crypt_2_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.crypt_2_explore",
+                "next": "crypt 2 explore 1"
+            },
+            2: {
+                "text_id": "dialogue.option.crypt_2_enemies",
+                "next": "crypt 2 enemies choice"
+            },
+            3: {
+                "text_id": "dialogue.option.crypt_2_continue",
+                "next": "crypt 2 continue"
+            },
+            4: {
+                "text_id": "dialogue.option.crypt_2_return",
+                "next": "crypt 1 return"
+            }
+        }
+    },
+
+    "crypt 2 explore 1": {
+        "text_id": "dialogue.crypt_2_explore_1",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "crypt_2_empty",
+                "value": False,
+                "if_pass": "crypt 2 explore start",
+                "if_fail": "crypt 2 explore empty",
+            }
+        ]
+    },
+
+
+    "crypt 2 explore start": {
+        "text_id": "dialogue.crypt_2_explore_2",
+        "next": "crypt 2 choice",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "crypt_2_empty",
+                "value": True
+            },
+            {   
+                "type": "explore_items",
+                "target": "crypt_2",
+            }
+        ]
+    },
+
+    "crypt 2 explore empty": {
+        "text_id": "dialogue.crypt_2_explore_empty",
+        "next": "crypt 2 choice",
+    },
+
+
+    "crypt 2 enemies choice": {
+        "text_id": "dialogue.crypt_2_enemies_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.crypt_2_enemies_1",
+                "next": "crypt 2 enemies 1"
+            },
+            2: {
+                "text_id": "dialogue.option.crypt_2_enemies_2",
+                "next": "crypt 2 enemies 2"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "crypt 2 enemies choice"
+            },
+            4: {
+                "text_id": "dialogue.option.crypt_2_do_nothing",
+                "next": "crypt 2 choice"
+            }
+        }
+    },
+
+
+
+    # new nodes
+    "crypt 2 enemies 1": {
+        "text_id": "dialogue.crypt_2_enemies_1",
+        "next": "crypt 2 enemies 1 cont",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "crypt_2_enemies_1",
+            }
+        ]
+    },
+
+
+    "crypt 2 enemies 1 cont": {
+        "text_id": "dialogue.crypt_2_enemies_1_cont",
+        "next": "crypt 2 choice",
+    },
+
+
+    "crypt 2 enemies 2": {
+        "text_id": "dialogue.crypt_2_enemies_2",
+        "next": "crypt 2 enemies 2 cont",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "crypt_2_enemies_2",
+            }
+        ]
+    },
+
+
+    "crypt 2 enemies 2 cont": {
+        "text_id": "dialogue.crypt_2_enemies_2_cont",
+        "next": "crypt 2 choice",
+    },
+
+
+    "crypt 1 return": {
+        "text_id": "dialogue.return_to_crypt_1",
+        "next": "crypt 1 choice",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "crypt 1"
+            }
+        ]
+    },
+
+    "crypt 2 continue": {
+        "text_id": "dialogue.crypt_2_continue",
+        "next": "crypt 2 continue check",
+    },
+
+    # I need to figure out if I want a confirmation or not
+    "crypt 2 continue check": {
+        "text_id": "dialogue.crypt_2_continue_check",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "crypt_2_empty",
+                "value": True,
+                "if_pass": "crypt 2 continue choice",
+                "if_fail": "crypt 2 reconsider 1",
+            }
+        ]
+    },
+
+
+    "crypt 2 reconsider 1": {
+        "text_id": "dialogue.crypt_2_reconsider_1",
+        "next": "crypt 2 reconsider 2"
+    },
+
+    "crypt 2 reconsider 2": {
+        "text_id": "dialogue.crypt_2_reconsider_2",
+        "next": "crypt 2 continue choice"
+    },
+
+
+    "crypt 2 continue choice": {
+        "text_id": "dialogue.crypt_2_continue_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.crypt_2_continue_2",
+                "next": "enter crypt 3"
+            },
+            2: {
+                "text_id": "dialogue.option.empty",
+                "next": "crypt 2 continue choice"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "crypt 2 continue choice"
+            },
+            4: {
+                "text_id": "dialogue.option.crypt_2_step_away",
+                "next": "crypt 2 choice"
+            }
+        }
+    },
+
+
+
+    "enter crypt 3": {
+        "text_id": "dialogue.enter_crypt_3",
+        "next": "crypt 3 intro",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "crypt 3"
+            }
+        ]
+    },
 
 
     "Not Yet Implemented": {

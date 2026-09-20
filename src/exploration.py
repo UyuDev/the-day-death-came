@@ -221,9 +221,9 @@ SEARCH_AREAS = {
     "crypt_2": {
         "containers": [
             {
-                "type": "Tomb",
+                "type": "Old Chest",
                 "text_id": "exploration.chest_2",
-                "image": "tomb",
+                "image": "chest",
                 "encounter": "crypt_2_ambush",
                 "loot": ["Old Amulet"],
                 "coins": 0
