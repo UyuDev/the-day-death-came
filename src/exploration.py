@@ -250,7 +250,7 @@ class Exploration():
     def __init__(self, language_data, assets):
         self.current = "intro"
         self.assets = assets
-        for key in ["unknown_enemy", "bandit", "cave_goblin", "giant_rat", "chest", "crate", "crates", "tomb", "small_chest"]:
+        for key in ["unknown_enemy", "bandit", "cave_goblin", "giant_rat", "cultist_acolyte", "skeleton_warrior", "zombie", "skeleton", "skeleton_mage", "honor_guard", "lord_graye", "reaper_boss", "chest", "crate", "crates", "tomb", "small_chest", "altar"]:
             self.assets[key] = pygame.transform.scale(
                 self.assets[key],
                 (SCREEN_WIDTH, MAP_HEIGHT)
@@ -348,11 +348,13 @@ class Exploration():
 
 
     def start_encounter(self, encounter_id, player):
+        self.result = None
         self.sequence = []
         self.current_index = 0
         self.add_encounter_to_sequence(encounter_id, player)
 
     def start_loot_search(self, encounter_id, player):
+        self.result = None
         self.sequence = []
         self.current_index = 0
         scenario = SEARCH_AREAS[encounter_id]

@@ -1580,13 +1580,13 @@ DIALOGUE = {
                 "target": "tunnel_1_empty",
                 "value": False,
                 "if_pass": "tunnel 1 explore start",
-                "if_fail": "tunnel 1 explore 2",
+                "if_fail": "tunnel 1 explore empty",
             }
         ]
     },
 
     "tunnel 1 explore start": {
-        "text_id": "dialogue.tunnel_1_explore_1",
+        "text_id": "dialogue.tunnel_1_explore_2",
         "next": "tunnel 1 explore 2",
         "actions": [
             {
@@ -1775,7 +1775,7 @@ DIALOGUE = {
     },
 
     "tunnel 2 explore start": {
-        "text_id": "dialogue.tunnel_2_explore_1",
+        "text_id": "dialogue.tunnel_2_explore_2",
         "next": "tunnel 2 explore 2",
         "actions": [
             {
@@ -1964,7 +1964,7 @@ DIALOGUE = {
     },
 
     "sewer explore start": {
-        "text_id": "dialogue.sewer_explore_1",
+        "text_id": "dialogue.sewer_explore_2",
         "next": "sewer explore 2",
         "actions": [
             {
@@ -2152,7 +2152,7 @@ DIALOGUE = {
     },
 
     "dungeon explore start": {
-        "text_id": "dialogue.dungeon_explore_1",
+        "text_id": "dialogue.dungeon_explore_2",
         "next": "dungeon explore 2",
         "actions": [
             {
@@ -2331,13 +2331,18 @@ DIALOGUE = {
                 "target": "crypt_1_empty",
                 "value": False,
                 "if_pass": "crypt 1 explore start",
-                "if_fail": "crypt 1 explore 2",
+                "if_fail": "crypt 1 explore empty",
             }
         ]
     },
 
+    "crypt 1 explore empty": {
+        "text_id": "dialogue.crypt_1_explore_empty",
+        "next": "crypt 1 choice",
+    },
+
     "crypt 1 explore start": {
-        "text_id": "dialogue.crypt_1_explore_1",
+        "text_id": "dialogue.crypt_1_explore_2",
         "next": "crypt 1 explore 2",
         "actions": [
             {
