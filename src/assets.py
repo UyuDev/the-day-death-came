@@ -23,6 +23,7 @@ def load_assets():
     "chest": pygame.image.load("assets/chest_temp.png").convert_alpha(),
     "crate": pygame.image.load("assets/chest_temp.png").convert_alpha(),
     "crates": pygame.image.load("assets/chest_temp.png").convert_alpha(),
+    "altar": pygame.image.load("assets/chest_temp.png").convert_alpha(),
 
     # art enemies
     "unknown_enemy": pygame.image.load("assets/unknown_enemy_temp.png").convert_alpha(),

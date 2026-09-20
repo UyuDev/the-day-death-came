@@ -84,11 +84,11 @@ ENCOUNTERS = {
         "text_id": "exploration.crypt_1_enemies_1"
     },
     "crypt_1_enemies_2": {
-        "enemies": ["skeleton_fighter", "cultist_acolyte", "skeleton_fighter", "cultist_acolyte"],
+        "enemies": ["cultist_acolyte", "cultist_acolyte", "cultist_acolyte", "cultist_acolyte"],
         "text_id": "exploration.crypt_1_enemies_2"
     },
     "crypt_1_ambush": {
-        "enemies": ["skeleton_fighter", "cultist_acolyte"],
+        "enemies": ["skeleton_fighter", "skeleton_fighter"],
         "text_id": "exploration.crypt_1_enemies_2"
     },
     "crypt_2_enemies_1": {
@@ -209,11 +209,11 @@ SEARCH_AREAS = {
     "crypt_1": {
         "containers": [
             {
-                "type": "tomb",
-                "text_id": "exploration.tomb_1",
-                "image": "tomb",
+                "type": "Old Altar",
+                "text_id": "exploration.altar_1",
+                "image": "altar",
                 "encounter": "crypt_1_ambush",
-                "loot": ["Old Journal Page"],
+                "loot": ["Dark Crystal", "Old Journal Page"],
                 "coins": 0
             }
         ]
@@ -222,10 +222,10 @@ SEARCH_AREAS = {
         "containers": [
             {
                 "type": "Tomb",
-                "text_id": "exploration.tomb_1",
+                "text_id": "exploration.chest_2",
                 "image": "tomb",
                 "encounter": "crypt_2_ambush",
-                "loot": ["Old Necklace"],
+                "loot": ["Old Amulet"],
                 "coins": 0
             }
         ]
