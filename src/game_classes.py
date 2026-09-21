@@ -8,40 +8,58 @@ default_abilities = {
     "avoidance": "dodge"
 }
 
-class Default():
-    def __init__(self):
-        self.name = "Default"
-        self.abilities = default_abilities
-
-class Farmer():
-    def __init__(self):
-        self.name = "Default"
-        self.abilities = default_abilities
-    def __str__(self):
-        return "Farmer"
-
 beast_abilities = {
     "main": "bite",
     "ultimate": "ravage",
     "avoidance": "dodge"
 }
 
-class Beast():
-    def __init__(self):
-        self.name = "Beast"
-        self.abilities = beast_abilities
-
-
-
+class GameClass():
+    def __init__(self, name, abilities, power):
+        self.name_id = name
+        self.abilities = abilities
+        self.power = power
 
 
 GAME_CLASSES = {
-    "Beast": Beast,
-    "Farmer": Farmer,
-    "Warrior": Default,
-    "Rogue": Default,
-    "Mage": Default,
-    "Paladin": Default,
-    "Reaper": Default,
-    "Warlock": Default
+    "Beast": GameClass(
+        "class.beast",
+        beast_abilities,
+        power=5
+    ),
+    "Farmer": GameClass(
+        "class.farmer",
+        default_abilities,
+        power=1
+    ),
+    "Warrior": GameClass(
+        "class.warrior",
+        default_abilities,
+        power=15
+    ),
+    "Rogue": GameClass(
+        "class.rogue",
+        default_abilities,
+        power=15
+    ),
+    "Mage": GameClass(
+        "class.mage",
+        default_abilities,
+        power=15
+    ),
+    "Paladin": GameClass(
+        "class.paladin",
+        default_abilities,
+        power=25
+    ),
+    "Reaper": GameClass(
+        "class.reaper",
+        default_abilities,
+        power=50
+    ),
+    "Warlock": GameClass(
+        "class.warlock",
+        default_abilities,
+        power=15
+    )
 }

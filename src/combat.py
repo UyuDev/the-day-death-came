@@ -3,21 +3,15 @@ import random
 
 
 def combat_placeholder(player, enemy):
-    if player.level == enemy.level:
-        num = random.randint(1,100)
-        if num > 95:
-            return False
-        else:
-            return True
-    elif player.level < enemy.level:
-        num = random.randint(1,100)
-        diff = enemy.level - player.level
-        if num >= (90 - diff):
-            return False
-        else:
-            return True
-    else:
-        return True
+    base = 80
+    bonus = player.level + player.power + player.game_class.power
+    reduction = enemy.level + enemy.power + enemy.game_class.power
+    final_chance = base + bonus - reduction
+    num = random.randint(1,100)
+    if final_chance < num:
+        return False
+    return True
+
 
 def calc_loot(enemy):
     loot = enemy.inventory.copy()

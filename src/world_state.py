@@ -35,5 +35,13 @@ class WorldState():
             "crypt_1_empty": False,
             "crypt_1_ritual_disrupted": False,
             "crypt_2_empty": False,
-            "crypt_3_empty": False
+            "crypt_3_empty": False,
+            "family_history_known": False,
+            "amulet_known": False,
+            "reaper_knowledge": False,
+            "lord_resolved": False,
+            "reaper_choice_made": False,
+            "accepted_deal": False,
+            "lord_defeated": False,
+            "reaper_reward_given": False
         }

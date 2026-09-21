@@ -2331,7 +2331,7 @@ DIALOGUE = {
                 "target": "crypt_1_empty",
                 "value": False,
                 "if_pass": "crypt 1 explore start",
-                "if_fail": "crypt 1 explore empty",
+                "if_fail": "reaper knowledge check",
             }
         ]
     },
@@ -2353,11 +2353,345 @@ DIALOGUE = {
         ]
     },
 
+    # check reaper_knowledge
+    "reaper knowledge check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "reaper_knowledge",
+                "value": True,
+                "if_pass": "reaper choice check",
+                "if_fail": "crypt 1 explore empty",
+            }
+        ]
+    },
+
+
     "crypt 1 explore empty": {
         "text_id": "dialogue.crypt_1_explore_empty",
         "next": "crypt 1 choice",
     },
 
+    # reaper path
+
+    "reaper choice check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "reaper_choice_made",
+                "value": False,
+                "if_pass": "reaper ritual 1",
+                "if_fail": "reaper deal check",
+            }
+        ]
+    },
+
+    "reaper deal check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "accepted_deal",
+                "value": False,
+                "if_pass": "reaper boss choice",
+                "if_fail": "reaper lord defeated check",
+            }
+        ]
+    },
+
+
+    "reaper lord defeated check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "lord_defeated",
+                "value": True,
+                "if_pass": "reaper reward check",
+                "if_fail": "reaper lord alive",
+            }
+        ]
+    },
+
+    "reaper lord alive": {
+        "text_id": "dialogue.reaper_lord_alive",
+        "next": "crypt 1 explore",
+    },
+
+    "reaper reward check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "reaper_reward_given",
+                "value": False,
+                "if_pass": "reaper lord reward",
+                "if_fail": "reaper no response",
+            }
+        ]
+    },
+
+
+    "reaper no response": {
+        "text_id": "dialogue.reaper_no_response",
+        "next": "crypt 1 explore",
+    },
+
+    "reaper lord reward": {
+        "text_id": "dialogue.reaper_lord_reward_1",
+        "next": "reaper lord reward 2",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "reaper_reward_given",
+                "value": True
+            },
+            {   
+                "type": "equip",
+                "target": "Ring of Death",
+                "slot": "ring",
+                "value": 1
+            }            
+        ]
+    },
+
+    "reaper lord reward 2": {
+        "text_id": "dialogue.reaper_lord_reward_2",
+        "next": "crypt 1 explore",
+    },
+
+
+    "reaper ritual 1": {
+        "text_id": "dialogue.reaper_ritual_1",
+        "next": "reaper ritual 2",
+    },
+
+    "reaper ritual 2": {
+        "text_id": "dialogue.reaper_ritual_2",
+        "next": "reaper intro 1",
+    },
+
+    "reaper intro 1": {
+        "text_id": "dialogue.reaper_intro_1",
+        "next": "reaper intro 2",
+    },
+
+    "reaper intro 2": {
+        "text_id": "dialogue.reaper_intro_2",
+        "next": "reaper intro 3",
+    },
+
+    "reaper intro 3": {
+        "text_id": "dialogue.reaper_intro_3",
+        "next": "reaper paladin class check",
+    },
+
+    # check if paladin or not
+
+    "reaper paladin class check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_class",
+                "target": "Paladin",
+                "if_pass": "reaper decline paladin",
+                "if_fail": "reaper make choice",
+            }
+        ]
+    },
+
+    # choice accept or decline
+
+    "reaper make choice": {
+        "text_id": "dialogue.reaper_make_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.reaper_accept",
+                "next": "reaper accept 1"
+            },
+            2: {
+                "text_id": "dialogue.option.reaper_decline",
+                "next": "reaper decline 1"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "reaper make choice"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "reaper make choice"
+            }
+        }
+    },
+
+    # accept 
+    "reaper accept 1": {
+        "text_id": "dialogue.reaper_accept_1",
+        "next": "reaper accept 2",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "reaper_choice_made",
+                "value": True
+            },
+            {
+                "type": "set_flag",
+                "target": "accepted_deal",
+                "value": True
+            }
+        ]
+    },
+
+    "reaper accept 2": {
+        "text_id": "dialogue.reaper_accept_2",
+        "next": "reaper accept 3"
+    },
+
+    "reaper accept 3": {
+        "text_id": "dialogue.reaper_accept_3",
+        "next": "reaper accept 4",
+        "actions": [
+            {
+                "type": "set_class",
+                "target": "Reaper",
+                "value": True
+            }
+        ]
+    },
+
+    "reaper accept 4": {
+        "text_id": "dialogue.reaper_accept_4",
+        "next": "crypt 1 choice"
+    },
+
+    # consider adding more choices for backstory
+
+    # decline paladin
+    "reaper decline paladin": {
+        "text_id": "dialogue.reaper_decline_paladin",
+        "next": "reaper decline 2",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "reaper_choice_made",
+                "value": True
+            },
+            {
+                "type": "set_flag",
+                "target": "accepted_deal",
+                "value": False
+            }
+        ]
+    },
+
+    # decline
+    "reaper decline 1": {
+        "text_id": "dialogue.reaper_decline_1",
+        "next": "reaper decline 2",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "reaper_choice_made",
+                "value": True
+            },
+            {
+                "type": "set_flag",
+                "target": "accepted_deal",
+                "value": False
+            }
+        ]
+    },
+
+    "reaper decline 2": {
+        "text_id": "dialogue.reaper_decline_2",
+        "next": "reaper decline 3"
+    },
+
+    "reaper decline 3": {
+        "text_id": "dialogue.reaper_decline_3",
+        "next": "reaper decline 4"
+    },
+
+    "reaper decline 4": {
+        "text_id": "dialogue.reaper_decline_4",
+        "next": "reaper boss choice"
+    },
+
+    "reaper boss choice": {
+        "text_id": "dialogue.reaper_boss_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.reaper_boss_1",
+                "next": "reaper boss 1"
+            },
+            2: {
+                "text_id": "dialogue.option.reaper_boss_2",
+                "next": "reaper boss 2"
+            },
+            3: {
+                "text_id": "dialogue.option.reaper_boss_3",
+                "next": "reaper boss 3"
+            },
+            4: {
+                "text_id": "dialogue.option.reaper_boss_4",
+                "next": "reaper boss 4"
+            }
+        }
+    },
+
+    "reaper boss 1": {
+        "text_id": "dialogue.reaper_boss_victory",
+        "next": "reaper boss victory",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "reaper_boss_1",
+            }
+        ]
+    },
+
+    "reaper boss 2": {
+        "text_id": "dialogue.reaper_boss_victory",
+        "next": "reaper boss victory",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "reaper_boss_2",
+            }
+        ]
+    },
+
+    "reaper boss 3": {
+        "text_id": "dialogue.reaper_boss_victory",
+        "next": "reaper boss victory",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "reaper_boss_3",
+            }
+        ]
+    },
+
+    "reaper boss 4": {
+        "text_id": "dialogue.reaper_boss_victory",
+        "next": "reaper boss victory",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "reaper_boss_4",
+            }
+        ]
+    },
+
+    "reaper boss victory": {
+        "text_id": "dialogue.reaper_boss_victory",
+        "next": "crypt 1 choice"
+    },
+
+
+    # reaper nodes end
     "crypt 1 enemies choice": {
         "text_id": "dialogue.crypt_1_enemies_choice",
         "options": {
@@ -2381,8 +2715,6 @@ DIALOGUE = {
     },
 
 
-
-    # new nodes
     "crypt 1 enemies 1": {
         "text_id": "dialogue.crypt_1_enemies_1",
         "next": "crypt 1 enemies 1 cont",
@@ -2704,6 +3036,411 @@ DIALOGUE = {
             }
         ]
     },
+
+
+    "crypt 3 intro": {
+        "text_id": "dialogue.crypt_3_intro",
+        "next": "crypt 3 cont"
+    },
+
+    "crypt 3 cont": {
+        "text_id": "dialogue.crypt_3_cont",
+        "next": "crypt 3 choice"
+    },
+
+
+    "crypt 3 choice": {
+        "text_id": "dialogue.crypt_3_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.crypt_3_inspect_items",
+                "next": "crypt 3 inspect items"
+            },
+            2: {
+                "text_id": "dialogue.option.crypt_3_inspect_tomb",
+                "next": "crypt 3 tomb check"
+            },
+            3: {
+                "text_id": "dialogue.option.crypt_3_approach_people",
+                "next": "crypt 3 approach people check"
+            },
+            4: {
+                "text_id": "dialogue.option.crypt_3_return",
+                "next": "crypt 2 return"
+            }
+        }
+    },
+
+    # inspect items dialogue
+    "crypt 3 inspect items": {
+        "text_id": "dialogue.crypt_3_inspect_items",
+        "next": "crypt 3 items choice"
+    },
+
+
+    "crypt 3 items choice": {
+        "text_id": "dialogue.crypt_3_items_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.crypt_3_inspect_tome",
+                "next": "crypt 3 inspect tome"
+            },
+            2: {
+                "text_id": "dialogue.option.crypt_3_inspect_page",
+                "next": "crypt 3 inspect page"
+            },
+            3: {
+                "text_id": "dialogue.option.crypt_3_inspect_forbidden",
+                "next": "crypt 3 inspect forbidden"
+            },
+            4: {
+                "text_id": "dialogue.option.crypt_3_do_nothing",
+                "next": "crypt 3 choice"
+            }
+        }
+    },
+
+    # check if tome was already read.
+    # if read -> short version (summary)
+    # if not read -> long version
+    "crypt 3 inspect tome": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "family_history_known",
+                "value": False,
+                "if_pass": "crypt 3 tome 2",
+                "if_fail": "crypt 3 tome summary",
+            }
+        ]
+    },   
+
+    "crypt 3 tome 2": {
+        "text_id": "dialogue.crypt_3_tome_2",
+        "next": "crypt 3 tome 3",
+    },
+
+    "crypt 3 tome 3": {
+        "text_id": "dialogue.crypt_3_tome_3",
+        "next": "crypt 3 tome 4",
+    },
+
+
+    "crypt 3 tome 4": {
+        "text_id": "dialogue.crypt_3_tome_4",
+        "next": "crypt 3 items choice",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "family_history_known",
+                "value": True
+            }
+        ]
+    },
+
+    # add more nodes if needed
+    "crypt 3 tome summary": {
+        "text_id": "dialogue.crypt_3_tome_summary",
+        "next": "crypt 3 items choice",
+    },
+
+
+    # check if note was already read.
+    # if read -> short version (summary)
+    # if not read -> long version
+    "crypt 3 inspect page": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "amulet_known",
+                "value": False,
+                "if_pass": "crypt 3 page 2",
+                "if_fail": "crypt 3 page summary",
+            }
+        ]
+    },   
+
+    "crypt 3 page 2": {
+        "text_id": "dialogue.crypt_3_page_2",
+        "next": "crypt 3 page 3",
+    },
+
+    "crypt 3 page 3": {
+        "text_id": "dialogue.crypt_3_page_3",
+        "next": "crypt 3 page 4",
+    },
+
+
+    "crypt 3 page 4": {
+        "text_id": "dialogue.crypt_3_page_4",
+        "next": "crypt 3 items choice",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "amulet_known",
+                "value": True
+            }
+        ]
+    },
+
+    # add more nodes if needed
+    "crypt 3 page summary": {
+        "text_id": "dialogue.crypt_3_page_summary",
+        "next": "crypt 3 items choice",
+    },
+
+
+    # check if note was already read.
+    # if read -> short version (summary)
+    # if not read -> long version
+    "crypt 3 inspect forbidden": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "amulet_known",
+                "value": True,
+                "if_pass": "crypt 3 forbidden 2",
+                "if_fail": "crypt 3 forbidden warning",
+            }
+        ]
+    },   
+
+    # puts on amulet
+    "crypt 3 forbidden 2": {
+        "text_id": "dialogue.crypt_3_forbidden_2",
+        "next": "crypt 3 forbidden 3",
+    },
+
+    "crypt 3 forbidden 3": {
+        "text_id": "dialogue.crypt_3_forbidden_3",
+        "next": "crypt 3 forbidden 4",
+    },
+
+
+    "crypt 3 forbidden 4": {
+        "text_id": "dialogue.crypt_3_forbidden_4",
+        "next": "crypt 3 items choice",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "reaper_knowledge",
+                "value": True
+            }
+        ]
+    },
+
+    # add more nodes if needed
+    "crypt 3 forbidden warning": {
+        "text_id": "dialogue.crypt_3_forbidden_warning",
+        "next": "crypt 3 forbidden choice",
+    },
+
+    "crypt 3 forbidden choice": {
+        "text_id": "dialogue.crypt_3_forbidden_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.crypt_3_forbidden_read",
+                "next": "forbidden open"
+            },
+            2: {
+                "text_id": "dialogue.option.crypt_3_forbidden_dont_read",
+                "next": "crypt 3 items choice"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "crypt 3 forbidden choice"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "crypt 3 forbidden choice"
+            },
+        }
+    },
+
+
+    "crypt 3 tomb check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "crypt_3_empty",
+                "value": False,
+                "if_pass": "crypt 3 inspect tomb 1",
+                "if_fail": "crypt 3 tomb empty",
+            }
+        ]
+    },
+
+    "crypt 3 inspect tomb 1": {
+        "text_id": "dialogue.crypt_3_tomb_1",
+        "next": "crypt 3 inspect tomb 2"
+    },
+
+    "crypt 3 inspect tomb 2": {
+        "text_id": "dialogue.crypt_3_tomb_2",
+        "next": "crypt 3 choice",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "crypt_3_empty",
+                "value": True
+            },
+            {   
+                "type": "item",
+                "target": "Shiny Key",
+                "value": 1
+            }
+        ]
+    },
+
+    "crypt 3 tomb empty": {
+        "text_id": "dialogue.crypt_3_tomb_empty",
+        "next": "crypt 3 choice",
+    },
+
+    # WIP
+    # check if lord resolved: true: empty room, false: check if slain
+    "crypt 3 approach people check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "lord_resolved",
+                "value": True,
+                "if_pass": "crypt 3 empty room",
+                "if_fail": "crypt 3 lord defeated check",
+            }
+        ]
+    },
+
+    # empty room node
+    "crypt 3 empty room": {
+        "text_id": "dialogue.crypt_3_empty_room",
+        "next": "crypt 3 choice",
+    },
+
+    # check if lord is slain: true: room filled with dead bodies, false: check if deal is accepted
+    "crypt 3 lord defeated check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "lord_defeated",
+                "value": True,
+                "if_pass": "crypt 3 bodies",
+                "if_fail": "crypt 3 deal check",
+            }
+        ]
+    },
+
+    # dead bodies node
+    "crypt 3 bodies": {
+        "text_id": "dialogue.crypt_3_bodies",
+        "next": "crypt 3 choice",
+    },
+
+    # check if deal accepted: true: combat, false: regular conversation
+    "crypt 3 deal check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "accepted_deal",
+                "value": True,
+                "if_pass": "crypt 3 combat 1",
+                "if_fail": "crypt 3 conversation 1",
+            }
+        ]
+    },
+
+    # regular convo node
+    "crypt 3 conversation 1": {
+        "text_id": "dialogue.crypt_3_conversation_1",
+        "next": "crypt 3 conversation 2",
+    },
+
+    "crypt 3 conversation 2": {
+        "text_id": "dialogue.crypt_3_conversation_2",
+        "next": "crypt 3 conversation 3",
+    },
+
+    "crypt 3 conversation 3": {
+        "text_id": "dialogue.crypt_3_conversation_3",
+        "next": "crypt 3 conversation 4",
+    },
+
+    # set resolved to true
+    "crypt 3 conversation 4": {
+        "text_id": "dialogue.crypt_3_conversation_4",
+        "next": "crypt 3 choice",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "lord_resolved",
+                "value": True
+            }
+        ]
+    },
+
+    # conversation leading to combat
+    "crypt 3 combat 1": {
+        "text_id": "dialogue.crypt_3_combat_1",
+        "next": "crypt 3 combat 2",
+    },
+
+    "crypt 3 combat 2": {
+        "text_id": "dialogue.crypt_3_combat_2",
+        "next": "crypt 3 combat 3",
+    },
+
+    "crypt 3 combat 3": {
+        "text_id": "dialogue.crypt_3_combat_3",
+        "next": "crypt 3 lord encounter",
+    },
+
+    # encounter
+    "crypt 3 lord encounter": {
+        "text_id": "dialogue.crypt_3_lord_encounter",
+        "next": "crypt 3 combat final",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "crypt_3_graye_encounter",
+            }
+        ]
+    },
+
+
+    # set slain to true
+    "crypt 3 combat final": {
+        "text_id": "dialogue.crypt_3_combat_final",
+        "next": "crypt 3 choice",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "lord_defeated",
+                "value": True
+            }
+        ]
+    },
+
+
+
+    "crypt 2 return": {
+        "text_id": "dialogue.return_to_crypt_2",
+        "next": "crypt 2 choice",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "crypt 2"
+            }
+        ]
+    },     
+
+
 
 
     "Not Yet Implemented": {

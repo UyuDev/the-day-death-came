@@ -103,33 +103,25 @@ ENCOUNTERS = {
         "enemies": ["skeleton_knight", "skeleton_darkmaster"],
         "text_id": "exploration.crypt_2_enemies_2"
     },
-    "crypt_3_enemies_1": {
-        "enemies": ["honor_guard", "honor_guard", "honor_guard", "honor_guard"],
-        "text_id": "exploration.crypt_3_enemies_1"
+    "crypt_3_graye_encounter": {
+        "enemies": ["honor_guard", "honor_guard", "honor_guard", "honor_guard", "lord_graye"],
+        "text_id": "exploration.crypt_3_graye_encounter"
     },
-    "crypt_3_enemies_2": {
-        "enemies": ["lord_graye", "honor_guard", "honor_guard"],
-        "text_id": "exploration.crypt_3_enemies_2"
-    },
-    "crypt_3_ambush": {
-        "enemies": ["honor_guard", "honor_guard"],
-        "text_id": "exploration.crypt_3_enemies_2"
-    },
-    "crypt_3_boss_1": {
+    "reaper_boss_1": {
         "enemies": ["reaper_boss_1"],
-        "text_id": "exploration.crypt_3_boss_1"
+        "text_id": "exploration.reaper_boss_1"
     },
-    "crypt_3_boss_2": {
+    "reaper_boss_2": {
         "enemies": ["reaper_boss_2"],
-        "text_id": "exploration.crypt_3_boss_2"
+        "text_id": "exploration.reaper_boss_2"
     },
-    "crypt_3_boss_3": {
+    "reaper_boss_3": {
         "enemies": ["reaper_boss_3"],
-        "text_id": "exploration.crypt_3_boss_3"
+        "text_id": "exploration.reaper_boss_3"
     },
-    "crypt_3_boss_4": {
+    "reaper_boss_4": {
         "enemies": ["reaper_boss_4"],
-        "text_id": "exploration.crypt_3_boss_4"
+        "text_id": "exploration.reaper_boss_4"
     }
 }
 

@@ -80,3 +80,15 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
         return "INTRO"
     elif action["type"] == "exit_exploration":
         return "INTRO"
+    elif action["type"] == "set_class":
+        player.set_class(action["target"])
+    elif action["type"] == "check_class":         
+        if player.check_class(action["target"]):
+            dialogue.set_current(action[f"if_pass"])
+        else:
+            dialogue.set_current(action[f"if_fail"])
+        new_actions = dialogue.get_actions()
+        for new_action in new_actions:
+            result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
+            if result is not None:
+                return result

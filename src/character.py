@@ -1,5 +1,6 @@
 import pygame
 from game_classes import GAME_CLASSES
+from item_data import ITEMS, EQUIPMENT_TEMPLATES
 
 stats = {
     "strength": 1,
@@ -39,6 +40,7 @@ class Character:
         self.level = 1
         self.experience = 0
         self.game_class = None
+        self.power = 1
         self.buffs = []
         self.debuffs = []
         self.inventory = []
@@ -67,3 +69,18 @@ class Character:
 
     def exp_to_level(self, level):
         return 50 * (level - 1) ** 2
+
+    def set_class(self, game_class):
+        if game_class not in GAME_CLASSES:
+            raise ValueError("Incorrect class name.")
+        self.game_class = GAME_CLASSES[game_class]
+        if game_class == "Reaper":
+            self.equip_set(game_class)
+
+    def equip_set(self, game_class):
+        self.equipped = EQUIPMENT_TEMPLATES[game_class].copy()
+
+    def check_class(self, game_class):
+        if self.game_class == GAME_CLASSES[game_class]:
+            return True
+        return False
