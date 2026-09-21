@@ -422,10 +422,10 @@ class Exploration():
             node["variables"] = {
                 "player": player.name,
                 "player_level": player.level,
-                "player_class": player.game_class.__name__,
+                "player_class": player.game_class.name_id,
                 "enemy": enemy.name,
                 "enemy_level": enemy.level,
-                "enemy_class": enemy.game_class.__name__
+                "enemy_class": enemy.game_class.name_id
             }
             node["image"] = enemy_data["image"]
             self.sequence.append(node)

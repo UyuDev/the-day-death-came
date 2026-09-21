@@ -8,6 +8,7 @@ def combat_placeholder(player, enemy):
     reduction = enemy.level + enemy.power + enemy.game_class.power
     final_chance = base + bonus - reduction
     num = random.randint(1,100)
+    print(f"{enemy.name} combat stats:\nbonus: {bonus}, reduction: {reduction}, final_chance: {final_chance}\nroll: {num}")
     if final_chance < num:
         return False
     return True

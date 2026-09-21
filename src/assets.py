@@ -51,7 +51,7 @@ def load_assets():
     "dungeon": pygame.image.load("assets/dungeon_map.png").convert_alpha(),
     "crypt 1": pygame.image.load("assets/crypt_map_1.png").convert_alpha(),
     "crypt 2": pygame.image.load("assets/crypt_map_2.png").convert_alpha(),
-    "crypt boss": pygame.image.load("assets/crypt_map_boss.png").convert_alpha(),
+    "crypt 3": pygame.image.load("assets/crypt_map_boss.png").convert_alpha(),
     "farm outside": pygame.image.load("assets/farm_map.png").convert_alpha(),
 
     # tiles

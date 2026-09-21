@@ -2459,7 +2459,7 @@ DIALOGUE = {
 
     "reaper lord reward 2": {
         "text_id": "dialogue.reaper_lord_reward_2",
-        "next": "crypt 1 explore",
+        "next": "crypt 1 choice",
     },
 
 

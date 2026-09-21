@@ -78,7 +78,7 @@ class Character:
             self.equip_set(game_class)
 
     def equip_set(self, game_class):
-        self.equipped = EQUIPMENT_TEMPLATES[game_class].copy()
+        self.equipped = EQUIPMENT_TEMPLATES[game_class.lower()].copy()
 
     def check_class(self, game_class):
         if self.game_class == GAME_CLASSES[game_class]:

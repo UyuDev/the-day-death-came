@@ -30,7 +30,7 @@ GAME_CLASSES = {
     "Farmer": GameClass(
         "class.farmer",
         default_abilities,
-        power=1
+        power=5
     ),
     "Warrior": GameClass(
         "class.warrior",
