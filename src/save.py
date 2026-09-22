@@ -21,13 +21,10 @@ def can_save(settings, player):
     return True
 
 def save_game(player, flags, save_location, slot):
+    player_data = player.to_dict()
     save_data = {
         "save_name": f"Nicholas - {save_location} - Level {player.level}",
-        "player": {
-            "level": player.level,
-            "inventory": player.inventory,
-            "equipped": player.equipped,
-        },
+        "player": player_data,
         "save_location": save_location,
         "flags": flags
     }
@@ -37,10 +34,7 @@ def save_game(player, flags, save_location, slot):
 
 # WIP
 def apply_save(data, player, world_state):
-    player.level = data["player"]["level"]
-    player.inventory = data["player"]["inventory"]
-    player.equipped = data["player"]["equipped"]
-
+    player.apply_data(data)
     world_state.flags = data["flags"]
     world_state.save_location = data["save_location"]
 
@@ -49,9 +43,9 @@ SAVE_LOCATIONS = {
         "map": "house_upstairs",
         "dialogue": "intro wake"
     },
-    "crypt_bed": {
-        "map": "crypt",
-        "dialogue": "crypt wake"
+    "sewer_bed": { # not yet implemented
+        "map": "sewer",
+        "dialogue": "sewer wake"
     }
 }
 

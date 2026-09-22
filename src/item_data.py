@@ -203,26 +203,113 @@ EQUIPMENT_TEMPLATES = {
 
 # WIP
 ITEMS = {
-    "gold_coin": {
-        "name": "Coin",
-        "type": "currency",
-        "value": 1,
-        "weight": .01,
-        "description": "A standard coin",
-        },
-    "cheese": {
-        "name": "Cheese",
-        "type": "food",
-        "value": 1,
-        "weight": 0.1,
-        "description": "A chunk of cheese",
-        },
-    "hunting_sword": {
-        "name": "Hunting Sword",
-        "type": "weapon",
-        "damage": 4,
-        "value": 1,
-        "weight": 2.5,
-        "description": "...",
-    }
+    "Cheese": {
+        "name_id": "item.cheese",
+        "power": 0,
+    },
+    "Rat Meat": {
+        "name_id": "item.rat_meat",
+        "power": 0,
+    },
+    "Fang": {
+        "name_id": "item.fang",
+        "power": 0,
+    },
+    "Cave Mushroom": {
+        "name_id": "item.cave_mushroom",
+        "power": 0,
+    },
+    "Rogue Tools": {
+        "name_id": "item.rogue_tools",
+        "power": 0,
+    },
+    "Dungeon Keys": {
+        "name_id": "item.dungeon_keys",
+        "power": 0,
+    },
+    "Bones": {
+        "name_id": "item.bones",
+        "power": 0,
+    },
+    "Crystal fragment": {
+        "name_id": "item.crystal_fragment",
+        "power": 0,
+    },
+    "Stolen Goods": {
+        "name_id": "item.stolen_goods",
+        "power": 0,
+    },
+    "Prayer Book": {
+        "name_id": "item.prayer_book",
+        "power": 0,
+    },
+    "Rare jewels": {
+        "name_id": "item.rare_jewels",
+        "power": 0,
+    },
+    "Ancient Armament": {
+        "name_id": "item.ancient_armament",
+        "power": 0,
+    },
+
+    "Leather Gloves": {
+        "name_id": "item.leather_gloves",
+        "power": 0.25,
+    },
+    "Rope": {
+        "name_id": "item.rope",
+        "power": 0,
+    },
+    "Strange Herb": {
+        "name_id": "item.strange_herb",
+        "power": 0,
+    },
+    "Gambeson": {
+        "name_id": "item.gambeson",
+        "power": 0.5,
+    },
+    "Sewer Key": {
+        "name_id": "item.sewer_key",
+        "power": 0,
+    },
+    "Alchemy Kit": {
+        "name_id": "item.alchemy_kit",
+        "power": 0,
+    },
+    "Longsword": {
+        "name_id": "item.longsword",
+        "power": 2,
+    },
+    "Dungeon Key": {
+        "name_id": "item.dungeon_key",
+        "power": 0,
+    },
+    "Rare Ingredient": {
+        "name_id": "item.rare_ingredient",
+        "power": 0,
+    },
+    "Chainmail Hauberk": {
+        "name_id": "item.chainmail_hauberk",
+        "power": 1,
+    },
+    "Crypt Key": {
+        "name_id": "item.crypt_key",
+        "power": 0,
+    },
+    "Dark Crystal": {
+        "name_id": "item.dark_crystal",
+        "power": 0,
+    },
+    "Old Journal Page": {
+        "name_id": "item.old_journal_page",
+        "power": 0,
+    },
+    "Old Amulet": {
+        "name_id": "item.old_amulet",
+        "power": 0,
+    },
+    "Shiny Key": {
+        "name_id": "item.shiny_key",
+        "power": 0,
+    },
 }

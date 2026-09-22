@@ -33,7 +33,6 @@ equipment_slots = {
 
 class Character:
     def __init__(self):
-        self.flags = {}
         self.stats = stats.copy()
         self.health = 100
         self.mana = 100
@@ -84,3 +83,36 @@ class Character:
         if self.game_class == GAME_CLASSES[game_class]:
             return True
         return False
+
+    def to_dict(self):
+        return {
+            "stats": self.stats,
+            "health": self.health,
+            "mana": self.mana,
+            "level": self.level,
+            "exp": self.experience,
+            "game_class": self.game_class.name_id,
+            "power": self.power,
+            "buffs": self.buffs,
+            "debuffs": self.debuffs,
+            "inventory": self.inventory,
+            "coins": self.coins,
+            "equipped": self.equipped,
+            "name": self.name,
+        }
+
+    def apply_data(self, data):
+        self.stats = data["stats"]
+        self.health = data["health"]
+        self.mana = data["mana"]
+        self.level = data["level"]
+        self.experience = data["exp"]
+        game_class = data["game_class"]
+        self.game_class = GAME_CLASSES[game_class]
+        self.power = data["power"]
+        self.buffs = data["buffs"]
+        self.debuffs = data["debuffs"]
+        self.inventory = data["inventory"]
+        self.coins = data["coins"]
+        self.equipped = data["equipped"]
+        self.name = data["name"]

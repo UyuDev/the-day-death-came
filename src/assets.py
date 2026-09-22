@@ -63,11 +63,44 @@ def load_assets():
     "S": pygame.image.load("assets/wood_stairs_1.png").convert_alpha(),
     "t": pygame.image.load("assets/wood_table_1.png").convert_alpha(),
     "1": pygame.image.load("assets/wood_wall_3.png").convert_alpha(),
-    "T": pygame.image.load("assets/placeholder.png").convert_alpha(),
-    "E": pygame.image.load("assets/placeholder.png").convert_alpha(),
-    "C": pygame.image.load("assets/placeholder.png").convert_alpha(),
-    "L": pygame.image.load("assets/placeholder.png").convert_alpha(),
-    "B": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "T": pygame.image.load("assets/tools.png").convert_alpha(),
+    "E": pygame.image.load("assets/dungeon_door.png").convert_alpha(),
+    "C": pygame.image.load("assets/chest_tile.png").convert_alpha(),
+    "L": pygame.image.load("assets/ladder.png").convert_alpha(),
+    "B": pygame.image.load("assets/bookshelf.png").convert_alpha(),
     "W": pygame.image.load("assets/wood_floor_2.png").convert_alpha(),
+    # Farm
+    "r": pygame.image.load("assets/farm_ground.png").convert_alpha(),
+    "v": pygame.image.load("assets/farm_fence.png").convert_alpha(),  # fence
+    "R": pygame.image.load("assets/crate.png").convert_alpha(),  # crate
+
+    # Cave
+    "c": pygame.image.load("assets/cave_1.png").convert_alpha(),
+    "y": pygame.image.load("assets/cave_2.png").convert_alpha(),
+    "Y": pygame.image.load("assets/cave_3.png").convert_alpha(),
+
+    # Sewer
+    "s": pygame.image.load("assets/sewer_1.png").convert_alpha(),  # sewer wall
+    "h": pygame.image.load("assets/sewer_bed.png").convert_alpha(),  # straw bed
+    "g": pygame.image.load("assets/sewer_1.png").convert_alpha(),  # stone ground
+    "w": pygame.image.load("assets/sewer_water.png").convert_alpha(),  # water
+    "H": pygame.image.load("assets/sewer_door.png").convert_alpha(),  # heavy door
+    "=": pygame.image.load("assets/sewer_bridge.png").convert_alpha(),  # stone bridge
+
+    # Dungeon
+    "F": pygame.image.load("assets/stone_floor.png").convert_alpha(),  # stone floor
+    "P": pygame.image.load("assets/prison_cell.png").convert_alpha(),  # prison cell
+    "u": pygame.image.load("assets/wood_table_1.png").convert_alpha(),  # wood table
+    ">": pygame.image.load("assets/tunnel_steps.png").convert_alpha(),  # tunnel steps
+
+    # Crypt
+    "q": pygame.image.load("assets/crypt_1.png").convert_alpha(),  # crypt floor 1
+    "e": pygame.image.load("assets/crypt_1.png").convert_alpha(),  # crypt floor 2
+    "i": pygame.image.load("assets/crypt_1.png").convert_alpha(),  # crypt floor 3
+    "K": pygame.image.load("assets/crypt_1.png").convert_alpha(),  # crypt wall
+    "m": pygame.image.load("assets/crypt_tomb.png").convert_alpha(),  # sarcophagus
+    "z": pygame.image.load("assets/crypt_fire.png").convert_alpha(),  # brazier
+    "A": pygame.image.load("assets/crypt_altar.png").convert_alpha(),  # altar
+    "M": pygame.image.load("assets/crypt_tomb_2.png").convert_alpha(),  # ornate tomb
 }
 
