@@ -74,7 +74,7 @@ class Character:
         if game_class not in GAME_CLASSES:
             raise ValueError("Incorrect class name.")
         self.game_class = GAME_CLASSES[game_class]
-        if game_class == "Reaper":
+        if game_class == "Reaper" or game_class == "Paladin":
             self.equip_set(game_class)
 
     def equip_set(self, game_class):

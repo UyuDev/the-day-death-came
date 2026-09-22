@@ -38,6 +38,7 @@ class WorldState():
             "crypt_3_empty": False,
             "family_history_known": False,
             "amulet_known": False,
+            "paladin_chest_looted": False,
             "reaper_knowledge": False,
             "lord_resolved": False,
             "reaper_choice_made": False,

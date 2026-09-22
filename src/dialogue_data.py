@@ -1090,7 +1090,7 @@ DIALOGUE = {
             },
             2: {
                 "text_id": "dialogue.option.inspect_basement_chest",
-                "next": "Not Yet Implemented"
+                "next": "inspect basement chest"
             },
             3: {
                 "text_id": "dialogue.option.inspect_walls",
@@ -1102,6 +1102,154 @@ DIALOGUE = {
                 }
             }
         },
+
+    # notice the chest 
+    "inspect basement chest": {
+        "text_id": "dialogue.inspect_basement_chest",
+        "next": "basement chest check"
+    },    
+
+    # check if its recognized -> "family_history_known" must be True or else it just is a locked chest
+    "basement chest check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "family_history_known",
+                "value": True,
+                "if_pass": "paladin chest empty check",
+                "if_fail": "basement chest 1",
+            }
+        ]
+    },
+
+    # just an old chest
+    "basement chest 1": {
+        "text_id": "dialogue.basement_chest_1",
+        "next": "basement chest 2"
+    },    
+
+    # locked
+    "basement chest 2": {
+        "text_id": "dialogue.basement_chest_2",
+        "next": "basement state check"
+    },    
+
+
+    "basement state check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "basement_walls_broken",
+                "value": True,
+                "if_pass": "look around the basement 2",
+                "if_fail": "look around the basement",
+            }
+        ]
+    },
+
+    # paladin - check if looted already: True -> empty, False -> recognize chest
+    "paladin chest empty check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "paladin_chest_looted",
+                "value": True,
+                "if_pass": "paladin chest empty",
+                "if_fail": "paladin chest 1",
+            }
+        ]
+    },
+
+    # chest empty
+    "paladin chest empty": {
+        "text_id": "dialogue.paladin_chest_empty",
+        "next": "basement state check" # checking just to be safe, even though impossible
+    },  
+
+    # recognize it
+    "paladin chest 1": {
+        "text_id": "dialogue.paladin_chest_1",
+        "next": "paladin chest key check"
+    },
+
+    # checks if you got the key
+    "paladin chest key check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "crypt_3_empty",
+                "value": True,
+                "if_pass": "paladin chest 2",
+                "if_fail": "paladin chest locked",
+            }
+        ]
+    },
+
+    # locked, but it has to be somewhere in the crypt
+    "paladin chest locked": {
+        "text_id": "dialogue.paladin_chest_locked",
+        "next": "basement state check" # being safe
+    },
+
+    # I have the key, so slowly open
+    "paladin chest 2": {
+        "text_id": "dialogue.paladin_chest_2",
+        "next": "paladin chest 3"
+    },
+
+    # old armor, sword and amulet are inside
+    "paladin chest 3": {
+        "text_id": "dialogue.paladin_chest_3",
+        "next": "paladin chest class check",
+        "actions": [
+            {   
+                "type": "set_flag",
+                "target": "paladin_chest_looted",
+                "value": True
+            },
+            {   
+                "type": "item",
+                "target": "Paladin Relics",
+                "value": 1
+            }
+        ]
+    },
+
+    # check is a reaper or not
+    "paladin chest class check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_class",
+                "target": "Reaper",
+                "if_pass": "paladin chest reaper",
+                "if_fail": "paladin chest 4",
+            }
+        ]
+    },
+
+    # reaper -> not interested -> leave
+    "paladin chest reaper": {
+        "text_id": "dialogue.paladin_chest_reaper",
+        "next": "basement state check"
+    },
+
+    # you remember the tome describing the paladin initiation ritual
+    "paladin chest 4": {
+        "text_id": "dialogue.paladin_chest_4",
+        "next": "paladin chest 5"
+    },
+
+    # you need to go to an altar. You remember the one below the church back in the crypt.
+    "paladin chest 5": {
+        "text_id": "dialogue.paladin_chest_5",
+        "next": "basement state check"
+    },
+
 
 
     "inspect tools": {
@@ -1172,32 +1320,6 @@ DIALOGUE = {
     },
 
 
-    "inspect crates": {
-        "text_id": "dialogue.inspect_crates",
-        "next": "crates choice"
-    },
-
-    "crates choice": {
-        "text_id": "dialogue.crates_choice",
-        "options": {
-            1: {
-                "text_id": "dialogue.option.empty",
-                "next": "crates choice"
-            },
-            2: {
-                "text_id": "dialogue.option.empty",
-                "next": "crates choice"
-            },
-            3: {
-                "text_id": "dialogue.option.empty",
-                "next": "crates choice"
-            },
-            4: {
-                "text_id": "dialogue.option.take_nothing",
-                "next": "look around the basement"
-            }
-        }
-    },
 
     "inspect walls": {
         "text_id": "dialogue.inspect_walls",
@@ -1241,15 +1363,7 @@ DIALOGUE = {
 
     "inspect right wall": {
         "text_id": "dialogue.inspect_right_wall",
-        "actions": [
-            {   
-                "type": "check_flag",
-                "target": "basement_right_wall_checked",
-                "value": False,
-                "if_pass": "right wall loose bricks",
-                "if_fail": "right wall loose bricks",
-            }
-        ]
+        "next": "right wall loose bricks"
     },
 
     "inspect top wall": {
@@ -1267,15 +1381,7 @@ DIALOGUE = {
 
     "inspect bottom wall": {
         "text_id": "dialogue.inspect_bottom_wall",
-        "actions": [
-            {   
-                "type": "check_flag",
-                "target": "basement_key_found",
-                "value": False,
-                "if_pass": "bottom wall loose bricks",
-                "if_fail": "done wall",
-            }
-        ]
+        "next": "bottom wall loose bricks"
     },
 
     "done wall": {
@@ -1295,7 +1401,7 @@ DIALOGUE = {
                 "type": "check_flag",
                 "target": "basement_tools_taken",
                 "value": True,
-                "if_pass": "wall use tools R",
+                "if_pass": "wall use tools",
                 "if_fail": "wall need tools",
             }
         ]
@@ -1308,7 +1414,7 @@ DIALOGUE = {
                 "type": "check_flag",
                 "target": "basement_tools_taken",
                 "value": True,
-                "if_pass": "wall use tools S",
+                "if_pass": "wall use tools",
                 "if_fail": "wall need tools",
             }
         ]
@@ -1319,19 +1425,15 @@ DIALOGUE = {
         "next": "look around the basement"
     },
 
-    "wall use tools S": {
+    "wall use tools": {
         "text_id": "dialogue.wall_use_tools",
         "next": "basement key found"
     },
 
-    "wall use tools R": {
-        "text_id": "dialogue.wall_use_tools",
-        "next": "basement door revealed"
-    },
 
     "basement key found": {
         "text_id": "dialogue.basement_key_found",
-        "next": "basement key check",
+        "next": "basement door revealed",
         "actions": [
             {   
                 "type": "set_flag",
@@ -1345,21 +1447,6 @@ DIALOGUE = {
             }
         ]
     },
-
-    "basement key check": {
-        "text_id": "dialogue.basement_key_found",
-        "actions": [
-            {   
-                "type": "check_flag",
-                "target": "basement_walls_broken",
-                "value": False,
-                "if_pass": "look around the basement",
-                "if_fail": "look around the basement 2",
-            }
-        ]
-    },
-
-
 
 
     "basement door revealed": {
@@ -3310,8 +3397,36 @@ DIALOGUE = {
                 "type": "check_flag",
                 "target": "lord_resolved",
                 "value": True,
-                "if_pass": "crypt 3 empty room",
+                "if_pass": "crypt 3 paladin chest check",
                 "if_fail": "crypt 3 lord defeated check",
+            }
+        ]
+    },
+
+    # check if the player looted the chest or not, I don't want accidentally pressing this option again to bypass the steps to be a paladin
+    "crypt 3 paladin chest check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "paladin_chest_looted",
+                "value": True,
+                "if_pass": "crypt 3 paladin check",
+                "if_fail": "crypt 3 empty room",
+            }
+        ]
+    },
+
+
+    # check if the player is a paladin or not. False -> empty room, True -> altar scene
+    "crypt 3 paladin check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_class",
+                "target": "Paladin",
+                "if_pass": "crypt 3 empty room",
+                "if_fail": "crypt 3 altar scene",
             }
         ]
     },
@@ -3319,6 +3434,84 @@ DIALOGUE = {
     # empty room node
     "crypt 3 empty room": {
         "text_id": "dialogue.crypt_3_empty_room",
+        "next": "crypt 3 choice",
+    },
+
+    # altar scene approaching and kneeling
+    "crypt 3 altar scene": {
+        "text_id": "dialogue.crypt_3_altar_scene",
+        "next": "crypt 3 paladin choice",
+    },
+
+    # ask if you want to attempt to bind with the amulet to become a paladin 
+    "crypt 3 paladin choice": {
+        "text_id": "dialogue.crypt_3_paladin_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.crypt_3_paladin_accept",
+                "next": "crypt 3 paladin 1"
+            },
+            2: {
+                "text_id": "dialogue.option.crypt_3_paladin_decline",
+                "next": "crypt 3 paladin decline"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "crypt 3 paladin choice"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "crypt 3 paladin choice"
+            }
+        }
+    },
+
+    # decline path -> comment on uncertianty -> return to crypt choice 3
+    "crypt 3 paladin decline": {
+        "text_id": "dialogue.crypt_3_paladin_decline",
+        "next": "crypt 3 choice",
+    },
+
+    # accept path -> confident
+    "crypt 3 paladin 1": {
+        "text_id": "dialogue.crypt_3_paladin_1",
+        "next": "crypt 3 paladin 2",
+    },
+
+    # grabs amulet and closes eyes
+    "crypt 3 paladin 2": {
+        "text_id": "dialogue.crypt_3_paladin_2",
+        "next": "crypt 3 paladin 3",
+    },
+
+    # recites the oath
+    "crypt 3 paladin 3": {
+        "text_id": "dialogue.crypt_3_paladin_3",
+        "next": "crypt 3 paladin 4",
+    },
+
+    # surrounded by light
+    "crypt 3 paladin 4": {
+        "text_id": "dialogue.crypt_3_paladin_4",
+        "next": "crypt 3 paladin 5",
+    },
+
+    # paladin unlocked
+    "crypt 3 paladin 5": {
+        "text_id": "dialogue.crypt_3_paladin_5",
+        "next": "crypt 3 paladin 6",
+        "actions": [
+            {
+                "type": "set_class",
+                "target": "Paladin",
+                "value": True
+            }
+        ]
+    },
+
+    # now I must save my family
+    "crypt 3 paladin 6": {
+        "text_id": "dialogue.crypt_3_paladin_6",
         "next": "crypt 3 choice",
     },
 

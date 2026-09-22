@@ -163,6 +163,24 @@ EQUIPMENT_TEMPLATES = {
         "main weapon": "Graye's Arming Sword",
         "secondary weapon": "Mage's Spellbook"
     },
+    "paladin": {
+        "head": "Steel Greathelm",
+        "neck": "Ancestral Paladin Insignia",
+        "shirt": "Fine Gambeson",
+        "torso": "Ancestral Cuirass",
+        "hands": "Steel Gauntlets",
+        "arms": "Steel Arm Harness",
+        "waist": "Embroidered Sword Belt",
+        "pants": "Fine Trousers",
+        "leg armor": "Steel Leg Harness",
+        "feet": "Refined Stockings",
+        "shoes": "Steel Sabatons",
+        "cloak": "Paladin's Cloak",
+        "ring": "Aldren Family's Signet Ring",
+        "bag": "Large Leather Satchel",
+        "main weapon": "Master Alden's Warhammer",
+        "secondary weapon": "Master Alden's Tome"
+    },
     "reaper": {
         "head": "Reaper's Crowned Helm",
         "neck": "Shroud of the Banished",
