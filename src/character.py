@@ -91,7 +91,7 @@ class Character:
             "mana": self.mana,
             "level": self.level,
             "exp": self.experience,
-            "game_class": self.game_class.name_id,
+            "game_class": self.game_class.class_id,
             "power": self.power,
             "buffs": self.buffs,
             "debuffs": self.debuffs,
@@ -102,17 +102,17 @@ class Character:
         }
 
     def apply_data(self, data):
-        self.stats = data["stats"]
-        self.health = data["health"]
-        self.mana = data["mana"]
-        self.level = data["level"]
-        self.experience = data["exp"]
-        game_class = data["game_class"]
+        self.stats = data["player"]["stats"]
+        self.health = data["player"]["health"]
+        self.mana = data["player"]["mana"]
+        self.level = data["player"]["level"]
+        self.experience = data["player"]["exp"]
+        game_class = data["player"]["game_class"]
         self.game_class = GAME_CLASSES[game_class]
-        self.power = data["power"]
-        self.buffs = data["buffs"]
-        self.debuffs = data["debuffs"]
-        self.inventory = data["inventory"]
-        self.coins = data["coins"]
-        self.equipped = data["equipped"]
-        self.name = data["name"]
+        self.power = data["player"]["power"]
+        self.buffs = data["player"]["buffs"]
+        self.debuffs = data["player"]["debuffs"]
+        self.inventory = data["player"]["inventory"]
+        self.coins = data["player"]["coins"]
+        self.equipped = data["player"]["equipped"]
+        self.name = data["player"]["name"]
