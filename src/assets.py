@@ -16,6 +16,7 @@ def load_assets():
     "door death leg": pygame.image.load("assets/door_death_leg_temp.png").convert_alpha(),
     "door death mind": pygame.image.load("assets/door_death_mind_temp.png").convert_alpha(),
     "door death collapse": pygame.image.load("assets/door_death_collapse_temp.png").convert_alpha(),
+    "good ending 1": pygame.image.load("assets/placeholder.png").convert_alpha(),
 
     # art items
     "small_chest": pygame.image.load("assets/chest_temp.png").convert_alpha(),

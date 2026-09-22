@@ -3,31 +3,19 @@ from save import can_save, save_game, reload_current_save
 
 def handle_action(action, player, renderer, dialogue, world_state, save_menu, settings, exploration):
     if action["type"] == "encounter":
-        if action["target"] == "door_encounter":
-            if player.level < 10:
+        if action["target"] == "door_encounter" and player.level < 10:
                 number = random.randint(1, 4)
-                dialogue.set_current(action["on_loss"] + f" {number}")
-            else:
-                # later implement the combat
-                result = exploration.simulate_encounter(action["target"], player)
-                if result == "death":
-                    reload_current_save(
-                        player,
-                        world_state,
-                        save_menu,
-                        renderer,
-                        dialogue
-                    )
-                    return "INTRO"
-                dialogue.set_current(action["on_win"])
-            new_actions = dialogue.get_actions()
-            for new_action in new_actions:
-                result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
-                if result is not None:
-                    return result
+                dialogue.set_current(f"door death {number}")
+                new_actions = dialogue.get_actions()
+                for new_action in new_actions:
+                    result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
+                    if result is not None:
+                        return result
+        # simplified logic
         else:
             exploration.start_encounter(action["target"], player)
             return "EXPLORATION"
+        
     elif action["type"] == "check_flag":
         if world_state.flags[action["target"]] == action["value"]:
             dialogue.set_current(action[f"if_pass"])

@@ -894,17 +894,28 @@ DIALOGUE = {
 
     "door": {
         "text_id": "dialogue.leave_door",
-        "next": "door encounter"
+        "next": "go outside"
     },
+
+    "go outside": {
+        "text_id": "dialogue.go_outside",
+        "next": "door encounter",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "farm outside"
+            }
+        ]
+    },
+
 
     "door encounter": {
         "text_id": "dialogue.door_encounter",
+        "next": "farm saved 1",
         "actions": [
             {   
                 "type": "encounter",
-                "target": "door_encounter",
-                "on_win": "door victory",
-                "on_loss": "door death"
+                "target": "door_encounter"
             }
         ]
     },
@@ -949,6 +960,79 @@ DIALOGUE = {
             {   
                 "type": "show_scene",
                 "target": "door death mind"
+            }
+        ]
+    },
+
+
+    # ending path
+    # rush to shed
+    "farm saved 1": {
+        "text_id": "dialogue.farm_saved_1",
+        "next": "farm saved 2"
+    },
+
+    # call out to family
+    "farm saved 2": {
+        "text_id": "dialogue.farm_saved_2",
+        "next": "farm saved 3"
+    },
+
+    # hear them open
+    "farm saved 3": {
+        "text_id": "dialogue.farm_saved_3",
+        "next": "farm saved 4"
+    },
+
+    # reunited
+    "farm saved 4": {
+        "text_id": "dialogue.farm_saved_4",
+        "next": "good ending 1"
+    },
+
+
+    # happy ending
+    "good ending 1": {
+        "text_id": "dialogue.good_ending_1",
+        "next": "save game 2",
+        "actions": [
+            {   
+                "type": "show_scene",
+                "target": "good ending 1"
+            }
+        ]
+    },
+
+    # save choice
+    "save game 2": {
+        "text_id": "dialogue.save_game_2",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.save_game_yes_2",
+                "next": "save game yes"
+            },
+            2: {
+                "text_id": "dialogue.option.save_game_no_2",
+                "next": "return to house"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "save game 2"
+            },
+            4: {
+                "text_id": "dialogue.option.main_menu",
+                "next": "main menu"
+            }
+        }
+    },
+
+    "return to house": {
+        "text_id": "dialogue.return_to_house",
+        "next": "look around downstairs",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "house"
             }
         ]
     },
@@ -1554,8 +1638,8 @@ DIALOGUE = {
                 "next": "basement door choice"
             },
             2: {
-                "text_id": "dialogue.option.empty",
-                "next": "look around the basement 2"
+                "text_id": "dialogue.option.inspect_basement_chest",
+                "next": "inspect basement chest"
             },
             3: {
                 "text_id": "dialogue.option.empty",
