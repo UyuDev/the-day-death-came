@@ -1,4 +1,5 @@
 import pygame
+import math
 from game_classes import GAME_CLASSES
 from item_data import ITEMS, EQUIPMENT_TEMPLATES
 
@@ -76,8 +77,68 @@ class Character:
         if game_class == "Reaper" or game_class == "Paladin":
             self.equip_set(game_class)
 
+    def equip_helper(self, new_item):
+        new_item_data = ITEMS[new_item]
+        item_slot = new_item_data["slot"]
+        old_item = self.equipped[item_slot]
+        if old_item is not None:
+            self.inventory.append(old_item)
+        self.equipped[item_slot] = new_item
+
+
+    def equip_items(self, new_items):
+        if isinstance(new_items, dict):
+            for new_item in new_items.values():
+                if new_item is not None:
+                    self.equip_helper(new_item)
+        elif isinstance(new_items, list):
+            for new_item in new_items:
+                self.equip_helper(new_item)
+        elif isinstance(new_items, str):
+            self.equip_helper(new_items)
+        else:
+            raise TypeError("Invalid argument for new_items.")
+
+    def acquire_items(self, new_items):
+        for item in new_items:
+            if ITEMS[item]["slot"] is not None:
+                self.auto_equip(item)
+            else:
+                self.inventory.append(item)
+        # print("EQUIPPED AFTER LOOT:")
+        # print(self.equipped)
+        # print("INVENTORY AFTER LOOT:")
+        # print(self.inventory)
+
+    def auto_equip(self, new_item):
+        new_item_data = ITEMS[new_item]
+        item_slot = new_item_data["slot"]
+        old_item = self.equipped[item_slot]
+        if old_item is not None:
+            old_item_data = ITEMS[old_item]
+            if old_item_data["power"] < new_item_data["power"]:
+                self.equip_helper(new_item)
+            else:
+                self.inventory.append(new_item)
+        else:
+            self.equip_helper(new_item)
+
     def equip_set(self, game_class):
-        self.equipped = EQUIPMENT_TEMPLATES[game_class.lower()].copy()
+        new_set = EQUIPMENT_TEMPLATES[game_class.lower()].copy()
+        for new_item in new_set.values():
+            if new_item is not None:
+                self.equip_helper(new_item)
+
+    def item_diminishing_returns(self, total):
+        return 2 * math.sqrt(total)
+
+    def equipment_power(self):
+        total = 0
+        for item in self.equipped.values():
+            if item is not None:
+                item_data = ITEMS[item]
+                total += item_data["power"]
+        return self.item_diminishing_returns(total)
 
     def check_class(self, game_class):
         if self.game_class == GAME_CLASSES[game_class]:

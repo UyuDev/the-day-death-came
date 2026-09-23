@@ -309,11 +309,11 @@ class Exploration():
         if "image" in node:
             if self.current_image != node["image"]:
                 self.current_image = node["image"]
-                print(
-                    "IMAGE CHANGED:",
-                    self.current_image,
-                    self.assets[self.current_image].get_size()
-                )
+                # print(
+                #     "IMAGE CHANGED:",
+                #     self.current_image,
+                #     self.assets[self.current_image].get_size()
+                # )
         if self.current_image is not None:
             image = self.assets[self.current_image]
             screen.blit(image, (0, 0))
@@ -373,7 +373,7 @@ class Exploration():
                 node = TEXT_NODES["loot"].copy()
                 loot = container["loot"]
                 coins = container["coins"]
-                player.inventory.extend(loot)
+                player.acquire_items(loot)
                 player.coins += coins
                 loot_lines = [f"{coins} Coins"] + loot
                 loot_text = "\n".join(loot_lines)
@@ -387,7 +387,7 @@ class Exploration():
                 node = TEXT_NODES["loot"].copy()
                 loot = container["loot"]
                 coins = container["coins"]
-                player.inventory.extend(loot)
+                player.acquire_items(loot)
                 player.coins += coins
                 loot_lines = [f"{coins} Coins"] + loot
                 loot_text = "\n".join(loot_lines)
@@ -548,7 +548,7 @@ class Exploration():
         exp = enemy.level * 25
 
         player.grant_exp(exp)
-        player.inventory.extend(loot)
+        player.acquire_items(loot)
         player.coins += coins
 
         return exp, loot, coins

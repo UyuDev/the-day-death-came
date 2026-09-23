@@ -31,9 +31,9 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
     elif action["type"] == "set_flag":
         world_state.flags[action["target"]] = action["value"]
     elif action["type"] == "item":
-        player.inventory.extend([action["target"]] * action["value"])
+        player.acquire_items([action["target"]] * action["value"])
     elif action["type"] == "equip":
-        player.equipped[action["slot"]] = action["target"]
+        player.equip_items(action["target"])
     elif action["type"] == "restore_health":
         if action["target"] == "full":
             player.health = 100

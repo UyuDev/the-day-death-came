@@ -92,6 +92,7 @@ def load_assets():
     "P": pygame.image.load("assets/prison_cell.png").convert_alpha(),  # prison cell
     "u": pygame.image.load("assets/wood_table_1.png").convert_alpha(),  # wood table
     ">": pygame.image.load("assets/tunnel_steps.png").convert_alpha(),  # tunnel steps
+    "<": pygame.image.load("assets/tunnel_steps_2.png").convert_alpha(),  # tunnel steps 2
 
     # Crypt
     "q": pygame.image.load("assets/crypt_1.png").convert_alpha(),  # crypt floor 1

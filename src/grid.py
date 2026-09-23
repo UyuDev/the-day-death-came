@@ -37,6 +37,7 @@ class TileColors(Enum):
     PRISON_CELL = "black"
     WOOD_TABLE = "black"
     TUNNEL_STEPS = "black"
+    TUNNEL_STEPS_2 = "black"
 
     CRYPT_FLOOR_1 = "black"
     CRYPT_FLOOR_2 = "black"
@@ -81,6 +82,7 @@ TILE_MAPPING = {
     "P": TileColors.PRISON_CELL,
     "u": TileColors.WOOD_TABLE,
     ">": TileColors.TUNNEL_STEPS,
+    "<": TileColors.TUNNEL_STEPS_2,
 
     "q": TileColors.CRYPT_FLOOR_1,
     "e": TileColors.CRYPT_FLOOR_2,

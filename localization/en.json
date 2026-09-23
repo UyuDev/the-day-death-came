@@ -379,7 +379,8 @@
     "dialogue.option.reaper_boss_2": "Fight the weak version",
     "dialogue.option.reaper_boss_3": "Fight the strong version",
     "dialogue.option.reaper_boss_4": "Fight the strongest version",
-    "dialogue.reaper_boss_victory": "With the evil banished, the lights in the room return",
+    "dialogue.reaper_boss_victory": "With the evil banished, the lights in the room return.",
+    "dialogue.reaper_boss_victory_2": "An uneasy silence settles over the chamber.",
 
     "dialogue.enter_crypt_3": "You proceed to the deepest chamber of the crypt.",
     "dialogue.crypt_3_intro": "Entering the crypt, you see an old tomb and hear voices in the distance.",

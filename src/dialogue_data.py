@@ -2857,7 +2857,7 @@ DIALOGUE = {
     },
 
     "reaper boss victory": {
-        "text_id": "dialogue.reaper_boss_victory",
+        "text_id": "dialogue.reaper_boss_victory_2",
         "next": "crypt 1 choice"
     },
 
