@@ -2469,8 +2469,179 @@ DIALOGUE = {
 
     "town 2": {
         "text_id": "dialogue.town_2",
-        "next": "town 3"
+        "next": "town choice"
     },
+
+    "town choice": {
+        "text_id": "dialogue.town_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.town_vendors",
+                "next": "town vendors choice"
+            },
+            2: {
+                "text_id": "dialogue.option.town_inn",
+                "next": "town inn"
+            },
+            3: {
+                "text_id": "dialogue.option.town_continue",
+                "next": "town 3"
+            },
+            4: {
+                "text_id": "dialogue.option.sewer_secret_return",
+                "next": "town sewer 1"
+            }
+        }
+    },
+
+    "town vendors choice": {
+        "text_id": "dialogue.town_vendors_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.merchant",
+                "next": "town merchant"
+            },
+            2: {
+                "text_id": "dialogue.option.blacksmith",
+                "next": "town blacksmith"
+            },
+            3: {
+                "text_id": "dialogue.option.specialty_vendor",
+                "next": "town specialty"
+            },
+            4: {
+                "text_id": "dialogue.option.town_choice",
+                "next": "town choice"
+            }
+        }
+    },
+
+    "town merchant": {
+        "text_id": "dialogue.town_merchant_1",
+        "next": "town merchant 2"
+    },
+
+    "town merchant 2": {
+        "text_id": "dialogue.town_merchant_2",
+        "next": "town vendors choice"
+    },
+
+
+    "town blacksmith": {
+        "text_id": "dialogue.town_blacksmith_1",
+        "next": "town blacksmith 2"
+    },
+
+    "town blacksmith 2": {
+        "text_id": "dialogue.town_blacksmith_2",
+        "next": "town vendors choice"
+    },
+
+    "town inn": {
+        "text_id": "dialogue.town_inn_1",
+        "next": "town inn 2"
+    },
+
+    "town inn 2": {
+        "text_id": "dialogue.town_inn_2",
+        "next": "town vendors choice"
+    },
+
+    "town specialty": {
+        "text_id": "dialogue.town_specialty_1",
+        "next": "town specialty 2"
+    },
+
+    "town specialty 2": {
+        "text_id": "dialogue.town_specialty_2",
+        "next": "town specialty 3"
+    },
+
+    "town specialty 3": {
+        "text_id": "dialogue.town_specialty_3",
+        "next": "town specialty choice"
+    },
+
+    "town specialty choice": {
+        "text_id": "dialogue.town_specialty_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.town_specialty_yes",
+                "next": "town specialty exchange"
+            },
+            2: {
+                "text_id": "dialogue.option.town_specialty_no",
+                "next": "town specialty no"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "town specialty choice"
+            },
+            4: {
+                "text_id": "dialogue.option.town_choice",
+                "next": "town choice"
+            }
+        }
+    },
+
+    "town specialty no": {
+        "text_id": "dialogue.town_specialty_no",
+        "next": "town vendors choice"
+    },
+
+    "town specialty exchange": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_items",
+                "target": "Ancient Armament",
+                "if_pass": "town specialty result",
+                "if_fail": "town specialty none",
+            }
+        ]
+    },
+
+    "town specialty none": {
+        "text_id": "dialogue.town_specialty_none",
+        "next": "town vendors choice"
+    },
+
+    "town specialty result": {
+        "text_id": "dialogue.town_specialty_exchange",
+        "next": "town specialty 4",
+        "variables": {
+            "item": "placeholder",
+            "count": 0
+        }
+    },
+
+
+    "town specialty 4": {
+        "text_id": "dialogue.town_specialty_4",
+        "next": "town vendors choice"
+    },
+
+    "town sewer 1": {
+        "text_id": "dialogue.town_sewer_1",
+        "next": "town sewer 2"
+    },
+
+    "town sewer 2": {
+        "text_id": "dialogue.town_sewer_2",
+        "next": "sewer secret return"
+    },
+
+    "sewer secret return": {
+        "text_id": "dialogue.return_to_sewer_2",
+        "next": "sewer choice",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "sewer"
+            }
+        ]
+    },
+
 
     "town 3": {
         "text_id": "dialogue.town_3",
@@ -2526,7 +2697,7 @@ DIALOGUE = {
             },
             4: {
                 "text_id": "dialogue.option.crypt_1_return",
-                "next": "dungeon return"
+                "next": "town return"
             }
         }
     },
@@ -2959,13 +3130,16 @@ DIALOGUE = {
     },
 
 
-    "dungeon return": {
-        "text_id": "dialogue.return_to_dungeon",
-        "next": "dungeon choice",
+
+
+
+    "town return": {
+        "text_id": "dialogue.return_to_town",
+        "next": "town choice",
         "actions": [
             {   
                 "type": "map",
-                "target": "dungeon"
+                "target": "town"
             }
         ]
     },

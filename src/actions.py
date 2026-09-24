@@ -80,3 +80,14 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
             result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
             if result is not None:
                 return result
+    elif action["type"] == "check_items":         
+        if player.has_item(action["target"]):
+            total = player.exchange_item(action["target"])
+            dialogue.set_current_with_variables(action["if_pass"], {"item": action["target"], "count": total})
+        else:
+            dialogue.set_current(action["if_fail"])
+        new_actions = dialogue.get_actions()
+        for new_action in new_actions:
+            result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
+            if result is not None:
+                return result

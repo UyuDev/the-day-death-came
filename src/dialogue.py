@@ -7,6 +7,7 @@ from dialogue_data import DIALOGUE
 class Dialogue():
     def __init__(self, language_data, assets):
         self.current = "intro"
+        self.variables = {}
         self.language_data = language_data
         self.assets = assets
         self.ui = pygame.transform.scale(
@@ -41,6 +42,9 @@ class Dialogue():
     def set_current(self, node):
         self.current = node
 
+    def set_current_with_variables(self, node, variables):
+        self.current = node
+        self.variables = variables
 
     def advance(self, choice):
         current_node = DIALOGUE[self.current]
@@ -48,6 +52,7 @@ class Dialogue():
             self.current = current_node["options"][choice]["next"]
         elif "next" in current_node:
             self.current = current_node["next"]
+
 
 
     def get_actions(self):
@@ -100,7 +105,13 @@ class Dialogue():
                 )
                 screen.blit(option_text, position)
         else:
-            text = ui_font.render(self.language_data[current_node["text_id"]], True, "black")
+            if "variables" in current_node:
+                text_string = self.language_data[current_node["text_id"]].format(
+                    **self.variables
+                )
+            else:
+                text_string = self.language_data[current_node["text_id"]]
+            text = ui_font.render(text_string, True, "black")
             rect = text.get_rect(center=dialogue_rect.center)
             screen.blit(self.ui, (0, 0))
             screen.blit(text, rect)

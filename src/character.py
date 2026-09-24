@@ -145,6 +145,18 @@ class Character:
             return True
         return False
 
+    def has_item(self, item):
+        return item in self.inventory
+
+    def exchange_item(self, item):
+        count = 0
+        if item == "Ancient Armament":
+            while item in self.inventory:
+                self.inventory.remove(item)
+                count += 1
+            self.power += count
+        return count
+
     def to_dict(self):
         return {
             "stats": self.stats,
