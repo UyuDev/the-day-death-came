@@ -31,7 +31,7 @@ class WorldState():
             "sewer_empty": False,
             "dungeon_door_unlocked": False,
             "dungeon_empty": False,
-            "crypt_door_unlocked": False,
+            "town_door_unlocked": False,
             "crypt_1_empty": False,
             "crypt_1_ritual_disrupted": False,
             "crypt_2_empty": False,

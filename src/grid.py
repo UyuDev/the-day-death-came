@@ -10,6 +10,7 @@ class TileColors(Enum):
     BED = 181, 173, 166
     TRAPDOOR = 50, 56, 50
     STAIRS = 90, 60, 35
+    STAIRS_2 = 90, 60, 35
     TABLE = 90, 60, 35
     WALL = 163, 123, 90
     STONE_WALL = "black"
@@ -39,6 +40,24 @@ class TileColors(Enum):
     TUNNEL_STEPS = "black"
     TUNNEL_STEPS_2 = "black"
 
+    WATTLE_WALL = 191, 168, 119
+    WATTLE_WALL_2 = 191, 168, 119
+    WATTLE_WALL_3 = 191, 168, 119
+    WATTLE_WALL_4 = 191, 168, 119
+    WATTLE_WALL_C = 191, 168, 119
+    ROOF = 123, 67, 48
+    GRAVESTONE = 112, 112, 105
+    GRAVESTONE_2 = 112, 112, 105
+    STONE_WALL_2 = 92, 92, 86
+    DIRT_ROAD = 137, 105, 70
+    DIRT_ROAD_2 = 137, 105, 70
+    DIRT_ROAD_3 = 137, 105, 70
+    DIRT_ROAD_4 = 137, 105, 70
+    CHURCH = 210, 205, 190
+    FORT_1 = 85, 85, 80
+    FORT_2 = 85, 85, 80
+    FORT_3 = 85, 85, 80
+
     CRYPT_FLOOR_1 = "black"
     CRYPT_FLOOR_2 = "black"
     CRYPT_FLOOR_3 = "black"
@@ -47,6 +66,9 @@ class TileColors(Enum):
     BRAZIER = "black"
     ALTAR = "black"
     ORNATE_TOMB = "black"
+
+
+
 
 TILE_MAPPING = {
     "0": TileColors.BLANK,
@@ -57,6 +79,7 @@ TILE_MAPPING = {
     "D": TileColors.TRAPDOOR,
     "L": TileColors.LADDER,
     "S": TileColors.STAIRS,
+    "9": TileColors.STAIRS_2,
     "t": TileColors.TABLE,
     "1": TileColors.WALL,
     "2": TileColors.STONE_WALL,
@@ -83,6 +106,24 @@ TILE_MAPPING = {
     "u": TileColors.WOOD_TABLE,
     ">": TileColors.TUNNEL_STEPS,
     "<": TileColors.TUNNEL_STEPS_2,
+
+    "V": TileColors.WATTLE_WALL,
+    "u": TileColors.WATTLE_WALL_2,
+    "X": TileColors.WATTLE_WALL_3,
+    "x": TileColors.WATTLE_WALL_4,
+    "J": TileColors.WATTLE_WALL_C,
+    "^": TileColors.ROOF,
+    "G": TileColors.GRAVESTONE,
+    "Q": TileColors.GRAVESTONE_2,
+    "I": TileColors.STONE_WALL_2,
+    "j": TileColors.DIRT_ROAD,
+    "_": TileColors.DIRT_ROAD_2,
+    "$": TileColors.DIRT_ROAD_3,
+    "&": TileColors.DIRT_ROAD_4,
+    "O": TileColors.CHURCH,
+    "N": TileColors.FORT_1,
+    "l": TileColors.FORT_2,
+    "Z": TileColors.FORT_3,
 
     "q": TileColors.CRYPT_FLOOR_1,
     "e": TileColors.CRYPT_FLOOR_2,

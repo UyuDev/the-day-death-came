@@ -293,9 +293,17 @@
     "dialogue.option.dungeon_continue_2": "Yes, pass through the door",
     "dialogue.option.dungeon_step_away": "No, stay here",
     "dialogue.dungeon_continue_check": "You attempt to open the door...",
-    "dialogue.dungeon_crypt_locked_1": "The door is locked tight.",
-    "dialogue.dungeon_crypt_locked_2": "'There might be a key somewhere here.'",
-    "dialogue.dungeon_unlock_crypt": "You insert and twist the key.",
+    "dialogue.dungeon_town_locked_1": "The door is locked tight.",
+    "dialogue.dungeon_town_locked_2": "'There might be a key somewhere here.'",
+    "dialogue.dungeon_unlock_town": "You insert and twist the key.",
+
+    "dialogue.enter_town": "You exit the dungeon and emerge outside the keep.",
+    "dialogue.town_intro": "Hearing fighting, you rush towards town to help.",
+    "dialogue.town_2": "[WIP]",
+    "dialogue.town_3": "After helping the townspeople, you set your sights on the church.",
+    "dialogue.town_4": "Approaching the church, you find it sealed. You remember there is an old crypt that leads to it.",
+    "dialogue.town_5": "You approach the crypt entrance and slowly walk down.",
+
 
     "dialogue.enter_crypt_1": "You pass through the door and descend the dark stairs.",
     "dialogue.crypt_1_intro": "As you reach the bottom of the stairs, you can hear chants echo in the halls.",

@@ -2407,47 +2407,84 @@ DIALOGUE = {
         "actions": [
             {   
                 "type": "check_flag",
-                "target": "crypt_door_unlocked",
+                "target": "town_door_unlocked",
                 "value": True,
-                "if_pass": "enter crypt 1",
-                "if_fail": "dungeon crypt key check",
+                "if_pass": "enter town",
+                "if_fail": "dungeon town key check",
             }
         ]
     },
 
-    "dungeon crypt key check": {
+    "dungeon town key check": {
         "text_id": "dialogue.dungeon_continue_check",
         "actions": [
             {   
                 "type": "check_flag",
                 "target": "dungeon_empty",
                 "value": True,
-                "if_pass": "dungeon unlock crypt",
-                "if_fail": "dungeon crypt locked 1",
+                "if_pass": "dungeon unlock town",
+                "if_fail": "dungeon town locked 1",
             }
         ]
     },
 
-    "dungeon crypt locked 1": {
-        "text_id": "dialogue.dungeon_crypt_locked_1",
-        "next": "dungeon crypt locked 2"
+    "dungeon town locked 1": {
+        "text_id": "dialogue.dungeon_town_locked_1",
+        "next": "dungeon town locked 2"
     },
 
-    "dungeon crypt locked 2": {
-        "text_id": "dialogue.dungeon_crypt_locked_2",
+    "dungeon town locked 2": {
+        "text_id": "dialogue.dungeon_town_locked_2",
         "next": "dungeon choice"
     },
-
-    "dungeon unlock crypt": {
-        "text_id": "dialogue.dungeon_unlock_crypt",
-        "next": "enter crypt 1",
+    # now for the town
+    "dungeon unlock town": {
+        "text_id": "dialogue.dungeon_unlock_towm",
+        "next": "enter town",
         "actions": [
             {   
                 "type": "set_flag",
-                "target": "crypt_door_unlocked",
+                "target": "town_door_unlocked",
                 "value": True
             }
         ]
+    },
+
+
+    "enter town": {
+        "text_id": "dialogue.enter_town",
+        "next": "town intro",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "town"
+            }
+        ]
+    },
+
+    "town intro": {
+        "text_id": "dialogue.town_intro",
+        "next": "town 2"
+    },
+
+    "town 2": {
+        "text_id": "dialogue.town_2",
+        "next": "town 3"
+    },
+
+    "town 3": {
+        "text_id": "dialogue.town_3",
+        "next": "town 4"
+    },
+
+    "town 4": {
+        "text_id": "dialogue.town_4",
+        "next": "town 5"
+    },
+
+    "town 5": {
+        "text_id": "dialogue.town_5",
+        "next": "enter crypt 1"
     },
 
     "enter crypt 1": {

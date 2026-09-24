@@ -242,7 +242,7 @@ class Exploration():
     def __init__(self, language_data, assets):
         self.current = "intro"
         self.assets = assets
-        for key in ["unknown_enemy", "bandit", "cave_goblin", "giant_rat", "cultist_acolyte", "skeleton_warrior", "zombie", "skeleton", "skeleton_mage", "honor_guard", "lord_graye", "reaper_boss", "chest", "crate", "crates", "tomb", "small_chest", "altar"]:
+        for key in ["unknown_enemy", "bandit", "cave_goblin", "giant_rat", "cultist_acolyte", "skeleton_warrior", "zombie", "skeleton", "skeleton_mage", "honor_guard", "lord_graye", "reaper_boss_1", "reaper_boss_spawn", "reaper_boss_2", "reaper_boss_3", "reaper_boss_4", "chest", "crate", "crates", "tomb", "small_chest", "altar"]:
             self.assets[key] = pygame.transform.scale(
                 self.assets[key],
                 (SCREEN_WIDTH, MAP_HEIGHT)
@@ -400,10 +400,17 @@ class Exploration():
     def add_encounter_to_sequence(self, encounter_id, player):
         encounter = ENCOUNTERS[encounter_id]
         # detect correct initial text
-        node = {
-            "text_id": encounter["text_id"],
-            "image": "unknown_enemy"
-        }
+        reaper_encounters = ["reaper_boss_1", "reaper_boss_2", "reaper_boss_3", "reaper_boss_4"]
+        if encounter_id in reaper_encounters:
+            node = {
+                "text_id": encounter["text_id"],
+                "image": "reaper_boss_spawn"
+            }
+        else:
+            node = {
+                "text_id": encounter["text_id"],
+                "image": "unknown_enemy"
+            }
         self.sequence.append(node)
         enemies = encounter["enemies"]
         for enemy_id in enemies:

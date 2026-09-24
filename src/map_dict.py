@@ -8,6 +8,7 @@ from maps.pitchblack import pitch_black_map
 from maps.tunnel_1 import tunnel_1_map
 from maps.tunnel_2 import tunnel_2_map
 from maps.sewer import sewer_map
+from maps.town import town_map
 from maps.crypt_1 import crypt_1_map
 from maps.crypt_2 import crypt_2_map
 from maps.crypt_3 import crypt_3_map
@@ -21,6 +22,7 @@ MAPS = {
     "tunnel 1": tunnel_1_map,
     "tunnel 2": tunnel_2_map,
     "sewer": sewer_map,
+    "town": town_map,
     "dungeon": dungeon_map,
     "crypt 1": crypt_1_map,
     "crypt 2": crypt_2_map,

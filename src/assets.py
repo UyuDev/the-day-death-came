@@ -28,9 +28,9 @@ def load_assets():
 
     # art enemies
     "unknown_enemy": pygame.image.load("assets/unknown_enemy_temp.png").convert_alpha(),
-    "bandit": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
+    "bandit": pygame.image.load("assets/bandit.png").convert_alpha(),
     "giant_rat": pygame.image.load("assets/rat_temp.png").convert_alpha(),
-    "cave_goblin": pygame.image.load("assets/goblin_temp.png").convert_alpha(),
+    "cave_goblin": pygame.image.load("assets/goblin.png").convert_alpha(),
     "skeleton": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
     "zombie": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
     "skeleton_warrior": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
@@ -38,7 +38,11 @@ def load_assets():
     "skeleton_mage": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
     "honor_guard": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
     "lord_graye": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
-    "reaper_boss": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
+    "reaper_boss_spawn": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
+    "reaper_boss_1": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
+    "reaper_boss_2": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
+    "reaper_boss_3": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
+    "reaper_boss_4": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
 
     # maps
     "house": pygame.image.load("assets/home_map.png").convert_alpha(),
@@ -50,6 +54,7 @@ def load_assets():
     "tunnel 2": pygame.image.load("assets/tunnel_map_2.png").convert_alpha(),
     "sewer": pygame.image.load("assets/sewer_map.png").convert_alpha(),
     "dungeon": pygame.image.load("assets/dungeon_map.png").convert_alpha(),
+    "town": pygame.image.load("assets/town_map_WIP.png").convert_alpha(),
     "crypt 1": pygame.image.load("assets/crypt_map_1.png").convert_alpha(),
     "crypt 2": pygame.image.load("assets/crypt_map_2.png").convert_alpha(),
     "crypt 3": pygame.image.load("assets/crypt_map_boss.png").convert_alpha(),
@@ -57,22 +62,27 @@ def load_assets():
 
     # tiles
     "f": pygame.image.load("assets/stone_floor.png").convert_alpha(),
-    "d": pygame.image.load("assets/wood_door_2.png").convert_alpha(),
+    "d": pygame.image.load("assets/wood_door_3.png").convert_alpha(),
     "b": pygame.image.load("assets/bed.png").convert_alpha(),
     "D": pygame.image.load("assets/wood_dungeon_1.png").convert_alpha(),
-    "S": pygame.image.load("assets/wood_stairs_1.png").convert_alpha(),
-    "t": pygame.image.load("assets/wood_table_1.png").convert_alpha(),
-    "1": pygame.image.load("assets/wood_wall_3.png").convert_alpha(),
+    "S": pygame.image.load("assets/wood_stairs_2.png").convert_alpha(), # wood stairs
+    "9": pygame.image.load("assets/wood_stairs_1.png").convert_alpha(), # wood stairs
+    "t": pygame.image.load("assets/wood_table_1.png").convert_alpha(), # wood table
+    "1": pygame.image.load("assets/wood_wall_4.png").convert_alpha(),
     "T": pygame.image.load("assets/tools.png").convert_alpha(),
     "E": pygame.image.load("assets/dungeon_door.png").convert_alpha(),
     "C": pygame.image.load("assets/chest_tile.png").convert_alpha(),
     "L": pygame.image.load("assets/ladder.png").convert_alpha(),
     "B": pygame.image.load("assets/bookshelf.png").convert_alpha(),
-    "W": pygame.image.load("assets/wood_floor_2.png").convert_alpha(),
+    "W": pygame.image.load("assets/wood_wall_4.png").convert_alpha(), # wood floor
+    "R": pygame.image.load("assets/crate.png").convert_alpha(),  # crate
     # Farm
     "r": pygame.image.load("assets/farm_ground.png").convert_alpha(),
     "v": pygame.image.load("assets/farm_fence.png").convert_alpha(),  # fence
-    "R": pygame.image.load("assets/crate.png").convert_alpha(),  # crate
+    "-": pygame.image.load("assets/farm_grass.png").convert_alpha(),  # grass 1
+    "+": pygame.image.load("assets/farm_tree_1.png").convert_alpha(),  # tree 1
+    "*": pygame.image.load("assets/farm_tree_2.png").convert_alpha(),  # tree 2
+
 
     # Cave
     "c": pygame.image.load("assets/cave_1.png").convert_alpha(),
@@ -93,6 +103,26 @@ def load_assets():
     "u": pygame.image.load("assets/wood_table_1.png").convert_alpha(),  # wood table
     ">": pygame.image.load("assets/tunnel_steps.png").convert_alpha(),  # tunnel steps
     "<": pygame.image.load("assets/tunnel_steps_2.png").convert_alpha(),  # tunnel steps 2
+
+    # Town
+    "V": pygame.image.load("assets/wattle_wall.png").convert_alpha(),  # wattle-and-daub wall
+    "U": pygame.image.load("assets/wattle_wall_2.png").convert_alpha(),  # wattle-and-daub wall 2
+    "X": pygame.image.load("assets/wattle_wall_3.png").convert_alpha(),  # wattle-and-daub wall 3
+    "x": pygame.image.load("assets/wattle_wall_4.png").convert_alpha(),  # wattle-and-daub wall 4
+    "J": pygame.image.load("assets/wattle_wall_5.png").convert_alpha(),  # wattle-and-daub wall 5   
+    "?": pygame.image.load("assets/wattle_wall_close.png").convert_alpha(),  # wattle-and-daub wall closeup   
+    "^": pygame.image.load("assets/roof.png").convert_alpha(),  # roof
+    "G": pygame.image.load("assets/graves_1.png").convert_alpha(),  # gravestone
+    "Q": pygame.image.load("assets/graves_2.png").convert_alpha(),  # gravestone 2
+    "I": pygame.image.load("assets/stone_wall.png").convert_alpha(),  # stone wall
+    "j": pygame.image.load("assets/stone_road_2.png").convert_alpha(),  # dirt road
+    "_": pygame.image.load("assets/dirt_road_2.png").convert_alpha(),  # dirt road 2
+    "$": pygame.image.load("assets/dirt_road_3.png").convert_alpha(),  # dirt road 3
+    "&": pygame.image.load("assets/dirt_road_4.png").convert_alpha(),  # dirt road 4
+    "O": pygame.image.load("assets/church_1.png").convert_alpha(),  # church
+    "N": pygame.image.load("assets/fort_1.png").convert_alpha(),  # fortress / keep
+    "l": pygame.image.load("assets/fort_2.png").convert_alpha(),  # fortress / keep   
+    "Z": pygame.image.load("assets/fort_3.png").convert_alpha(),  # fortress / keep
 
     # Crypt
     "q": pygame.image.load("assets/crypt_1.png").convert_alpha(),  # crypt floor 1
