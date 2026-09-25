@@ -551,11 +551,11 @@ class Exploration():
             return "death"
 
         loot, coins = calc_loot(enemy)
-
+        
         exp = enemy.level * 25
 
         player.grant_exp(exp)
         player.acquire_items(loot)
         player.coins += coins
-
+        print(f"Coins: +{coins} -> {player.coins}")
         return exp, loot, coins

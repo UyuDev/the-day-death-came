@@ -45,6 +45,7 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
         renderer.clear_scene()
     elif action["type"] == "save_game":
         if can_save(settings, player):
+            world_state.save_location = action["target"]
             save_game(
                 player,
                 world_state.flags,
@@ -93,6 +94,19 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
             result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
             if result is not None:
                 return result
+    elif action["type"] == "check_coins":         
+        if player.has_coins(action["value"]):
+            dialogue.set_current(action[f"if_pass"])
+        else:
+            dialogue.set_current(action[f"if_fail"])
+        new_actions = dialogue.get_actions()
+        for new_action in new_actions:
+            result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
+            if result is not None:
+                return result
+    elif action["type"] == "spend_coins":         
+        if player.has_coins(action["value"]):
+            player.spend_coins(action["value"])
     elif action["type"] == "check_settings":
         if settings[action["target"]]:
             dialogue.set_current(action[f"if_pass"])

@@ -560,30 +560,6 @@ DIALOGUE = {
             }
         ]
     },
-    # no longer using this logic
-    # "bed hardcore check": {
-    #     "text_id": "dialogue.empty",
-    #     "actions": [
-    #         {   
-    #             "type": "check_settings",
-    #             "target": "hardcore",
-    #             "value": False,
-    #             "if_pass": "save game",
-    #             "if_fail": "cant save hardcore",
-    #         }
-    #     ]
-    # },
-
-    # "cant save hardcore": {
-    #     "text_id": "dialogue.cant_save_hardcore",
-    #     "next": "hardcore restless",
-    # },
-
-    # "hardcore restless": {
-    #     "text_id": "dialogue.hardcore_restless",
-    #     "next": "look around upstairs",
-    # },
-
 
     "save game": {
         "text_id": "dialogue.save_game",
@@ -612,7 +588,8 @@ DIALOGUE = {
         "next": "rest bed",
         "actions": [
             {
-                "type": "save_game"
+                "type": "save_game",
+                "target": "farmhouse_bed"
             }
         ]
     },
@@ -2470,7 +2447,7 @@ DIALOGUE = {
     },
     # now for the town
     "dungeon unlock town": {
-        "text_id": "dialogue.dungeon_unlock_towm",
+        "text_id": "dialogue.dungeon_unlock_town",
         "next": "enter town",
         "actions": [
             {   
@@ -2512,7 +2489,7 @@ DIALOGUE = {
             },
             2: {
                 "text_id": "dialogue.option.town_inn",
-                "next": "town inn"
+                "next": "town inn check"
             },
             3: {
                 "text_id": "dialogue.option.town_continue",
@@ -2547,15 +2524,224 @@ DIALOGUE = {
         }
     },
 
+
+
+    "town inn check": {
+        "text_id": "dialogue.town_inn_2",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "room_rented",
+                "value": True,
+                "if_pass": "town inn bed ready",
+                "if_fail": "town inn 1",
+            }
+        ],
+    },
+
+
+    "town inn bed ready": {
+        "text_id": "dialogue.town_inn_bed_ready",
+        "next": "inn bed options",
+    },
+
+
     "town inn": {
         "text_id": "dialogue.town_inn_1",
-        "next": "town inn 2"
+        "next": "town inn check",
     },
+
 
     "town inn 2": {
         "text_id": "dialogue.town_inn_2",
-        "next": "town choice"
+        "next": "town inn 3",
     },
+
+    "town inn 3": {
+        "text_id": "dialogue.town_inn_3",
+        "next": "town inn choice",
+    },
+
+    "town inn choice": {
+        "text_id": "dialogue.town_inn_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.town_inn_yes",
+                "next": "town inn payment",
+            },
+            2: {
+                "text_id": "dialogue.option.town_inn_no",
+                "next": "town inn no",
+            },
+        },
+    },
+
+    "town inn no": {
+        "text_id": "dialogue.town_inn_no",
+        "next": "town choice",
+    },
+
+    "town inn payment": {
+        "text_id": "dialogue.town_inn_yes",
+        "actions": [
+            {
+                "type": "check_coins",
+                "value": 10,
+                "if_pass": "town inn yes",
+                "if_fail": "town inn low funds",
+            }
+        ]
+    },
+
+    "town inn low funds": {
+        "text_id": "dialogue.town_inn_low_funds",
+        "next": "town choice",
+    },
+
+    "town inn yes": {
+        "text_id": "dialogue.town_inn_yes_2",
+        "next": "town inn yes 2",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "room_rented",
+                "value": True,
+            },
+            {
+                "type": "spend_coins",
+                "value": 10,
+            }
+        ],
+    },
+
+    "town inn yes 2": {
+        "text_id": "dialogue.town_inn_yes_3",
+        "next": "inn bed options",
+    },
+
+    "inn bed options": {
+        "text_id": "dialogue.bed_options",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.save_game",
+                "next": "inn save game",
+            },
+            2: {
+                "text_id": "dialogue.option.rest_in_bed",
+                "next": "inn rest bed",
+            },
+            3: {
+                "text_id": "dialogue.option.do_nothing",
+                "next": "town choice",
+            },
+            4: {
+                "text_id": "dialogue.option.main_menu",
+                "next": "inn main menu",
+            },
+        },
+    },
+
+    "inn rest bed": {
+        "text_id": "dialogue.rest_bed",
+        "next": "inn restore bed",
+    },
+
+    "inn restore bed": {
+        "text_id": "dialogue.restore_bed",
+        "next": "inn wake",
+        "actions": [
+            {
+                "type": "restore_health",
+                "target": "full",
+                "value": 100,
+            },
+        ],
+    },
+
+    "inn wake": {
+        "text_id": "dialogue.town_inn_wake",
+        "next": "town choice",
+    },
+
+    "inn save game": {
+        "text_id": "dialogue.save_game",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.save_game_yes",
+                "next": "inn save game yes",
+            },
+            2: {
+                "text_id": "dialogue.option.save_game_no",
+                "next": "inn save game no",
+            },
+            3: {
+                "text_id": "dialogue.option.do_nothing",
+                "next": "town choice",
+            },
+            4: {
+                "text_id": "dialogue.option.main_menu",
+                "next": "inn main menu",
+            },
+        },
+    },
+
+    "inn save game yes": {
+        "text_id": "dialogue.save_game_yes",
+        "next": "inn rest bed",
+        "actions": [
+            {
+                "type": "save_game",
+                "target": "inn_bed"
+            }
+        ],
+    },
+
+    "inn save game no": {
+        "text_id": "dialogue.save_game_no",
+        "next": "inn bed options",
+    },
+
+    "inn main menu": {
+        "text_id": "dialogue.main_menu",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.main_menu_yes",
+                "next": "inn main menu yes",
+            },
+            2: {
+                "text_id": "dialogue.option.main_menu_no",
+                "next": "inn main menu no",
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "inn main menu",
+            },
+            4: {
+                "text_id": "dialogue.option.do_nothing",
+                "next": "town choice",
+            },
+        },
+    },
+
+    "inn main menu yes": {
+        "text_id": "dialogue.main_menu_yes",
+        "actions": [
+            {
+                "type": "main_menu",
+            }
+        ],
+    },
+
+    "inn main menu no": {
+        "text_id": "dialogue.main_menu_no",
+        "next": "inn bed options",
+    },
+
+
+
+
+
+
 
 
     "town merchant": {

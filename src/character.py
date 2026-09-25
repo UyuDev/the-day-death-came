@@ -84,6 +84,7 @@ class Character:
         if old_item is not None:
             self.inventory.append(old_item)
         self.equipped[item_slot] = new_item
+        print(f"Equipped {new_item} in {item_slot}")
 
 
     def equip_items(self, new_items):
@@ -144,6 +145,12 @@ class Character:
         if self.game_class == GAME_CLASSES[game_class]:
             return True
         return False
+
+    def has_coins(self, amount):
+        return self.coins >= amount
+
+    def spend_coins(self, amount):
+        self.coins -= amount
 
     def has_item(self, item):
         return item in self.inventory
