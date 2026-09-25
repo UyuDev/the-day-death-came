@@ -58,6 +58,8 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
         )
         return "EXPLORATION"
     elif action["type"] == "death":
+        if settings["hardcore"]:
+            return "HARDCORE_DEATH"
         reload_current_save(
             player,
             world_state,
@@ -86,6 +88,16 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
             dialogue.set_current_with_variables(action["if_pass"], {"item": action["target"], "count": total})
         else:
             dialogue.set_current(action["if_fail"])
+        new_actions = dialogue.get_actions()
+        for new_action in new_actions:
+            result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
+            if result is not None:
+                return result
+    elif action["type"] == "check_settings":
+        if settings[action["target"]]:
+            dialogue.set_current(action[f"if_pass"])
+        else:
+            dialogue.set_current(action[f"if_fail"])
         new_actions = dialogue.get_actions()
         for new_action in new_actions:
             result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)

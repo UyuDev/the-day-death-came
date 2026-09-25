@@ -152,37 +152,37 @@ ENEMIES = {
     "reaper_boss_1": {
         "name": "Sa, the Banished Reaper",
         "level": 30,
-        "game_class": "Reaper",
+        "game_class": "ReaperBoss",
         "inventory": ["Ancient Armament"],
         "coins": 100,
-        "equipped": EQUIPMENT_TEMPLATES["reaper"],
+        "equipped": EQUIPMENT_TEMPLATES["None"],
         "image": "reaper_boss_1"
     },
     "reaper_boss_2": {
         "name": "Sa, the Hungering Reaper",
         "level": 50,
-        "game_class": "Reaper",
+        "game_class": "ReaperBoss",
         "inventory": ["Ancient Armament", "Ancient Armament"],
         "coins": 250,
-        "equipped": EQUIPMENT_TEMPLATES["reaper"],
+        "equipped": EQUIPMENT_TEMPLATES["None"],
         "image": "reaper_boss_2"
     },
     "reaper_boss_3": {
         "name": "Sa, the Furious Reaper",
         "level": 75,
-        "game_class": "Reaper",
+        "game_class": "ReaperBoss",
         "inventory": ["Ancient Armament", "Ancient Armament", "Ancient Armament"],
         "coins": 500,
-        "equipped": EQUIPMENT_TEMPLATES["reaper"],
+        "equipped": EQUIPMENT_TEMPLATES["None"],
         "image": "reaper_boss_3"
     },
     "reaper_boss_4": {
         "name": "Sa, the Unleashed Reaper",
         "level": 100,
-        "game_class": "Reaper",
+        "game_class": "ReaperBoss",
         "inventory": ["Ancient Armament", "Ancient Armament", "Ancient Armament", "Ancient Armament"],
         "coins": 1000,
-        "equipped": EQUIPMENT_TEMPLATES["reaper"],
+        "equipped": EQUIPMENT_TEMPLATES["None"],
         "image": "reaper_boss_4"
     }
 }

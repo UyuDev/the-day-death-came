@@ -78,7 +78,7 @@ def main():
                             dialogue.language_data = language_data
                             save_menu.language_data = language_data
                         if choice == 2:
-                            print("Not yet implemented.")
+                            print("Hardcore mode is now implemented!")
                         if choice == 3:
                             if settings["art"] == "tiles":
                                 renderer = Grid(assets)
@@ -145,10 +145,25 @@ def main():
                     dialogue.advance(choice)
                     actions = dialogue.get_actions()
                     for action in actions:
-                        new_state = handle_action(action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
-                        if new_state is not None:
-                            game_state = new_state
-                            break
+                        result = handle_action(action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
+                        if result is not None:
+                            if result == "HARDCORE_DEATH":
+                                player = Character()
+                                player.create("Nicholas", 1, "Farmer", None, 0, None)
+                                world_state = WorldState()
+                                renderer.load_map("house_upstairs")
+                                dialogue.set_current("hardcore death reset")
+                                game_state = "INTRO"
+                                save_game(
+                                    player,
+                                    world_state.flags,
+                                    world_state.save_location,
+                                    save_menu.current_slot
+                                )
+                                break
+                            else:
+                                game_state = result
+                                break
 
             elif game_state == "EXPLORATION":
                 choice = None
@@ -163,13 +178,28 @@ def main():
                     result = exploration.advance(choice)
                     if result is not None:
                         if result == "death":
-                            reload_current_save(
-                                player,
-                                world_state,
-                                save_menu,
-                                renderer,
-                                dialogue
-                            )
+                            if settings["hardcore"]:
+
+                                player = Character()
+                                player.create("Nicholas", 1, "Farmer", None, 0, None)
+                                world_state = WorldState()
+                                renderer.load_map("house_upstairs")
+                                dialogue.set_current("hardcore death reset")
+                                game_state = "INTRO"
+                                save_game(
+                                    player,
+                                    world_state.flags,
+                                    world_state.save_location,
+                                    save_menu.current_slot
+                                )
+                            else:
+                                reload_current_save(
+                                    player,
+                                    world_state,
+                                    save_menu,
+                                    renderer,
+                                    dialogue
+                                )
                         game_state = "INTRO"
                     
 

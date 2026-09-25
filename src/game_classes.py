@@ -60,16 +60,22 @@ GAME_CLASSES = {
         default_abilities,
         power=25
     ),
+    "Warlock": GameClass(
+        "Warlock",
+        "class.warlock",
+        default_abilities,
+        power=15
+    ),
     "Reaper": GameClass(
         "Reaper",
         "class.reaper",
         default_abilities,
         power=50
     ),
-    "Warlock": GameClass(
-        "Warlock",
-        "class.warlock",
+    "ReaperBoss": GameClass(
+        "Reaper",
+        "class.reaper_boss",
         default_abilities,
-        power=15
+        power=80
     )
 }

@@ -31,7 +31,15 @@ DIALOGUE = {
         "next": "look around upstairs"
     },
 
+    "hardcore death reset": {
+        "text_id": "dialogue.hardcore_death_reset",
+        "next": "hardcore death reset 2"
+    },
 
+    "hardcore death reset": {
+        "text_id": "dialogue.hardcore_death_reset_2",
+        "next": "look around upstairs"
+    },
 
 
     "look around downstairs": {
@@ -164,7 +172,6 @@ DIALOGUE = {
     "open downstairs chest": {
         "text_id": "dialogue.open_downstairs_chest",
         "next": "take hunting sword",
-
     },
 
     "downstairs chest choice": {
@@ -553,6 +560,30 @@ DIALOGUE = {
             }
         ]
     },
+    # no longer using this logic
+    # "bed hardcore check": {
+    #     "text_id": "dialogue.empty",
+    #     "actions": [
+    #         {   
+    #             "type": "check_settings",
+    #             "target": "hardcore",
+    #             "value": False,
+    #             "if_pass": "save game",
+    #             "if_fail": "cant save hardcore",
+    #         }
+    #     ]
+    # },
+
+    # "cant save hardcore": {
+    #     "text_id": "dialogue.cant_save_hardcore",
+    #     "next": "hardcore restless",
+    # },
+
+    # "hardcore restless": {
+    #     "text_id": "dialogue.hardcore_restless",
+    #     "next": "look around upstairs",
+    # },
+
 
     "save game": {
         "text_id": "dialogue.save_game",
@@ -2516,6 +2547,17 @@ DIALOGUE = {
         }
     },
 
+    "town inn": {
+        "text_id": "dialogue.town_inn_1",
+        "next": "town inn 2"
+    },
+
+    "town inn 2": {
+        "text_id": "dialogue.town_inn_2",
+        "next": "town choice"
+    },
+
+
     "town merchant": {
         "text_id": "dialogue.town_merchant_1",
         "next": "town merchant 2"
@@ -2534,16 +2576,6 @@ DIALOGUE = {
 
     "town blacksmith 2": {
         "text_id": "dialogue.town_blacksmith_2",
-        "next": "town vendors choice"
-    },
-
-    "town inn": {
-        "text_id": "dialogue.town_inn_1",
-        "next": "town inn 2"
-    },
-
-    "town inn 2": {
-        "text_id": "dialogue.town_inn_2",
         "next": "town vendors choice"
     },
 

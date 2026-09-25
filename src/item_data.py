@@ -224,6 +224,12 @@ ITEMS = {
         "power": 0.25,
         "slot": "shoes",
     },
+    "Hunting Sword": {
+        "name_id": "item.hunting_sword",
+        "power": 1,
+        "slot": "main weapon",
+    },
+
 
     # Search / container loot
     "Leather Gloves": {
@@ -782,6 +788,74 @@ ITEMS = {
         "slot": "secondary weapon",
     },
 
+    # Ancient Armor
+    "Ancient Greathelm": {
+        "name_id": "item.ancient_greathelm",
+        "power": 8,
+        "slot": "head",
+    },
+    "Ancient Gorget": {
+        "name_id": "item.ancient_gorget",
+        "power": 5,
+        "slot": "neck",
+    },
+    "Ancient Mail": {
+        "name_id": "item.ancient_mail",
+        "power": 5,
+        "slot": "shirt",
+    },
+    "Ancient Cuirass": {
+        "name_id": "item.ancient_cuirass",
+        "power": 12,
+        "slot": "torso",
+    },
+    "Ancient Gauntlets": {
+        "name_id": "item.ancient_gauntlets",
+        "power": 5,
+        "slot": "hands",
+    },
+    "Ancient Vambraces": {
+        "name_id": "item.ancient_vambraces",
+        "power": 5,
+        "slot": "arms",
+    },
+    "Ancient War Belt": {
+        "name_id": "item.ancient_war_belt",
+        "power": 3,
+        "slot": "waist",
+    },
+    "Ancient Leggings": {
+        "name_id": "item.ancient_leggings",
+        "power": 3,
+        "slot": "pants",
+    },
+    "Ancient Greaves": {
+        "name_id": "item.ancient_greaves",
+        "power": 6,
+        "slot": "leg armor",
+    },
+    "Ancient Footwraps": {
+        "name_id": "item.ancient_footwraps",
+        "power": 2,
+        "slot": "feet",
+    },
+    "Ancient Sabatons": {
+        "name_id": "item.ancient_sabatons",
+        "power": 4,
+        "slot": "shoes",
+    },
+    "Ancient Mantle": {
+        "name_id": "item.ancient_mantle",
+        "power": 2,
+        "slot": "cloak",
+    },
+    "Ancient Greatsword": {
+        "name_id": "item.ancient_greatsword",
+        "power": 30,
+        "slot": "main weapon",
+    },
+
+
     # General / non-equipment loot
     "Cheese": {
         "name_id": "item.cheese",
@@ -855,6 +929,26 @@ ITEMS = {
     },
     "Chisel": {
         "name_id": "item.chisel",
+        "power": 0,
+        "slot": None,
+    },
+    "Combat Treatise": {
+        "name_id": "item.combat_treatise",
+        "power": 0,
+        "slot": None,
+    },
+    "Old Tome": {
+        "name_id": "item.old_tome",
+        "power": 0,
+        "slot": None,
+    },
+    "Bread": {
+        "name_id": "item.bread",
+        "power": 0,
+        "slot": None,
+    },
+    "Basement Key": {
+        "name_id": "item.basement_key",
         "power": 0,
         "slot": None,
     },

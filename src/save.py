@@ -43,9 +43,9 @@ SAVE_LOCATIONS = {
         "map": "house_upstairs",
         "dialogue": "intro wake"
     },
-    "sewer_bed": { # not yet implemented
-        "map": "sewer",
-        "dialogue": "sewer wake"
+    "inn_bed": { # not yet implemented
+        "map": "town",
+        "dialogue": "inn wake"
     }
 }
 
