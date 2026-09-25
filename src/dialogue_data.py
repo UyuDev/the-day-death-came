@@ -2507,7 +2507,7 @@ DIALOGUE = {
         "options": {
             1: {
                 "text_id": "dialogue.option.merchant",
-                "next": "town merchant"
+                "next": "town black market"
             },
             2: {
                 "text_id": "dialogue.option.blacksmith",
@@ -2741,18 +2741,103 @@ DIALOGUE = {
 
 
 
-
-
-
-    "town merchant": {
-        "text_id": "dialogue.town_merchant_1",
-        "next": "town merchant 2"
+    "town black market": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "has_visited_black_market",
+                "value": True,
+                "if_pass": "town black market return",
+                "if_fail": "town black market 1",
+            }
+        ],
     },
 
-    "town merchant 2": {
-        "text_id": "dialogue.town_merchant_2",
-        "next": "town vendors choice"
+    "town black market 1": {
+        "text_id": "dialogue.town_black_market_1",
+        "next": "town black market 2",
     },
+
+    "town black market 2": {
+        "text_id": "dialogue.town_black_market_2",
+        "next": "town black market 3",
+    },
+
+    "town black market 3": {
+        "text_id": "dialogue.town_black_market_3",
+        "next": "town black market choice",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "has_visited_black_market",
+                "value": True,
+            }
+        ],
+    },
+
+    "town black market return": {
+        "text_id": "dialogue.town_black_market_return",
+        "next": "town black market choice",
+    },
+
+    "town black market choice": {
+        "text_id": "dialogue.town_black_market_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.town_black_market_yes",
+                "next": "town black market yes",
+            },
+            2: {
+                "text_id": "dialogue.option.town_black_market_no",
+                "next": "town black market no",
+            },
+        },
+    },
+
+    "town black market no": {
+        "text_id": "dialogue.town_black_market_no",
+        "next": "town black market no response",
+    },
+
+    "town black market no response": {
+        "text_id": "dialogue.town_black_market_no_response",
+        "next": "town choice",
+    },
+
+    "town black market yes": {
+        "text_id": "dialogue.town_black_market_yes",
+        "next": "town black market sell",
+    },
+
+    "town black market sell": {
+        "text_id": "dialogue.town_black_market_yes",
+        "actions": [
+            {
+                "type": "sell_items",
+                "target": "black_market_fence",
+                "if_pass": "town black market sold",
+                "if_fail": "town black market nothing",
+            }
+        ],
+    },
+
+    "town black market sold": {
+        "text_id": "dialogue.town_black_market_sold",
+        "next": "town black market complete",
+        "variables": {},
+    },
+
+    "town black market complete": {
+        "text_id": "dialogue.town_black_market_complete",
+        "next": "town choice",
+    },
+
+    "town black market nothing": {
+        "text_id": "dialogue.town_black_market_nothing",
+        "next": "town choice",
+    },
+
 
 
     "town blacksmith": {

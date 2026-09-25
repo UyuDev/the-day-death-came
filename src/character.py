@@ -164,6 +164,20 @@ class Character:
             self.power += count
         return count
 
+    def fence_items(self):
+        total_items = 0
+        total_coins = 0
+        for item in self.inventory.copy():
+            item_data = ITEMS[item]
+            if item_data["sellable"]:
+                self.inventory.remove(item)
+                total_items += 1
+                self.coins += item_data["value"]
+                total_coins += item_data["value"]
+        if total_items == 0:
+            return None
+        return total_items, total_coins
+
     def to_dict(self):
         return {
             "stats": self.stats,

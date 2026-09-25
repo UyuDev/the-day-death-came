@@ -193,7 +193,7 @@ SEARCH_AREAS = {
                 "text_id": "exploration.chest_1",
                 "image": "chest",
                 "encounter": "dungeon_ambush",
-                "loot": ["Chainmail Hauberk", "Crypt Key"],
+                "loot": ["Chainmail Hauberk", "Dungeon Keys"],
                 "coins": 8
             }
         ]

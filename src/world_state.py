@@ -33,6 +33,7 @@ class WorldState():
             "dungeon_empty": False,
             "town_door_unlocked": False,
             "room_rented": False,
+            "has_visited_black_market": False,
             "crypt_1_empty": False,
             "crypt_1_ritual_disrupted": False,
             "crypt_2_empty": False,

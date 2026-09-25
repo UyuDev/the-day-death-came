@@ -83,6 +83,14 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
             result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
             if result is not None:
                 return result
+    elif action["type"] == "sell_items":         
+        if action["target"] == "black_market_fence":
+            result = player.fence_items()
+            if result is None:
+                dialogue.set_current(action["if_fail"])
+            else:
+                total_count, total_coins = result
+                dialogue.set_current_with_variables(action["if_pass"], {"total_count": total_count, "total_coins": total_coins})
     elif action["type"] == "check_items":         
         if player.has_item(action["target"]):
             total = player.exchange_item(action["target"])
