@@ -32,6 +32,30 @@ equipment_slots = {
 }
 
 
+LOCALIZATION_LOOKUP = {
+    "Nicholas": "name.player",
+
+    "Bandit Ambusher": "enemy.bandit_ambusher",
+    "Giant Rat": "enemy.giant_rat",
+    "Cave Goblin": "enemy.cave_goblin",
+    "Bandit": "enemy.bandit",
+    "Skeleton": "enemy.skeleton",
+    "Zombie": "enemy.zombie",
+    "Skeleton Fighter": "enemy.skeleton_fighter",
+    "Cultist Acolyte": "enemy.cultist_acolyte",
+    "Skeleton Warrior": "enemy.skeleton_warrior",
+    "Skeleton mage": "enemy.skeleton_mage",
+    "Skeleton Knight": "enemy.skeleton_knight",
+    "Skeleton Darkmaster": "enemy.skeleton_darkmaster",
+    "Honor Guard": "enemy.honor_guard",
+    "Lord Graye": "enemy.lord_graye",
+    "Sa, the Banished Reaper": "enemy.reaper_boss_1",
+    "Sa, the Hungering Reaper": "enemy.reaper_boss_2",
+    "Sa, the Furious Reaper": "enemy.reaper_boss_3",
+    "Sa, the Unleashed Reaper": "enemy.reaper_boss_4",
+}
+
+
 class Character:
     def __init__(self):
         self.stats = stats.copy()
@@ -50,7 +74,7 @@ class Character:
 
     # I made this a method for custom logic I am considering.
     def create(self, name, level: 1, game_class, inventory, coins, equipment):
-        self.name = name
+        self.name = LOCALIZATION_LOOKUP[name]
         self.level = level
         self.health += level * 5
         self.game_class = GAME_CLASSES[game_class]

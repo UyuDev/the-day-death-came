@@ -52,7 +52,8 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
                 player,
                 world_state.flags,
                 world_state.save_location,
-                save_menu.current_slot
+                save_menu.current_slot,
+                dialogue.language_data
             )
     elif action["type"] == "explore_items":
         exploration.start_loot_search(

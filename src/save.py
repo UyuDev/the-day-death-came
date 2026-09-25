@@ -20,10 +20,10 @@ def can_save(settings, player):
         return True
     return True
 
-def save_game(player, flags, save_location, slot):
+def save_game(player, flags, save_location, slot, language_data):
     player_data = player.to_dict()
     save_data = {
-        "save_name": f"Nicholas - {save_location} - Level {player.level}",
+        "save_name": f"{language_data[player.name]} - {language_data[SAVE_LOCATIONS[save_location]["name_id"]]} - {language_data["save.level"]} {player.level}",
         "player": player_data,
         "save_location": save_location,
         "flags": flags
@@ -41,10 +41,12 @@ def apply_save(data, player, world_state):
 SAVE_LOCATIONS = {
     "farmhouse_bed": {
         "map": "house_upstairs",
+        "name_id": "save.upstairs_bed",
         "dialogue": "intro wake"
     },
-    "inn_bed": { # not yet implemented
+    "inn_bed": { 
         "map": "town",
+        "name_id": "save.inn_bed",
         "dialogue": "inn wake"
     }
 }

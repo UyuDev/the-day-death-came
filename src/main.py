@@ -158,7 +158,8 @@ def main():
                                     player,
                                     world_state.flags,
                                     world_state.save_location,
-                                    save_menu.current_slot
+                                    save_menu.current_slot,
+                                    dialogue.language_data
                                 )
                                 break
                             else:
@@ -190,7 +191,8 @@ def main():
                                     player,
                                     world_state.flags,
                                     world_state.save_location,
-                                    save_menu.current_slot
+                                    save_menu.current_slot,
+                                    exploration.language_data
                                 )
                             else:
                                 reload_current_save(

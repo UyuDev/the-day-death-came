@@ -4,9 +4,10 @@ from character import Character
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT, MAP_HEIGHT
 import random
 from enemy_data import ENEMIES
-
+from item_data import ITEMS
 
 TESTING = False
+
 
 TEXT_NODES = {
     "engage": {
@@ -372,10 +373,14 @@ class Exploration():
                 self.sequence.append(node)
                 node = TEXT_NODES["loot"].copy()
                 loot = container["loot"]
+                localized_loot = []
+                for item in loot:
+                    localized_text = self.language_data[ITEMS[item]["name_id"]]
+                    localized_loot.append(localized_text)
                 coins = container["coins"]
                 player.acquire_items(loot)
                 player.coins += coins
-                loot_lines = [f"{coins} Coins"] + loot
+                loot_lines = [f"{coins} {self.language_data['exploration.coins']}"] + localized_loot
                 loot_text = "\n".join(loot_lines)
                 node["variables"] = {
                     "loot": loot_text
@@ -386,10 +391,14 @@ class Exploration():
                 self.sequence.append(node)
                 node = TEXT_NODES["loot"].copy()
                 loot = container["loot"]
+                localized_loot = []
+                for item in loot:
+                    localized_text = self.language_data[ITEMS[item]["name_id"]]
+                    localized_loot.append(localized_text)
                 coins = container["coins"]
                 player.acquire_items(loot)
                 player.coins += coins
-                loot_lines = [f"{coins} Coins"] + loot
+                loot_lines = [f"{coins} {self.language_data['exploration.coins']}"] + localized_loot
                 loot_text = "\n".join(loot_lines)
                 node["variables"] = {
                     "loot": loot_text
@@ -427,12 +436,12 @@ class Exploration():
                 enemy_data["equipped"]
             )
             node["variables"] = {
-                "player": player.name,
+                "player": self.language_data[player.name],
                 "player_level": player.level,
-                "player_class": player.game_class.name_id,
-                "enemy": enemy.name,
+                "player_class": self.language_data[player.game_class.name_id],
+                "enemy": self.language_data[enemy.name],
                 "enemy_level": enemy.level,
-                "enemy_class": enemy.game_class.name_id
+                "enemy_class": self.language_data[enemy.game_class.name_id]
             }
             node["image"] = enemy_data["image"]
             self.sequence.append(node)
@@ -445,7 +454,7 @@ class Exploration():
                 self.result = "death"
                 node = TEXT_NODES["loss"].copy()
                 node["variables"] = {
-                    "enemy": enemy.name
+                    "enemy": self.language_data[enemy.name]
                 }
                 self.sequence.append(node)
                 if self.current_index >= len(self.sequence):
@@ -456,7 +465,7 @@ class Exploration():
                 exp, loot, coins = result
                 node = TEXT_NODES["win"].copy()
                 node["variables"] = {
-                    "enemy": enemy.name
+                    "enemy": self.language_data[enemy.name]
                 }
                 self.sequence.append(node)
                 # set exp text
@@ -467,7 +476,11 @@ class Exploration():
                 self.sequence.append(node)
                 # set loot text
                 node = TEXT_NODES["loot"].copy()
-                loot_lines = [f"{coins} Coins"] + enemy.inventory.copy()
+                localized_loot = []
+                for item in enemy.inventory.copy():
+                    localized_text = self.language_data[ITEMS[item]["name_id"]]
+                    localized_loot.append(localized_text)
+                loot_lines = [f"{coins} {self.language_data['exploration.coins']}"] + localized_loot
 
                 equipped_items = [
                     item for item in enemy.equipped.values()
@@ -475,7 +488,7 @@ class Exploration():
                 ]
 
                 if equipped_items:
-                    loot_lines.append("[Equipped Items]")
+                    loot_lines.append(f"{self.language_data["exploration.equipped"]}")
 
                 loot_text = "\n".join(loot_lines)
                 node["variables"] = {
