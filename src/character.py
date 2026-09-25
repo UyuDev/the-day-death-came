@@ -152,17 +152,26 @@ class Character:
     def spend_coins(self, amount):
         self.coins -= amount
 
-    def has_item(self, item):
-        return item in self.inventory
+    def has_item(self, item, count):
+        return self.inventory.count(item) >= count
 
-    def exchange_item(self, item):
+    def exchange_item(self, exchange):
+        if exchange == "blacksmith weapon":
+            for _ in range(2):
+                self.inventory.remove("Ancient Armament")
+            self.equip_items("Ancient Greatsword")
+        elif exchange == "blacksmith armor":
+            for _ in range(4):
+                self.inventory.remove("Ancient Armament")
+            self.equip_set("ancient")
+
+    def exchange_power(self):
         count = 0
-        if item == "Ancient Armament":
-            while item in self.inventory:
-                self.inventory.remove(item)
-                count += 1
-            self.power += count
-        return count
+        while "Ancient Armament" in self.inventory:
+            self.inventory.remove("Ancient Armament")
+            count += 1
+        self.power += count
+        return count        
 
     def fence_items(self):
         total_items = 0

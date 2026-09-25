@@ -2840,15 +2840,883 @@ DIALOGUE = {
 
 
 
+
+    # BS
+
     "town blacksmith": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "has_visited_blacksmith",
+                "value": True,
+                "if_pass": "town blacksmith return",
+                "if_fail": "town blacksmith 1",
+            }
+        ]
+    },
+
+
+    "town blacksmith 1": {
         "text_id": "dialogue.town_blacksmith_1",
-        "next": "town blacksmith 2"
+        "next": "town blacksmith 2",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "has_visited_blacksmith",
+                "value": True,
+            }
+        ]
     },
 
     "town blacksmith 2": {
         "text_id": "dialogue.town_blacksmith_2",
-        "next": "town vendors choice"
+        "next": "town blacksmith 3",
     },
+
+    "town blacksmith 3": {
+        "text_id": "dialogue.town_blacksmith_3",
+        "next": "town blacksmith 4",
+    },
+
+    "town blacksmith 4": {
+        "text_id": "dialogue.town_blacksmith_4",
+        "next": "town blacksmith 5",
+    },
+
+    "town blacksmith 5": {
+        "text_id": "dialogue.town_blacksmith_5",
+        "next": "town blacksmith 6",
+    },
+
+    "town blacksmith 6": {
+        "text_id": "dialogue.town_blacksmith_6",
+        "next": "town blacksmith 7",
+    },
+
+    "town blacksmith 7": {
+        "text_id": "dialogue.town_blacksmith_7",
+        "next": "town blacksmith 8",
+    },
+
+    "town blacksmith 8": {
+        "text_id": "dialogue.town_blacksmith_8",
+        "next": "town blacksmith 9",
+    },
+
+    "town blacksmith 9": {
+        "text_id": "dialogue.town_blacksmith_9",
+        "next": "town blacksmith 10",
+    },
+
+    "town blacksmith 10": {
+        "text_id": "dialogue.town_blacksmith_10",
+        "next": "town vendors choice",
+    },
+
+
+
+    "town blacksmith return": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "reaper_knowledge",
+                "value": True,
+                "if_pass": "town blacksmith technique check",
+                "if_fail": "town blacksmith return 1",
+            }
+        ]
+    },
+
+
+    "town blacksmith return 1": {
+        "text_id": "dialogue.town_blacksmith_return_1",
+        "next": "town blacksmith return 2",
+    },
+
+    "town blacksmith return 2": {
+        "text_id": "dialogue.town_blacksmith_return_2",
+        "next": "town blacksmith return 3",
+    },
+
+    "town blacksmith return 3": {
+        "text_id": "dialogue.town_blacksmith_return_3",
+        "next": "town blacksmith return 4",
+    },
+
+    "town blacksmith return 4": {
+        "text_id": "dialogue.town_blacksmith_return_4",
+        "next": "town vendors choice",
+    },
+
+
+    "town blacksmith technique check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "ancient_technique_shared",
+                "value": True,
+                "if_pass": "town blacksmith crafting unlock check",
+                "if_fail": "town blacksmith knowledge 1",
+            }
+        ]
+    },
+
+
+
+    "town blacksmith knowledge 1": {
+        "text_id": "dialogue.town_blacksmith_return_1",
+        "next": "town blacksmith knowledge 2",
+    },
+
+    "town blacksmith knowledge 2": {
+        "text_id": "dialogue.town_blacksmith_knowledge_1",
+        "next": "town blacksmith knowledge 3",
+    },
+
+    "town blacksmith knowledge 3": {
+        "text_id": "dialogue.town_blacksmith_knowledge_2",
+        "next": "town blacksmith knowledge 4",
+    },
+
+    "town blacksmith knowledge 4": {
+        "text_id": "dialogue.town_blacksmith_knowledge_3",
+        "next": "town blacksmith knowledge 5",
+    },
+
+    "town blacksmith knowledge 5": {
+        "text_id": "dialogue.town_blacksmith_knowledge_4",
+        "next": "town blacksmith knowledge 6",
+    },
+
+    "town blacksmith knowledge 6": {
+        "text_id": "dialogue.town_blacksmith_knowledge_5",
+        "next": "town blacksmith knowledge 7",
+    },
+
+    "town blacksmith knowledge 7": {
+        "text_id": "dialogue.town_blacksmith_knowledge_6",
+        "next": "town blacksmith knowledge 8",
+    },
+
+    "town blacksmith knowledge 8": {
+        "text_id": "dialogue.town_blacksmith_knowledge_7",
+        "next": "town blacksmith knowledge 9",
+    },
+
+    "town blacksmith knowledge 9": {
+        "text_id": "dialogue.town_blacksmith_knowledge_8",
+        "next": "town blacksmith knowledge 10",
+    },
+
+    "town blacksmith knowledge 10": {
+        "text_id": "dialogue.town_blacksmith_knowledge_9",
+        "next": "town blacksmith knowledge 11",
+    },
+
+    "town blacksmith knowledge 11": {
+        "text_id": "dialogue.town_blacksmith_knowledge_10",
+        "next": "town blacksmith knowledge 12",
+    },
+
+    "town blacksmith knowledge 12": {
+        "text_id": "dialogue.town_blacksmith_knowledge_11",
+        "next": "town blacksmith knowledge 13",
+    },
+
+    "town blacksmith knowledge 13": {
+        "text_id": "dialogue.town_blacksmith_knowledge_12",
+        "next": "town blacksmith knowledge 14",
+    },
+
+    "town blacksmith knowledge 14": {
+        "text_id": "dialogue.town_blacksmith_knowledge_13",
+        "next": "town blacksmith knowledge 15",
+    },
+
+    "town blacksmith knowledge 15": {
+        "text_id": "dialogue.town_blacksmith_knowledge_14",
+        "next": "town blacksmith knowledge 16",
+    },
+
+    "town blacksmith knowledge 16": {
+        "text_id": "dialogue.town_blacksmith_knowledge_15",
+        "next": "town blacksmith knowledge 17",
+    },
+
+    "town blacksmith knowledge 17": {
+        "text_id": "dialogue.town_blacksmith_knowledge_16",
+        "next": "town blacksmith knowledge 18",
+    },
+
+    "town blacksmith knowledge 18": {
+        "text_id": "dialogue.town_blacksmith_knowledge_17",
+        "next": "town blacksmith knowledge 19",
+    },
+
+    "town blacksmith knowledge 19": {
+        "text_id": "dialogue.town_blacksmith_knowledge_18",
+        "next": "town blacksmith knowledge 20",
+    },
+
+    "town blacksmith knowledge 20": {
+        "text_id": "dialogue.town_blacksmith_knowledge_19",
+        "next": "town blacksmith knowledge 21",
+    },
+
+    "town blacksmith knowledge 21": {
+        "text_id": "dialogue.town_blacksmith_knowledge_20",
+        "next": "town blacksmith knowledge 22",
+    },
+
+    "town blacksmith knowledge 22": {
+        "text_id": "dialogue.town_blacksmith_knowledge_21",
+        "next": "town blacksmith knowledge 23",
+    },
+
+    "town blacksmith knowledge 23": {
+        "text_id": "dialogue.town_blacksmith_knowledge_22",
+        "next": "town blacksmith knowledge 24",
+    },
+
+    "town blacksmith knowledge 24": {
+        "text_id": "dialogue.town_blacksmith_knowledge_23",
+        "next": "town blacksmith knowledge 25",
+        "actions": [
+            {
+                "type": "earn_coins",
+                "value": 100,
+            }
+        ]
+    },
+
+    "town blacksmith knowledge 25": {
+        "text_id": "dialogue.town_blacksmith_knowledge_24",
+        "next": "town blacksmith knowledge 26",
+    },
+
+    "town blacksmith knowledge 26": {
+        "text_id": "dialogue.town_blacksmith_knowledge_25",
+        "next": "town blacksmith knowledge 27",
+    },
+
+    "town blacksmith knowledge 27": {
+        "text_id": "dialogue.town_blacksmith_knowledge_26",
+        "next": "town blacksmith knowledge 28",
+    },
+
+    "town blacksmith knowledge 28": {
+        "text_id": "dialogue.town_blacksmith_knowledge_27",
+        "next": "town blacksmith knowledge 29",
+    },
+
+    "town blacksmith knowledge 29": {
+        "text_id": "dialogue.town_blacksmith_knowledge_28",
+        "next": "town blacksmith knowledge 30",
+    },
+
+    "town blacksmith knowledge 30": {
+        "text_id": "dialogue.town_blacksmith_knowledge_29",
+        "next": "town vendors choice",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "ancient_technique_shared",
+                "value": True,
+            }
+        ]
+    },
+
+
+
+    "town blacksmith crafting unlock check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "ancient_crafting_unlocked",
+                "value": True,
+                "if_pass": "town blacksmith craft return check",
+                "if_fail": "town blacksmith armament check",
+            }
+        ]
+    },
+
+    "town blacksmith armament check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_items",
+                "target": "Ancient Armament",
+                "value": 1,
+                "if_pass": "town blacksmith armament 1",
+                "if_fail": "town blacksmith armament none 1",
+            }
+        ]
+    },
+
+    # No Ancient Armament yet
+    "town blacksmith armament none 1": {
+        "text_id": "dialogue.town_blacksmith_armament_1",
+        "next": "town blacksmith armament none 2",
+    },
+
+    "town blacksmith armament none 2": {
+        "text_id": "dialogue.town_blacksmith_nothing_1",
+        "next": "town blacksmith armament none 3",
+    },
+
+    "town blacksmith armament none 3": {
+        "text_id": "dialogue.town_blacksmith_nothing_2",
+        "next": "town vendors choice",
+    },
+
+
+
+    "town blacksmith armament 1": {
+        "text_id": "dialogue.town_blacksmith_armament_1",
+        "next": "town blacksmith armament 2",
+    },
+
+    "town blacksmith armament 2": {
+        "text_id": "dialogue.town_blacksmith_armament_2",
+        "next": "town blacksmith armament 3",
+    },
+
+    "town blacksmith armament 3": {
+        "text_id": "dialogue.town_blacksmith_armament_3",
+        "next": "town blacksmith armament 4",
+    },
+
+    "town blacksmith armament 4": {
+        "text_id": "dialogue.town_blacksmith_armament_4",
+        "next": "town blacksmith armament 5",
+    },
+
+    "town blacksmith armament 5": {
+        "text_id": "dialogue.town_blacksmith_armament_5",
+        "next": "town blacksmith armament 6",
+    },
+
+    "town blacksmith armament 6": {
+        "text_id": "dialogue.town_blacksmith_armament_6",
+        "next": "town blacksmith armament 7",
+    },
+
+    "town blacksmith armament 7": {
+        "text_id": "dialogue.town_blacksmith_armament_7",
+        "next": "town blacksmith armament 8",
+    },
+
+    "town blacksmith armament 8": {
+        "text_id": "dialogue.town_blacksmith_armament_8",
+        "next": "town blacksmith armament 9",
+    },
+
+    "town blacksmith armament 9": {
+        "text_id": "dialogue.town_blacksmith_armament_9",
+        "next": "town blacksmith armament 10",
+    },
+
+    "town blacksmith armament 10": {
+        "text_id": "dialogue.town_blacksmith_armament_10",
+        "next": "town blacksmith armament 11",
+    },
+
+    "town blacksmith armament 11": {
+        "text_id": "dialogue.town_blacksmith_armament_11",
+        "next": "town blacksmith armament 12",
+    },
+
+    "town blacksmith armament 12": {
+        "text_id": "dialogue.town_blacksmith_armament_12",
+        "next": "town blacksmith armament 13",
+    },
+
+    "town blacksmith armament 13": {
+        "text_id": "dialogue.town_blacksmith_armament_13",
+        "next": "town blacksmith armament 14",
+    },
+
+    "town blacksmith armament 14": {
+        "text_id": "dialogue.town_blacksmith_armament_14",
+        "next": "town blacksmith craft check",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "ancient_crafting_unlocked",
+                "value": True,
+            }
+        ]
+    },
+
+    "town blacksmith craft return check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "ancient_armor_crafted",
+                "value": True,
+                "if_pass": "town blacksmith craft return check 2",
+                "if_fail": "town blacksmith craft return",
+            }
+        ]
+    },
+
+    "town blacksmith craft return check 2": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "ancient_weapon_crafted",
+                "value": True,
+                "if_pass": "town blacksmith complete return 1",
+                "if_fail": "town blacksmith craft return",
+            }
+        ]
+    },
+
+
+
+
+    "town blacksmith craft return": {
+        "text_id": "dialogue.town_blacksmith_craft_return",
+        "next": "town blacksmith craft check",
+    },
+
+    "town blacksmith complete return 1": {
+        "text_id": "dialogue.town_blacksmith_complete_return_1",
+        "next": "town blacksmith complete return 2",
+    },
+
+    "town blacksmith complete return 2": {
+        "text_id": "dialogue.town_blacksmith_complete_return_2",
+        "next": "town vendors choice",
+    },
+
+
+    # BLACKSMITH CRAFTING STATE CHECKS
+
+    # First check whether the weapon has been crafted.
+    "town blacksmith craft check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "ancient_weapon_crafted",
+                "value": True,
+                "if_pass": "town blacksmith craft check weapon true",
+                "if_fail": "town blacksmith craft check weapon false",
+            }
+        ]
+    },
+
+    # Weapon IS crafted.
+    # Now determine whether armor is also crafted.
+    "town blacksmith craft check weapon true": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "ancient_armor_crafted",
+                "value": True,
+                "if_pass": "town blacksmith complete 1",
+                "if_fail": "town blacksmith craft armor only",
+            }
+        ]
+    },
+
+    # Weapon is NOT crafted.
+    # Now determine whether armor has been crafted.
+    "town blacksmith craft check weapon false": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "ancient_armor_crafted",
+                "value": True,
+                "if_pass": "town blacksmith craft weapon only",
+                "if_fail": "town blacksmith craft choice",
+            }
+        ]
+    },
+
+
+    "town blacksmith craft choice": {
+        "text_id": "dialogue.town_blacksmith_craft_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.town_blacksmith_armor",
+                "next": "town blacksmith armor coin check",
+            },
+            2: {
+                "text_id": "dialogue.option.town_blacksmith_weapon",
+                "next": "town blacksmith weapon coin check",
+            },
+            3: {
+                "text_id": "dialogue.option.town_blacksmith_nothing",
+                "next": "town blacksmith nothing 1",
+            },
+            4: {
+                "text_id": "dialogue.option.town_choice",
+                "next": "town vendors choice",
+            },
+        }
+    },
+
+    "town blacksmith nothing 1": {
+        "text_id": "dialogue.town_blacksmith_nothing_1",
+        "next": "town blacksmith nothing 2",
+    },
+
+    "town blacksmith nothing 2": {
+        "text_id": "dialogue.town_blacksmith_nothing_2",
+        "next": "town vendors choice",
+    },
+
+
+
+    "town blacksmith craft weapon only": {
+        "text_id": "dialogue.town_blacksmith_craft_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.town_blacksmith_weapon",
+                "next": "town blacksmith weapon coin check",
+            },
+            2: {
+                "text_id": "dialogue.empty",
+                "next": "town blacksmith craft weapon only",
+            },
+            3: {
+                "text_id": "dialogue.empty",
+                "next": "town blacksmith craft weapon only",
+            },
+            4: {
+                "text_id": "dialogue.option.town_blacksmith_nothing",
+                "next": "town blacksmith nothing 1",
+            },
+        }
+    },
+
+
+    "town blacksmith craft armor only": {
+        "text_id": "dialogue.town_blacksmith_craft_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.town_blacksmith_armor",
+                "next": "town blacksmith armor coin check",
+            },
+            2: {
+                "text_id": "dialogue.empty",
+                "next": "town blacksmith craft armor only",
+            },
+            3: {
+                "text_id": "dialogue.empty",
+                "next": "town blacksmith craft armor only",
+            },
+            4: {
+                "text_id": "dialogue.option.town_blacksmith_nothing",
+                "next": "town blacksmith nothing 1",
+            },
+        }
+    },
+
+
+
+
+    "town blacksmith armor coin check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_coins",
+                "value": 500,
+                "if_pass": "town blacksmith armor armament check",
+                "if_fail": "town blacksmith no gold 1",
+            }
+        ]
+    },
+
+
+    "town blacksmith armor armament check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_items",
+                "target": "Ancient Armament",
+                "value": 4,
+                "if_pass": "town blacksmith armor 1",
+                "if_fail": "town blacksmith no armor 1",
+            }
+        ]
+    },
+
+    "town blacksmith no gold 1": {
+        "text_id": "dialogue.town_blacksmith_no_gold_1",
+        "next": "town blacksmith no gold 2",
+    },
+
+    "town blacksmith no gold 2": {
+        "text_id": "dialogue.town_blacksmith_no_gold_2",
+        "next": "town blacksmith craft choice",
+    },
+
+    "town blacksmith no armor 1": {
+        "text_id": "dialogue.town_blacksmith_no_armor_1",
+        "next": "town blacksmith no armor 2",
+    },
+
+    "town blacksmith no armor 2": {
+        "text_id": "dialogue.town_blacksmith_no_armor_2",
+        "next": "town blacksmith craft choice",
+    },
+
+    "town blacksmith armor 1": {
+        "text_id": "dialogue.town_blacksmith_armor_1",
+        "next": "town blacksmith armor 2",
+    },
+
+    "town blacksmith armor 2": {
+        "text_id": "dialogue.town_blacksmith_armor_2",
+        "next": "town blacksmith armor 3",
+    },
+
+
+    "town blacksmith armor 3": {
+        "text_id": "dialogue.town_blacksmith_armor_3",
+        "next": "town blacksmith armor 4",
+        "actions": [
+            {
+                "type": "spend_coins",
+                "value": 500,
+            }
+        ]
+    },
+
+    "town blacksmith armor 4": {
+        "text_id": "dialogue.town_blacksmith_armor_4",
+        "next": "town blacksmith armor forge 1",
+    },
+
+    "town blacksmith armor forge 1": {
+        "text_id": "dialogue.town_blacksmith_forge_1",
+        "next": "town blacksmith armor forge 2",
+    },
+
+    "town blacksmith armor forge 2": {
+        "text_id": "dialogue.town_blacksmith_forge_2",
+        "next": "town blacksmith armor forge 3",
+    },
+
+    "town blacksmith armor forge 3": {
+        "text_id": "dialogue.town_blacksmith_forge_3",
+        "next": "town blacksmith armor forge 4",
+    },
+
+    "town blacksmith armor forge 4": {
+        "text_id": "dialogue.town_blacksmith_forge_4",
+        "next": "town blacksmith armor complete 1",
+    },
+
+    "town blacksmith armor complete 1": {
+        "text_id": "dialogue.town_blacksmith_armor_complete_1",
+        "next": "town blacksmith armor complete 2",
+    },
+
+    "town blacksmith armor complete 2": {
+        "text_id": "dialogue.town_blacksmith_armor_complete_2",
+        "next": "town blacksmith armor complete 3",
+    },
+
+    "town blacksmith armor complete 3": {
+        "text_id": "dialogue.town_blacksmith_armor_complete_3",
+        "next": "town blacksmith armor complete 4",
+    },
+
+    "town blacksmith armor complete 4": {
+        "text_id": "dialogue.town_blacksmith_armor_complete_4",
+        "next": "town blacksmith armor complete 5",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "ancient_armor_crafted",
+                "value": True,
+            }
+        ]
+    },
+
+ 
+    "town blacksmith armor complete 5": {
+        "text_id": "dialogue.town_blacksmith_armor_complete_5",
+        "actions": [
+            {
+                "type": "exchange_armament",
+                "target": "blacksmith armor",
+                "next": "town blacksmith craft check",
+            }
+        ]
+    },
+
+
+
+    "town blacksmith weapon coin check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_coins",
+                "value": 300,
+                "if_pass": "town blacksmith weapon armament check",
+                "if_fail": "town blacksmith no gold 1",
+            }
+        ]
+    },
+
+
+    "town blacksmith weapon armament check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_items",
+                "target": "Ancient Armament",
+                "value": 2,
+                "if_pass": "town blacksmith weapon 1",
+                "if_fail": "town blacksmith no weapon 1",
+            }
+        ]
+    },
+
+    "town blacksmith no weapon 1": {
+        "text_id": "dialogue.town_blacksmith_no_weapon_1",
+        "next": "town blacksmith no weapon 2",
+    },
+
+    "town blacksmith no weapon 2": {
+        "text_id": "dialogue.town_blacksmith_no_weapon_2",
+        "next": "town blacksmith craft choice",
+    },
+
+    "town blacksmith weapon 1": {
+        "text_id": "dialogue.town_blacksmith_weapon_1",
+        "next": "town blacksmith weapon 2",
+    },
+
+    "town blacksmith weapon 2": {
+        "text_id": "dialogue.town_blacksmith_weapon_2",
+        "next": "town blacksmith weapon 3",
+    },
+
+
+    "town blacksmith weapon 3": {
+        "text_id": "dialogue.town_blacksmith_weapon_3",
+        "next": "town blacksmith weapon 4",
+        "actions": [
+            {
+                "type": "spend_coins",
+                "value": 300,
+            }
+        ]
+    },
+
+    "town blacksmith weapon 4": {
+        "text_id": "dialogue.town_blacksmith_weapon_4",
+        "next": "town blacksmith weapon forge 1",
+    },
+
+    "town blacksmith weapon forge 1": {
+        "text_id": "dialogue.town_blacksmith_forge_1",
+        "next": "town blacksmith weapon forge 2",
+    },
+
+    "town blacksmith weapon forge 2": {
+        "text_id": "dialogue.town_blacksmith_forge_2",
+        "next": "town blacksmith weapon forge 3",
+    },
+
+    "town blacksmith weapon forge 3": {
+        "text_id": "dialogue.town_blacksmith_forge_3",
+        "next": "town blacksmith weapon forge 4",
+    },
+
+    "town blacksmith weapon forge 4": {
+        "text_id": "dialogue.town_blacksmith_forge_4",
+        "next": "town blacksmith weapon complete 1",
+    },
+
+    "town blacksmith weapon complete 1": {
+        "text_id": "dialogue.town_blacksmith_weapon_complete_1",
+        "next": "town blacksmith weapon complete 2",
+    },
+
+    "town blacksmith weapon complete 2": {
+        "text_id": "dialogue.town_blacksmith_weapon_complete_2",
+        "next": "town blacksmith weapon complete 3",
+    },
+
+    "town blacksmith weapon complete 3": {
+        "text_id": "dialogue.town_blacksmith_weapon_complete_3",
+        "next": "town blacksmith weapon complete 4",
+    },
+
+    "town blacksmith weapon complete 4": {
+        "text_id": "dialogue.town_blacksmith_weapon_complete_4",
+        "next": "town blacksmith weapon complete 5",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "ancient_weapon_crafted",
+                "value": True,
+            }
+        ]
+    },
+
+
+    "town blacksmith weapon complete 5": {
+        "text_id": "dialogue.town_blacksmith_weapon_complete_5",
+        "actions": [
+            {
+                "type": "exchange_armament",
+                "target": "blacksmith weapon",
+                "next": "town blacksmith craft check",
+            }
+        ]
+    },
+
+    "town blacksmith weapon finish": {
+        "text_id": "dialogue.empty",
+        "next": "town blacksmith craft check",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "ancient_weapon_crafted",
+                "value": True,
+            }
+        ]
+    },
+
+
+    "town blacksmith complete 1": {
+        "text_id": "dialogue.town_blacksmith_complete_1",
+        "next": "town blacksmith complete 2",
+    },
+
+    "town blacksmith complete 2": {
+        "text_id": "dialogue.town_blacksmith_complete_2",
+        "next": "town blacksmith complete 3",
+    },
+
+    "town blacksmith complete 3": {
+        "text_id": "dialogue.town_blacksmith_complete_3",
+        "next": "town blacksmith complete 4",
+    },
+
+    "town blacksmith complete 4": {
+        "text_id": "dialogue.town_blacksmith_complete_4",
+        "next": "town vendors choice",
+    },
+
+
+
 
     "town specialty": {
         "text_id": "dialogue.town_specialty_1",
@@ -2898,7 +3766,8 @@ DIALOGUE = {
             {   
                 "type": "check_items",
                 "target": "Ancient Armament",
-                "if_pass": "town specialty result",
+                "value": 1,
+                "if_pass": "town specialty exchange 1",
                 "if_fail": "town specialty none",
             }
         ]
@@ -2909,8 +3778,24 @@ DIALOGUE = {
         "next": "town vendors choice"
     },
 
-    "town specialty result": {
-        "text_id": "dialogue.town_specialty_exchange",
+    "town specialty exchange 1": {
+        "text_id": "dialogue.town_specialty_exchange_1",
+        "next": "town specialty exchange 2"
+    },
+
+    "town specialty exchange 2": {
+        "text_id": "dialogue.town_specialty_exchange_2",
+        "actions": [
+            {   
+                "type": "exchange_armament",
+                "target": "specialty vendor",
+                "next": "town specialty exchange 3"
+            }
+        ]
+    },
+
+    "town specialty exchange 3": {
+        "text_id": "dialogue.town_specialty_exchange_3",
         "next": "town specialty 4",
         "variables": {
             "item": "placeholder",
@@ -2918,11 +3803,13 @@ DIALOGUE = {
         }
     },
 
-
     "town specialty 4": {
         "text_id": "dialogue.town_specialty_4",
         "next": "town vendors choice"
     },
+
+
+
 
     "town sewer 1": {
         "text_id": "dialogue.town_sewer_1",
@@ -3904,9 +4791,23 @@ DIALOGUE = {
         "next": "crypt 3 forbidden 4",
     },
 
-
     "crypt 3 forbidden 4": {
         "text_id": "dialogue.crypt_3_forbidden_4",
+        "next": "crypt 3 forbidden 5",
+    },
+
+    "crypt 3 forbidden 5": {
+        "text_id": "dialogue.crypt_3_forbidden_5",
+        "next": "crypt 3 forbidden 6",
+    },
+
+    "crypt 3 forbidden 6": {
+        "text_id": "dialogue.crypt_3_forbidden_6",
+        "next": "crypt 3 forbidden 7",
+    },
+
+    "crypt 3 forbidden 7": {
+        "text_id": "dialogue.crypt_3_forbidden_7",
         "next": "crypt 3 items choice",
         "actions": [
             {

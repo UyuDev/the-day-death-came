@@ -198,7 +198,25 @@ EQUIPMENT_TEMPLATES = {
         "bag": None,
         "main weapon": "Reaper's Scythes",
         "secondary weapon": "Book of Forbidden Knowledge"
-    }
+    },
+    "ancient": {
+        "head": "Ancient Greathelm",
+        "neck": "Ancient Gorget",
+        "shirt": "Ancient Mail",
+        "torso": "Ancient Cuirass",
+        "hands": "Ancient Gauntlets",
+        "arms": "Ancient Vambraces",
+        "waist": "Ancient War Belt",
+        "pants": "Ancient Leggings",
+        "leg armor": "Ancient Greaves",
+        "feet": "Ancient Footwraps",
+        "shoes": "Ancient Sabatons",
+        "cloak": "Ancient Mantle",
+        "ring": None,
+        "bag": None,
+        "main weapon": None,
+        "secondary weapon": None
+},
 }
 
 ITEMS = {

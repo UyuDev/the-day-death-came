@@ -30,6 +30,8 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
         renderer.load_map(action["target"])
     elif action["type"] == "set_flag":
         world_state.flags[action["target"]] = action["value"]
+    elif action["type"] == "earn gold":
+        player.gold += action["value"]
     elif action["type"] == "item":
         player.acquire_items([action["target"]] * action["value"])
     elif action["type"] == "equip":
@@ -75,9 +77,9 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
         player.set_class(action["target"])
     elif action["type"] == "check_class":         
         if player.check_class(action["target"]):
-            dialogue.set_current(action[f"if_pass"])
+            dialogue.set_current(action["if_pass"])
         else:
-            dialogue.set_current(action[f"if_fail"])
+            dialogue.set_current(action["if_fail"])
         new_actions = dialogue.get_actions()
         for new_action in new_actions:
             result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
@@ -91,22 +93,25 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
             else:
                 total_count, total_coins = result
                 dialogue.set_current_with_variables(action["if_pass"], {"total_count": total_count, "total_coins": total_coins})
+            # WIP - check amount
     elif action["type"] == "check_items":         
-        if player.has_item(action["target"]):
-            total = player.exchange_item(action["target"])
-            dialogue.set_current_with_variables(action["if_pass"], {"item": action["target"], "count": total})
+        if player.has_item(action["target"], action["value"]):
+            dialogue.set_current(action["if_pass"])
         else:
             dialogue.set_current(action["if_fail"])
-        new_actions = dialogue.get_actions()
-        for new_action in new_actions:
-            result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
-            if result is not None:
-                return result
+            # WIP - craft item
+    elif action["type"] == "exchange_armament":         
+        if action["target"] == "specialty vendor":
+            total = player.exchange_power()
+            dialogue.set_current_with_variables(action["next"], {"count": total})
+        else:
+            player.exchange_item(action["target"])
+            dialogue.set_current(action["next"])       
     elif action["type"] == "check_coins":         
         if player.has_coins(action["value"]):
-            dialogue.set_current(action[f"if_pass"])
+            dialogue.set_current(action["if_pass"])
         else:
-            dialogue.set_current(action[f"if_fail"])
+            dialogue.set_current(action["if_fail"])
         new_actions = dialogue.get_actions()
         for new_action in new_actions:
             result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
@@ -117,9 +122,9 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
             player.spend_coins(action["value"])
     elif action["type"] == "check_settings":
         if settings[action["target"]]:
-            dialogue.set_current(action[f"if_pass"])
+            dialogue.set_current(action["if_pass"])
         else:
-            dialogue.set_current(action[f"if_fail"])
+            dialogue.set_current(action["if_fail"])
         new_actions = dialogue.get_actions()
         for new_action in new_actions:
             result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
