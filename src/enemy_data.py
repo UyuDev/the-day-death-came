@@ -5,13 +5,13 @@ from item_data import ITEMS, EQUIPMENT_TEMPLATES
 
 
 ENEMIES = {
-    "tunnel_bandit": {
-        "name": "Bandit Ambusher",
+    "tunnel_ambusher": {
+        "name": "Invading Ambusher",
         "level": 1,
         "game_class": "Rogue",
-        "inventory": ["Cheese"],
+        "inventory": ["Cryptic Letter"],
         "coins": 5,
-        "equipped": EQUIPMENT_TEMPLATES["light_armor"],
+        "equipped": EQUIPMENT_TEMPLATES["invader_rogue"],
         "image": "bandit"
     },
     "giant_rat": {
@@ -32,21 +32,48 @@ ENEMIES = {
         "equipped": EQUIPMENT_TEMPLATES["goblin"],
         "image": "cave_goblin"
     },
-    "sewer_bandit": {
-        "name": "Bandit",
+    "sewer_invader_rogue": {
+        "name": "Invading Rogue",
         "level": 5,
         "game_class": "Rogue",
         "inventory": ["Rogue Tools"],
+        "coins": 5,
+        "equipped": EQUIPMENT_TEMPLATES["invader_rogue"],
+        "image": "bandit"
+    },
+    "sewer_invader_ranger": {
+        "name": "Invading Ranger",
+        "level": 5,
+        "game_class": "Ranger",
+        "inventory": ["Ranger Traps"],
+        "coins": 5,
+        "equipped": EQUIPMENT_TEMPLATES["invader_ranger"],
+        "image": "bandit"
+    },
+    "dungeon_invader_warlock": {
+        "name": "Invading Warlock",
+        "level": 7,
+        "game_class": "Warlock",
+        "inventory": ["Occult Relic"],
         "coins": 1,
         "equipped": EQUIPMENT_TEMPLATES["light_armor"],
         "image": "bandit"
     },
-    "dungeon_bandit": {
-        "name": "Bandit",
+    "dungeon_invader_warrior": {
+        "name": "Invading Warrior",
+        "level": 7,
+        "game_class": "Warrior",
+        "inventory": ["Sharpening Stone"],
+        "coins": 1,
+        "equipped": EQUIPMENT_TEMPLATES["light_armor"],
+        "image": "bandit"
+    },
+    "dungeon_inmate": {
+        "name": "Released Inmate",
         "level": 7,
         "game_class": "Rogue",
-        "inventory": ["Dungeon Keys"],
-        "coins": 1,
+        "inventory": ["Stale Bread"],
+        "coins": 0,
         "equipped": EQUIPMENT_TEMPLATES["light_armor"],
         "image": "bandit"
     },
@@ -110,7 +137,7 @@ ENEMIES = {
         "game_class": "Warrior",
         "inventory": ["Bones", "Crystal fragment"],
         "coins": 20,
-        "equipped": EQUIPMENT_TEMPLATES["skeleton_warrior"],
+        "equipped": EQUIPMENT_TEMPLATES["skeleton_knight"],
         "image": "skeleton_warrior"
     },
     "skeleton_darkmaster": {

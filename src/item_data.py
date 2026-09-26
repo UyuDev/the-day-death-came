@@ -37,6 +37,96 @@ EQUIPMENT_TEMPLATES = {
         "main weapon": "Bandit Weapon",
         "secondary weapon": None
     },
+    "invader_rogue": {
+        "head": "Black Hood",
+        "neck": None,
+        "shirt": "Common Shirt",
+        "torso": "Blackened Gambeson",
+        "hands": "Padded Gloves",
+        "arms": None,
+        "waist": "Leather Belt",
+        "pants": "Dark Trousers",
+        "leg armor": None,
+        "feet": "Stockings",
+        "shoes": "Leather Boots",
+        "cloak": None,
+        "ring": None,
+        "bag": "Small Pouch",
+        "main weapon": "Iron Dagger",
+        "secondary weapon": "Iron Dagger"
+    },
+    "invader_ranger": {
+        "head": "Black Hood",
+        "neck": None,
+        "shirt": "Common Shirt",
+        "torso": "Blackened Gambeson",
+        "hands": "Leather Gloves",
+        "arms": None,
+        "waist": "Leather Belt",
+        "pants": "Dark Trousers",
+        "leg armor": None,
+        "feet": "Stockings",
+        "shoes": "Leather Boots",
+        "cloak": "Black Cloak",
+        "ring": None,
+        "bag": "Small Pouch",
+        "main weapon": "Hunting Bow",
+        "secondary weapon": "Iron Dagger"
+    },
+    "invader_warrior": {
+        "head": "Blackened Kettle Hat",
+        "neck": None,
+        "shirt": "Common Shirt",
+        "torso": "Blackened Gambeson",
+        "hands": "Leather Gloves",
+        "arms": "Blackened Vambraces",
+        "waist": "Leather Belt",
+        "pants": "Dark Trousers",
+        "leg armor": None,
+        "feet": "Stockings",
+        "shoes": "Leather Boots",
+        "cloak": None,
+        "ring": None,
+        "bag": "Small Pouch",
+        "main weapon": "Blackened Longsword",
+        "secondary weapon": "Blackened Spear"
+    },
+    "invader_warlock": {
+        "head": "Black Hood",
+        "neck": "Warlock's Talisman",
+        "shirt": "Common Shirt",
+        "torso": "Black Robes",
+        "hands": "Black Leather Gloves",
+        "arms": None,
+        "waist": "Leather Belt",
+        "pants": "Dark Trousers",
+        "leg armor": None,
+        "feet": "Stockings",
+        "shoes": "Leather Boots",
+        "cloak": "Black Cloak",
+        "ring": None,
+        "bag": "Small Pouch",
+        "main weapon": "Warlock's Staff",
+        "secondary weapon": "Warlock's Spellbook"
+    },
+    "invader_reaver": {
+        "head": "Blackened Horned Helm",
+        "neck": "Reaver's Blood Talisman",
+        "shirt": "Dark Padded Tunic",
+        "torso": "Blackened Reaver Cuirass",
+        "hands": "Blackened Reaver Gauntlets",
+        "arms": "Blackened Reaver Vambraces",
+        "waist": "Reaver's War Belt",
+        "pants": "Dark Trousers",
+        "leg armor": "Blackened Poleyns",
+        "feet": "Dark Footwraps",
+        "shoes": "Blackened Reaver Boots",
+        "cloak": "Tattered Reaver Mantle",
+        "ring": None,
+        "bag": None,
+        "main weapon": "Reaver's Greataxe",
+        "secondary weapon": None
+    },
     "goblin": {
         "head": None,
         "neck": None,
@@ -51,7 +141,7 @@ EQUIPMENT_TEMPLATES = {
         "shoes": None,
         "cloak": None,
         "ring": None,
-        "bag": "Small Pouch",
+        "bag": "Tiny Pouch",
         "main weapon": "Wooden Spear",
         "secondary weapon": "Bronze Dagger"
     },
@@ -70,8 +160,8 @@ EQUIPMENT_TEMPLATES = {
         "cloak": None,
         "ring": None,
         "bag": None,
-        "main weapon": "Iron Sword",
-        "secondary weapon": "Iron Shield"
+        "main weapon": "Old Iron Sword and Shield",
+        "secondary weapon": None
     },
     "skeleton_warrior": {
         "head": "Old Iron Helmet",
@@ -88,14 +178,32 @@ EQUIPMENT_TEMPLATES = {
         "cloak": None,
         "ring": None,
         "bag": None,
-        "main weapon": "Old Iron Longsword",
-        "secondary weapon": "Battered Iron Shield"
+        "main weapon": "Old Iron Sword and Shield",
+        "secondary weapon": None
+    },
+    "skeleton_knight": {
+        "head": "Battered Greathelm",
+        "neck": None,
+        "shirt": None,
+        "torso": "Battered Cuirass",
+        "hands": "Battered Gauntlets",
+        "arms": "Battered Arm Harness",
+        "waist": "Cracked Leather Belt",
+        "pants": "Deteriorated Trousers",
+        "leg armor": "Battered Leg Harness",
+        "feet": "Deteriorated Stockings",
+        "shoes": "Battered Sabatons",
+        "cloak": None,
+        "ring": None,
+        "bag": None,
+        "main weapon": "Worn Longsword and Kite Shield",
+        "secondary weapon": None
     },
     "cultist": {
-        "head": None,
+        "head": "Red Hood",
         "neck": "Occult Amulet",
         "shirt": "Common Shirt",
-        "torso": "Cultist Robes",
+        "torso": "Crimson Cultist Robes",
         "hands": "Padded Gloves",
         "arms": None,
         "waist": "Leather Belt",
@@ -103,7 +211,7 @@ EQUIPMENT_TEMPLATES = {
         "leg armor": None,
         "feet": "Stockings",
         "shoes": "Comfortable Shoes",
-        "cloak": "Dark Cloak",
+        "cloak": "Crimson Ritual Cloak",
         "ring": "Cultist Signet Ring",
         "bag": "Medium Satchel",
         "main weapon": "Occult Staff",
@@ -141,7 +249,7 @@ EQUIPMENT_TEMPLATES = {
         "shoes": "Steel Sabatons",
         "cloak": "Honor Guard's Cloak",
         "ring": "Paladin's Signet",
-        "bag": "Leather Satchel",
+        "bag": "Large Leather Satchel",
         "main weapon": "Honor Guard's Greatsword",
         "secondary weapon": "Paladin's Tome"
     },
@@ -216,7 +324,7 @@ EQUIPMENT_TEMPLATES = {
         "bag": None,
         "main weapon": None,
         "secondary weapon": None
-},
+    },
 }
 
 ITEMS = {
@@ -259,6 +367,13 @@ ITEMS = {
 
 
     # Search / container loot
+    "Arming Cap": {
+        "name_id": "item.arming_cap",
+        "power": 0.5,
+        "slot": "head",
+        "value": 2,
+        "sellable": True,
+    },
     "Leather Gloves": {
         "name_id": "item.leather_gloves",
         "power": 0.5,
@@ -290,7 +405,7 @@ ITEMS = {
     "Sewer Key": {
         "name_id": "item.sewer_key",
         "power": 0,
-        "slot": None,
+        "slot": "Keyring",
         "value": 0,
         "sellable": False,
     },
@@ -311,7 +426,7 @@ ITEMS = {
     "Dungeon Key": {
         "name_id": "item.dungeon_key",
         "power": 0,
-        "slot": None,
+        "slot": "Keyring",
         "value": 0,
         "sellable": False,
     },
@@ -332,7 +447,7 @@ ITEMS = {
     "Crypt Key": {
         "name_id": "item.crypt_key",
         "power": 0,
-        "slot": None,
+        "slot": "Keyring",
         "value": 0,
         "sellable": False,
     },
@@ -360,7 +475,7 @@ ITEMS = {
     "Shiny Key": {
         "name_id": "item.shiny_key",
         "power": 0,
-        "slot": None,
+        "slot": "Keyring",
         "value": 0,
         "sellable": False,
     },
@@ -415,12 +530,19 @@ ITEMS = {
         "value": 2,
         "sellable": True,
     },
-    "Small Pouch": {
-        "name_id": "item.small_pouch",
-        "power": 0,
+    "Tiny Pouch": {
+        "name_id": "item.tiny_pouch",
+        "capacity": 2,
         "slot": "bag",
         "value": 3,
-        "sellable": True,
+        "sellable": False,
+    },
+    "Small Pouch": {
+        "name_id": "item.small_pouch",
+        "capacity": 4,
+        "slot": "bag",
+        "value": 3,
+        "sellable": False,
     },
     "Bandit Weapon": {
         "name_id": "item.bandit_weapon",
@@ -598,12 +720,19 @@ ITEMS = {
         "value": 5,
         "sellable": True,
     },
-    "Medium Satchel": {
-        "name_id": "item.medium_satchel",
-        "power": 0,
+    "Nicholas' Satchel": {
+        "name_id": "item.nicholas_satchel",
+        "capacity": 8,
         "slot": "bag",
         "value": 5,
-        "sellable": True,
+        "sellable": False,
+    },
+    "Medium Satchel": {
+        "name_id": "item.medium_satchel",
+        "capacity": 8,
+        "slot": "bag",
+        "value": 5,
+        "sellable": False,
     },
     "Occult Staff": {
         "name_id": "item.occult_staff",
@@ -662,6 +791,50 @@ ITEMS = {
         "slot": "secondary weapon",
         "value": 0,
         "sellable": False,
+    },
+
+    # Skeleton Knight
+    "Battered Greathelm": {
+        "name_id": "item.battered_greathelm",
+        "power": 2,
+        "slot": "head",
+        "value": 6,
+        "sellable": True,
+    },
+    "Battered Cuirass": {
+        "name_id": "item.battered_cuirass",
+        "power": 3.5,
+        "slot": "torso",
+        "value": 9,
+        "sellable": True,
+    },
+    "Battered Gauntlets": {
+        "name_id": "item.battered_gauntlets",
+        "power": 1.25,
+        "slot": "hands",
+        "value": 4,
+        "sellable": True,
+    },
+    "Battered Arm Harness": {
+        "name_id": "item.battered_arm_harness",
+        "power": 1.75,
+        "slot": "arms",
+        "value": 5,
+        "sellable": True,
+    },
+    "Battered Leg Harness": {
+        "name_id": "item.battered_leg_harness",
+        "power": 1.75,
+        "slot": "leg armor",
+        "value": 5,
+        "sellable": True,
+    },
+    "Battered Sabatons": {
+        "name_id": "item.battered_sabatons",
+        "power": 1.25,
+        "slot": "shoes",
+        "value": 4,
+        "sellable": True,
     },
 
     # Honor Guard
@@ -758,10 +931,10 @@ ITEMS = {
     },
     "Leather Satchel": {
         "name_id": "item.leather_satchel",
-        "power": 0,
+        "capacity": 12,
         "slot": "bag",
         "value": 6,
-        "sellable": True,
+        "sellable": False,
     },
     "Honor Guard's Greatsword": {
         "name_id": "item.honor_guards_greatsword",
@@ -858,10 +1031,10 @@ ITEMS = {
     },
     "Embroidered Coin Purse": {
         "name_id": "item.embroidered_coin_purse",
-        "power": 0,
+        "capacity": 10,
         "slot": "bag",
         "value": 6,
-        "sellable": True,
+        "sellable": False,
     },
     "Graye's Arming Sword": {
         "name_id": "item.grayes_arming_sword",
@@ -909,7 +1082,7 @@ ITEMS = {
     },
     "Large Leather Satchel": {
         "name_id": "item.large_leather_satchel",
-        "power": 0,
+        "capacity": 22,
         "slot": "bag",
         "value": 0,
         "sellable": False,
@@ -1121,6 +1294,227 @@ ITEMS = {
         "value": 0,
         "sellable": False,
     },
+    # Invader - shared / Rogue
+    "Black Hood": {
+        "name_id": "item.black_hood",
+        "power": 0.25,
+        "slot": "head",
+        "value": 2,
+        "sellable": True,
+    },
+    "Blackened Gambeson": {
+        "name_id": "item.blackened_gambeson",
+        "power": 1.5,
+        "slot": "torso",
+        "value": 4,
+        "sellable": True,
+    },
+    "Dark Trousers": {
+        "name_id": "item.dark_trousers",
+        "power": 0,
+        "slot": "pants",
+        "value": 2,
+        "sellable": True,
+    },
+    "Black Cloak": {
+        "name_id": "item.black_cloak",
+        "power": 0.25,
+        "slot": "cloak",
+        "value": 3,
+        "sellable": True,
+    },
+    "Iron Dagger": {
+        "name_id": "item.iron_dagger",
+        "power": 1,
+        "slot": "main weapon",
+        "value": 3,
+        "sellable": True,
+    },
+
+    # Invader - Ranger
+    "Hunting Bow": {
+        "name_id": "item.hunting_bow",
+        "power": 3,
+        "slot": "main weapon",
+        "value": 6,
+        "sellable": True,
+    },
+
+    # Invader - Warrior
+    "Blackened Kettle Hat": {
+        "name_id": "item.blackened_kettle_hat",
+        "power": 1.5,
+        "slot": "head",
+        "value": 4,
+        "sellable": True,
+    },
+    "Blackened Vambraces": {
+        "name_id": "item.blackened_vambraces",
+        "power": 1,
+        "slot": "arms",
+        "value": 3,
+        "sellable": True,
+    },
+    "Blackened Longsword": {
+        "name_id": "item.blackened_longsword",
+        "power": 3,
+        "slot": "main weapon",
+        "value": 7,
+        "sellable": True,
+    },
+    "Blackened Spear": {
+        "name_id": "item.blackened_spear",
+        "power": 2,
+        "slot": "secondary weapon",
+        "value": 5,
+        "sellable": True,
+    },
+
+    # Invader - Warlock
+    "Warlock's Talisman": {
+        "name_id": "item.warlocks_talisman",
+        "power": 0.5,
+        "slot": "neck",
+        "value": 4,
+        "sellable": True,
+    },
+    "Black Robes": {
+        "name_id": "item.black_robes",
+        "power": 1,
+        "slot": "torso",
+        "value": 4,
+        "sellable": True,
+    },
+    "Black Leather Gloves": {
+        "name_id": "item.black_leather_gloves",
+        "power": 0.5,
+        "slot": "hands",
+        "value": 3,
+        "sellable": True,
+    },
+    "Warlock's Staff": {
+        "name_id": "item.warlocks_staff",
+        "power": 3.5,
+        "slot": "main weapon",
+        "value": 8,
+        "sellable": True,
+    },
+    "Warlock's Spellbook": {
+        "name_id": "item.warlocks_spellbook",
+        "power": 2.5,
+        "slot": "secondary weapon",
+        "value": 0,
+        "sellable": False,
+    },
+
+    # Invader - Reaver
+    "Blackened Horned Helm": {
+        "name_id": "item.blackened_horned_helm",
+        "power": 2.5,
+        "slot": "head",
+        "value": 8,
+        "sellable": True,
+    },
+    "Reaver's Blood Talisman": {
+        "name_id": "item.reavers_blood_talisman",
+        "power": 1,
+        "slot": "neck",
+        "value": 8,
+        "sellable": True,
+    },
+    "Dark Padded Tunic": {
+        "name_id": "item.dark_padded_tunic",
+        "power": 1,
+        "slot": "shirt",
+        "value": 4,
+        "sellable": True,
+    },
+    "Blackened Reaver Cuirass": {
+        "name_id": "item.blackened_reaver_cuirass",
+        "power": 3.5,
+        "slot": "torso",
+        "value": 10,
+        "sellable": True,
+    },
+    "Blackened Reaver Gauntlets": {
+        "name_id": "item.blackened_reaver_gauntlets",
+        "power": 1.25,
+        "slot": "hands",
+        "value": 5,
+        "sellable": True,
+    },
+    "Blackened Reaver Vambraces": {
+        "name_id": "item.blackened_reaver_vambraces",
+        "power": 1.75,
+        "slot": "arms",
+        "value": 6,
+        "sellable": True,
+    },
+    "Reaver's War Belt": {
+        "name_id": "item.reavers_war_belt",
+        "power": 0.5,
+        "slot": "waist",
+        "value": 5,
+        "sellable": True,
+    },
+    "Blackened Poleyns": {
+        "name_id": "item.blackened_poleyns",
+        "power": 1.5,
+        "slot": "leg armor",
+        "value": 5,
+        "sellable": True,
+    },
+    "Dark Footwraps": {
+        "name_id": "item.dark_footwraps",
+        "power": 0,
+        "slot": "feet",
+        "value": 2,
+        "sellable": True,
+    },
+    "Blackened Reaver Boots": {
+        "name_id": "item.blackened_reaver_boots",
+        "power": 1,
+        "slot": "shoes",
+        "value": 5,
+        "sellable": True,
+    },
+    "Tattered Reaver Mantle": {
+        "name_id": "item.tattered_reaver_mantle",
+        "power": 0.5,
+        "slot": "cloak",
+        "value": 5,
+        "sellable": True,
+    },
+    "Reaver's Greataxe": {
+        "name_id": "item.reavers_greataxe",
+        "power": 6,
+        "slot": "main weapon",
+        "value": 15,
+        "sellable": True,
+    },
+
+    # Cultist
+    "Red Hood": {
+        "name_id": "item.red_hood",
+        "power": 0.25,
+        "slot": "head",
+        "value": 2,
+        "sellable": True,
+    },
+    "Crimson Cultist Robes": {
+        "name_id": "item.crimson_cultist_robes",
+        "power": 1,
+        "slot": "torso",
+        "value": 4,
+        "sellable": True,
+    },
+    "Crimson Ritual Cloak": {
+        "name_id": "item.crimson_ritual_cloak",
+        "power": 0.5,
+        "slot": "cloak",
+        "value": 3,
+        "sellable": True,
+    },
 
 
     # General / non-equipment loot
@@ -1162,7 +1556,7 @@ ITEMS = {
     "Dungeon Keys": {
         "name_id": "item.dungeon_keys",
         "power": 0,
-        "slot": None,
+        "slot": "Keyring",
         "value": 0,
         "sellable": False,
     },
@@ -1253,7 +1647,7 @@ ITEMS = {
     "Basement Key": {
         "name_id": "item.basement_key",
         "power": 0,
-        "slot": None,
+        "slot": "Keyring",
         "value": 0,
         "sellable": False,
     },

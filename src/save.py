@@ -98,7 +98,6 @@ class SaveMenu():
     def handle_input(self, event):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_1:
-                print(pygame.K_1)
                 return 1
             elif event.key == pygame.K_2:
                 return 2

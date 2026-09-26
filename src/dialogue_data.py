@@ -213,7 +213,7 @@ DIALOGUE = {
                 "value": True
             },
             {   
-                "type": "item",
+                "type": "equip",
                 "target": "Hunting Sword",
                 "value": 1
             }
@@ -496,7 +496,15 @@ DIALOGUE = {
 
     "bed chest 5": {
             "text_id": "dialogue.bed_chest_5",
-            "next": "bed chest 6"
+            "next": "bed chest 6",
+            "actions": [
+                {   
+                    "type": "equip",
+                    "target": "Nicholas' Satchel",
+                    "slot": "bag",
+                    "value": 1
+                }
+            ]
         },
 
     "bed chest 6": {

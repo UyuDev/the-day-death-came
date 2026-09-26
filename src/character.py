@@ -68,9 +68,11 @@ class Character:
         self.buffs = []
         self.debuffs = []
         self.inventory = []
+        self.capacity = 0
+        self.keyring = []
         self.coins = 0
         self.equipped = equipment_slots.copy()
-        self.name = "Temp"
+        self.name = "NAME MISSING"
 
     # I made this a method for custom logic I am considering.
     def create(self, name, level: 1, game_class, inventory, coins, equipment):
@@ -101,14 +103,37 @@ class Character:
         if game_class == "Reaper" or game_class == "Paladin":
             self.equip_set(game_class)
 
+    def keyring_helper(self, key):
+        self.keyring.append(key)
+        print(f"{key} has been added to the keyring.")
+
+    def bag_helper(self, bag):
+        self.capacity += ITEMS[bag]["capacity"]
+        print(f"Inventory capacity +{ITEMS[bag]['capacity']} -> total {self.capacity}")
+
+    def bag_space(self):
+        print(f"Current remaining inventory space before looting: {self.capacity - len(self.inventory)}")
+        return len(self.inventory) < self.capacity
+
+    def inventory_manager(self, item):
+        if self.bag_space():
+            self.inventory.append(item)
+            print(f"Current remaining inventory space after looting: {self.capacity - len(self.inventory)}")
+
+
     def equip_helper(self, new_item):
-        new_item_data = ITEMS[new_item]
-        item_slot = new_item_data["slot"]
-        old_item = self.equipped[item_slot]
-        if old_item is not None:
-            self.inventory.append(old_item)
-        self.equipped[item_slot] = new_item
-        print(f"Equipped {new_item} in {item_slot}")
+        if new_item == "Nicholas' Satchel":
+            self.equipped["bag"] = new_item
+            self.bag_helper(new_item)
+        elif ITEMS[new_item]["slot"] != "bag":
+            new_item_data = ITEMS[new_item]
+            item_slot = new_item_data["slot"]
+            old_item = self.equipped[item_slot]
+            if old_item is not None:
+                self.inventory_manager(old_item)
+
+            self.equipped[item_slot] = new_item
+            print(f"Equipped {new_item} in {item_slot}")
 
 
     def equip_items(self, new_items):
@@ -126,14 +151,17 @@ class Character:
 
     def acquire_items(self, new_items):
         for item in new_items:
-            if ITEMS[item]["slot"] is not None:
-                self.auto_equip(item)
-            else:
-                self.inventory.append(item)
-        # print("EQUIPPED AFTER LOOT:")
-        # print(self.equipped)
-        # print("INVENTORY AFTER LOOT:")
-        # print(self.inventory)
+            if ITEMS[item]["slot"] == "bag":
+                self.bag_helper(item)
+            elif ITEMS[item]["slot"] == "Keyring":
+                self.keyring_helper(item)
+        for item in new_items:
+            if ITEMS[item]["slot"] != "bag" and ITEMS[item]["slot"] != "Keyring":
+                if ITEMS[item]["slot"] is not None:
+                    self.auto_equip(item)
+                else:
+                    self.inventory_manager(item)
+
 
     def auto_equip(self, new_item):
         new_item_data = ITEMS[new_item]
@@ -144,7 +172,7 @@ class Character:
             if old_item_data["power"] < new_item_data["power"]:
                 self.equip_helper(new_item)
             else:
-                self.inventory.append(new_item)
+                self.inventory_manager(new_item)
         else:
             self.equip_helper(new_item)
 
@@ -162,7 +190,8 @@ class Character:
         for item in self.equipped.values():
             if item is not None:
                 item_data = ITEMS[item]
-                total += item_data["power"]
+                if item_data["slot"] != "bag":
+                    total += item_data["power"]
         return self.item_diminishing_returns(total)
 
     def check_class(self, game_class):

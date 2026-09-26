@@ -34,7 +34,6 @@ class Menu():
             if event.key == pygame.K_SPACE or event.key == pygame.K_RETURN:
                 return "Continue"
             elif event.key == pygame.K_1:
-                print(pygame.K_1)
                 return 1
             elif event.key == pygame.K_2:
                 return 2

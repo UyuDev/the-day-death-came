@@ -58,7 +58,6 @@ def main():
                     game_state = "INTRO"
                 elif choice == 2:
                     game_state = "SAVE MENU"
-                    print("WORK IN PROGRESS")
                 elif choice == 3:
                     # settings
                     game_state = "SETTINGS"
@@ -133,8 +132,12 @@ def main():
             elif game_state == "INTRO":
                 choice = None
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_b:
+                    print("Inventory:")
                     print(player.inventory)
+                    print("Keyring:")
+                    print(player.keyring)
                 elif event.type == pygame.KEYDOWN and event.key == pygame.K_c:
+                    print("Equipment:")
                     print(player.equipped)
                 elif dialogue.has_options():
                     choice = dialogue.handle_input(event)
@@ -169,8 +172,12 @@ def main():
             elif game_state == "EXPLORATION":
                 choice = None
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_b:
+                    print("Inventory:")
                     print(player.inventory)
+                    print("Keyring:")
+                    print(player.keyring)
                 elif event.type == pygame.KEYDOWN and event.key == pygame.K_c:
+                    print("Equipment:")
                     print(player.equipped)
                 else:
                     choice = exploration.handle_input_continue(event)

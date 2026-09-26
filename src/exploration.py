@@ -45,7 +45,7 @@ ENCOUNTERS = {
         "text_id": "exploration.door_encounter"
     },
     "tunnel_1_encounter": {
-        "enemies": ["tunnel_bandit"],
+        "enemies": ["tunnel_ambusher"],
         "text_id": "exploration.tunnel_1_encounter"
     },
     "tunnel_1": {
@@ -65,19 +65,19 @@ ENCOUNTERS = {
         "text_id": "exploration.tunnel_2_enemies"
     },
     "sewer": {
-        "enemies": ["sewer_bandit", "sewer_bandit", "sewer_bandit", "sewer_bandit", "sewer_bandit"],
+        "enemies": ["sewer_invader_rogue", "sewer_invader_ranger", "sewer_invader_rogue", "sewer_invader_ranger", "sewer_invader_rogue"],
         "text_id": "exploration.sewer_enemies"
     },
     "sewer_ambush": {
-        "enemies": ["sewer_bandit"],
+        "enemies": ["sewer_invader_rogue"],
         "text_id": "exploration.sewer_enemies"
     },
     "dungeon": {
-        "enemies": ["dungeon_bandit", "dungeon_bandit", "dungeon_bandit", "dungeon_bandit", "dungeon_bandit", "dungeon_bandit"],
+        "enemies": ["dungeon_inmate", "dungeon_inmate", "dungeon_invader_warlock", "dungeon_invader_warrior", "dungeon_invader_warlock", "dungeon_invader_warrior"],
         "text_id": "exploration.dungeon_enemies"
     },
     "dungeon_ambush": {
-        "enemies": ["dungeon_bandit", "dungeon_bandit"],
+        "enemies": ["dungeon_inmate", "dungeon_inmate"],
         "text_id": "exploration.dungeon_enemies"
     },
     "crypt_1_enemies_1": {
@@ -85,7 +85,7 @@ ENCOUNTERS = {
         "text_id": "exploration.crypt_1_enemies_1"
     },
     "crypt_1_enemies_2": {
-        "enemies": ["cultist_acolyte", "cultist_acolyte", "cultist_acolyte", "cultist_acolyte"],
+        "enemies": ["skeleton", "cultist_acolyte", "skeleton", "cultist_acolyte"],
         "text_id": "exploration.crypt_1_enemies_2"
     },
     "crypt_1_ambush": {
@@ -132,9 +132,10 @@ SEARCH_AREAS = {
             {
                 "type": "chest",
                 "text_id": "exploration.chest_1",
+                "followup": "exploration.tunnel_1_rope_1",
                 "image": "chest",
                 "encounter": "tunnel_1_ambush",
-                "loot": ["Leather Gloves", "Rope"],
+                "loot": ["Leather Gloves"],
                 "coins": 5
             }
         ]
@@ -338,6 +339,25 @@ class Exploration():
         
         # screen.blit(text, rect)
 
+    def process_container_loot(self, container, player):
+            node = TEXT_NODES["loot"].copy()
+            loot = container["loot"]
+            localized_loot = []
+            for item in loot:
+                localized_text = self.language_data[ITEMS[item]["name_id"]]
+                localized_loot.append(localized_text)
+            coins = container["coins"]
+            player.acquire_items(loot)
+            player.coins += coins
+            loot_lines = [f"{coins} {self.language_data['exploration.coins']}"] + localized_loot
+            loot_text = "\n".join(loot_lines)
+            node["variables"] = {
+                "loot": loot_text
+            }
+            self.sequence.append(node)
+            if "followup" in container:
+                followup_node = {"text_id": container["followup"]}
+                self.sequence.append(followup_node)
 
 
     def start_encounter(self, encounter_id, player):
@@ -362,7 +382,6 @@ class Exploration():
             if encounter:
                 node = TEXT_NODES["search_interrupted"].copy()
                 self.sequence.append(node)
-                # I think I need to create custom encounters for this
                 result = self.add_encounter_to_sequence(
                     container["encounter"],
                     player
@@ -371,39 +390,11 @@ class Exploration():
                     break
                 node = TEXT_NODES["search_victory"].copy()
                 self.sequence.append(node)
-                node = TEXT_NODES["loot"].copy()
-                loot = container["loot"]
-                localized_loot = []
-                for item in loot:
-                    localized_text = self.language_data[ITEMS[item]["name_id"]]
-                    localized_loot.append(localized_text)
-                coins = container["coins"]
-                player.acquire_items(loot)
-                player.coins += coins
-                loot_lines = [f"{coins} {self.language_data['exploration.coins']}"] + localized_loot
-                loot_text = "\n".join(loot_lines)
-                node["variables"] = {
-                    "loot": loot_text
-                }
-                self.sequence.append(node)
+                self.process_container_loot(container, player)
             else:
                 node = TEXT_NODES["search_success"].copy()
                 self.sequence.append(node)
-                node = TEXT_NODES["loot"].copy()
-                loot = container["loot"]
-                localized_loot = []
-                for item in loot:
-                    localized_text = self.language_data[ITEMS[item]["name_id"]]
-                    localized_loot.append(localized_text)
-                coins = container["coins"]
-                player.acquire_items(loot)
-                player.coins += coins
-                loot_lines = [f"{coins} {self.language_data['exploration.coins']}"] + localized_loot
-                loot_text = "\n".join(loot_lines)
-                node["variables"] = {
-                    "loot": loot_text
-                }
-                self.sequence.append(node)
+                self.process_container_loot(container, player)
 
 
     def add_encounter_to_sequence(self, encounter_id, player):
