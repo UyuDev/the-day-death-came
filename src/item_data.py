@@ -52,8 +52,8 @@ EQUIPMENT_TEMPLATES = {
         "cloak": None,
         "ring": None,
         "bag": "Small Pouch",
-        "main weapon": "Iron Dagger",
-        "secondary weapon": "Iron Dagger"
+        "main weapon": "Iron Daggers",
+        "secondary weapon": "Throwing Knives"
     },
     "invader_ranger": {
         "head": "Black Hood",
@@ -71,7 +71,7 @@ EQUIPMENT_TEMPLATES = {
         "ring": None,
         "bag": "Small Pouch",
         "main weapon": "Hunting Bow",
-        "secondary weapon": "Iron Dagger"
+        "secondary weapon": "Hunting Sword"
     },
     "invader_warrior": {
         "head": "Blackened Kettle Hat",
@@ -305,7 +305,7 @@ EQUIPMENT_TEMPLATES = {
         "ring": None,
         "bag": None,
         "main weapon": "Reaper's Scythes",
-        "secondary weapon": "Book of Forbidden Knowledge"
+        "secondary weapon": None
     },
     "ancient": {
         "head": "Ancient Greathelm",
@@ -1197,7 +1197,7 @@ ITEMS = {
     "Book of Forbidden Knowledge": {
         "name_id": "item.book_of_forbidden_knowledge",
         "power": 0,
-        "slot": "secondary weapon",
+        "slot": None,
         "value": 0,
         "sellable": False,
     },
@@ -1323,14 +1323,20 @@ ITEMS = {
         "value": 3,
         "sellable": True,
     },
-    "Iron Dagger": {
-        "name_id": "item.iron_dagger",
-        "power": 1,
+    "Iron Daggers": {
+        "name_id": "item.iron_daggers",
+        "power": 2,
         "slot": "main weapon",
         "value": 3,
         "sellable": True,
     },
-
+    "Throwing Knives": {
+        "name_id": "item.throwing_knives",
+        "power": 1,
+        "slot": "secondary weapon",
+        "value": 3,
+        "sellable": True,
+    },
     # Invader - Ranger
     "Hunting Bow": {
         "name_id": "item.hunting_bow",
@@ -1522,15 +1528,15 @@ ITEMS = {
         "name_id": "item.cheese",
         "power": 0,
         "slot": None,
-        "value": 0,
-        "sellable": False,
+        "value": 5,
+        "sellable": True,
     },
     "Rat Meat": {
         "name_id": "item.rat_meat",
         "power": 0,
         "slot": None,
-        "value": 0,
-        "sellable": False,
+        "value": 1,
+        "sellable": True,
     },
     "Fang": {
         "name_id": "item.fang",
@@ -1543,15 +1549,15 @@ ITEMS = {
         "name_id": "item.cave_mushroom",
         "power": 0,
         "slot": None,
-        "value": 0,
-        "sellable": False,
+        "value": 3,
+        "sellable": True,
     },
-    "Rogue Tools": {
-        "name_id": "item.rogue_tools",
+    "Lockpick": {
+        "name_id": "item.lockpick",
         "power": 0,
         "slot": None,
-        "value": 0,
-        "sellable": False,
+        "value": 2,
+        "sellable": True,
     },
     "Dungeon Keys": {
         "name_id": "item.dungeon_keys",
@@ -1592,7 +1598,7 @@ ITEMS = {
         "name_id": "item.rare_jewels",
         "power": 0,
         "slot": None,
-        "value": 20,
+        "value": 200,
         "sellable": True,
     },
     "Ancient Armament": {
@@ -1641,7 +1647,49 @@ ITEMS = {
         "name_id": "item.bread",
         "power": 0,
         "slot": None,
-        "value": 0,
+        "value": 2,
+        "sellable": True,
+    },
+    "Stale Bread": {
+        "name_id": "item.stale_bread",
+        "power": 0,
+        "slot": None,
+        "value": 1,
+        "sellable": True,
+    },
+    "Sharpening Stone": {
+        "name_id": "item.sharpening_stone",
+        "power": 0,
+        "slot": None,
+        "value": 5,
+        "sellable": True,
+    },
+    "Strange Relic": {
+        "name_id": "item.strange_relic",
+        "power": 0,
+        "slot": None,
+        "value": 5,
+        "sellable": True,
+    },
+    "Ranger Traps": {
+        "name_id": "item.ranger_traps",
+        "power": 0,
+        "slot": None,
+        "value": 5,
+        "sellable": True,
+    },
+    "Cryptic Letter": {
+        "name_id": "item.cryptic_letter",
+        "power": 0,
+        "slot": None,
+        "value": 5,
+        "sellable": False,
+    },
+    "Invader's Orders": {
+        "name_id": "item.invaders_orders",
+        "power": 0,
+        "slot": None,
+        "value": 5,
         "sellable": False,
     },
     "Basement Key": {

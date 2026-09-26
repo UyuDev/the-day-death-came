@@ -35,10 +35,14 @@ equipment_slots = {
 LOCALIZATION_LOOKUP = {
     "Nicholas": "name.player",
 
-    "Bandit Ambusher": "enemy.bandit_ambusher",
+    "Invading Ambusher": "enemy.invading_ambusher",
     "Giant Rat": "enemy.giant_rat",
     "Cave Goblin": "enemy.cave_goblin",
-    "Bandit": "enemy.bandit",
+    "Invading Rogue": "enemy.invading_rogue",
+    "Invading Ranger": "enemy.invading_ranger",
+    "Invading Warlock": "enemy.invading_warlock",
+    "Invading Warrior": "enemy.invading_warrior",
+    "Released Inmate": "enemy.released_inmate",
     "Skeleton": "enemy.skeleton",
     "Zombie": "enemy.zombie",
     "Skeleton Fighter": "enemy.skeleton_fighter",
@@ -47,6 +51,7 @@ LOCALIZATION_LOOKUP = {
     "Skeleton mage": "enemy.skeleton_mage",
     "Skeleton Knight": "enemy.skeleton_knight",
     "Skeleton Darkmaster": "enemy.skeleton_darkmaster",
+    "Reaver Captain": "enemy.reaver_captain",
     "Honor Guard": "enemy.honor_guard",
     "Lord Graye": "enemy.lord_graye",
     "Sa, the Banished Reaper": "enemy.reaper_boss_1",
@@ -252,6 +257,8 @@ class Character:
             "buffs": self.buffs,
             "debuffs": self.debuffs,
             "inventory": self.inventory,
+            "capacity": self.capacity,
+            "keyring": self.keyring,
             "coins": self.coins,
             "equipped": self.equipped,
             "name": self.name,
@@ -269,6 +276,8 @@ class Character:
         self.buffs = data["player"]["buffs"]
         self.debuffs = data["player"]["debuffs"]
         self.inventory = data["player"]["inventory"]
+        self.capacity = data["player"]["capacity"]
+        self.keyring = data["player"]["keyring"]
         self.coins = data["player"]["coins"]
         self.equipped = data["player"]["equipped"]
         self.name = data["player"]["name"]

@@ -927,11 +927,48 @@ DIALOGUE = {
 
     "door encounter": {
         "text_id": "dialogue.door_encounter",
-        "next": "farm saved 1",
+        "next": "door encounter boss",
         "actions": [
             {   
                 "type": "encounter",
                 "target": "door_encounter"
+            }
+        ]
+    },
+
+    "door encounter boss": {
+        "text_id": "dialogue.door_boss",
+        "next": "door encounter boss 2"
+    },
+
+
+    "door encounter boss 2": {
+        "text_id": "dialogue.door_boss_2",
+        "next": "door encounter boss 3"
+    },
+
+    "door encounter boss 3": {
+        "text_id": "dialogue.door_boss_3",
+        "next": "door encounter boss 4"
+    },
+
+    "door encounter boss 4": {
+        "text_id": "dialogue.door_boss_4",
+        "next": "door encounter boss 5"
+    },
+
+    "door encounter boss 5": {
+        "text_id": "dialogue.door_boss_5",
+        "next": "door encounter boss 6"
+    },
+
+    "door encounter boss 6": {
+        "text_id": "dialogue.door_boss_6",
+        "next": "farm saved 1",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "door_encounter_boss"
             }
         ]
     },
@@ -1574,7 +1611,7 @@ DIALOGUE = {
             },
             2: {
                 "text_id": "dialogue.option.open_door",
-                "next": "basement door inspect"
+                "next": "basement door key check"
             },
             3: {
                 "text_id": "dialogue.option.step_away",
@@ -1597,17 +1634,36 @@ DIALOGUE = {
         "next": "basement door choice"
     },
 
-    "basement door inspect": {
+
+    "basement door key check": {
         "text_id": "dialogue.basement_door_inspect",
         "actions": [
             {   
                 "type": "check_flag",
                 "target": "basement_key_found",
-                "value": False,
-                "if_pass": "basement door locked",
+                "value": True,
+                "if_pass": "basement door lock check",
+                "if_fail": "basement door inspect",
+            }
+        ]
+    },
+
+    "basement door lock check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "basement_door_unlocked",
+                "value": True,
+                "if_pass": "enter tunnel 1",
                 "if_fail": "basement door unlock",
             }
         ]
+    },
+
+    "basement door inspect": {
+        "text_id": "dialogue.basement_door_inspect",
+        "next": "basement door locked"
     },
 
     "basement door locked": {
@@ -1617,7 +1673,7 @@ DIALOGUE = {
 
     "basement door unlock": {
         "text_id": "dialogue.basement_door_unlock",
-        "next": "enter tunnel check",
+        "next": "enter tunnel choice",
         "actions": [
             {
                 "type": "set_flag",
@@ -1670,8 +1726,8 @@ DIALOGUE = {
 
 
 
-    "enter tunnel check": {
-        "text_id": "dialogue.enter_tunnel_check",
+    "enter tunnel choice": {
+        "text_id": "dialogue.enter_tunnel_choice",
         "options": {
             1: {
                 "text_id": "dialogue.option.tunnel_enter",
@@ -1712,12 +1768,18 @@ DIALOGUE = {
 
     "tunnel 1 cont": {
         "text_id": "dialogue.tunnel_1_cont",
-        "next": "tunnel 1 encounter"
+        "next": "tunnel 1 encounter 1"
     },
 
-    "tunnel 1 encounter": {
+
+    "tunnel 1 encounter 1": {
         "text_id": "dialogue.tunnel_1_encounter",
-        "next": "tunnel 1 reaction 1",
+        "next": "tunnel 1 encounter 2"
+    },
+
+    "tunnel 1 encounter 2": {
+        "text_id": "dialogue.tunnel_1_reaction_1",
+        "next": "tunnel 1 reaction 2",
         "actions": [
             {   
                 "type": "encounter",
@@ -1726,10 +1788,6 @@ DIALOGUE = {
         ]
     },
 
-    "tunnel 1 reaction 1": {
-        "text_id": "dialogue.tunnel_1_reaction_1",
-        "next": "tunnel 1 reaction 2"
-    },
 
     "tunnel 1 reaction 2": {
         "text_id": "dialogue.tunnel_1_reaction_2",

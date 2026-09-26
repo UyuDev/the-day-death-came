@@ -36,7 +36,7 @@ ENEMIES = {
         "name": "Invading Rogue",
         "level": 5,
         "game_class": "Rogue",
-        "inventory": ["Rogue Tools"],
+        "inventory": ["Lockpick"],
         "coins": 5,
         "equipped": EQUIPMENT_TEMPLATES["invader_rogue"],
         "image": "bandit"
@@ -54,9 +54,9 @@ ENEMIES = {
         "name": "Invading Warlock",
         "level": 7,
         "game_class": "Warlock",
-        "inventory": ["Occult Relic"],
+        "inventory": ["Strange Relic"],
         "coins": 1,
-        "equipped": EQUIPMENT_TEMPLATES["light_armor"],
+        "equipped": EQUIPMENT_TEMPLATES["invader_warlock"],
         "image": "bandit"
     },
     "dungeon_invader_warrior": {
@@ -65,7 +65,7 @@ ENEMIES = {
         "game_class": "Warrior",
         "inventory": ["Sharpening Stone"],
         "coins": 1,
-        "equipped": EQUIPMENT_TEMPLATES["light_armor"],
+        "equipped": EQUIPMENT_TEMPLATES["invader_warrior"],
         "image": "bandit"
     },
     "dungeon_inmate": {
@@ -74,7 +74,7 @@ ENEMIES = {
         "game_class": "Rogue",
         "inventory": ["Stale Bread"],
         "coins": 0,
-        "equipped": EQUIPMENT_TEMPLATES["light_armor"],
+        "equipped": EQUIPMENT_TEMPLATES["invader_warlock"],
         "image": "bandit"
     },
     "skeleton": {
@@ -149,14 +149,50 @@ ENEMIES = {
         "equipped": EQUIPMENT_TEMPLATES["skeleton_mage"],
         "image": "skeleton_mage"
     },
-    "farm_bandit": {
-        "name": "Bandit",
-        "level": 10,
+    "farm_invader_rogue": {
+        "name": "Invading Rogue",
+        "level": 15,
+        "game_class": "Rogue",
+        "inventory": ["Lockpick"],
+        "coins": 10,
+        "equipped": EQUIPMENT_TEMPLATES["invader_rogue"],
+        "image": "invader_rogue"
+    },
+    "farm_invader_ranger": {
+        "name": "Invading Ranger",
+        "level": 15,
+        "game_class": "Ranger",
+        "inventory": ["Ranger Traps"],
+        "coins": 10,
+        "equipped": EQUIPMENT_TEMPLATES["invader_ranger"],
+        "image": "invader_ranger"
+    },
+    "farm_invader_warrior": {
+        "name": "Invading Warrior",
+        "level": 15,
         "game_class": "Warrior",
-        "inventory": ["Stolen Goods"],
-        "coins": 5,
-        "equipped": EQUIPMENT_TEMPLATES["light_armor"],
-        "image": "bandit"
+        "inventory": ["Sharpening Stone"],
+        "coins": 10,
+        "equipped": EQUIPMENT_TEMPLATES["invader_warrior"],
+        "image": "invader_warrior"
+    },
+    "farm_invader_warlock": {
+        "name": "Invading Warlock",
+        "level": 15,
+        "game_class": "Warlock",
+        "inventory": ["Occult Relic"],
+        "coins": 10,
+        "equipped": EQUIPMENT_TEMPLATES["invader_warlock"],
+        "image": "invader_warlock"
+    },
+    "invader_captain": {
+        "name": "Reaver Captain",
+        "level": 20,
+        "game_class": "Reaver",
+        "inventory": ["Invader's Orders"],
+        "coins": 25,
+        "equipped": EQUIPMENT_TEMPLATES["invader_reaver"],
+        "image": "invader_reaver"
     },
     "honor_guard": {
         "name": "Honor Guard",

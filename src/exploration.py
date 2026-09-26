@@ -41,8 +41,12 @@ TEXT_NODES = {
 
 ENCOUNTERS = {
     "door_encounter": {
-        "enemies": ["farm_bandit", "farm_bandit", "farm_bandit", "farm_bandit"],
+        "enemies": ["farm_invader_rogue", "farm_invader_ranger", "farm_invader_warrior", "farm_invader_warlock"],
         "text_id": "exploration.door_encounter"
+    },
+    "door_encounter_boss": {
+        "enemies": ["invader_captain"],
+        "text_id": "exploration.door_encounter_boss"
     },
     "tunnel_1_encounter": {
         "enemies": ["tunnel_ambusher"],

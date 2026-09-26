@@ -48,6 +48,12 @@ GAME_CLASSES = {
         default_abilities,
         power=15
     ),
+    "Ranger": GameClass(
+        "Ranger",
+        "class.ranger",
+        default_abilities,
+        power=15
+    ),
     "Mage": GameClass(
         "Mage",
         "class.mage",
@@ -65,6 +71,12 @@ GAME_CLASSES = {
         "class.warlock",
         default_abilities,
         power=15
+    ),
+    "Reaver": GameClass(
+        "Reaver",
+        "class.reaver",
+        default_abilities,
+        power=30
     ),
     "Reaper": GameClass(
         "Reaper",
