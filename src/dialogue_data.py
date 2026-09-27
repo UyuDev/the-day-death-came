@@ -2809,102 +2809,427 @@ DIALOGUE = {
 
 
     "town black market": {
-        "text_id": "dialogue.empty",
-        "actions": [
-            {
-                "type": "check_flag",
-                "target": "has_visited_black_market",
-                "value": True,
-                "if_pass": "town black market return",
-                "if_fail": "town black market 1",
-            }
-        ],
-    },
-
-    "town black market 1": {
-        "text_id": "dialogue.town_black_market_1",
-        "next": "town black market 2",
-    },
-
-    "town black market 2": {
-        "text_id": "dialogue.town_black_market_2",
-        "next": "town black market 3",
-    },
-
-    "town black market 3": {
-        "text_id": "dialogue.town_black_market_3",
-        "next": "town black market choice",
-        "actions": [
-            {
-                "type": "set_flag",
-                "target": "has_visited_black_market",
-                "value": True,
-            }
-        ],
-    },
-
-    "town black market return": {
-        "text_id": "dialogue.town_black_market_return",
-        "next": "town black market choice",
-    },
-
-    "town black market choice": {
         "text_id": "dialogue.town_black_market_choice",
         "options": {
             1: {
-                "text_id": "dialogue.option.town_black_market_yes",
-                "next": "town black market yes",
+                "text_id": "dialogue.option.town_black_market_fence",
+                "next": "town fence",
             },
             2: {
-                "text_id": "dialogue.option.town_black_market_no",
-                "next": "town black market no",
+                "text_id": "dialogue.option.town_black_market_witch",
+                "next": "town witch check",
+            },
+            3: {
+                "text_id": "dialogue.option.town_black_market_return",
+                "next": "town choice",
             },
         },
     },
 
-    "town black market no": {
-        "text_id": "dialogue.town_black_market_no",
-        "next": "town black market no response",
-    },
-
-    "town black market no response": {
-        "text_id": "dialogue.town_black_market_no_response",
-        "next": "town choice",
-    },
-
-    "town black market yes": {
-        "text_id": "dialogue.town_black_market_yes",
-        "next": "town black market sell",
-    },
-
-    "town black market sell": {
-        "text_id": "dialogue.town_black_market_yes",
+    "town fence": {
+        "text_id": "dialogue.empty",
         "actions": [
             {
-                "type": "sell_items",
-                "target": "black_market_fence",
-                "if_pass": "town black market sold",
-                "if_fail": "town black market nothing",
+                "type": "check_flag",
+                "target": "has_visited_fence",
+                "value": True,
+                "if_pass": "town fence return",
+                "if_fail": "town fence 1",
             }
         ],
     },
 
-    "town black market sold": {
-        "text_id": "dialogue.town_black_market_sold",
-        "next": "town black market complete",
+    "town fence 1": {
+        "text_id": "dialogue.town_fence_1",
+        "next": "town fence 2",
+    },
+
+    "town fence 2": {
+        "text_id": "dialogue.town_fence_2",
+        "next": "town fence 3",
+    },
+
+    "town fence 3": {
+        "text_id": "dialogue.town_fence_3",
+        "next": "town fence choice",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "has_visited_fence",
+                "value": True,
+            }
+        ],
+    },
+
+    "town fence return": {
+        "text_id": "dialogue.town_fence_return",
+        "next": "town fence choice",
+    },
+
+    "town fence choice": {
+        "text_id": "dialogue.town_fence_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.town_fence_yes",
+                "next": "town fence yes",
+            },
+            2: {
+                "text_id": "dialogue.option.town_fence_no",
+                "next": "town fence no",
+            },
+        },
+    },
+
+    "town fence no": {
+        "text_id": "dialogue.town_fence_no",
+        "next": "town fence no response",
+    },
+
+    "town fence no response": {
+        "text_id": "dialogue.town_fence_no_response",
+        "next": "town black market",
+    },
+
+    "town fence yes": {
+        "text_id": "dialogue.town_fence_yes",
+        "next": "town fence sell",
+    },
+
+    "town fence sell": {
+        "text_id": "dialogue.town_fence_yes",
+        "actions": [
+            {
+                "type": "sell_items",
+                "target": "black_market_fence",
+                "if_pass": "town fence sold",
+                "if_fail": "town fence nothing",
+            }
+        ],
+    },
+
+    "town fence sold": {
+        "text_id": "dialogue.town_fence_sold",
+        "next": "town fence complete",
         "variables": {},
     },
 
-    "town black market complete": {
-        "text_id": "dialogue.town_black_market_complete",
-        "next": "town choice",
+    "town fence complete": {
+        "text_id": "dialogue.town_fence_complete",
+        "next": "town black market",
     },
 
-    "town black market nothing": {
-        "text_id": "dialogue.town_black_market_nothing",
-        "next": "town choice",
+    "town fence nothing": {
+        "text_id": "dialogue.town_fence_nothing",
+        "next": "town black market",
     },
 
+    "town witch check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "met_witch",
+                "value": True,
+                "if_pass": "town witch choice",
+                "if_fail": "town witch intro 1",
+            }
+        ]
+    },
+
+    "town witch intro 1": {
+        "text_id": "dialogue.town_witch_intro_1",
+        "next": "town witch intro 2",
+    },
+
+    "town witch intro 2": {
+        "text_id": "dialogue.town_witch_intro_2",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "met_witch",
+                "value": True,
+                "next": "town witch choice",
+            }
+        ]
+    },
+
+    "town witch choice": {
+        "text_id": "dialogue.town_witch_choice",
+        "choices": [
+            {
+                "text_id": "dialogue.option.town_witch_rare",
+                "next": "town witch rare ingredient check",
+            },
+            {
+                "text_id": "dialogue.option.town_witch_strange",
+                "next": "town witch strange herb check",
+            },
+            {
+                "text_id": "dialogue.option.town_witch_bones",
+                "next": "town witch bones check",
+            },
+            {
+                "text_id": "dialogue.option.town_witch_explain",
+                "next": "town witch explain 1",
+            },
+            {
+                "text_id": "dialogue.option.town_witch_return",
+                "next": "town black market",
+            },
+        ]
+    },
+
+    "town witch explain 1": {
+        "text_id": "dialogue.town_witch_explain_1",
+        "next": "town witch explain 2",
+    },
+
+    "town witch explain 2": {
+        "text_id": "dialogue.town_witch_explain_2",
+        "next": "town witch explain 3",
+    },
+
+    "town witch explain 3": {
+        "text_id": "dialogue.town_witch_explain_3",
+        "next": "town witch choice",
+    },
+
+    # Rare Potion
+    "town witch rare ingredient check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_items",
+                "target": "Rare Ingredient",
+                "value": 1,
+                "if_pass": "town witch rare mushroom check",
+                "if_fail": "town witch rare missing",
+            }
+        ]
+    },
+
+    "town witch rare mushroom check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_items",
+                "target": "Cave Mushroom",
+                "value": 5,
+                "if_pass": "town witch rare coins check",
+                "if_fail": "town witch rare missing",
+            }
+        ]
+    },
+
+    "town witch rare coins check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_coins",
+                "value": 1000,
+                "if_pass": "town witch rare spend",
+                "if_fail": "town witch coins missing",
+            }
+        ]
+    },
+
+    "town witch rare spend": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "spend_coins",
+                "value": 1000,
+                "next": "town witch rare 1",
+            }
+        ]
+    },
+
+    "town witch rare missing": {
+        "text_id": "dialogue.town_witch_rare_missing",
+        "next": "town witch choice",
+    },
+
+    "town witch rare 1": {
+        "text_id": "dialogue.town_witch_rare_1",
+        "next": "town witch rare 2",
+    },
+
+    "town witch rare 2": {
+        "text_id": "dialogue.town_witch_stir",
+        "next": "town witch rare 3",
+    },
+
+    "town witch rare 3": {
+        "text_id": "dialogue.town_witch_blue",
+        "next": "town witch rare 4",
+    },
+
+    "town witch rare 4": {
+        "text_id": "dialogue.town_witch_bottle",
+        "next": "town witch rare 5",
+    },
+
+    "town witch rare 5": {
+        "text_id": "dialogue.town_witch_drink",
+        "actions": [
+            {
+                "type": "exchange_power",
+                "target": "Rare Potion",
+                "next": "town witch rare result",
+            }
+        ]
+    },
+
+    "town witch rare result": {
+        "text_id": "dialogue.town_witch_power_3",
+        "next": "town witch goodbye",
+    },
+
+    # Strange Potion
+    "town witch strange herb check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_items",
+                "target": "Strange Herb",
+                "value": 1,
+                "if_pass": "town witch strange mushroom check",
+                "if_fail": "town witch strange missing",
+            }
+        ]
+    },
+
+    "town witch strange mushroom check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_items",
+                "target": "Cave Mushroom",
+                "value": 5,
+                "if_pass": "town witch strange coins check",
+                "if_fail": "town witch strange missing",
+            }
+        ]
+    },
+
+    "town witch strange coins check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_coins",
+                "value": 100,
+                "if_pass": "town witch strange spend",
+                "if_fail": "town witch coins missing",
+            }
+        ]
+    },
+
+    "town witch strange spend": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "spend_coins",
+                "value": 100,
+                "next": "town witch strange 1",
+            }
+        ]
+    },
+
+    "town witch strange missing": {
+        "text_id": "dialogue.town_witch_strange_missing",
+        "next": "town witch choice",
+    },
+
+    "town witch coins missing": {
+        "text_id": "dialogue.town_witch_coins_missing",
+        "next": "town witch choice",
+    },
+
+    "town witch strange 1": {
+        "text_id": "dialogue.town_witch_strange_1",
+        "next": "town witch strange 2",
+    },
+
+    "town witch strange 2": {
+        "text_id": "dialogue.town_witch_stir",
+        "next": "town witch strange 3",
+    },
+
+    "town witch strange 3": {
+        "text_id": "dialogue.town_witch_green",
+        "next": "town witch strange 4",
+    },
+
+    "town witch strange 4": {
+        "text_id": "dialogue.town_witch_bottle",
+        "next": "town witch strange 5",
+    },
+
+    "town witch strange 5": {
+        "text_id": "dialogue.town_witch_drink",
+        "actions": [
+            {
+                "type": "exchange_power",
+                "target": "Strange Potion",
+                "next": "town witch strange result",
+            }
+        ]
+    },
+
+    "town witch strange result": {
+        "text_id": "dialogue.town_witch_power_1",
+        "next": "town witch goodbye",
+    },
+
+    # Bone Ritual
+    "town witch bones check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_items",
+                "target": "Bones",
+                "value": 25,
+                "if_pass": "town witch bones 1",
+                "if_fail": "town witch bones missing",
+            }
+        ]
+    },
+
+    "town witch bones missing": {
+        "text_id": "dialogue.town_witch_bones_missing",
+        "next": "town witch choice",
+    },
+
+    "town witch bones 1": {
+        "text_id": "dialogue.town_witch_bones_1",
+        "next": "town witch bones 2",
+    },
+
+    "town witch bones 2": {
+        "text_id": "dialogue.town_witch_bones_2",
+        "next": "town witch bones 3",
+    },
+
+    "town witch bones 3": {
+        "text_id": "dialogue.town_witch_bones_3",
+        "actions": [
+            {
+                "type": "exchange_power",
+                "target": "Bones",
+                "next": "town witch bones result",
+            }
+        ]
+    },
+
+    "town witch bones result": {
+        "text_id": "dialogue.town_witch_power_1",
+        "next": "town witch goodbye",
+    },
+
+    "town witch goodbye": {
+        "text_id": "dialogue.town_witch_goodbye",
+        "next": "town witch choice",
+    },
 
 
 

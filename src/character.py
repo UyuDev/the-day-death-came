@@ -257,7 +257,17 @@ class Character:
                     count += 1
                 power += 1
                 reps -= 1
-            self.power += power       
+            self.power += power
+        elif item == "Rare Potion":
+            self.inventory.remove("Rare Ingredient")
+            for _ in range(5):
+                self.inventory.remove("Cave Mushroom")
+            self.power += 3
+        elif item == "Strange Potion":
+            self.inventory.remove("Strange Herb")
+            for _ in range(5):
+                self.inventory.remove("Cave Mushroom")
+            self.power += 1
         return count, power       
 
     def fence_items(self):

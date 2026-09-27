@@ -35,6 +35,8 @@ class WorldState():
             "room_rented": False,
             "has_visited_black_market": False,
             "has_visited_blacksmith": False,
+            "has_visited_fence": False,
+            "met_witch": False,
             "ancient_technique_shared": False,
             "ancient_crafting_unlocked": False,
             "ancient_armor_crafted": False,

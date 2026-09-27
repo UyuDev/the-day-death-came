@@ -105,6 +105,9 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
         if action["target"] == "Ancient Armament" or action["target"] == "Crystal Fragment":
             count, power = player.exchange_power(action["target"])
             dialogue.set_current_with_variables(action["next"], {"count": count, "power": power})
+        elif action["target"] == "Rare Potion" or action["target"] == "Strange Potion" or action["target"] == "Bones":
+            player.exchange_power(action["target"])
+            dialogue.set_current(action["next"])
         else:
             player.exchange_item(action["target"])
             dialogue.set_current(action["next"])       

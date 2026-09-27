@@ -171,7 +171,7 @@ SEARCH_AREAS = {
                 "text_id": "exploration.crates_1",
                 "image": "crates",
                 "encounter": "sewer_ambush",
-                "loot": ["Strange Herb", "Alchemy Kit"],
+                "loot": ["Strange Herb", "Strange Herb"],
                 "coins": 0
             },
             {
