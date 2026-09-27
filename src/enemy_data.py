@@ -12,7 +12,7 @@ ENEMIES = {
         "inventory": ["Cryptic Letter"],
         "coins": 5,
         "equipped": EQUIPMENT_TEMPLATES["invader_rogue"],
-        "image": "bandit"
+        "image": "invader_rogue"
     },
     "giant_rat": {
         "name": "Giant Rat",
@@ -39,7 +39,7 @@ ENEMIES = {
         "inventory": ["Lockpick"],
         "coins": 5,
         "equipped": EQUIPMENT_TEMPLATES["invader_rogue"],
-        "image": "bandit"
+        "image": "invader_rogue"
     },
     "sewer_invader_ranger": {
         "name": "Invading Ranger",
@@ -48,7 +48,7 @@ ENEMIES = {
         "inventory": ["Ranger Traps"],
         "coins": 5,
         "equipped": EQUIPMENT_TEMPLATES["invader_ranger"],
-        "image": "bandit"
+        "image": "invader_ranger"
     },
     "dungeon_invader_warlock": {
         "name": "Invading Warlock",
@@ -57,7 +57,7 @@ ENEMIES = {
         "inventory": ["Strange Relic"],
         "coins": 1,
         "equipped": EQUIPMENT_TEMPLATES["invader_warlock"],
-        "image": "bandit"
+        "image": "invader_warlock"
     },
     "dungeon_invader_warrior": {
         "name": "Invading Warrior",
@@ -66,7 +66,7 @@ ENEMIES = {
         "inventory": ["Sharpening Stone"],
         "coins": 1,
         "equipped": EQUIPMENT_TEMPLATES["invader_warrior"],
-        "image": "bandit"
+        "image": "invader_warrior"
     },
     "dungeon_inmate": {
         "name": "Released Inmate",
