@@ -29,6 +29,10 @@ def load_assets():
     # art enemies
     "unknown_enemy": pygame.image.load("assets/unknown_enemy_temp.png").convert_alpha(),
     "bandit": pygame.image.load("assets/bandit.png").convert_alpha(),
+    "invader_warrior": pygame.image.load("assets/invader_warrior.png").convert_alpha(),
+    "invader_rogue": pygame.image.load("assets/invader_rogue.png").convert_alpha(),
+    "invader_ranger": pygame.image.load("assets/invader_ranger.png").convert_alpha(),
+    "invader_warlock": pygame.image.load("assets/invader_warlock.png").convert_alpha(),
     "giant_rat": pygame.image.load("assets/rat_temp.png").convert_alpha(),
     "cave_goblin": pygame.image.load("assets/goblin.png").convert_alpha(),
     "skeleton": pygame.image.load("assets/bandit_temp.png").convert_alpha(),

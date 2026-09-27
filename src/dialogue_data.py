@@ -36,359 +36,11 @@ DIALOGUE = {
         "next": "hardcore death reset 2"
     },
 
-    "hardcore death reset": {
+    "hardcore death reset 2": {
         "text_id": "dialogue.hardcore_death_reset_2",
         "next": "look around upstairs"
     },
 
-
-    "look around downstairs": {
-        "text_id": "dialogue.look_around_downstairs",
-        "options": {
-            1: {
-                "text_id": "dialogue.option.leave_door",
-                "next": "door"
-                
-            },
-            2: {
-                "text_id": "dialogue.option.boots_by_door",
-                "next": "check by door"
-            },
-            3: {
-                "text_id": "dialogue.option.check_window",
-                "next": "check window"
-            },
-            4: {
-                "text_id": "dialogue.more_options",
-                "next": "look around downstairs 2"
-            }
-        }
-    },
-
-    "look around downstairs 2": {
-        "text_id": "dialogue.look_around_downstairs",
-        "options": {
-            1: {
-                "text_id": "dialogue.option.open_trapdoor",
-                "next": "trapdoor"
-            },
-            2: {
-                "text_id": "dialogue.option.go_upstairs",
-                "next": "stairs upward"
-            },
-            3: {
-                "text_id": "dialogue.option.examine_table",
-                "next": "table"
-            },
-            4: {
-                "text_id": "dialogue.more_options",
-                "next": "look around downstairs 3"
-            }
-        }
-    },
-
-    "look around downstairs 3": {
-        "text_id": "dialogue.look_around_downstairs",
-        "options": {
-            1: {
-                "text_id": "dialogue.option.inspect_downstairs_chest",
-                "next": "inspect downstairs chest"
-            },
-            2: {
-                "text_id": "dialogue.option.empty",
-                "next": "look around downstairs 3"
-            },
-            3: {
-                "text_id": "dialogue.option.empty",
-                "next": "look around downstairs 3"
-            },
-            4: {
-                "text_id": "dialogue.previous_options",
-                "next": "look around downstairs"
-            }
-        }
-    },
-
-
-    "check by door": {
-        "text_id": "dialogue.check_by_door",
-        "next": "boots by door",
-        "actions": [
-            {   
-                "type": "check_flag",
-                "target": "downstairs_boots_taken",
-                "value": False,
-                "if_pass": "boots by door",
-                "if_fail": "boots taken",
-            }
-        ]
-
-    },
-
-    "boots taken": {
-        "text_id": "dialogue.boots_taken",
-        "next": "look around downstairs",
-
-    },
-
-
-    "boots by door": {
-        "text_id": "dialogue.boots_by_door",
-        "next": "take boots",
-
-    },
-
-    "take boots": {
-        "text_id": "dialogue.take_boots",
-        "next": "look around downstairs",
-        "actions": [
-            {   
-                "type": "set_flag",
-                "target": "downstairs_boots_taken",
-                "value": True
-            },
-            {   
-                "type": "equip",
-                "target": "Sturdy brown boots",
-                "slot": "shoes",
-                "value": 1
-            }
-        ]
-    },
-
-    "inspect downstairs chest": {
-        "text_id": "dialogue.inspect_downstairs_chest",
-        "actions": [
-            {   
-                "type": "check_flag",
-                "target": "downstairs_chest_empty",
-                "value": False,
-                "if_pass": "open downstairs chest",
-                "if_fail": "downstairs chest empty",
-            }
-        ]
-    },
-
-    "open downstairs chest": {
-        "text_id": "dialogue.open_downstairs_chest",
-        "next": "take hunting sword",
-    },
-
-    "downstairs chest choice": {
-        "text_id": "dialogue.downstairs_chest_choice",
-        "options": {
-            1: {
-                "text_id": "dialogue.option.take_hunt_sword",
-                "next": "take hunting sword"
-            },
-            2: {
-                "text_id": "dialogue.option.leave_hunt_sword",
-                "next": "leave hunting sword"
-            },
-            3: {
-                "text_id": "dialogue.option.empty",
-                "next": "downstairs chest choice"
-            },
-            4: {
-                "text_id": "dialogue.option.empty",
-                "next": "downstairs chest choice"
-            },
-        }
-    },
-
-    "leave hunting sword": {
-        "text_id": "dialogue.leave_hunt_sword",
-        "next": "look around downstairs",
-
-    },
-
-
-    "take hunting sword": {
-        "text_id": "dialogue.take_hunt_sword",
-        "next": "take hunting sword 2",
-        "actions": [
-            {   
-                "type": "set_flag",
-                "target": "downstairs_chest_empty",
-                "value": True
-            },
-            {   
-                "type": "equip",
-                "target": "Hunting Sword",
-                "value": 1
-            }
-        ]
-    },
-
-    "take hunting sword 2": {
-        "text_id": "dialogue.take_hunt_sword_2",
-        "next": "look around downstairs",
-
-    },
-
-    "downstairs chest empty": {
-        "text_id": "dialogue.downstairs_chest_empty",
-        "next": "look around downstairs",
-
-    },
-
-    "check window": {
-        "text_id": "dialogue.check_window",
-        "next": "window react",
-
-    },
-
-    "window react": {
-        "text_id": "dialogue.window_react",
-        "next": "look around downstairs",
-
-    },
-
-    "trapdoor": {
-        "text_id": "dialogue.trapdoor",
-        "next": "trapdoor choice",
-
-    },
-
-    "trapdoor choice": {
-        "text_id": "dialogue.trapdoor_choice",
-        "options": {
-            1: {
-                "text_id": "dialogue.option.trapdoor_go_down",
-                "next": "trapdoor climb down"
-            },
-            2: {
-                "text_id": "dialogue.option.trapdoor_step_away",
-                "next": "trapdoor walk away"
-            },
-            3: {
-                "text_id": "dialogue.option.empty",
-                "next": "trapdoor choice"
-            },
-            4: {
-                "text_id": "dialogue.option.empty",
-                "next": "trapdoor choice"
-            },
-        }
-    },
-
-    "trapdoor walk away": {
-        "text_id": "dialogue.trapdoor_walk_away",
-        "next": "look around downstairs"
-    },
-
-    "trapdoor climb down": {
-        "text_id": "dialogue.trapdoor_climb_down",
-        "actions": [
-            {   
-                "type": "check_flag",
-                "target": "inventory_unlocked",
-                "value": True,
-                "if_pass": "trapdoor climb down 2",
-                "if_fail": "trapdoor need bag",
-            }
-        ]
-    },
-
-    "trapdoor climb down 2": {
-        "text_id": "dialogue.trapdoor_climb_down",
-        "actions": [
-            {   
-                "type": "check_flag",
-                "target": "basement_unlocked",
-                "value": True,
-                "if_pass": "trapdoor pass 1",
-                "if_fail": "trapdoor fail 1",
-            }
-        ]
-    },
-
-    "trapdoor need bag": {
-        "text_id": "dialogue.no_inventory",
-        "next": "look around downstairs",
-    },
-
-
-    "trapdoor fail 1": {
-        "text_id": "dialogue.trapdoor_fail_1",
-        "next": "trapdoor fail 2",
-        "actions": [
-            {   
-                "type": "map",
-                "target": "pitch black"
-            }
-        ]
-    },
-
-    "trapdoor fail 2": {
-        "text_id": "dialogue.trapdoor_fail_2",
-        "next": "You died",
-        "actions": [
-            {   
-                "type": "show_scene",
-                "target": "trapdoor death"
-            }
-        ]
-    },
-
-    "trapdoor pass 1": {
-        "text_id": "dialogue.trapdoor_pass_1",
-        "actions": [
-            {   
-                "type": "map",
-                "target": "pitch black"
-            },
-            {   
-                "type": "check_flag",
-                "target": "basement_walls_broken",
-                "value": True,
-                "if_pass": "trapdoor pass b2",
-                "if_fail": "trapdoor pass 2",
-            }
-        ]
-    },
-
-
-    "trapdoor pass b2": {
-        "text_id": "dialogue.trapdoor_climb_down",
-        "next": "basement 2",
-        "actions": [
-            {   
-                "type": "map",
-                "target": "basement 2"
-            }
-        ]
-    },
-
-
-    "trapdoor pass 2": {
-        "text_id": "dialogue.trapdoor_pass_2",
-        "next": "basement 1",
-        "actions": [
-            {   
-                "type": "map",
-                "target": "basement"
-            }
-        ]
-    },
-    
-
-
-    "stairs upward": {
-        "text_id": "dialogue.stairs_to_upstairs",
-        "next": "upstairs",
-        "actions": [
-            {   
-                "type": "map",
-                "target": "house_upstairs"
-            }
-        ]
-    },
-
-    "upstairs": {
-        "text_id": "dialogue.upstairs",
-        "next": "look around upstairs"
-    },
 
     "look around upstairs": {
         "text_id": "dialogue.look_around_upstairs",
@@ -906,6 +558,355 @@ DIALOGUE = {
         "next": "You collapse on the floor book"
     },
 
+
+
+    "look around downstairs": {
+        "text_id": "dialogue.look_around_downstairs",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.leave_door",
+                "next": "door"
+                
+            },
+            2: {
+                "text_id": "dialogue.option.boots_by_door",
+                "next": "check by door"
+            },
+            3: {
+                "text_id": "dialogue.option.check_window",
+                "next": "check window"
+            },
+            4: {
+                "text_id": "dialogue.more_options",
+                "next": "look around downstairs 2"
+            }
+        }
+    },
+
+    "look around downstairs 2": {
+        "text_id": "dialogue.look_around_downstairs",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.open_trapdoor",
+                "next": "trapdoor"
+            },
+            2: {
+                "text_id": "dialogue.option.go_upstairs",
+                "next": "stairs upward"
+            },
+            3: {
+                "text_id": "dialogue.option.examine_table",
+                "next": "table"
+            },
+            4: {
+                "text_id": "dialogue.more_options",
+                "next": "look around downstairs 3"
+            }
+        }
+    },
+
+    "look around downstairs 3": {
+        "text_id": "dialogue.look_around_downstairs",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.inspect_downstairs_chest",
+                "next": "inspect downstairs chest"
+            },
+            2: {
+                "text_id": "dialogue.option.empty",
+                "next": "look around downstairs 3"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "look around downstairs 3"
+            },
+            4: {
+                "text_id": "dialogue.previous_options",
+                "next": "look around downstairs"
+            }
+        }
+    },
+
+
+    "check by door": {
+        "text_id": "dialogue.check_by_door",
+        "next": "boots by door",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "downstairs_boots_taken",
+                "value": False,
+                "if_pass": "boots by door",
+                "if_fail": "boots taken",
+            }
+        ]
+
+    },
+
+    "boots taken": {
+        "text_id": "dialogue.boots_taken",
+        "next": "look around downstairs",
+
+    },
+
+
+    "boots by door": {
+        "text_id": "dialogue.boots_by_door",
+        "next": "take boots",
+
+    },
+
+    "take boots": {
+        "text_id": "dialogue.take_boots",
+        "next": "look around downstairs",
+        "actions": [
+            {   
+                "type": "set_flag",
+                "target": "downstairs_boots_taken",
+                "value": True
+            },
+            {   
+                "type": "equip",
+                "target": "Sturdy brown boots",
+                "slot": "shoes",
+                "value": 1
+            }
+        ]
+    },
+
+    "inspect downstairs chest": {
+        "text_id": "dialogue.inspect_downstairs_chest",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "downstairs_chest_empty",
+                "value": False,
+                "if_pass": "open downstairs chest",
+                "if_fail": "downstairs chest empty",
+            }
+        ]
+    },
+
+    "open downstairs chest": {
+        "text_id": "dialogue.open_downstairs_chest",
+        "next": "take hunting sword",
+    },
+
+    "downstairs chest choice": {
+        "text_id": "dialogue.downstairs_chest_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.take_hunt_sword",
+                "next": "take hunting sword"
+            },
+            2: {
+                "text_id": "dialogue.option.leave_hunt_sword",
+                "next": "leave hunting sword"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "downstairs chest choice"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "downstairs chest choice"
+            },
+        }
+    },
+
+    "leave hunting sword": {
+        "text_id": "dialogue.leave_hunt_sword",
+        "next": "look around downstairs",
+
+    },
+
+
+    "take hunting sword": {
+        "text_id": "dialogue.take_hunt_sword",
+        "next": "take hunting sword 2",
+        "actions": [
+            {   
+                "type": "set_flag",
+                "target": "downstairs_chest_empty",
+                "value": True
+            },
+            {   
+                "type": "equip",
+                "target": "Hunting Sword",
+                "value": 1
+            }
+        ]
+    },
+
+    "take hunting sword 2": {
+        "text_id": "dialogue.take_hunt_sword_2",
+        "next": "look around downstairs",
+
+    },
+
+    "downstairs chest empty": {
+        "text_id": "dialogue.downstairs_chest_empty",
+        "next": "look around downstairs",
+
+    },
+
+    "check window": {
+        "text_id": "dialogue.check_window",
+        "next": "window react",
+
+    },
+
+    "window react": {
+        "text_id": "dialogue.window_react",
+        "next": "look around downstairs",
+
+    },
+
+    "trapdoor": {
+        "text_id": "dialogue.trapdoor",
+        "next": "trapdoor choice",
+
+    },
+
+    "trapdoor choice": {
+        "text_id": "dialogue.trapdoor_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.trapdoor_go_down",
+                "next": "trapdoor climb down"
+            },
+            2: {
+                "text_id": "dialogue.option.trapdoor_step_away",
+                "next": "trapdoor walk away"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "trapdoor choice"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "trapdoor choice"
+            },
+        }
+    },
+
+    "trapdoor walk away": {
+        "text_id": "dialogue.trapdoor_walk_away",
+        "next": "look around downstairs"
+    },
+
+    "trapdoor climb down": {
+        "text_id": "dialogue.trapdoor_climb_down",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "inventory_unlocked",
+                "value": True,
+                "if_pass": "trapdoor climb down 2",
+                "if_fail": "trapdoor need bag",
+            }
+        ]
+    },
+
+    "trapdoor climb down 2": {
+        "text_id": "dialogue.trapdoor_climb_down",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "basement_unlocked",
+                "value": True,
+                "if_pass": "trapdoor pass 1",
+                "if_fail": "trapdoor fail 1",
+            }
+        ]
+    },
+
+    "trapdoor need bag": {
+        "text_id": "dialogue.no_inventory",
+        "next": "look around downstairs",
+    },
+
+
+    "trapdoor fail 1": {
+        "text_id": "dialogue.trapdoor_fail_1",
+        "next": "trapdoor fail 2",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "pitch black"
+            }
+        ]
+    },
+
+    "trapdoor fail 2": {
+        "text_id": "dialogue.trapdoor_fail_2",
+        "next": "You died",
+        "actions": [
+            {   
+                "type": "show_scene",
+                "target": "trapdoor death"
+            }
+        ]
+    },
+
+    "trapdoor pass 1": {
+        "text_id": "dialogue.trapdoor_pass_1",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "pitch black"
+            },
+            {   
+                "type": "check_flag",
+                "target": "basement_walls_broken",
+                "value": True,
+                "if_pass": "trapdoor pass b2",
+                "if_fail": "trapdoor pass 2",
+            }
+        ]
+    },
+
+
+    "trapdoor pass b2": {
+        "text_id": "dialogue.trapdoor_climb_down",
+        "next": "basement 2",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "basement 2"
+            }
+        ]
+    },
+
+
+    "trapdoor pass 2": {
+        "text_id": "dialogue.trapdoor_pass_2",
+        "next": "basement 1",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "basement"
+            }
+        ]
+    },
+    
+
+
+    "stairs upward": {
+        "text_id": "dialogue.stairs_to_upstairs",
+        "next": "upstairs",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "house_upstairs"
+            }
+        ]
+    },
+
+    "upstairs": {
+        "text_id": "dialogue.upstairs",
+        "next": "look around upstairs"
+    },
 
 
     "door": {
