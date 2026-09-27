@@ -1591,7 +1591,7 @@ ITEMS = {
         "value": 1,
         "sellable": True,
     },
-    "Crystal fragment": {
+    "Crystal Fragment": {
         "name_id": "item.crystal_fragment",
         "power": 0,
         "slot": None,

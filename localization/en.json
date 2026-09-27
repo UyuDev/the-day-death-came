@@ -477,15 +477,26 @@
 
     "dialogue.town_specialty_1": "I knew you would come.",
     "dialogue.town_specialty_2": "I have an interest in unusual things. Things most merchants would not recognize.",
-    "dialogue.town_specialty_3": "If you happen across any Ancient Armaments, bring them to me. I can make the exchange worth your while.",
-    "dialogue.town_specialty_choice": "Do we have a deal?",
-    "dialogue.option.town_specialty_yes": "Yes",
-    "dialogue.option.town_specialty_no": "No",
+    "dialogue.town_specialty_3": "If you find Ancient Armaments or Crystal Fragments, bring them to me. I'll make it worth your while.",
+    "dialogue.town_specialty_choice": "What have you brought me?",
+    "dialogue.option.town_specialty_armaments": "Ancient Armaments",
+    "dialogue.option.town_specialty_crystals": "Crystal Fragments",
+    "dialogue.option.town_specialty_nothing": "Nothing",
+
     "dialogue.town_specialty_no": "Another time, perhaps.",
     "dialogue.town_specialty_none": "Hmm. Nothing of interest. Come back when that changes.",
+
     "dialogue.town_specialty_exchange_1": "You hand over the Ancient Armaments. He examines them silently before placing his hand upon yours.",
     "dialogue.town_specialty_exchange_2": "He mutters something under his breath. For a moment, you feel a strange sensation pass through your body.",
-    "dialogue.town_specialty_exchange_3": "You exchanged {count} ancient armament(s) for {count} increased player power.",
+    "dialogue.town_specialty_exchange_3": "You exchanged {count} Ancient Armament(s) for {power} increased player power.",
+
+    "dialogue.town_specialty_crystal_none": "You do not have enough Crystal Fragments. Bring me ten and we can make an exchange.",
+    "dialogue.town_specialty_crystal_1": "You show him the Crystal Fragments. His expression changes almost immediately.",
+    "dialogue.town_specialty_crystal_2": "These still hold traces of whatever power they were exposed to. Ten should be enough.",
+    "dialogue.town_specialty_crystal_3": "You hand over the Crystal Fragments. He gathers them in his palm and closes his hand around them.",
+    "dialogue.town_specialty_crystal_4": "He mutters something under his breath. One by one, the fragments lose their color. For a moment, you feel a strange sensation pass through your body.",
+    "dialogue.town_specialty_crystal_5": "You exchanged {count} Crystal Fragments for {power} increased player power.",
+
     "dialogue.town_specialty_4": "Pleasure doing business with you.",
 
     "dialogue.town_sewer_1": "You search the town for a way back to the tunnels.",  

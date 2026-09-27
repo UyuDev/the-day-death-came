@@ -101,10 +101,10 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
         else:
             dialogue.set_current(action["if_fail"])
             # WIP - craft item
-    elif action["type"] == "exchange_armament":         
-        if action["target"] == "specialty vendor":
-            total = player.exchange_power()
-            dialogue.set_current_with_variables(action["next"], {"count": total})
+    elif action["type"] == "exchange_power":         
+        if action["target"] == "Ancient Armament" or action["target"] == "Crystal Fragment":
+            count, power = player.exchange_power(action["target"])
+            dialogue.set_current_with_variables(action["next"], {"count": count, "power": power})
         else:
             player.exchange_item(action["target"])
             dialogue.set_current(action["next"])       

@@ -108,7 +108,7 @@ ENEMIES = {
         "name": "Cultist Acolyte",
         "level": 10,
         "game_class": "Warlock",
-        "inventory": ["Crystal fragment"],
+        "inventory": ["Crystal Fragment"],
         "coins": 10,
         "equipped": EQUIPMENT_TEMPLATES["cultist"],
         "image": "cultist_acolyte"
@@ -117,7 +117,7 @@ ENEMIES = {
         "name": "Skeleton Warrior",
         "level": 15,
         "game_class": "Warrior",
-        "inventory": ["Bones", "Crystal fragment"],
+        "inventory": ["Bones"],
         "coins": 15,
         "equipped": EQUIPMENT_TEMPLATES["skeleton_warrior"],
         "image": "skeleton_warrior"
@@ -126,7 +126,7 @@ ENEMIES = {
         "name": "Skeleton mage",
         "level": 15,
         "game_class": "Mage",
-        "inventory": ["Bones", "Crystal fragment"],
+        "inventory": ["Bones", "Magic Ashes"],
         "coins": 15,
         "equipped": EQUIPMENT_TEMPLATES["skeleton_mage"],
         "image": "skeleton_mage"
@@ -135,7 +135,7 @@ ENEMIES = {
         "name": "Skeleton Knight",
         "level": 20,
         "game_class": "Warrior",
-        "inventory": ["Bones", "Crystal fragment"],
+        "inventory": ["Bones"],
         "coins": 20,
         "equipped": EQUIPMENT_TEMPLATES["skeleton_knight"],
         "image": "skeleton_warrior"
@@ -144,7 +144,7 @@ ENEMIES = {
         "name": "Skeleton Darkmaster",
         "level": 20,
         "game_class": "Warlock",
-        "inventory": ["Bones", "Crystal fragment"],
+        "inventory": ["Bones", "Crystal Fragment"],
         "coins": 20,
         "equipped": EQUIPMENT_TEMPLATES["skeleton_mage"],
         "image": "skeleton_mage"

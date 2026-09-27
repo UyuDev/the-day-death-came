@@ -229,13 +229,36 @@ class Character:
                 self.inventory.remove("Ancient Armament")
             self.equip_set("ancient")
 
-    def exchange_power(self):
+    def exchange_power(self, item):
         count = 0
-        while "Ancient Armament" in self.inventory:
-            self.inventory.remove("Ancient Armament")
-            count += 1
-        self.power += count
-        return count        
+        power = 0
+        if item == "Ancient Armament":
+            while item in self.inventory:
+                self.inventory.remove(item)
+                count += 1
+                power += 1
+            self.power += count
+        elif item == "Crystal Fragment":
+            total = self.inventory.count(item)
+            reps = total // 10
+            while reps > 0:
+                for _ in range(10):
+                    self.inventory.remove(item)
+                    count += 1
+                power += 1
+                reps -= 1
+            self.power += power
+        elif item == "Bones":
+            total = self.inventory.count(item)
+            reps = total // 25
+            while reps > 0:
+                for _ in range(25):
+                    self.inventory.remove(item)
+                    count += 1
+                power += 1
+                reps -= 1
+            self.power += power       
+        return count, power       
 
     def fence_items(self):
         total_items = 0

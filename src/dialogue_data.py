@@ -3804,16 +3804,16 @@ DIALOGUE = {
         "text_id": "dialogue.town_specialty_choice",
         "options": {
             1: {
-                "text_id": "dialogue.option.town_specialty_yes",
-                "next": "town specialty exchange"
+                "text_id": "dialogue.option.town_specialty_armaments",
+                "next": "town specialty armament check"
             },
             2: {
-                "text_id": "dialogue.option.town_specialty_no",
-                "next": "town specialty no"
+                "text_id": "dialogue.option.town_specialty_crystals",
+                "next": "town specialty crystal check"
             },
             3: {
-                "text_id": "dialogue.option.empty",
-                "next": "town specialty choice"
+                "text_id": "dialogue.option.town_specialty_nothing",
+                "next": "town specialty no"
             },
             4: {
                 "text_id": "dialogue.option.empty",
@@ -3827,10 +3827,10 @@ DIALOGUE = {
         "next": "town vendors choice"
     },
 
-    "town specialty exchange": {
+    "town specialty armament check": {
         "text_id": "dialogue.empty",
         "actions": [
-            {   
+            {
                 "type": "check_items",
                 "target": "Ancient Armament",
                 "value": 1,
@@ -3838,11 +3838,6 @@ DIALOGUE = {
                 "if_fail": "town specialty none",
             }
         ]
-    },
-
-    "town specialty none": {
-        "text_id": "dialogue.town_specialty_none",
-        "next": "town vendors choice"
     },
 
     "town specialty exchange 1": {
@@ -3853,9 +3848,9 @@ DIALOGUE = {
     "town specialty exchange 2": {
         "text_id": "dialogue.town_specialty_exchange_2",
         "actions": [
-            {   
-                "type": "exchange_armament",
-                "target": "specialty vendor",
+            {
+                "type": "exchange_power",
+                "target": "Ancient Armament",
                 "next": "town specialty exchange 3"
             }
         ]
@@ -3865,9 +3860,67 @@ DIALOGUE = {
         "text_id": "dialogue.town_specialty_exchange_3",
         "next": "town specialty 4",
         "variables": {
-            "item": "placeholder",
-            "count": 0
+            "count": 0,
+            "power": 0
         }
+    },
+
+    "town specialty crystal check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_items",
+                "target": "Crystal Fragment",
+                "value": 10,
+                "if_pass": "town specialty crystal 1",
+                "if_fail": "town specialty crystal none",
+            }
+        ]
+    },
+
+    "town specialty crystal none": {
+        "text_id": "dialogue.town_specialty_crystal_none",
+        "next": "town specialty choice"
+    },
+
+    "town specialty crystal 1": {
+        "text_id": "dialogue.town_specialty_crystal_1",
+        "next": "town specialty crystal 2"
+    },
+
+    "town specialty crystal 2": {
+        "text_id": "dialogue.town_specialty_crystal_2",
+        "next": "town specialty crystal 3"
+    },
+
+    "town specialty crystal 3": {
+        "text_id": "dialogue.town_specialty_crystal_3",
+        "next": "town specialty crystal 4"
+    },
+
+    "town specialty crystal 4": {
+        "text_id": "dialogue.town_specialty_crystal_4",
+        "actions": [
+            {
+                "type": "exchange_power",
+                "target": "Crystal Fragment",
+                "next": "town specialty crystal 5"
+            }
+        ]
+    },
+
+    "town specialty crystal 5": {
+        "text_id": "dialogue.town_specialty_crystal_5",
+        "next": "town specialty 4",
+        "variables": {
+            "count": 0,
+            "power": 0
+        }
+    },
+
+    "town specialty none": {
+        "text_id": "dialogue.town_specialty_none",
+        "next": "town specialty choice"
     },
 
     "town specialty 4": {
