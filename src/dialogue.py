@@ -63,7 +63,16 @@ class Dialogue():
         else:
             return []
 
-    def draw(self, screen, ui_font):
+    def display_stats(self, screen, ui_font, player):
+        coins_text = self.language_data["stats.coins"]
+        inventory_text = self.language_data["stats.inventory"]
+        lvl_text = self.language_data["stats.level"]
+        power_text = self.language_data["stats.power"]
+        combined_text = f"{coins_text}: {player.coins}, {inventory_text}: {len(player.inventory)} / {player.capacity}, {lvl_text}: {player.level}, {power_text}: {player.total_power()}"
+        text = ui_font.render(combined_text, True, "Yellow")
+        screen.blit(text, (15, 15))
+
+    def draw(self, screen, ui_font, player):
         dialogue_rect = pygame.Rect(
         0,
         MAP_HEIGHT,
@@ -104,6 +113,7 @@ class Dialogue():
                     dialogue_rect.y + 60 + (number - 1) * 40
                 )
                 screen.blit(option_text, position)
+
         else:
             if "variables" in current_node:
                 text_string = self.language_data[current_node["text_id"]].format(
@@ -115,4 +125,4 @@ class Dialogue():
             rect = text.get_rect(center=dialogue_rect.center)
             screen.blit(self.ui, (0, 0))
             screen.blit(text, rect)
-        
+        self.display_stats(screen, ui_font, player)       

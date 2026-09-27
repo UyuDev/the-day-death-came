@@ -190,14 +190,20 @@ class Character:
     def item_diminishing_returns(self, total):
         return 2 * math.sqrt(total)
 
-    def equipment_power(self):
+    def raw_equipment_power(self):
         total = 0
         for item in self.equipped.values():
             if item is not None:
                 item_data = ITEMS[item]
                 if item_data["slot"] != "bag":
                     total += item_data["power"]
-        return self.item_diminishing_returns(total)
+        return total
+
+    def total_power(self):
+        return self.power + self.game_class.power + self.raw_equipment_power()
+
+    def equipment_power(self):
+        return self.item_diminishing_returns(self.raw_equipment_power())
 
     def check_class(self, game_class):
         if self.game_class == GAME_CLASSES[game_class]:

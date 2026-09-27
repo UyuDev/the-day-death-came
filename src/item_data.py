@@ -37,6 +37,24 @@ EQUIPMENT_TEMPLATES = {
         "main weapon": "Bandit Weapon",
         "secondary weapon": None
     },
+    "prisoner": {
+        "head": None,
+        "neck": None,
+        "shirt": "Common Shirt",
+        "torso": None,
+        "hands": None,
+        "arms": None,
+        "waist": None,
+        "pants": "Trousers",
+        "leg armor": None,
+        "feet": "Stockings",
+        "shoes": "Leather Boots",
+        "cloak": None,
+        "ring": None,
+        "bag": "Small Pouch",
+        "main weapon": "None",
+        "secondary weapon": None
+    },
     "invader_rogue": {
         "head": "Black Hood",
         "neck": None,
@@ -669,18 +687,11 @@ ITEMS = {
         "value": 3,
         "sellable": True,
     },
-    "Old Iron Longsword": {
-        "name_id": "item.old_iron_longsword",
-        "power": 3,
+    "Old Iron Sword and Shield": {
+        "name_id": "item.old_sword_shield",
+        "power": 5,
         "slot": "main weapon",
         "value": 6,
-        "sellable": True,
-    },
-    "Battered Iron Shield": {
-        "name_id": "item.battered_iron_shield",
-        "power": 2,
-        "slot": "secondary weapon",
-        "value": 5,
         "sellable": True,
     },
 
@@ -745,8 +756,8 @@ ITEMS = {
         "name_id": "item.occult_spellbook",
         "power": 2.5,
         "slot": "secondary weapon",
-        "value": 0,
-        "sellable": False,
+        "value": 5,
+        "sellable": True,
     },
 
     # Skeleton mage
@@ -834,6 +845,13 @@ ITEMS = {
         "power": 1.25,
         "slot": "shoes",
         "value": 4,
+        "sellable": True,
+    },
+    "Worn Longsword and Kite Shield": {
+        "name_id": "item.worn_longsword_kite",
+        "power": 6,
+        "slot": "main weapon",
+        "value": 6,
         "sellable": True,
     },
 
@@ -938,7 +956,7 @@ ITEMS = {
     },
     "Honor Guard's Greatsword": {
         "name_id": "item.honor_guards_greatsword",
-        "power": 5,
+        "power": 9,
         "slot": "main weapon",
         "value": 15,
         "sellable": True,

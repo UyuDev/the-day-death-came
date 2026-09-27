@@ -74,7 +74,7 @@ ENEMIES = {
         "game_class": "Rogue",
         "inventory": ["Stale Bread"],
         "coins": 0,
-        "equipped": EQUIPMENT_TEMPLATES["invader_warlock"],
+        "equipped": EQUIPMENT_TEMPLATES["prisoner"],
         "image": "bandit"
     },
     "skeleton": {
@@ -223,28 +223,28 @@ ENEMIES = {
     },
     "reaper_boss_2": {
         "name": "Sa, the Hungering Reaper",
-        "level": 50,
+        "level": 100,
         "game_class": "ReaperBoss",
         "inventory": ["Ancient Armament", "Ancient Armament"],
-        "coins": 250,
+        "coins": 1000,
         "equipped": EQUIPMENT_TEMPLATES["None"],
         "image": "reaper_boss_2"
     },
     "reaper_boss_3": {
         "name": "Sa, the Furious Reaper",
-        "level": 75,
+        "level": 250,
         "game_class": "ReaperBoss",
         "inventory": ["Ancient Armament", "Ancient Armament", "Ancient Armament"],
-        "coins": 500,
+        "coins": 10000,
         "equipped": EQUIPMENT_TEMPLATES["None"],
         "image": "reaper_boss_3"
     },
     "reaper_boss_4": {
         "name": "Sa, the Unleashed Reaper",
-        "level": 100,
+        "level": 999,
         "game_class": "ReaperBoss",
         "inventory": ["Ancient Armament", "Ancient Armament", "Ancient Armament", "Ancient Armament"],
-        "coins": 1000,
+        "coins": 99999,
         "equipped": EQUIPMENT_TEMPLATES["None"],
         "image": "reaper_boss_4"
     }

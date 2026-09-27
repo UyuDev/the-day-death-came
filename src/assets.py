@@ -27,15 +27,15 @@ def load_assets():
     "altar": pygame.image.load("assets/chest_temp.png").convert_alpha(),
 
     # art enemies
-    "unknown_enemy": pygame.image.load("assets/unknown_enemy_temp.png").convert_alpha(),
+    "unknown_enemy": pygame.image.load("assets/unknown_enemy_2.png").convert_alpha(),
     "bandit": pygame.image.load("assets/bandit.png").convert_alpha(),
     "invader_warrior": pygame.image.load("assets/invader_warr_1.png").convert_alpha(),
     "invader_rogue": pygame.image.load("assets/invader_rogue_1.png").convert_alpha(),
     "invader_ranger": pygame.image.load("assets/invader_ranger_1.png").convert_alpha(),
     "invader_warlock": pygame.image.load("assets/invader_warlock_1.png").convert_alpha(),
     "invader_reaver": pygame.image.load("assets/invader_warr_1.png").convert_alpha(),
-    "giant_rat": pygame.image.load("assets/rat_temp.png").convert_alpha(),
-    "cave_goblin": pygame.image.load("assets/goblin.png").convert_alpha(),
+    "giant_rat": pygame.image.load("assets/rat_temp_2.png").convert_alpha(),
+    "cave_goblin": pygame.image.load("assets/goblin_2.png").convert_alpha(),
     "skeleton": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
     "zombie": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
     "skeleton_warrior": pygame.image.load("assets/bandit_temp.png").convert_alpha(),

@@ -28,6 +28,11 @@
     "settings.part_final": "",
     "settings.language": "English",
 
+    "stats.coins": "Coins",
+    "stats.inventory": "Inventory",
+    "stats.level": "Level",
+    "stats.power": "Power",
+
     "dialogue.empty": "...",    
     "dialogue.intro_1": "In your dreams an image appears of your family farm.",
     "dialogue.intro_2": "A familiar voice calls your name.",
@@ -762,7 +767,8 @@
     "item.old_iron_leg_harness": "Old Iron Leg Harness",
     "item.deteriorated_stockings": "Deteriorated Stockings",
     "item.old_iron_sabatons": "Old Iron Sabatons",
-    "item.old_iron_longsword": "Old Iron Longsword",
+    "item.old_sword_shield": "Old Iron Sword and Shield",
+    "item.worn_longsword_kite": "Worn Longsword and Kite Shield",
     "item.battered_iron_shield": "Battered Iron Shield",
     "item.occult_amulet": "Occult Amulet",
     "item.cultist_robes": "Cultist Robes",

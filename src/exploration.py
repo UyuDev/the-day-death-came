@@ -303,7 +303,16 @@ class Exploration():
     def get_actions(self):
         return []
 
-    def draw(self, screen, ui_font):
+    def display_stats(self, screen, ui_font, player):
+        coins_text = self.language_data["stats.coins"]
+        inventory_text = self.language_data["stats.inventory"]
+        lvl_text = self.language_data["stats.level"]
+        power_text = self.language_data["stats.power"]
+        combined_text = f"{coins_text}: {player.coins}, {inventory_text}: {len(player.inventory)} / {player.capacity}, {lvl_text}: {player.level}, {power_text}: {player.total_power()}"
+        text = ui_font.render(combined_text, True, "Yellow")
+        screen.blit(text, (15, 15))
+
+    def draw(self, screen, ui_font, player):
         dialogue_rect = pygame.Rect(
         0,
         MAP_HEIGHT,
@@ -339,9 +348,9 @@ class Exploration():
             rect = text.get_rect(centerx=dialogue_rect.centerx, y=y)
             screen.blit(text, rect)
             y += line_height
-
+        self.display_stats(screen, ui_font, player)
         
-        # screen.blit(text, rect)
+
 
     def process_container_loot(self, container, player):
             node = TEXT_NODES["loot"].copy()
@@ -410,6 +419,11 @@ class Exploration():
                 "text_id": encounter["text_id"],
                 "image": "reaper_boss_spawn"
             }
+        elif encounter_id == "tunnel_1_encounter":
+                    node = {
+                        "text_id": encounter["text_id"],
+                        "image": "invader_rogue"
+                    }
         else:
             node = {
                 "text_id": encounter["text_id"],

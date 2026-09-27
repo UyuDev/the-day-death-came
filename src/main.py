@@ -228,11 +228,11 @@ def main():
 
         elif game_state == "INTRO":
             renderer.draw(screen)
-            dialogue.draw(screen, ui_font)
+            dialogue.draw(screen, ui_font, player)
 
         elif game_state == "EXPLORATION":
             # renderer.draw(screen)
-            exploration.draw(screen, ui_font)
+            exploration.draw(screen, ui_font, player)
 
         pygame.display.flip()
         clock.tick(FPS)

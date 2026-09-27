@@ -2594,7 +2594,7 @@ DIALOGUE = {
 
 
     "town inn check": {
-        "text_id": "dialogue.town_inn_2",
+        "text_id": "dialogue.empty",
         "actions": [
             {
                 "type": "check_flag",
@@ -2613,9 +2613,9 @@ DIALOGUE = {
     },
 
 
-    "town inn": {
+    "town inn 1": {
         "text_id": "dialogue.town_inn_1",
-        "next": "town inn check",
+        "next": "town inn 2",
     },
 
 
@@ -3816,8 +3816,8 @@ DIALOGUE = {
                 "next": "town specialty choice"
             },
             4: {
-                "text_id": "dialogue.option.town_choice",
-                "next": "town choice"
+                "text_id": "dialogue.option.empty",
+                "next": "town specialty choice"
             }
         }
     },
