@@ -1767,6 +1767,24 @@ DIALOGUE = {
         "next": "tunnel 1 cont"
     },
 
+    "tunnel 1 intro check": {
+        "text_id": "dialogue.tunnel_1_intro",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "tunnel_1_invader_slain",
+                "value": True,
+                "if_pass": "tunnel 1 explore start",
+                "if_fail": "tunnel 1 cont",
+            }
+        ]
+    },
+
+    "tunnel 1 cont B": {
+        "text_id": "dialogue.tunnel_1_cont_b",
+        "next": "tunnel 1 choice"
+    },
+
     "tunnel 1 cont": {
         "text_id": "dialogue.tunnel_1_cont",
         "next": "tunnel 1 encounter 1"
@@ -1792,7 +1810,14 @@ DIALOGUE = {
 
     "tunnel 1 reaction 2": {
         "text_id": "dialogue.tunnel_1_reaction_2",
-        "next": "tunnel 1 choice"
+        "next": "tunnel 1 choice",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "tunnel_1_invader_slain",
+                "value": True
+            },
+        ]
     },
 
 
@@ -2820,6 +2845,10 @@ DIALOGUE = {
                 "next": "town witch check",
             },
             3: {
+                "text_id": "dialogue.option.empty",
+                "next": "town black market",
+            },
+            4: {
                 "text_id": "dialogue.option.town_black_market_return",
                 "next": "town choice",
             },
@@ -2943,40 +2972,59 @@ DIALOGUE = {
 
     "town witch intro 2": {
         "text_id": "dialogue.town_witch_intro_2",
+        "next": "town witch choice",
         "actions": [
             {
                 "type": "set_flag",
                 "target": "met_witch",
                 "value": True,
-                "next": "town witch choice",
             }
         ]
     },
 
     "town witch choice": {
         "text_id": "dialogue.town_witch_choice",
-        "choices": [
-            {
-                "text_id": "dialogue.option.town_witch_rare",
-                "next": "town witch rare ingredient check",
-            },
-            {
-                "text_id": "dialogue.option.town_witch_strange",
-                "next": "town witch strange herb check",
-            },
-            {
+        "options": {
+            1: {
+                "text_id": "dialogue.option.town_witch_potions",
+                "next": "town witch options choice",
+            },            
+            2: {
                 "text_id": "dialogue.option.town_witch_bones",
                 "next": "town witch bones check",
             },
-            {
+            3: {
                 "text_id": "dialogue.option.town_witch_explain",
                 "next": "town witch explain 1",
             },
-            {
+            4: {
                 "text_id": "dialogue.option.town_witch_return",
                 "next": "town black market",
+            }
+        }
+    },
+
+
+    "town witch options choice": {
+        "text_id": "dialogue.town_witch_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.town_witch_rare",
+                "next": "town witch rare ingredient check",
+            },            
+            2: {
+                "text_id": "dialogue.option.town_witch_strange",
+                "next": "town witch strange herb check",
             },
-        ]
+            3: {
+                "text_id": "dialogue.option.town_witch_explain",
+                "next": "town witch explain 1",
+            },
+            4: {
+                "text_id": "dialogue.option.town_witch_return",
+                "next": "town black market",
+            }
+        }
     },
 
     "town witch explain 1": {
@@ -3027,22 +3075,12 @@ DIALOGUE = {
             {
                 "type": "check_coins",
                 "value": 1000,
-                "if_pass": "town witch rare spend",
+                "if_pass": "town witch rare 1",
                 "if_fail": "town witch coins missing",
             }
         ]
     },
 
-    "town witch rare spend": {
-        "text_id": "dialogue.empty",
-        "actions": [
-            {
-                "type": "spend_coins",
-                "value": 1000,
-                "next": "town witch rare 1",
-            }
-        ]
-    },
 
     "town witch rare missing": {
         "text_id": "dialogue.town_witch_rare_missing",
@@ -3052,6 +3090,12 @@ DIALOGUE = {
     "town witch rare 1": {
         "text_id": "dialogue.town_witch_rare_1",
         "next": "town witch rare 2",
+        "actions": [
+            {
+                "type": "spend_coins",
+                "value": 1000,
+            }
+        ]
     },
 
     "town witch rare 2": {
@@ -3118,19 +3162,8 @@ DIALOGUE = {
             {
                 "type": "check_coins",
                 "value": 100,
-                "if_pass": "town witch strange spend",
+                "if_pass": "town witch strange 1",
                 "if_fail": "town witch coins missing",
-            }
-        ]
-    },
-
-    "town witch strange spend": {
-        "text_id": "dialogue.empty",
-        "actions": [
-            {
-                "type": "spend_coins",
-                "value": 100,
-                "next": "town witch strange 1",
             }
         ]
     },
@@ -3148,6 +3181,12 @@ DIALOGUE = {
     "town witch strange 1": {
         "text_id": "dialogue.town_witch_strange_1",
         "next": "town witch strange 2",
+        "actions": [
+            {
+                "type": "spend_coins",
+                "value": 100, 
+            }
+        ]
     },
 
     "town witch strange 2": {

@@ -95,13 +95,20 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
                 total_count, total_coins = result
                 dialogue.set_current_with_variables(action["if_pass"], {"total_count": total_count, "total_coins": total_coins})
             # WIP - check amount
-    elif action["type"] == "check_items":         
+    elif action["type"] == "check_items":
+        print("Current node:", dialogue.current, "Action:", action)      
         if player.has_item(action["target"], action["value"]):
             dialogue.set_current(action["if_pass"])
         else:
             dialogue.set_current(action["if_fail"])
+        new_actions = dialogue.get_actions()
+        for new_action in new_actions:
+            result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
+            if result is not None:
+                return result
             # WIP - craft item
-    elif action["type"] == "exchange_power":         
+    elif action["type"] == "exchange_power":    
+        print("Current node:", dialogue.current, "Action:", action)     
         if action["target"] == "Ancient Armament" or action["target"] == "Crystal Fragment":
             count, power = player.exchange_power(action["target"])
             dialogue.set_current_with_variables(action["next"], {"count": count, "power": power})
@@ -111,7 +118,8 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
         else:
             player.exchange_item(action["target"])
             dialogue.set_current(action["next"])       
-    elif action["type"] == "check_coins":         
+    elif action["type"] == "check_coins":
+        print("Current node:", dialogue.current, "Action:", action)           
         if player.has_coins(action["value"]):
             dialogue.set_current(action["if_pass"])
         else:

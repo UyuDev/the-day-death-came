@@ -221,6 +221,7 @@
 
     "dialogue.enter_tunnel_1": "[You enter the tunnel]",
     "dialogue.tunnel_1_intro": "You look around at the walls illuminated by your spell.",
+    "dialogue.tunnel_1_cont_b": "You step past the corpse of the invader and continue down the tunnel.",
     "dialogue.tunnel_1_cont": "As you make your way down the caves you hear sudden footsteps approach you.",
     "dialogue.tunnel_1_encounter": "You sidestep and barely avoid a sword to your face.",
     "dialogue.tunnel_1_reaction_1": "You step away from the body and nervously check your injuries...",
@@ -350,6 +351,7 @@
     "dialogue.town_witch_intro_1": "Hello, my dear. Would you be interested in potions?",
     "dialogue.town_witch_intro_2": "I can combine herbs to increase your power.",
     "dialogue.town_witch_choice": "What are you interested in?",
+    "dialogue.option.town_witch_potions": "Potions",
     "dialogue.option.town_witch_rare": "Rare Potion",
     "dialogue.option.town_witch_strange": "Strange Potion",
     "dialogue.option.town_witch_bones": "Bone Ritual",
