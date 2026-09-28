@@ -221,7 +221,7 @@
 
     "dialogue.enter_tunnel_1": "[You enter the tunnel]",
     "dialogue.tunnel_1_intro": "You look around at the walls illuminated by your spell.",
-    "dialogue.tunnel_1_cont_b": "You step past the corpse of the invader and continue down the tunnel.",
+    "dialogue.tunnel_1_cont_b": "You step past the corpse of the invader and continue down the hidden passage.",
     "dialogue.tunnel_1_cont": "As you make your way down the caves you hear sudden footsteps approach you.",
     "dialogue.tunnel_1_encounter": "You sidestep and barely avoid a sword to your face.",
     "dialogue.tunnel_1_reaction_1": "You step away from the body and nervously check your injuries...",
@@ -248,6 +248,7 @@
 
     "dialogue.enter_tunnel_2": "You climb down the rope and delve deeper into the tunnels.",
     "dialogue.tunnel_2_intro": "You notice the tunnel walls widen as you descend.",
+    "dialogue.tunnel_2_intro_b": "You return to the second level of the hidden passage.",
     "dialogue.tunnel_2_cont": "Along the walls of the cavern you see markings painted in red.",
     "dialogue.tunnel_2_choice": "What would you like to do?",
     "dialogue.option.tunnel_2_explore": "Explore the cave for treasure",
@@ -271,6 +272,7 @@
 
     "dialogue.enter_sewer": "You open the door and pass into a stone hallway.",
     "dialogue.sewer_intro": "The cold damp air surrounds you with an unpleasant odor.",
+    "dialogue.sewer_intro_b": "You return to the sewers.",
     "dialogue.sewer_cont": "'This must be the sewer system under the town.'",
     "dialogue.sewer_choice": "What would you like to do?",
     "dialogue.option.sewer_explore": "Explore the sewers for treasure",
@@ -294,6 +296,7 @@
 
     "dialogue.enter_dungeon": "You pass through the door into a long, dark hallway.",
     "dialogue.dungeon_intro": "You hear the sound of shouting as you climb up the long stairway.",
+    "dialogue.dungeon_intro_b": "You return to the dungeon.",
     "dialogue.dungeon_cont": "'I see, this is the town dungeon. It looks like the prisoners have escaped.'",
     "dialogue.dungeon_choice": "What would you like to do?",
     "dialogue.option.dungeon_explore": "Explore the dungeon for treasure",
@@ -545,6 +548,7 @@
 
     "dialogue.enter_crypt_1": "You pass through the door and descend the dark stairs.",
     "dialogue.crypt_1_intro": "As you reach the bottom of the stairs, you can hear chants echo in the halls.",
+    "dialogue.crypt_1_intro_b": "You return to the crypt.",
     "dialogue.crypt_1_cont": "Hiding behind a sarcophagus, you see hooded men perform a ritual.",
     "dialogue.crypt_1_choice": "What would you like to do?",
     "dialogue.option.crypt_1_explore": "Sneak around and inspect the altar",
@@ -573,6 +577,7 @@
 
     "dialogue.enter_crypt_2": "You descend the stairs and arrive at the next floor of the crypts.",
     "dialogue.crypt_2_intro": "Entering the large chamber, you see numerous sarcophagi.",
+    "dialogue.crypt_2_intro_b": "You delve deeper into the crypts.",
     "dialogue.crypt_2_cont": "across the room dark figures are lit by torchlight.",
     "dialogue.crypt_2_choice": "What would you like to do?",
     "dialogue.option.crypt_2_explore": "Search the side chambers",
@@ -630,6 +635,7 @@
 
     "dialogue.enter_crypt_3": "You proceed to the deepest chamber of the crypt.",
     "dialogue.crypt_3_intro": "Entering the crypt, you see an old tomb and hear voices in the distance.",
+    "dialogue.crypt_3_intro_b": "You arrive in the crypt below the church.",
     "dialogue.crypt_3_cont": "'Those look like heavily armed men. I need to prepare.'",
     "dialogue.crypt_3_choice": "What would you like to do?",
     "dialogue.option.crypt_3_inspect_items": "Inspect your items",
@@ -771,6 +777,7 @@
     "item.rope": "Rope",
     "item.strange_herb": "Strange Herb",
     "item.gambeson": "Gambeson",
+    "item.magic_ashes": "Magic Ashes",
     "item.sewer_key": "Sewer Key",
     "item.alchemy_kit": "Alchemy Kit",
     "item.longsword": "Longsword",

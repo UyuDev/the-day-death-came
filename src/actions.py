@@ -117,7 +117,10 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
             dialogue.set_current(action["next"])
         else:
             player.exchange_item(action["target"])
-            dialogue.set_current(action["next"])       
+            dialogue.set_current(action["next"])    
+    elif action["type"] == "exchange_armament":    
+        print("Current node:", dialogue.current, "Action:", action)     
+        player.exchange_item(action["target"]) 
     elif action["type"] == "check_coins":
         print("Current node:", dialogue.current, "Action:", action)           
         if player.has_coins(action["value"]):

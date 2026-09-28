@@ -43,7 +43,7 @@ def load_assets():
     "skeleton_knight": pygame.image.load("assets/skeleton_knight_1.png").convert_alpha(),
     "cultist_acolyte": pygame.image.load("assets/cultist_1.png").convert_alpha(),
     "skeleton_mage": pygame.image.load("assets/skeleton_mage_1.png").convert_alpha(),
-    "skeleton_warlock": pygame.image.load("assets/skeleton_warlock_1.png").convert_alpha(),
+    "skeleton_warlock": pygame.image.load("assets/skeleton_darkmaster_1.png").convert_alpha(),
     "honor_guard": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
     "lord_graye": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
     "reaper_boss_spawn": pygame.image.load("assets/reaper_spawn_1.png").convert_alpha(),

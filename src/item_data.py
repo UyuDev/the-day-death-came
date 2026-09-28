@@ -184,7 +184,7 @@ EQUIPMENT_TEMPLATES = {
     "skeleton_warrior": {
         "head": "Old Iron Helmet",
         "neck": None,
-        "shirt": "Deteriorated Gambeson",
+        "shirt": None,
         "torso": "Old Iron Cuirass",
         "hands": "Old Iron Gauntlets",
         "arms": "Old Iron Arm Harness",
@@ -1705,6 +1705,13 @@ ITEMS = {
     },
     "Ranger Traps": {
         "name_id": "item.ranger_traps",
+        "power": 0,
+        "slot": None,
+        "value": 5,
+        "sellable": True,
+    },
+    "Magic Ashes": {
+        "name_id": "item.magic_ashes",
         "power": 0,
         "slot": None,
         "value": 5,

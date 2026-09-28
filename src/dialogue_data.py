@@ -1764,7 +1764,7 @@ DIALOGUE = {
 
     "tunnel 1 intro": {
         "text_id": "dialogue.tunnel_1_intro",
-        "next": "tunnel 1 cont"
+        "next": "tunnel 1 intro check"
     },
 
     "tunnel 1 intro check": {
@@ -1774,7 +1774,7 @@ DIALOGUE = {
                 "type": "check_flag",
                 "target": "tunnel_1_invader_slain",
                 "value": True,
-                "if_pass": "tunnel 1 explore start",
+                "if_pass": "tunnel 1 cont B",
                 "if_fail": "tunnel 1 cont",
             }
         ]
@@ -1990,13 +1990,31 @@ DIALOGUE = {
 
     "enter tunnel 2": {
         "text_id": "dialogue.enter_tunnel_2",
-        "next": "tunnel 2 intro",
+        "next": "tunnel 2 main check",
         "actions": [
             {   
                 "type": "map",
                 "target": "tunnel 2"
             }
         ]
+    },
+
+    "tunnel 2 main check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "sewer_door_unlocked",
+                "value": True,
+                "if_pass": "tunnel 2 intro B",
+                "if_fail": "tunnel 2 intro",
+            }
+        ]
+    },
+
+    "tunnel 2 intro B": {
+        "text_id": "dialogue.tunnel_2_intro_b",
+        "next": "tunnel 2 choice"
     },
 
     "tunnel 2 intro": {
@@ -2178,13 +2196,32 @@ DIALOGUE = {
 
     "enter sewer": {
         "text_id": "dialogue.enter_sewer",
-        "next": "sewer intro",
+        "next": "sewer main check",
         "actions": [
             {   
                 "type": "map",
                 "target": "sewer"
             }
         ]
+    },
+
+
+    "sewer main check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "dungeon_door_unlocked",
+                "value": True,
+                "if_pass": "sewer intro B",
+                "if_fail": "sewer intro",
+            }
+        ]
+    },
+
+    "sewer intro B": {
+        "text_id": "dialogue.sewer_intro_b",
+        "next": "sewer choice"
     },
 
 
@@ -2365,7 +2402,7 @@ DIALOGUE = {
 
     "enter dungeon": {
         "text_id": "dialogue.enter_dungeon",
-        "next": "dungeon intro",
+        "next": "dungeon main check",
         "actions": [
             {   
                 "type": "map",
@@ -2374,7 +2411,23 @@ DIALOGUE = {
         ]
     },
 
+    "dungeon main check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "town_door_unlocked",
+                "value": True,
+                "if_pass": "dungeon intro B",
+                "if_fail": "dungeon intro",
+            }
+        ]
+    },
 
+    "dungeon intro B": {
+        "text_id": "dialogue.dungeon_intro_b",
+        "next": "dungeon choice"
+    },
 
     "dungeon intro": {
         "text_id": "dialogue.dungeon_intro",
@@ -2560,6 +2613,25 @@ DIALOGUE = {
                 "target": "town"
             }
         ]
+    },
+
+    # enable once encounter is implemented
+    "town main check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "town_door_unlocked", # need new flag
+                "value": True,
+                "if_pass": "town intro B",
+                "if_fail": "town intro",
+            }
+        ]
+    },
+
+    "town intro B": {
+        "text_id": "dialogue.sewer_intro_b",
+        "next": "sewer choice"
     },
 
     "town intro": {
@@ -3980,11 +4052,11 @@ DIALOGUE = {
  
     "town blacksmith armor complete 5": {
         "text_id": "dialogue.town_blacksmith_armor_complete_5",
+        "next": "town blacksmith craft check",
         "actions": [
             {
                 "type": "exchange_armament",
                 "target": "blacksmith armor",
-                "next": "town blacksmith craft check",
             }
         ]
     },
@@ -4104,11 +4176,11 @@ DIALOGUE = {
 
     "town blacksmith weapon complete 5": {
         "text_id": "dialogue.town_blacksmith_weapon_complete_5",
+        "next": "town blacksmith craft check",
         "actions": [
             {
                 "type": "exchange_armament",
                 "target": "blacksmith weapon",
-                "next": "town blacksmith craft check",
             }
         ]
     },
@@ -4176,12 +4248,12 @@ DIALOGUE = {
                 "next": "town specialty crystal check"
             },
             3: {
-                "text_id": "dialogue.option.town_specialty_nothing",
-                "next": "town specialty no"
-            },
-            4: {
                 "text_id": "dialogue.option.empty",
                 "next": "town specialty choice"
+            },
+            4: {
+                "text_id": "dialogue.option.town_specialty_nothing",
+                "next": "town specialty no"
             }
         }
     },
@@ -4334,13 +4406,31 @@ DIALOGUE = {
 
     "enter crypt 1": {
         "text_id": "dialogue.enter_crypt_1",
-        "next": "crypt 1 intro",
+        "next": "crypt 1 main check",
         "actions": [
             {   
                 "type": "map",
                 "target": "crypt 1"
             }
         ]
+    },
+
+    "crypt 1 main check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "crypt_1_empty",
+                "value": True,
+                "if_pass": "crypt 1 intro B",
+                "if_fail": "crypt 1 intro",
+            }
+        ]
+    },
+
+    "crypt 1 intro B": {
+        "text_id": "dialogue.crypt_1_intro_b",
+        "next": "crypt 1 choice"
     },
 
     "crypt 1 intro": {
@@ -4888,7 +4978,25 @@ DIALOGUE = {
 
     "crypt 2 intro": {
         "text_id": "dialogue.crypt_2_intro",
-        "next": "crypt 2 cont"
+        "next": "crypt 2 main check"
+    },
+
+    "crypt 2 main check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "crypt_2_empty",
+                "value": True,
+                "if_pass": "crypt 2 intro B",
+                "if_fail": "crypt 2 intro",
+            }
+        ]
+    },
+
+    "crypt 2 intro B": {
+        "text_id": "dialogue.crypt_2_intro_b",
+        "next": "crypt 2 choice"
     },
 
     "crypt 2 cont": {
@@ -5084,7 +5192,7 @@ DIALOGUE = {
 
     "enter crypt 3": {
         "text_id": "dialogue.enter_crypt_3",
-        "next": "crypt 3 intro",
+        "next": "crypt 3 main check",
         "actions": [
             {   
                 "type": "map",
@@ -5093,6 +5201,23 @@ DIALOGUE = {
         ]
     },
 
+    "crypt 3 main check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "crypt_3_empty",
+                "value": True,
+                "if_pass": "crypt 3 intro B",
+                "if_fail": "crypt 3 intro",
+            }
+        ]
+    },
+
+    "crypt 3 intro B": {
+        "text_id": "dialogue.crypt_3_intro_b",
+        "next": "crypt 3 choice"
+    },
 
     "crypt 3 intro": {
         "text_id": "dialogue.crypt_3_intro",

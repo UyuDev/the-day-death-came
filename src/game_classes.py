@@ -86,7 +86,7 @@ GAME_CLASSES = {
     ),
     "ReaperBoss": GameClass(
         "Reaper",
-        "class.reaper_boss",
+        "class.reaper",
         default_abilities,
         power=80
     )

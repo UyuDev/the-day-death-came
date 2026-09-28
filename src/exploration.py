@@ -248,7 +248,7 @@ class Exploration():
     def __init__(self, language_data, assets):
         self.current = "intro"
         self.assets = assets
-        for key in ["unknown_enemy", "bandit", "dungeon_inmate", "invader_rogue", "invader_ranger", "invader_warrior", "invader_warlock", "invader_reaver", "cave_goblin", "giant_rat", "cultist_acolyte", "skeleton_warrior", "zombie", "skeleton", "skeleton_mage", "honor_guard", "lord_graye", "reaper_boss_1", "reaper_boss_spawn", "reaper_boss_2", "reaper_boss_3", "reaper_boss_4", "chest", "crate", "crates", "tomb", "small_chest", "altar"]:
+        for key in ["unknown_enemy", "bandit", "dungeon_inmate", "invader_rogue", "invader_ranger", "invader_warrior", "invader_warlock", "invader_reaver", "cave_goblin", "giant_rat", "cultist_acolyte", "skeleton_warrior", "skeleton_knight", "zombie", "skeleton", "skeleton_mage", "skeleton_warlock", "honor_guard", "lord_graye", "reaper_boss_1", "reaper_boss_spawn", "reaper_boss_2", "reaper_boss_3", "reaper_boss_4", "chest", "crate", "crates", "tomb", "small_chest", "altar"]:
             self.assets[key] = pygame.transform.scale(
                 self.assets[key],
                 (SCREEN_WIDTH, MAP_HEIGHT)
