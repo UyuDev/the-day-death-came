@@ -75,7 +75,7 @@ ENEMIES = {
         "inventory": ["Stale Bread"],
         "coins": 0,
         "equipped": EQUIPMENT_TEMPLATES["prisoner"],
-        "image": "bandit"
+        "image": "dungeon_inmate"
     },
     "skeleton": {
         "name": "Skeleton",
@@ -138,7 +138,7 @@ ENEMIES = {
         "inventory": ["Bones"],
         "coins": 20,
         "equipped": EQUIPMENT_TEMPLATES["skeleton_knight"],
-        "image": "skeleton_warrior"
+        "image": "skeleton_knight"
     },
     "skeleton_darkmaster": {
         "name": "Skeleton Darkmaster",
@@ -147,7 +147,7 @@ ENEMIES = {
         "inventory": ["Bones", "Crystal Fragment"],
         "coins": 20,
         "equipped": EQUIPMENT_TEMPLATES["skeleton_mage"],
-        "image": "skeleton_mage"
+        "image": "skeleton_warlock"
     },
     "farm_invader_rogue": {
         "name": "Invading Rogue",

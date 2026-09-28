@@ -44,15 +44,15 @@ EQUIPMENT_TEMPLATES = {
         "torso": None,
         "hands": None,
         "arms": None,
-        "waist": None,
+        "waist": "Rope Belt",
         "pants": "Trousers",
         "leg armor": None,
         "feet": "Stockings",
-        "shoes": "Leather Boots",
+        "shoes": "Worn Shoes",
         "cloak": None,
         "ring": None,
         "bag": "Small Pouch",
-        "main weapon": "None",
+        "main weapon": None,
         "secondary weapon": None
     },
     "invader_rogue": {
@@ -130,13 +130,13 @@ EQUIPMENT_TEMPLATES = {
     "invader_reaver": {
         "head": "Blackened Horned Helm",
         "neck": "Reaver's Blood Talisman",
-        "shirt": "Dark Padded Tunic",
-        "torso": "Blackened Reaver Cuirass",
+        "shirt": "Dark Tunic",
+        "torso": "Blackened Reaver Brigandine",
         "hands": "Blackened Reaver Gauntlets",
         "arms": "Blackened Reaver Vambraces",
         "waist": "Reaver's War Belt",
         "pants": "Dark Trousers",
-        "leg armor": "Blackened Poleyns",
+        "leg armor": "Blackened Reaver Poleyns",
         "feet": "Dark Footwraps",
         "shoes": "Blackened Reaver Boots",
         "cloak": "Tattered Reaver Mantle",
@@ -184,7 +184,7 @@ EQUIPMENT_TEMPLATES = {
     "skeleton_warrior": {
         "head": "Old Iron Helmet",
         "neck": None,
-        "shirt": None,
+        "shirt": "Deteriorated Gambeson",
         "torso": "Old Iron Cuirass",
         "hands": "Old Iron Gauntlets",
         "arms": "Old Iron Arm Harness",
@@ -527,6 +527,13 @@ ITEMS = {
         "value": 2,
         "sellable": True,
     },
+    "Rope Belt": {
+        "name_id": "item.rope_belt",
+        "power": 0,
+        "slot": "waist",
+        "value": 1,
+        "sellable": True,
+    },
     "Trousers": {
         "name_id": "item.trousers",
         "power": 0,
@@ -544,6 +551,13 @@ ITEMS = {
     "Leather Boots": {
         "name_id": "item.leather_boots",
         "power": 0.25,
+        "slot": "shoes",
+        "value": 2,
+        "sellable": True,
+    },
+    "Worn Shoes": {
+        "name_id": "item.worn_shoes",
+        "power": 0.2,
         "slot": "shoes",
         "value": 2,
         "sellable": True,
@@ -1446,15 +1460,15 @@ ITEMS = {
         "value": 8,
         "sellable": True,
     },
-    "Dark Padded Tunic": {
-        "name_id": "item.dark_padded_tunic",
-        "power": 1,
+    "Dark Tunic": {
+        "name_id": "item.reaver_shirt",
+        "power": 2,
         "slot": "shirt",
         "value": 4,
         "sellable": True,
     },
     "Blackened Reaver Cuirass": {
-        "name_id": "item.blackened_reaver_cuirass",
+        "name_id": "item.blackened_reaver_chest",
         "power": 3.5,
         "slot": "torso",
         "value": 10,
@@ -1481,7 +1495,7 @@ ITEMS = {
         "value": 5,
         "sellable": True,
     },
-    "Blackened Poleyns": {
+    "Blackened Reaver Poleyns": {
         "name_id": "item.blackened_poleyns",
         "power": 1.5,
         "slot": "leg armor",
