@@ -53,5 +53,6 @@ class WorldState():
             "reaper_choice_made": False,
             "accepted_deal": False,
             "lord_defeated": False,
-            "reaper_reward_given": False
+            "reaper_reward_given": False,
+            "ending_reached": False
         }
