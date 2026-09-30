@@ -46,11 +46,11 @@ def load_assets():
     "skeleton_warlock": pygame.image.load("assets/skeleton_darkmaster_1.png").convert_alpha(),
     "honor_guard": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
     "lord_graye": pygame.image.load("assets/bandit_temp.png").convert_alpha(),
-    "reaper_boss_spawn": pygame.image.load("assets/reaper_spawn_1.png").convert_alpha(),
-    "reaper_boss_1": pygame.image.load("assets/reaper_boss_1c.png").convert_alpha(),
-    "reaper_boss_2": pygame.image.load("assets/reaper_boss_2b.png").convert_alpha(),
-    "reaper_boss_3": pygame.image.load("assets/reaper_boss_3b.png").convert_alpha(),
-    "reaper_boss_4": pygame.image.load("assets/reaper_boss_4.png").convert_alpha(),
+    "reaper_boss_spawn": pygame.image.load("assets/reaper_spawn_v2.png").convert_alpha(),
+    "reaper_boss_1": pygame.image.load("assets/reaper_boss_v2_1.png").convert_alpha(),
+    "reaper_boss_2": pygame.image.load("assets/reaper_boss_v2_2.png").convert_alpha(),
+    "reaper_boss_3": pygame.image.load("assets/reaper_boss_v2_3.png").convert_alpha(),
+    "reaper_boss_4": pygame.image.load("assets/reaper_boss_v2_4.png").convert_alpha(),
 
     # maps
     "house": pygame.image.load("assets/home_map.png").convert_alpha(),

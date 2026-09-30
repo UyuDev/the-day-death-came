@@ -68,7 +68,7 @@ class Character:
         self.mana = 100
         self.level = 1
         self.experience = 0
-        self.game_class = None
+        self.game_class = "Classless"
         self.power = 1
         self.buffs = []
         self.debuffs = []

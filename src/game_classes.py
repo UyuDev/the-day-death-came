@@ -30,8 +30,8 @@ GAME_CLASSES = {
         beast_abilities,
         power=5
     ),
-    "Farmer": GameClass(
-        "Farmer",
+    "Classless": GameClass(
+        "Classless",
         "class.farmer",
         default_abilities,
         power=5

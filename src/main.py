@@ -33,7 +33,7 @@ def main():
     dialogue = Dialogue(language_data, assets)
     exploration = Exploration(language_data, assets)
     player = Character()
-    player.create("Nicholas", 1, "Farmer", None, 0, None)
+    player.create("Nicholas", 1, "Classless", None, 0, None)
     world_state = WorldState()
     game_state = "MENU"
     #update with game loop
@@ -52,7 +52,7 @@ def main():
                 if choice == 1:
                     renderer.load_map("house_upstairs")
                     player = Character()
-                    player.create("Nicholas", 1, "Farmer", None, 0, None)
+                    player.create("Nicholas", 1, "Classless", None, 0, None)
                     world_state = WorldState()
                     dialogue.set_current("intro")
                     game_state = "INTRO"
@@ -94,7 +94,7 @@ def main():
                     if choice == "new_game":
                         renderer.load_map("house_upstairs")
                         player = Character()
-                        player.create("Nicholas", 1, "Farmer", None, 0, None)
+                        player.create("Nicholas", 1, "Classless", None, 0, None)
                         world_state = WorldState()
                         dialogue.set_current("intro")
                         game_state = "INTRO"
@@ -152,7 +152,7 @@ def main():
                         if result is not None:
                             if result == "HARDCORE_DEATH":
                                 player = Character()
-                                player.create("Nicholas", 1, "Farmer", None, 0, None)
+                                player.create("Nicholas", 1, "Classless", None, 0, None)
                                 world_state = WorldState()
                                 renderer.load_map("house_upstairs")
                                 dialogue.set_current("hardcore death reset")
@@ -189,7 +189,7 @@ def main():
                             if settings["hardcore"]:
 
                                 player = Character()
-                                player.create("Nicholas", 1, "Farmer", None, 0, None)
+                                player.create("Nicholas", 1, "Classless", None, 0, None)
                                 world_state = WorldState()
                                 renderer.load_map("house_upstairs")
                                 dialogue.set_current("hardcore death reset")
