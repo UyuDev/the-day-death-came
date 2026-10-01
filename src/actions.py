@@ -71,6 +71,7 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
             renderer,
             dialogue
         )
+        world_state.flags["has_died"] = True
         return "INTRO"
     elif action["type"] == "exit_exploration":
         return "INTRO"

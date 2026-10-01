@@ -2,9 +2,22 @@
 
 DIALOGUE = {
     "intro": {
-        "text_id": "dialogue.intro_1",
-        "next": "intro 2"
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "has_died",
+                "value": True,
+                "if_pass": "resurrect 1",
+                "if_fail": "intro 1",
+            }
+        ]
     },
+
+    "intro 1": {
+            "text_id": "dialogue.intro_1",
+            "next": "intro 2"
+        },
 
     "intro 2": {
             "text_id": "dialogue.intro_2",
@@ -13,16 +26,52 @@ DIALOGUE = {
 
     "intro 3": {
             "text_id": "dialogue.intro_3",
-            "next": "intro 4"
+            "next": "look around upstairs"
         },
 
-    "intro 4": {
-            "text_id": "dialogue.intro_4",
-            "next": "intro 5"
+
+    "resurrect 1": {
+            "text_id": "dialogue.resurrect_1",
+            "next": "resurrect 2"
         },
 
-    "intro 5": {
-            "text_id": "dialogue.intro_5",
+    "resurrect 2": {
+            "text_id": "dialogue.resurrect_2",
+            "next": "resurrect 3"
+        },
+
+    "resurrect 3": {
+            "text_id": "dialogue.resurrect_3",
+            "next": "resurrect 4"
+        },
+
+    "resurrect 4": {
+            "text_id": "dialogue.resurrect_4",
+            "next": "resurrect 5"
+        },
+
+    "resurrect 5": {
+            "text_id": "dialogue.resurrect_5",
+            "next": "resurrect 6"
+        },
+
+    "resurrect 6": {
+            "text_id": "dialogue.resurrect_6",
+            "next": "resurrect 7"
+        },
+
+    "resurrect 7": {
+            "text_id": "dialogue.resurrect_7",
+            "next": "resurrect 8"
+        },
+
+    "resurrect 8": {
+            "text_id": "dialogue.resurrect_8",
+            "next": "resurrect 9"
+        },
+
+    "resurrect 9": {
+            "text_id": "dialogue.resurrect_9",
             "next": "look around upstairs"
         },
 
@@ -40,7 +89,6 @@ DIALOGUE = {
         "text_id": "dialogue.hardcore_death_reset_2",
         "next": "look around upstairs"
     },
-
 
     "look around upstairs": {
         "text_id": "dialogue.look_around_upstairs",
@@ -63,6 +111,7 @@ DIALOGUE = {
                 }
             }
         },
+
     "look around upstairs 2": {
         "text_id": "dialogue.look_around_upstairs",
         "options": {
@@ -908,6 +957,31 @@ DIALOGUE = {
         "next": "look around upstairs"
     },
 
+    "door check": {
+        "text_id": "dialogue.trapdoor_pass_1",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "front_door_encountered",
+                "value": True,
+                "if_pass": "door",
+                "if_fail": "door check 2",
+            }
+        ]
+    },
+
+    "door check 2": {
+        "text_id": "dialogue.trapdoor_pass_1",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "church_info_obtained",
+                "value": True,
+                "if_pass": "door",
+                "if_fail": "prepare to leave b",
+            }
+        ]
+    },
 
     "door": {
         "text_id": "dialogue.leave_door",
@@ -1136,7 +1210,6 @@ DIALOGUE = {
 
     "table": {
         "text_id": "dialogue.table",
-        "next": "inspect table",
         "actions": [
             {   
                 "type": "check_flag",
@@ -1150,7 +1223,6 @@ DIALOGUE = {
 
     "table check inventory": {
         "text_id": "dialogue.table",
-        "next": "inspect table",
         "actions": [
             {   
                 "type": "check_flag",

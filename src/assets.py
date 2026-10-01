@@ -57,7 +57,7 @@ def load_assets():
     "house_upstairs": pygame.image.load("assets/upstairs_map.png").convert_alpha(),
     "basement": pygame.image.load("assets/basement_map.png").convert_alpha(),
     "basement 2": pygame.image.load("assets/basement_map_2.png").convert_alpha(),
-    "pitch black": pygame.image.load("assets/basement_map.png").convert_alpha(),
+    "pitch black": pygame.image.load("assets/black_map.png").convert_alpha(),
     "tunnel 1": pygame.image.load("assets/tunnel_map_1.png").convert_alpha(),
     "tunnel 2": pygame.image.load("assets/tunnel_map_2.png").convert_alpha(),
     "sewer": pygame.image.load("assets/sewer_map.png").convert_alpha(),

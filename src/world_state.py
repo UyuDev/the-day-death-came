@@ -5,6 +5,7 @@ class WorldState():
     def __init__(self):
         self.save_location = "farmhouse_bed"
         self.flags = {
+            "has_died": False,
             "basement_unlocked": False,
             "inventory_unlocked": False,
             "dresser_empty": False,
