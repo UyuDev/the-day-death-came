@@ -614,7 +614,7 @@ DIALOGUE = {
         "options": {
             1: {
                 "text_id": "dialogue.option.leave_door",
-                "next": "door"
+                "next": "door check"
                 
             },
             2: {
@@ -958,7 +958,7 @@ DIALOGUE = {
     },
 
     "door check": {
-        "text_id": "dialogue.trapdoor_pass_1",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -971,17 +971,38 @@ DIALOGUE = {
     },
 
     "door check 2": {
-        "text_id": "dialogue.trapdoor_pass_1",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
                 "target": "church_info_obtained",
                 "value": True,
-                "if_pass": "door",
-                "if_fail": "prepare to leave b",
+                "if_pass": "prepare to leave b",
+                "if_fail": "prepare to leave",
             }
         ]
     },
+
+    "prepare to leave": {
+        "text_id": "dialogue.door_1",
+        "next": "prepare to leave 2"
+    },
+
+    "prepare to leave 2": {
+        "text_id": "dialogue.door_2",
+        "next": "go outside"
+    },
+
+    "prepare to leave b": {
+        "text_id": "dialogue.door_b1",
+        "next": "prepare to leave b2"
+    },
+
+    "prepare to leave b2": {
+        "text_id": "dialogue.door_b2",
+        "next": "go outside"
+    },
+
 
     "door": {
         "text_id": "dialogue.leave_door",

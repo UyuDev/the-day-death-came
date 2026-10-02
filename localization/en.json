@@ -154,6 +154,12 @@
     "dialogue.stairs_to_upstairs": "You walk up the stairs...",
     "dialogue.upstairs": "You are back upstairs",
 
+    "dialogue.door_1": "Alright, that should be everything.",
+    "dialogue.door_2": "It's a long walk. Maybe I can catch a wagon into town.",
+    "dialogue.door_b1": "I should be careful. There is no telling who or what may be behind this door.",
+    "dialogue.door_b2": "My family... I...",
+    "dialogue.door_b3": "...I just hope I am not too late.",
+
     "dialogue.leave_door": "You open the door and step outside.",
     "dialogue.go_outside": "Stepping outside, you hear screaming and suddenly turn to your left.",
     "dialogue.door_encounter": "As the fourth invader falls, you hastily check your surroundings.",
@@ -737,7 +743,7 @@
     "class.mage": "Mage",
     "class.warrior": "Warrior",
     "class.ranger": "Ranger",
-    "class.raver": "Reaver",
+    "class.reaver": "Reaver",
 
     "name.player": "Nicholas",
 

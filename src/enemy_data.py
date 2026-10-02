@@ -180,7 +180,7 @@ ENEMIES = {
         "name": "Invading Warlock",
         "level": 15,
         "game_class": "Warlock",
-        "inventory": ["Occult Relic"],
+        "inventory": ["Strange Relic"],
         "coins": 10,
         "equipped": EQUIPMENT_TEMPLATES["invader_warlock"],
         "image": "invader_warlock"

@@ -46,7 +46,7 @@ ENCOUNTERS = {
     },
     "door_encounter_boss": {
         "enemies": ["invader_captain"],
-        "text_id": "exploration.door_encounter_boss"
+        "text_id": "exploration.door_boss"
     },
     "tunnel_1_encounter": {
         "enemies": ["tunnel_ambusher"],

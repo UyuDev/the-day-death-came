@@ -131,7 +131,7 @@ EQUIPMENT_TEMPLATES = {
         "head": "Blackened Horned Helm",
         "neck": "Reaver's Blood Talisman",
         "shirt": "Dark Tunic",
-        "torso": "Blackened Reaver Brigandine",
+        "torso": "Blackened Reaver Cuirass",
         "hands": "Blackened Reaver Gauntlets",
         "arms": "Blackened Reaver Vambraces",
         "waist": "Reaver's War Belt",
