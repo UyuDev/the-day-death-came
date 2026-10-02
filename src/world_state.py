@@ -8,6 +8,7 @@ class WorldState():
             "has_died": False,
             "front_door_encountered": False,
             "church_info_obtained": False,
+            "door_boss_defeated": False,
             "basement_unlocked": False,
             "inventory_unlocked": False,
             "dresser_empty": False,

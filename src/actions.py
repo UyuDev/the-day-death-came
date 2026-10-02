@@ -62,6 +62,7 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
         )
         return "EXPLORATION"
     elif action["type"] == "death":
+        front_door_encountered = world_state.flags["front_door_encountered"]
         if settings["hardcore"]:
             return "HARDCORE_DEATH"
         reload_current_save(
@@ -72,6 +73,8 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
             dialogue
         )
         world_state.flags["has_died"] = True
+        if front_door_encountered:
+            world_state.flags["front_door_encountered"] = True
         return "INTRO"
     elif action["type"] == "exit_exploration":
         return "INTRO"

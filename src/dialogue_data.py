@@ -957,7 +957,21 @@ DIALOGUE = {
         "next": "look around upstairs"
     },
 
+
     "door check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {   
+                "type": "check_flag",
+                "target": "door_boss_defeated",
+                "value": True,
+                "if_pass": "outro choice",
+                "if_fail": "door check 2",
+            }
+        ]
+    },
+
+    "door check 2": {
         "text_id": "dialogue.empty",
         "actions": [
             {   
@@ -965,12 +979,14 @@ DIALOGUE = {
                 "target": "front_door_encountered",
                 "value": True,
                 "if_pass": "door",
-                "if_fail": "door check 2",
+                "if_fail": "door check 3",
             }
         ]
     },
 
-    "door check 2": {
+
+
+    "door check 3": {
         "text_id": "dialogue.empty",
         "actions": [
             {   
@@ -990,7 +1006,14 @@ DIALOGUE = {
 
     "prepare to leave 2": {
         "text_id": "dialogue.door_2",
-        "next": "go outside"
+        "next": "go outside",        
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "front_door_encountered",
+                "value": True
+            }
+        ]
     },
 
     "prepare to leave b": {
@@ -1000,13 +1023,27 @@ DIALOGUE = {
 
     "prepare to leave b2": {
         "text_id": "dialogue.door_b2",
-        "next": "go outside"
+        "next": "go outside",        
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "front_door_encountered",
+                "value": True
+            }
+        ]
     },
 
 
     "door": {
         "text_id": "dialogue.leave_door",
-        "next": "go outside"
+        "next": "go outside",        
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "front_door_encountered",
+                "value": True
+            }
+        ]
     },
 
     "go outside": {
@@ -1016,7 +1053,7 @@ DIALOGUE = {
             {   
                 "type": "map",
                 "target": "farm outside"
-            }
+            },
         ]
     },
 
@@ -1118,7 +1155,14 @@ DIALOGUE = {
     # rush to shed
     "farm saved 1": {
         "text_id": "dialogue.farm_saved_1",
-        "next": "farm saved 2"
+        "next": "farm saved 2",        
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "door_boss_defeated",
+                "value": True
+            }
+        ]
     },
 
     # call out to family
@@ -1200,7 +1244,18 @@ DIALOGUE = {
 
     "You collapse on the floor 2": {
         "text_id": "dialogue.collapse_floor_2",
-        "next": "You died"
+        "next": "You collapse on the floor 3"
+    },
+
+    "You collapse on the floor 3": {
+        "text_id": "dialogue.collapse_floor_3",
+        "next": "You died",
+        "actions": [
+            {   
+                "type": "show_map",
+                "target": "pitch black"
+            }
+        ]
     },
 
     "You collapse on the floor book": {
@@ -1225,7 +1280,11 @@ DIALOGUE = {
         "actions": [
             {
                 "type": "death"
-            }
+            },
+            {   
+                "type": "show_map",
+                "target": "pitch black"
+            }      
         ]
     },
 
