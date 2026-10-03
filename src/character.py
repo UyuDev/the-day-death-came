@@ -82,6 +82,8 @@ class Character:
     # I made this a method for custom logic I am considering.
     def create(self, name, level: 1, game_class, inventory, coins, equipment):
         self.name = LOCALIZATION_LOOKUP[name]
+        if name == "Nicholas":
+            self.power += 5
         self.level = level
         self.health += level * 5
         self.game_class = GAME_CLASSES[game_class]

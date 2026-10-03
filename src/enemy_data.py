@@ -41,6 +41,15 @@ ENEMIES = {
         "equipped": EQUIPMENT_TEMPLATES["invader_rogue"],
         "image": "invader_rogue"
     },
+    "dungeon_rogue": {
+        "name": "Invading Rogue",
+        "level": 10,
+        "game_class": "Rogue",
+        "inventory": ["Lockpick"],
+        "coins": 10,
+        "equipped": EQUIPMENT_TEMPLATES["invader_rogue"],
+        "image": "invader_rogue"
+    },
     "sewer_invader_ranger": {
         "name": "Invading Ranger",
         "level": 5,
@@ -53,6 +62,15 @@ ENEMIES = {
     "dungeon_invader_warlock": {
         "name": "Invading Warlock",
         "level": 7,
+        "game_class": "Warlock",
+        "inventory": ["Strange Relic"],
+        "coins": 1,
+        "equipped": EQUIPMENT_TEMPLATES["invader_warlock"],
+        "image": "invader_warlock"
+    },
+    "elite_invader_caster": {
+        "name": "Invading Elite Caster",
+        "level": 30,
         "game_class": "Warlock",
         "inventory": ["Strange Relic"],
         "coins": 1,

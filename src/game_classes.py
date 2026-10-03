@@ -32,7 +32,13 @@ GAME_CLASSES = {
     ),
     "Classless": GameClass(
         "Classless",
-        "class.farmer",
+        "class.classless",
+        default_abilities,
+        power=0
+    ),
+    "Trainee": GameClass(
+        "Trainee",
+        "class.trainee",
         default_abilities,
         power=5
     ),
@@ -64,7 +70,7 @@ GAME_CLASSES = {
         "Paladin",
         "class.paladin",
         default_abilities,
-        power=25
+        power=20
     ),
     "Warlock": GameClass(
         "Warlock",
@@ -82,7 +88,7 @@ GAME_CLASSES = {
         "Reaper",
         "class.reaper",
         default_abilities,
-        power=50
+        power=45
     ),
     "ReaperBoss": GameClass(
         "Reaper",

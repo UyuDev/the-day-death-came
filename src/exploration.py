@@ -84,6 +84,10 @@ ENCOUNTERS = {
         "enemies": ["dungeon_inmate", "dungeon_inmate"],
         "text_id": "exploration.dungeon_enemies"
     },
+    "dungeon_ext_ambush": {
+        "enemies": ["dungeon_rogue", "dungeon_rogue", "dungeon_rogue"],
+        "text_id": "exploration.dungeon_enemies"
+    },
     "crypt_1_enemies_1": {
         "enemies": ["skeleton", "skeleton", "zombie", "zombie"],
         "text_id": "exploration.crypt_1_enemies_1"
