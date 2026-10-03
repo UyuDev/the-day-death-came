@@ -1950,7 +1950,7 @@ DIALOGUE = {
 
     "tunnel 1 encounter 2": {
         "text_id": "dialogue.tunnel_1_reaction_1",
-        "next": "tunnel 1 reaction 2",
+        "next": "read cryptic note 1",
         "actions": [
             {   
                 "type": "encounter",
@@ -1960,9 +1960,9 @@ DIALOGUE = {
     },
 
 
-    "tunnel 1 reaction 2": {
-        "text_id": "dialogue.tunnel_1_reaction_2",
-        "next": "tunnel 1 choice",
+    "read cryptic note 1": {
+        "text_id": "dialogue.cryptic_note_1",
+        "next": "read cryptic note 2",
         "actions": [
             {
                 "type": "set_flag",
@@ -1971,6 +1971,134 @@ DIALOGUE = {
             },
         ]
     },
+
+    "read cryptic note 2": {
+        "text_id": "dialogue.cryptic_note_2",
+        "next": "read cryptic note 3"
+    },
+
+    "read cryptic note 3": {
+        "text_id": "dialogue.cryptic_note_3",
+        "next": "read cryptic note 4"
+    },
+
+    "read cryptic note 4": {
+        "text_id": "dialogue.cryptic_note_4",
+        "next": "read cryptic note 5"
+    },
+
+    "read cryptic note 5": {
+        "text_id": "dialogue.cryptic_note_5",
+        "next": "read cryptic note 6"
+    },
+
+    "read cryptic note 6": {
+        "text_id": "dialogue.cryptic_note_6",
+        "next": "read cryptic note 7"
+    },
+
+    "read cryptic note 7": {
+        "text_id": "dialogue.cryptic_note_7",
+        "next": "read cryptic note 8"
+    },
+
+    "read cryptic note 8": {
+        "text_id": "dialogue.cryptic_note_8",
+        "next": "read cryptic note 9"
+    },
+
+    "read cryptic note 9": {
+        "text_id": "dialogue.cryptic_note_9",
+        "next": "read cryptic note 10"
+    },
+
+    "read cryptic note 10": {
+        "text_id": "dialogue.cryptic_note_10",
+        "next": "read cryptic note 11"
+    },
+
+    "read cryptic note 11": {
+        "text_id": "dialogue.cryptic_note_11",
+        "next": "read cryptic note 12"
+    },
+
+    "read cryptic note 12": {
+        "text_id": "dialogue.cryptic_note_12",
+        "next": "read cryptic note 13"
+    },
+
+    "read cryptic note 13": {
+        "text_id": "dialogue.cryptic_note_13",
+        "next": "read cryptic note 14"
+    },
+
+    "read cryptic note 14": {
+        "text_id": "dialogue.cryptic_note_14",
+        "next": "read cryptic note 15"
+    },
+
+    "read cryptic note 15": {
+        "text_id": "dialogue.cryptic_note_15",
+        "next": "read cryptic note 16"
+    },
+
+    "read cryptic note 16": {
+        "text_id": "dialogue.cryptic_note_16",
+        "next": "read cryptic note 17"
+    },
+
+    "read cryptic note 17": {
+        "text_id": "dialogue.cryptic_note_17",
+        "next": "read cryptic note 18"
+    },
+
+    "read cryptic note 18": {
+        "text_id": "dialogue.cryptic_note_18",
+        "next": "read cryptic note 19"
+    },
+
+    "read cryptic note 19": {
+        "text_id": "dialogue.cryptic_note_19",
+        "next": "read cryptic note 20"
+    },
+
+    "read cryptic note 20": {
+        "text_id": "dialogue.cryptic_note_20",
+        "next": "read cryptic note 21"
+    },
+
+    "read cryptic note 21": {
+        "text_id": "dialogue.cryptic_note_21",
+        "next": "read cryptic note 22"
+    },
+
+    "read cryptic note 22": {
+        "text_id": "dialogue.cryptic_note_22",
+        "next": "read cryptic note 23"
+    },
+
+    "read cryptic note 23": {
+        "text_id": "dialogue.cryptic_note_23",
+        "next": "tunnel 1 reaction 1"
+    },
+
+
+    "tunnel 1 reaction 1": {
+        "text_id": "dialogue.tunnel_1_reaction_1",
+        "next": "tunnel 1 reaction 2"
+    },
+
+    "tunnel 1 reaction 2": {
+        "text_id": "dialogue.tunnel_1_reaction_2",
+        "next": "tunnel 1 reaction 3"
+    },
+
+
+    "tunnel 1 reaction 3": {
+        "text_id": "dialogue.tunnel_1_reaction_3",
+        "next": "tunnel 1 choice"
+    },
+
 
 
     "tunnel 1 choice": {
