@@ -36,7 +36,7 @@ class WorldState():
             "dungeon_door_unlocked": False,
             "dungeon_empty": False,
             "town_door_unlocked": False,
-            "town_saved": False,
+            "town_cleared": False,
             "room_rented": False,
             "has_visited_black_market": False,
             "has_visited_blacksmith": False,

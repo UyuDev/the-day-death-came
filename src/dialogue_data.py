@@ -2884,9 +2884,9 @@ DIALOGUE = {
     },
 
 
-    "enter town": {
-        "text_id": "dialogue.enter_town",
-        "next": "town intro",
+    "exit dungeon 1": {
+        "text_id": "dialogue.exit_dungeon_1",
+        "next": "exit dungeon check",
         "actions": [
             {   
                 "type": "map",
@@ -2895,34 +2895,70 @@ DIALOGUE = {
         ]
     },
 
-    # enable once encounter is implemented
-    "town main check": {
+    "exit dungeon check": {
         "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
-                "target": "town_door_unlocked", # need new flag
+                "target": "town_cleared", # need new flag
                 "value": True,
-                "if_pass": "town intro B",
-                "if_fail": "town intro",
+                "if_pass": "town choice", # consider adding an intermediate node
+                "if_fail": "exit dungeon 2",
             }
         ]
     },
 
-    "town intro B": {
-        "text_id": "dialogue.sewer_intro_b",
-        "next": "sewer choice"
+
+    "exit dungeon 2": {
+        "text_id": "dialogue.exit_dungeon_2",
+        "next": "exit dungeon 3"
     },
 
-    "town intro": {
-        "text_id": "dialogue.town_intro",
-        "next": "town 2"
+    "exit dungeon 3": {
+        "text_id": "dialogue.exit_dungeon_3",
+        "next": "exit dungeon encounter"
     },
 
-    "town 2": {
-        "text_id": "dialogue.town_2",
-        "next": "town choice"
+    "exit dungeon encounter": {
+        "text_id": "dialogue.empty",
+        "next": "exit dungeon 4",
+        "actions": [
+            {
+                "type": "encounter", 
+                "target": "dungeon_exit_encounter"
+            }
+        ]
     },
+
+    "exit dungeon 4": {
+        "text_id": "dialogue.exit_dungeon_4",
+        "next": "exit dungeon 5"
+    },
+
+    "exit dungeon 5": {
+        "text_id": "dialogue.exit_dungeon_5",
+        "next": "exit dungeon 6"
+    },
+
+    "exit dungeon 6": {
+        "text_id": "dialogue.exit_dungeon_6",
+        "next": "exit dungeon 7"
+    },
+
+    "exit dungeon 7": {
+        "text_id": "dialogue.exit_dungeon_7",
+        "next": "exit dungeon 8"
+    },
+
+    "exit dungeon 8": {
+        "text_id": "dialogue.exit_dungeon_8",
+        "next": "town choice" # change later
+    },
+
+
+
+
+
 
     "town choice": {
         "text_id": "dialogue.town_choice",
