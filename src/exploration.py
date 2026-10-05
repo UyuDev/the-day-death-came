@@ -88,6 +88,14 @@ ENCOUNTERS = {
         "enemies": ["dungeon_rogue", "dungeon_rogue", "dungeon_rogue"],
         "text_id": "exploration.dungeon_exit_encounter"
     },
+    "town_encounter_1": {
+        "enemies": ["town_rogue", "town_warrior", "town_ranger"],
+        "text_id": "exploration.dungeon_exit_encounter"
+    },
+    "town_encounter_2": {
+        "enemies": ["town_warlock", "town_rogue", "town_warrior", "town_ranger"],
+        "text_id": "exploration.dungeon_exit_encounter"
+    },
     "crypt_1_enemies_1": {
         "enemies": ["skeleton", "skeleton", "zombie", "zombie"],
         "text_id": "exploration.crypt_1_enemies_1"

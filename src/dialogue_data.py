@@ -2842,7 +2842,7 @@ DIALOGUE = {
                 "type": "check_flag",
                 "target": "town_door_unlocked",
                 "value": True,
-                "if_pass": "enter town",
+                "if_pass": "exit dungeon 1",
                 "if_fail": "dungeon town key check",
             }
         ]
@@ -2873,7 +2873,7 @@ DIALOGUE = {
     # now for the town
     "dungeon unlock town": {
         "text_id": "dialogue.dungeon_unlock_town",
-        "next": "enter town",
+        "next": "exit dungeon 1",
         "actions": [
             {   
                 "type": "set_flag",
@@ -2916,23 +2916,18 @@ DIALOGUE = {
 
     "exit dungeon 3": {
         "text_id": "dialogue.exit_dungeon_3",
-        "next": "exit dungeon encounter"
+        "next": "exit dungeon 4"
     },
 
-    "exit dungeon encounter": {
-        "text_id": "dialogue.empty",
-        "next": "exit dungeon 4",
+    "exit dungeon 4": {
+        "text_id": "dialogue.exit_dungeon_4",
+        "next": "exit dungeon 5",
         "actions": [
             {
                 "type": "encounter", 
                 "target": "dungeon_exit_encounter"
             }
         ]
-    },
-
-    "exit dungeon 4": {
-        "text_id": "dialogue.exit_dungeon_4",
-        "next": "exit dungeon 5"
     },
 
     "exit dungeon 5": {
@@ -2952,11 +2947,1855 @@ DIALOGUE = {
 
     "exit dungeon 8": {
         "text_id": "dialogue.exit_dungeon_8",
-        "next": "town choice" # change later
+        "next": "town blademaster intro 1" 
+    },
+
+
+    "town blademaster intro 1": {
+        "text_id": "dialogue.town_blademaster_intro_1",
+        "next": "town blademaster intro 2"
+    },
+    "town blademaster intro 2": {
+        "text_id": "dialogue.town_blademaster_intro_2",
+        "next": "town blademaster intro 3"
+    },
+    "town blademaster intro 3": {
+        "text_id": "dialogue.town_blademaster_intro_3",
+        "next": "town blademaster intro 4"
+    },
+    "town blademaster intro 4": {
+        "text_id": "dialogue.town_blademaster_intro_4",
+        "next": "town blademaster intro 5"
+    },
+    "town blademaster intro 5": {
+        "text_id": "dialogue.town_blademaster_intro_5",
+        "next": "town blademaster intro 6"
+    },
+    "town blademaster intro 6": {
+        "text_id": "dialogue.town_blademaster_intro_6",
+        "next": "town blademaster intro 7"
+    },
+    "town blademaster intro 7": {
+        "text_id": "dialogue.town_blademaster_intro_7",
+        "next": "town blademaster intro 8"
+    },
+    "town blademaster intro 8": {
+        "text_id": "dialogue.town_blademaster_intro_8",
+        "next": "town blademaster intro 9"
+    },
+    "town blademaster intro 9": {
+        "text_id": "dialogue.town_blademaster_intro_9",
+        "next": "town blademaster intro 10"
+    },
+    "town blademaster intro 10": {
+        "text_id": "dialogue.town_blademaster_intro_10",
+        "next": "town blademaster intro 11"
+    },
+    "town blademaster intro 11": {
+        "text_id": "dialogue.town_blademaster_intro_11",
+        "next": "town blademaster intro 12"
+    },
+    "town blademaster intro 12": {
+        "text_id": "dialogue.town_blademaster_intro_12",
+        "next": "town blademaster intro 13"
+    },
+    "town blademaster intro 13": {
+        "text_id": "dialogue.town_blademaster_intro_13",
+        "next": "town blademaster intro 14"
+    },
+    "town blademaster intro 14": {
+        "text_id": "dialogue.town_blademaster_intro_14",
+        "next": "town blademaster intro 15"
+    },
+    "town blademaster intro 15": {
+        "text_id": "dialogue.town_blademaster_intro_15",
+        "next": "town blademaster intro 16"
+    },
+    "town blademaster intro 16": {
+        "text_id": "dialogue.town_blademaster_intro_16",
+        "next": "town blademaster intro 17"
+    },
+    "town blademaster intro 17": {
+        "text_id": "dialogue.town_blademaster_intro_17",
+        "next": "town blademaster intro 18"
+    },
+    "town blademaster intro 18": {
+        "text_id": "dialogue.town_blademaster_intro_18",
+        "next": "town blademaster intro 19"
+    },
+    "town blademaster intro 19": {
+        "text_id": "dialogue.town_blademaster_intro_19",
+        "next": "town blademaster intro 20"
+    },
+    "town blademaster intro 20": {
+        "text_id": "dialogue.town_blademaster_intro_20",
+        "next": "town blademaster intro 21"
+    },
+    "town blademaster intro 21": {
+        "text_id": "dialogue.town_blademaster_intro_21",
+        "next": "town blademaster intro 22"
+    },
+    "town blademaster intro 22": {
+        "text_id": "dialogue.town_blademaster_intro_22",
+        "next": "town blademaster intro 23"
+    },
+    "town blademaster intro 23": {
+        "text_id": "dialogue.town_blademaster_intro_23",
+        "next": "town blademaster intro 24"
+    },
+    "town blademaster intro 24": {
+        "text_id": "dialogue.town_blademaster_intro_24",
+        "next": "town blademaster intro 25"
+    },
+    "town blademaster intro 25": {
+        "text_id": "dialogue.town_blademaster_intro_25",
+        "next": "town blademaster intro 26"
+    },
+    "town blademaster intro 26": {
+        "text_id": "dialogue.town_blademaster_intro_26",
+        "next": "town blademaster intro 27"
+    },
+    "town blademaster intro 27": {
+        "text_id": "dialogue.town_blademaster_intro_27",
+        "next": "town blademaster intro 28"
+    },
+    "town blademaster intro 28": {
+        "text_id": "dialogue.town_blademaster_intro_28",
+        "next": "town blademaster intro 29"
+    },
+    
+    "town blademaster intro 29": {
+        "text_id": "dialogue.town_blademaster_intro_29",
+        "next": "town blademaster after fight 1"
     },
 
 
 
+    # encounter here
+    "town blademaster after fight 1": {
+        "text_id": "dialogue.town_blademaster_after_fight_1",
+        "next": "town blademaster after fight 2",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "town_encounter_1",
+            }
+        ]
+    },
+    "town blademaster after fight 2": {
+        "text_id": "dialogue.town_blademaster_after_fight_2",
+        "next": "town blademaster after fight 3"
+    },
+    "town blademaster after fight 3": {
+        "text_id": "dialogue.town_blademaster_after_fight_3",
+        "next": "town blademaster after fight 4"
+    },
+    "town blademaster after fight 4": {
+        "text_id": "dialogue.town_blademaster_after_fight_4",
+        "next": "town blademaster after fight 5"
+    },
+    "town blademaster after fight 5": {
+        "text_id": "dialogue.town_blademaster_after_fight_5",
+        "next": "town blademaster after fight 6"
+    },
+    "town blademaster after fight 6": {
+        "text_id": "dialogue.town_blademaster_after_fight_6",
+        "next": "town blademaster after fight 7"
+    },
+    "town blademaster after fight 7": {
+        "text_id": "dialogue.town_blademaster_after_fight_7",
+        "next": "town blademaster after fight 8"
+    },
+    "town blademaster after fight 8": {
+        "text_id": "dialogue.town_blademaster_after_fight_8",
+        "next": "town blademaster after fight 9"
+    },
+    "town blademaster after fight 9": {
+        "text_id": "dialogue.town_blademaster_after_fight_9",
+        "next": "town blademaster after fight 10"
+    },
+    "town blademaster after fight 10": {
+        "text_id": "dialogue.town_blademaster_after_fight_10",
+        "next": "town blademaster after fight 11"
+    },
+    "town blademaster after fight 11": {
+        "text_id": "dialogue.town_blademaster_after_fight_11",
+        "next": "town blademaster after fight 12"
+    },
+    "town blademaster after fight 12": {
+        "text_id": "dialogue.town_blademaster_after_fight_12",
+        "next": "town blademaster after fight 13"
+    },
+    "town blademaster after fight 13": {
+        "text_id": "dialogue.town_blademaster_after_fight_13",
+        "next": "town blademaster after fight 14"
+    },
+    "town blademaster after fight 14": {
+        "text_id": "dialogue.town_blademaster_after_fight_14",
+        "next": "town blademaster after fight 15"
+    },
+    "town blademaster after fight 15": {
+        "text_id": "dialogue.town_blademaster_after_fight_15",
+        "next": "town blademaster after fight 16"
+    },
+    "town blademaster after fight 16": {
+        "text_id": "dialogue.town_blademaster_after_fight_16",
+        "next": "town blademaster after fight 17"
+    },
+    "town blademaster after fight 17": {
+        "text_id": "dialogue.town_blademaster_after_fight_17",
+        "next": "town blademaster after fight 18"
+    },
+    "town blademaster after fight 18": {
+        "text_id": "dialogue.town_blademaster_after_fight_18",
+        "next": "town blademaster after fight 19"
+    },
+    "town blademaster after fight 19": {
+        "text_id": "dialogue.town_blademaster_after_fight_19",
+        "next": "town blademaster after fight 20"
+    },
+    "town blademaster after fight 20": {
+        "text_id": "dialogue.town_blademaster_after_fight_20",
+        "next": "town blademaster after fight 21"
+    },
+    "town blademaster after fight 21": {
+        "text_id": "dialogue.town_blademaster_after_fight_21",
+        "next": "town blademaster after fight 22"
+    },
+    "town blademaster after fight 22": {
+        "text_id": "dialogue.town_blademaster_after_fight_22",
+        "next": "town blademaster after fight 23"
+    },
+    "town blademaster after fight 23": {
+        "text_id": "dialogue.town_blademaster_after_fight_23",
+        "next": "town blademaster after fight 24"
+    },
+    "town blademaster after fight 24": {
+        "text_id": "dialogue.town_blademaster_after_fight_24",
+        "next": "town galerich 1"
+    },
+
+    "town galerich 1": {
+        "text_id": "dialogue.town_galerich_1",
+        "next": "town galerich 2"
+    },
+    "town galerich 2": {
+        "text_id": "dialogue.town_galerich_2",
+        "next": "town galerich 3"
+    },
+    "town galerich 3": {
+        "text_id": "dialogue.town_galerich_3",
+        "next": "town galerich 4"
+    },
+    "town galerich 4": {
+        "text_id": "dialogue.town_galerich_4",
+        "next": "town galerich 5"
+    },
+    "town galerich 5": {
+        "text_id": "dialogue.town_galerich_5",
+        "next": "town galerich 6"
+    },
+    "town galerich 6": {
+        "text_id": "dialogue.town_galerich_6",
+        "next": "town galerich 7"
+    },
+    "town galerich 7": {
+        "text_id": "dialogue.town_galerich_7",
+        "next": "town galerich 8"
+    },
+    "town galerich 8": {
+        "text_id": "dialogue.town_galerich_8",
+        "next": "town galerich 9"
+    },
+    "town galerich 9": {
+        "text_id": "dialogue.town_galerich_9",
+        "next": "town galerich 10"
+    },
+    "town galerich 10": {
+        "text_id": "dialogue.town_galerich_10",
+        "next": "town galerich 11"
+    },
+    "town galerich 11": {
+        "text_id": "dialogue.town_galerich_11",
+        "next": "town galerich 12"
+    },
+    "town galerich 12": {
+        "text_id": "dialogue.town_galerich_12",
+        "next": "town galerich 13"
+    },
+    "town galerich 13": {
+        "text_id": "dialogue.town_galerich_13",
+        "next": "town galerich 14"
+    },
+    "town galerich 14": {
+        "text_id": "dialogue.town_galerich_14",
+        "next": "town galerich 15"
+    },
+    "town galerich 15": {
+        "text_id": "dialogue.town_galerich_15",
+        "next": "town galerich 16"
+    },
+    "town galerich 16": {
+        "text_id": "dialogue.town_galerich_16",
+        "next": "town galerich 17"
+    },
+    "town galerich 17": {
+        "text_id": "dialogue.town_galerich_17",
+        "next": "town galerich 18"
+    },
+    "town galerich 18": {
+        "text_id": "dialogue.town_galerich_18",
+        "next": "town galerich 19"
+    },
+    "town galerich 19": {
+        "text_id": "dialogue.town_galerich_19",
+        "next": "town galerich 20"
+    },
+    "town galerich 20": {
+        "text_id": "dialogue.town_galerich_20",
+        "next": "town galerich 21"
+    },
+    "town galerich 21": {
+        "text_id": "dialogue.town_galerich_21",
+        "next": "town galerich 22"
+    },
+    "town galerich 22": {
+        "text_id": "dialogue.town_galerich_22",
+        "next": "town galerich 23"
+    },
+    "town galerich 23": {
+        "text_id": "dialogue.town_galerich_23",
+        "next": "town galerich 24"
+    },
+    "town galerich 24": {
+        "text_id": "dialogue.town_galerich_24",
+        "next": "town galerich 25"
+    },
+    "town galerich 25": {
+        "text_id": "dialogue.town_galerich_25",
+        "next": "town galerich 26"
+    },
+    "town galerich 26": {
+        "text_id": "dialogue.town_galerich_26",
+        "next": "town galerich 27"
+    },
+    "town galerich 27": {
+        "text_id": "dialogue.town_galerich_27",
+        "next": "town serek search 1"
+    },
+
+    "town serek search 1": {
+        "text_id": "dialogue.town_serek_search_1",
+        "next": "town serek search 2"
+    },
+    "town serek search 2": {
+        "text_id": "dialogue.town_serek_search_2",
+        "next": "town serek search 3"
+    },
+    "town serek search 3": {
+        "text_id": "dialogue.town_serek_search_3",
+        "next": "town serek search 4"
+    },
+    "town serek search 4": {
+        "text_id": "dialogue.town_serek_search_4",
+        "next": "town serek search 5"
+    },
+    "town serek search 5": {
+        "text_id": "dialogue.town_serek_search_5",
+        "next": "town serek search 6"
+    },
+    "town serek search 6": {
+        "text_id": "dialogue.town_serek_search_6",
+        "next": "town serek search 7"
+    },
+    "town serek search 7": {
+        "text_id": "dialogue.town_serek_search_7",
+        "next": "town serek search 8"
+    },
+    "town serek search 8": {
+        "text_id": "dialogue.town_serek_search_8",
+        "next": "town serek search 9"
+    },
+    "town serek search 9": {
+        "text_id": "dialogue.town_serek_search_9",
+        "next": "town serek search 10"
+    },
+    "town serek search 10": {
+        "text_id": "dialogue.town_serek_search_10",
+        "next": "town serek search 11"
+    },
+    "town serek search 11": {
+        "text_id": "dialogue.town_serek_search_11",
+        "next": "town serek search 12"
+    },
+    "town serek search 12": {
+        "text_id": "dialogue.town_serek_search_12",
+        "next": "town serek search 13"
+    },
+    "town serek search 13": {
+        "text_id": "dialogue.town_serek_search_13",
+        "next": "town serek search 14"
+    },
+    "town serek search 14": {
+        "text_id": "dialogue.town_serek_search_14",
+        "next": "town serek search 15"
+    },
+    "town serek search 15": {
+        "text_id": "dialogue.town_serek_search_15",
+        "next": "town serek search 16"
+    },
+    "town serek search 16": {
+        "text_id": "dialogue.town_serek_search_16",
+        "next": "town serek search 17"
+    },
+    "town serek search 17": {
+        "text_id": "dialogue.town_serek_search_17",
+        "next": "town serek search 18"
+    },
+    "town serek search 18": {
+        "text_id": "dialogue.town_serek_search_18",
+        "next": "town serek search 19"
+    },
+    "town serek search 19": {
+        "text_id": "dialogue.town_serek_search_19",
+        "next": "town serek search 20"
+    },
+    "town serek search 20": {
+        "text_id": "dialogue.town_serek_search_20",
+        "next": "town serek search 21"
+    },
+    "town serek search 21": {
+        "text_id": "dialogue.town_serek_search_21",
+        "next": "town serek search 22"
+    },
+    "town serek search 22": {
+        "text_id": "dialogue.town_serek_search_22",
+        "next": "town serek search 23"
+    },
+    "town serek search 23": {
+        "text_id": "dialogue.town_serek_search_23",
+        "next": "town serek search 24"
+    },
+    "town serek search 24": {
+        "text_id": "dialogue.town_serek_search_24",
+        "next": "town serek search 25"
+    },
+    "town serek search 25": {
+        "text_id": "dialogue.town_serek_search_25",
+        "next": "town serek search 26"
+    },
+    "town serek search 26": {
+        "text_id": "dialogue.town_serek_search_26",
+        "next": "town serek search 27"
+    },
+    "town serek search 27": {
+        "text_id": "dialogue.town_serek_search_27",
+        "next": "town black market galerich 1"
+    },
+
+    "town black market galerich 1": {
+        "text_id": "dialogue.town_black_market_galerich_1",
+        "next": "town black market galerich 2"
+    },
+    "town black market galerich 2": {
+        "text_id": "dialogue.town_black_market_galerich_2",
+        "next": "town black market galerich 3"
+    },
+    "town black market galerich 3": {
+        "text_id": "dialogue.town_black_market_galerich_3",
+        "next": "town black market galerich 4"
+    },
+    "town black market galerich 4": {
+        "text_id": "dialogue.town_black_market_galerich_4",
+        "next": "town black market galerich 5"
+    },
+    "town black market galerich 5": {
+        "text_id": "dialogue.town_black_market_galerich_5",
+        "next": "town black market galerich 6"
+    },
+    "town black market galerich 6": {
+        "text_id": "dialogue.town_black_market_galerich_6",
+        "next": "town black market galerich 7"
+    },
+    "town black market galerich 7": {
+        "text_id": "dialogue.town_black_market_galerich_7",
+        "next": "town black market galerich 8"
+    },
+    "town black market galerich 8": {
+        "text_id": "dialogue.town_black_market_galerich_8",
+        "next": "town black market galerich 9"
+    },
+    "town black market galerich 9": {
+        "text_id": "dialogue.town_black_market_galerich_9",
+        "next": "town black market galerich 10"
+    },
+    "town black market galerich 10": {
+        "text_id": "dialogue.town_black_market_galerich_10",
+        "next": "town black market galerich 11"
+    },
+    "town black market galerich 11": {
+        "text_id": "dialogue.town_black_market_galerich_11",
+        "next": "town black market galerich 12"
+    },
+    "town black market galerich 12": {
+        "text_id": "dialogue.town_black_market_galerich_12",
+        "next": "town black market galerich 13"
+    },
+    "town black market galerich 13": {
+        "text_id": "dialogue.town_black_market_galerich_13",
+        "next": "town black market galerich 14"
+    },
+    "town black market galerich 14": {
+        "text_id": "dialogue.town_black_market_galerich_14",
+        "next": "town black market galerich 15"
+    },
+    "town black market galerich 15": {
+        "text_id": "dialogue.town_black_market_galerich_15",
+        "next": "town black market galerich 16"
+    },
+    "town black market galerich 16": {
+        "text_id": "dialogue.town_black_market_galerich_16",
+        "next": "town black market galerich 17"
+    },
+    "town black market galerich 17": {
+        "text_id": "dialogue.town_black_market_galerich_17",
+        "next": "town black market galerich 18"
+    },
+    "town black market galerich 18": {
+        "text_id": "dialogue.town_black_market_galerich_18",
+        "next": "town black market galerich 19"
+    },
+    "town black market galerich 19": {
+        "text_id": "dialogue.town_black_market_galerich_19",
+        "next": "town black market galerich 20"
+    },
+    "town black market galerich 20": {
+        "text_id": "dialogue.town_black_market_galerich_20",
+        "next": "town black market galerich 21"
+    },
+    "town black market galerich 21": {
+        "text_id": "dialogue.town_black_market_galerich_21",
+        "next": "town black market galerich 22"
+    },
+    "town black market galerich 22": {
+        "text_id": "dialogue.town_black_market_galerich_22",
+        "next": "town black market galerich 23"
+    },
+    "town black market galerich 23": {
+        "text_id": "dialogue.town_black_market_galerich_23",
+        "next": "town black market galerich 24"
+    },
+    "town black market galerich 24": {
+        "text_id": "dialogue.town_black_market_galerich_24",
+        "next": "town black market galerich 25"
+    },
+    "town black market galerich 25": {
+        "text_id": "dialogue.town_black_market_galerich_25",
+        "next": "town black market galerich 26"
+    },
+    "town black market galerich 26": {
+        "text_id": "dialogue.town_black_market_galerich_26",
+        "next": "town black market galerich 27"
+    },
+    "town black market galerich 27": {
+        "text_id": "dialogue.town_black_market_galerich_27",
+        "next": "town black market galerich 28"
+    },
+    "town black market galerich 28": {
+        "text_id": "dialogue.town_black_market_galerich_28",
+        "next": "town black market galerich 29"
+    },
+    "town black market galerich 29": {
+        "text_id": "dialogue.town_black_market_galerich_29",
+        "next": "town black market galerich 30"
+    },
+    "town black market galerich 30": {
+        "text_id": "dialogue.town_black_market_galerich_30",
+        "next": "town black market galerich 31"
+    },
+    "town black market galerich 31": {
+        "text_id": "dialogue.town_black_market_galerich_31",
+        "next": "town black market galerich 32"
+    },
+    "town black market galerich 32": {
+        "text_id": "dialogue.town_black_market_galerich_32",
+        "next": "town black market galerich 33"
+    },
+    "town black market galerich 33": {
+        "text_id": "dialogue.town_black_market_galerich_33",
+        "next": "town black market galerich 34"
+    },
+    "town black market galerich 34": {
+        "text_id": "dialogue.town_black_market_galerich_34",
+        "next": "town black market galerich 35"
+    },
+    "town black market galerich 35": {
+        "text_id": "dialogue.town_black_market_galerich_35",
+        "next": "town black market galerich 36"
+    },
+    "town black market galerich 36": {
+        "text_id": "dialogue.town_black_market_galerich_36",
+        "next": "town black market galerich 37"
+    },
+    "town black market galerich 37": {
+        "text_id": "dialogue.town_black_market_galerich_37",
+        "next": "town find serek 1"
+    },
+
+    "town find serek 1": {
+        "text_id": "dialogue.town_find_serek_1",
+        "next": "town find serek 2"
+    },
+    "town find serek 2": {
+        "text_id": "dialogue.town_find_serek_2",
+        "next": "town find serek 3"
+    },
+    "town find serek 3": {
+        "text_id": "dialogue.town_find_serek_3",
+        "next": "town find serek 4"
+    },
+    "town find serek 4": {
+        "text_id": "dialogue.town_find_serek_4",
+        "next": "town find serek 5"
+    },
+    "town find serek 5": {
+        "text_id": "dialogue.town_find_serek_5",
+        "next": "town find serek 6"
+    },
+    "town find serek 6": {
+        "text_id": "dialogue.town_find_serek_6",
+        "next": "town find serek 7"
+    },
+    "town find serek 7": {
+        "text_id": "dialogue.town_find_serek_7",
+        "next": "town find serek 8"
+    },
+    "town find serek 8": {
+        "text_id": "dialogue.town_find_serek_8",
+        "next": "town find serek 9"
+    },
+    "town find serek 9": {
+        "text_id": "dialogue.town_find_serek_9",
+        "next": "town find serek 10"
+    },
+    "town find serek 10": {
+        "text_id": "dialogue.town_find_serek_10",
+        "next": "town find serek 11"
+    },
+    "town find serek 11": {
+        "text_id": "dialogue.town_find_serek_11",
+        "next": "town find serek 12"
+    },
+    "town find serek 12": {
+        "text_id": "dialogue.town_find_serek_12",
+        "next": "town find serek 13"
+    },
+    "town find serek 13": {
+        "text_id": "dialogue.town_find_serek_13",
+        "next": "town find serek 14"
+    },
+    "town find serek 14": {
+        "text_id": "dialogue.town_find_serek_14",
+        "next": "town find serek 15"
+    },
+    "town find serek 15": {
+        "text_id": "dialogue.town_find_serek_15",
+        "next": "town find serek 16"
+    },
+    "town find serek 16": {
+        "text_id": "dialogue.town_find_serek_16",
+        "next": "town find serek 17"
+    },
+    "town find serek 17": {
+        "text_id": "dialogue.town_find_serek_17",
+        "next": "town find serek 18"
+    },
+    "town find serek 18": {
+        "text_id": "dialogue.town_find_serek_18",
+        "next": "town find serek 19"
+    },
+    "town find serek 19": {
+        "text_id": "dialogue.town_find_serek_19",
+        "next": "town find serek 20"
+    },
+    "town find serek 20": {
+        "text_id": "dialogue.town_find_serek_20",
+        "next": "town find serek 21"
+    },
+    "town find serek 21": {
+        "text_id": "dialogue.town_find_serek_21",
+        "next": "town find serek 22"
+    },
+    "town find serek 22": {
+        "text_id": "dialogue.town_find_serek_22",
+        "next": "town find serek 23"
+    },
+    "town find serek 23": {
+        "text_id": "dialogue.town_find_serek_23",
+        "next": "town find serek 24"
+    },
+    "town find serek 24": {
+        "text_id": "dialogue.town_find_serek_24",
+        "next": "town find serek 25"
+    },
+    "town find serek 25": {
+        "text_id": "dialogue.town_find_serek_25",
+        "next": "town find serek 26"
+    },
+    "town find serek 26": {
+        "text_id": "dialogue.town_find_serek_26",
+        "next": "town find serek 27"
+    },
+    "town find serek 27": {
+        "text_id": "dialogue.town_find_serek_27",
+        "next": "town find serek 28"
+    },
+    "town find serek 28": {
+        "text_id": "dialogue.town_find_serek_28",
+        "next": "town find serek 29"
+    },
+    "town find serek 29": {
+        "text_id": "dialogue.town_find_serek_29",
+        "next": "town find serek 30"
+    },
+    "town find serek 30": {
+        "text_id": "dialogue.town_find_serek_30",
+        "next": "town find serek 31"
+    },
+    "town find serek 31": {
+        "text_id": "dialogue.town_find_serek_31",
+        "next": "town find serek 32"
+    },
+    "town find serek 32": {
+        "text_id": "dialogue.town_find_serek_32",
+        "next": "town find serek 33"
+    },
+    "town find serek 33": {
+        "text_id": "dialogue.town_find_serek_33",
+        "next": "town find serek 34"
+    },
+    "town find serek 34": {
+        "text_id": "dialogue.town_find_serek_34",
+        "next": "town find serek 35"
+    },
+    "town find serek 35": {
+        "text_id": "dialogue.town_find_serek_35",
+        "next": "town find serek 36"
+    },
+    "town find serek 36": {
+        "text_id": "dialogue.town_find_serek_36",
+        "next": "town find serek 37"
+    },
+    "town find serek 37": {
+        "text_id": "dialogue.town_find_serek_37",
+        "next": "town find serek 38"
+    },
+    "town find serek 38": {
+        "text_id": "dialogue.town_find_serek_38",
+        "next": "town find serek 39"
+    },
+    "town find serek 39": {
+        "text_id": "dialogue.town_find_serek_39",
+        "next": "town find serek 40"
+    },
+    "town find serek 40": {
+        "text_id": "dialogue.town_find_serek_40",
+        "next": "town find serek 41"
+    },
+    "town find serek 41": {
+        "text_id": "dialogue.town_find_serek_41",
+        "next": "town find serek 42"
+    },
+    "town find serek 42": {
+        "text_id": "dialogue.town_find_serek_42",
+        "next": "town find serek 43"
+    },
+    "town find serek 43": {
+        "text_id": "dialogue.town_find_serek_43",
+        "next": "town find serek 44"
+    },
+    "town find serek 44": {
+        "text_id": "dialogue.town_find_serek_44",
+        "next": "town find serek 45"
+    },
+    "town find serek 45": {
+        "text_id": "dialogue.town_find_serek_45",
+        "next": "town find serek 46"
+    },
+    "town find serek 46": {
+        "text_id": "dialogue.town_find_serek_46",
+        "next": "town find serek 47"
+    },
+    "town find serek 47": {
+        "text_id": "dialogue.town_find_serek_47",
+        "next": "town serek aftermath 1"
+    },
+
+
+    # encounter here
+    "town serek aftermath 1": {
+        "text_id": "dialogue.town_serek_aftermath_1",
+        "next": "town serek aftermath 2",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "town_encounter_1",
+            }
+        ]
+    },
+    "town serek aftermath 2": {
+        "text_id": "dialogue.town_serek_aftermath_2",
+        "next": "town serek aftermath 3"
+    },
+    "town serek aftermath 3": {
+        "text_id": "dialogue.town_serek_aftermath_3",
+        "next": "town serek aftermath 4"
+    },
+    "town serek aftermath 4": {
+        "text_id": "dialogue.town_serek_aftermath_4",
+        "next": "town serek aftermath 5"
+    },
+    "town serek aftermath 5": {
+        "text_id": "dialogue.town_serek_aftermath_5",
+        "next": "town serek aftermath 6"
+    },
+    "town serek aftermath 6": {
+        "text_id": "dialogue.town_serek_aftermath_6",
+        "next": "town serek aftermath 7"
+    },
+    "town serek aftermath 7": {
+        "text_id": "dialogue.town_serek_aftermath_7",
+        "next": "town serek aftermath 8"
+    },
+    "town serek aftermath 8": {
+        "text_id": "dialogue.town_serek_aftermath_8",
+        "next": "town serek aftermath 9"
+    },
+    "town serek aftermath 9": {
+        "text_id": "dialogue.town_serek_aftermath_9",
+        "next": "town serek aftermath 10"
+    },
+    "town serek aftermath 10": {
+        "text_id": "dialogue.town_serek_aftermath_10",
+        "next": "town serek aftermath 11"
+    },
+    "town serek aftermath 11": {
+        "text_id": "dialogue.town_serek_aftermath_11",
+        "next": "town serek aftermath 12"
+    },
+    "town serek aftermath 12": {
+        "text_id": "dialogue.town_serek_aftermath_12",
+        "next": "town serek aftermath 13"
+    },
+    "town serek aftermath 13": {
+        "text_id": "dialogue.town_serek_aftermath_13",
+        "next": "town serek aftermath 14"
+    },
+    "town serek aftermath 14": {
+        "text_id": "dialogue.town_serek_aftermath_14",
+        "next": "town serek aftermath 15"
+    },
+    "town serek aftermath 15": {
+        "text_id": "dialogue.town_serek_aftermath_15",
+        "next": "town serek aftermath 16"
+    },
+    "town serek aftermath 16": {
+        "text_id": "dialogue.town_serek_aftermath_16",
+        "next": "town serek aftermath 17"
+    },
+    "town serek aftermath 17": {
+        "text_id": "dialogue.town_serek_aftermath_17",
+        "next": "town serek aftermath 18"
+    },
+    "town serek aftermath 18": {
+        "text_id": "dialogue.town_serek_aftermath_18",
+        "next": "town remaining invaders 1"
+    },
+
+    "town remaining invaders 1": {
+        "text_id": "dialogue.town_remaining_invaders_1",
+        "next": "town remaining invaders 2"
+    },
+    "town remaining invaders 2": {
+        "text_id": "dialogue.town_remaining_invaders_2",
+        "next": "town remaining invaders 3"
+    },
+    "town remaining invaders 3": {
+        "text_id": "dialogue.town_remaining_invaders_3",
+        "next": "town remaining invaders 4"
+    },
+    "town remaining invaders 4": {
+        "text_id": "dialogue.town_remaining_invaders_4",
+        "next": "town remaining invaders 5"
+    },
+    "town remaining invaders 5": {
+        "text_id": "dialogue.town_remaining_invaders_5",
+        "next": "town remaining invaders 6"
+    },
+    "town remaining invaders 6": {
+        "text_id": "dialogue.town_remaining_invaders_6",
+        "next": "town remaining invaders 7"
+    },
+    "town remaining invaders 7": {
+        "text_id": "dialogue.town_remaining_invaders_7",
+        "next": "town remaining invaders 8"
+    },
+    "town remaining invaders 8": {
+        "text_id": "dialogue.town_remaining_invaders_8",
+        "next": "town remaining invaders 9"
+    },
+    "town remaining invaders 9": {
+        "text_id": "dialogue.town_remaining_invaders_9",
+        "next": "town remaining invaders 10"
+    },
+    "town remaining invaders 10": {
+        "text_id": "dialogue.town_remaining_invaders_10",
+        "next": "town remaining invaders 11"
+    },
+    "town remaining invaders 11": {
+        "text_id": "dialogue.town_remaining_invaders_11",
+        "next": "town remaining invaders 12"
+    },
+    "town remaining invaders 12": {
+        "text_id": "dialogue.town_remaining_invaders_12",
+        "next": "town remaining invaders 13"
+    },
+    "town remaining invaders 13": {
+        "text_id": "dialogue.town_remaining_invaders_13",
+        "next": "town remaining invaders 14"
+    },
+    "town remaining invaders 14": {
+        "text_id": "dialogue.town_remaining_invaders_14",
+        "next": "town remaining invaders 15"
+    },
+    "town remaining invaders 15": {
+        "text_id": "dialogue.town_remaining_invaders_15",
+        "next": "town remaining invaders 16"
+    },
+    "town remaining invaders 16": {
+        "text_id": "dialogue.town_remaining_invaders_16",
+        "next": "town remaining invaders 17"
+    },
+    "town remaining invaders 17": {
+        "text_id": "dialogue.town_remaining_invaders_17",
+        "next": "town remaining invaders 18"
+    },
+    "town remaining invaders 18": {
+        "text_id": "dialogue.town_remaining_invaders_18",
+        "next": "town remaining invaders 19"
+    },
+    "town remaining invaders 19": {
+        "text_id": "dialogue.town_remaining_invaders_19",
+        "next": "town remaining invaders 20"
+    },
+    "town remaining invaders 20": {
+        "text_id": "dialogue.town_remaining_invaders_20",
+        "next": "town remaining invaders 21"
+    },
+    "town remaining invaders 21": {
+        "text_id": "dialogue.town_remaining_invaders_21",
+        "next": "town remaining invaders 22"
+    },
+    "town remaining invaders 22": {
+        "text_id": "dialogue.town_remaining_invaders_22",
+        "next": "town encounter 1 1"
+    },
+
+    "town encounter 1 1": {
+        "text_id": "dialogue.town_encounter_1_1",
+        "next": "town encounter 1 2"
+    },
+    "town encounter 1 2": {
+        "text_id": "dialogue.town_encounter_1_2",
+        "next": "town encounter 1 3"
+    },
+    "town encounter 1 3": {
+        "text_id": "dialogue.town_encounter_1_3",
+        "next": "town encounter 1 4"
+    },
+    "town encounter 1 4": {
+        "text_id": "dialogue.town_encounter_1_4",
+        "next": "town encounter 1 5"
+    },
+    "town encounter 1 5": {
+        "text_id": "dialogue.town_encounter_1_5",
+        "next": "town encounter 1 6"
+    },
+    "town encounter 1 6": {
+        "text_id": "dialogue.town_encounter_1_6",
+        "next": "town encounter 1 7"
+    },
+    "town encounter 1 7": {
+        "text_id": "dialogue.town_encounter_1_7",
+        "next": "town encounter 1 complete 1"
+    },
+
+    "town encounter 1 complete 1": {
+        "text_id": "dialogue.town_encounter_1_complete_1",
+        "next": "town encounter 1 complete 2",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "town_encounter_2",
+            }
+        ]
+    },
+    "town encounter 1 complete 2": {
+        "text_id": "dialogue.town_encounter_1_complete_2",
+        "next": "town encounter 1 complete 3"
+    },
+    "town encounter 1 complete 3": {
+        "text_id": "dialogue.town_encounter_1_complete_3",
+        "next": "town encounter 1 complete 4"
+    },
+    "town encounter 1 complete 4": {
+        "text_id": "dialogue.town_encounter_1_complete_4",
+        "next": "town encounter 1 complete 5"
+    },
+    "town encounter 1 complete 5": {
+        "text_id": "dialogue.town_encounter_1_complete_5",
+        "next": "town encounter 2 1"
+    },
+
+    "town encounter 2 1": {
+        "text_id": "dialogue.town_encounter_2_1",
+        "next": "town encounter 2 2"
+    },
+    "town encounter 2 2": {
+        "text_id": "dialogue.town_encounter_2_2",
+        "next": "town encounter 2 3"
+    },
+    "town encounter 2 3": {
+        "text_id": "dialogue.town_encounter_2_3",
+        "next": "town encounter 2 4"
+    },
+    "town encounter 2 4": {
+        "text_id": "dialogue.town_encounter_2_4",
+        "next": "town encounter 2 5"
+    },
+    "town encounter 2 5": {
+        "text_id": "dialogue.town_encounter_2_5",
+        "next": "town encounter 2 6"
+    },
+    "town encounter 2 6": {
+        "text_id": "dialogue.town_encounter_2_6",
+        "next": "town encounter 2 7"
+    },
+    "town encounter 2 7": {
+        "text_id": "dialogue.town_encounter_2_7",
+        "next": "town encounter 2 complete 1"
+    },
+
+    "town encounter 2 complete 1": {
+        "text_id": "dialogue.town_encounter_2_complete_1",
+        "next": "town encounter 2 complete 2",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "town_encounter_2",
+            }
+        ]
+    },
+    "town encounter 2 complete 2": {
+        "text_id": "dialogue.town_encounter_2_complete_2",
+        "next": "town encounter 2 complete 3"
+    },
+    "town encounter 2 complete 3": {
+        "text_id": "dialogue.town_encounter_2_complete_3",
+        "next": "town encounter 2 complete 4"
+    },
+    "town encounter 2 complete 4": {
+        "text_id": "dialogue.town_encounter_2_complete_4",
+        "next": "town encounter 2 complete 5"
+    },
+    "town encounter 2 complete 5": {
+        "text_id": "dialogue.town_encounter_2_complete_5",
+        "next": "town encounter 2 complete 6"
+    },
+    "town encounter 2 complete 6": {
+        "text_id": "dialogue.town_encounter_2_complete_6",
+        "next": "town encounter 3 1"
+    },
+
+    "town encounter 3 1": {
+        "text_id": "dialogue.town_encounter_3_1",
+        "next": "town encounter 3 2"
+    },
+    "town encounter 3 2": {
+        "text_id": "dialogue.town_encounter_3_2",
+        "next": "town encounter 3 3"
+    },
+    "town encounter 3 3": {
+        "text_id": "dialogue.town_encounter_3_3",
+        "next": "town encounter 3 4"
+    },
+    "town encounter 3 4": {
+        "text_id": "dialogue.town_encounter_3_4",
+        "next": "town encounter 3 5"
+    },
+    "town encounter 3 5": {
+        "text_id": "dialogue.town_encounter_3_5",
+        "next": "town encounter 3 6"
+    },
+    "town encounter 3 6": {
+        "text_id": "dialogue.town_encounter_3_6",
+        "next": "town encounter 3 complete 1"
+    },
+
+    "town encounter 3 complete 1": {
+        "text_id": "dialogue.town_encounter_3_complete_1",
+        "next": "town encounter 3 complete 2",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "town_encounter_2",
+            }
+        ]
+    },
+    "town encounter 3 complete 2": {
+        "text_id": "dialogue.town_encounter_3_complete_2",
+        "next": "town encounter 3 complete 3"
+    },
+    "town encounter 3 complete 3": {
+        "text_id": "dialogue.town_encounter_3_complete_3",
+        "next": "town encounter 3 complete 4"
+    },
+    "town encounter 3 complete 4": {
+        "text_id": "dialogue.town_encounter_3_complete_4",
+        "next": "town encounter 3 complete 5"
+    },
+    "town encounter 3 complete 5": {
+        "text_id": "dialogue.town_encounter_3_complete_5",
+        "next": "town encounter 3 complete 6"
+    },
+    "town encounter 3 complete 6": {
+        "text_id": "dialogue.town_encounter_3_complete_6",
+        "next": "town encounter 3 complete 7"
+    },
+    "town encounter 3 complete 7": {
+        "text_id": "dialogue.town_encounter_3_complete_7",
+        "next": "town encounter 3 complete 8"
+    },
+    "town encounter 3 complete 8": {
+        "text_id": "dialogue.town_encounter_3_complete_8",
+        "next": "town cleared 1"
+    },
+
+    "town cleared 1": {
+        "text_id": "dialogue.town_cleared_1",
+        "next": "town cleared 2",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "town_cleared",
+                "value": True,
+            }
+        ],
+    },
+    "town cleared 2": {
+        "text_id": "dialogue.town_cleared_2",
+        "next": "town cleared 3"
+    },
+    "town cleared 3": {
+        "text_id": "dialogue.town_cleared_3",
+        "next": "town cleared 4"
+    },
+    "town cleared 4": {
+        "text_id": "dialogue.town_cleared_4",
+        "next": "town cleared 5"
+    },
+    "town cleared 5": {
+        "text_id": "dialogue.town_cleared_5",
+        "next": "town cleared 6"
+    },
+    "town cleared 6": {
+        "text_id": "dialogue.town_cleared_6",
+        "next": "town black market open 1"
+    },
+
+    "town black market open 1": {
+        "text_id": "dialogue.town_black_market_open_1",
+        "next": "town black market open 2"
+    },
+    "town black market open 2": {
+        "text_id": "dialogue.town_black_market_open_2",
+        "next": "town black market open 3"
+    },
+    "town black market open 3": {
+        "text_id": "dialogue.town_black_market_open_3",
+        "next": "town black market open 4"
+    },
+    "town black market open 4": {
+        "text_id": "dialogue.town_black_market_open_4",
+        "next": "town black market open 5"
+    },
+    "town black market open 5": {
+        "text_id": "dialogue.town_black_market_open_5",
+        "next": "town black market open 6"
+    },
+    "town black market open 6": {
+        "text_id": "dialogue.town_black_market_open_6",
+        "next": "town black market open 7"
+    },
+    "town black market open 7": {
+        "text_id": "dialogue.town_black_market_open_7",
+        "next": "town black market open 8"
+    },
+    "town black market open 8": {
+        "text_id": "dialogue.town_black_market_open_8",
+        "next": "town black market open 9"
+    },
+    "town black market open 9": {
+        "text_id": "dialogue.town_black_market_open_9",
+        "next": "town black market open 10"
+    },
+    "town black market open 10": {
+        "text_id": "dialogue.town_black_market_open_10",
+        "next": "town black market open 11"
+    },
+    "town black market open 11": {
+        "text_id": "dialogue.town_black_market_open_11",
+        "next": "town black market open 12"
+    },
+    "town black market open 12": {
+        "text_id": "dialogue.town_black_market_open_12",
+        "next": "town black market open 13"
+    },
+    "town black market open 13": {
+        "text_id": "dialogue.town_black_market_open_13",
+        "next": "town black market open 14"
+    },
+    "town black market open 14": {
+        "text_id": "dialogue.town_black_market_open_14",
+        "next": "town black market open 15"
+    },
+    "town black market open 15": {
+        "text_id": "dialogue.town_black_market_open_15",
+        "next": "town black market open 16"
+    },
+    "town black market open 16": {
+        "text_id": "dialogue.town_black_market_open_16",
+        "next": "town black market open 17"
+    },
+    "town black market open 17": {
+        "text_id": "dialogue.town_black_market_open_17",
+        "next": "town black market open 18"
+    },
+    "town black market open 18": {
+        "text_id": "dialogue.town_black_market_open_18",
+        "next": "town galerich training 1"
+    },
+
+    "town galerich training 1": {
+        "text_id": "dialogue.town_galerich_training_1",
+        "next": "town galerich training 2"
+    },
+    "town galerich training 2": {
+        "text_id": "dialogue.town_galerich_training_2",
+        "next": "town galerich training 3"
+    },
+    "town galerich training 3": {
+        "text_id": "dialogue.town_galerich_training_3",
+        "next": "town galerich training 4"
+    },
+    "town galerich training 4": {
+        "text_id": "dialogue.town_galerich_training_4",
+        "next": "town galerich training 5"
+    },
+    "town galerich training 5": {
+        "text_id": "dialogue.town_galerich_training_5",
+        "next": "town galerich training 6"
+    },
+    "town galerich training 6": {
+        "text_id": "dialogue.town_galerich_training_6",
+        "next": "town galerich training 7"
+    },
+    "town galerich training 7": {
+        "text_id": "dialogue.town_galerich_training_7",
+        "next": "town galerich training 8"
+    },
+    "town galerich training 8": {
+        "text_id": "dialogue.town_galerich_training_8",
+        "next": "town galerich training 9"
+    },
+    "town galerich training 9": {
+        "text_id": "dialogue.town_galerich_training_9",
+        "next": "town galerich training 10"
+    },
+    "town galerich training 10": {
+        "text_id": "dialogue.town_galerich_training_10",
+        "next": "town galerich training 11"
+    },
+    "town galerich training 11": {
+        "text_id": "dialogue.town_galerich_training_11",
+        "next": "town galerich training 12"
+    },
+    "town galerich training 12": {
+        "text_id": "dialogue.town_galerich_training_12",
+        "next": "town galerich training 13"
+    },
+    "town galerich training 13": {
+        "text_id": "dialogue.town_galerich_training_13",
+        "next": "town galerich training 14"
+    },
+    "town galerich training 14": {
+        "text_id": "dialogue.town_galerich_training_14",
+        "next": "town galerich training 15"
+    },
+    "town galerich training 15": {
+        "text_id": "dialogue.town_galerich_training_15",
+        "next": "town galerich training 16"
+    },
+    "town galerich training 16": {
+        "text_id": "dialogue.town_galerich_training_16",
+        "next": "town galerich training 17"
+    },
+    "town galerich training 17": {
+        "text_id": "dialogue.town_galerich_training_17",
+        "next": "town galerich training 18"
+    },
+    "town galerich training 18": {
+        "text_id": "dialogue.town_galerich_training_18",
+        "next": "town galerich training 19"
+    },
+    "town galerich training 19": {
+        "text_id": "dialogue.town_galerich_training_19",
+        "next": "town galerich training 20"
+    },
+    "town galerich training 20": {
+        "text_id": "dialogue.town_galerich_training_20",
+        "next": "town galerich training 21"
+    },
+    "town galerich training 21": {
+        "text_id": "dialogue.town_galerich_training_21",
+        "next": "town galerich training 22"
+    },
+    "town galerich training 22": {
+        "text_id": "dialogue.town_galerich_training_22",
+        "next": "town galerich training 23"
+    },
+    "town galerich training 23": {
+        "text_id": "dialogue.town_galerich_training_23",
+        "next": "town galerich training 24"
+    },
+    "town galerich training 24": {
+        "text_id": "dialogue.town_galerich_training_24",
+        "next": "town galerich training 25"
+    },
+    "town galerich training 25": {
+        "text_id": "dialogue.town_galerich_training_25",
+        "next": "town galerich training 26"
+    },
+    "town galerich training 26": {
+        "text_id": "dialogue.town_galerich_training_26",
+        "next": "town galerich training 27"
+    },
+    "town galerich training 27": {
+        "text_id": "dialogue.town_galerich_training_27",
+        "next": "town galerich training 28"
+    },
+    "town galerich training 28": {
+        "text_id": "dialogue.town_galerich_training_28",
+        "next": "town galerich training 29"
+    },
+    "town galerich training 29": {
+        "text_id": "dialogue.town_galerich_training_29",
+        "next": "town galerich training 30"
+    },
+    "town galerich training 30": {
+        "text_id": "dialogue.town_galerich_training_30",
+        "next": "town galerich training 31"
+    },
+    "town galerich training 31": {
+        "text_id": "dialogue.town_galerich_training_31",
+        "next": "town galerich training 32"
+    },
+    "town galerich training 32": {
+        "text_id": "dialogue.town_galerich_training_32",
+        "next": "town galerich training 33"
+    },
+    "town galerich training 33": {
+        "text_id": "dialogue.town_galerich_training_33",
+        "next": "town galerich training 34"
+    },
+    "town galerich training 34": {
+        "text_id": "dialogue.town_galerich_training_34",
+        "next": "town galerich training 35"
+    },
+    "town galerich training 35": {
+        "text_id": "dialogue.town_galerich_training_35",
+        "next": "town galerich training 36"
+    },
+    "town galerich training 36": {
+        "text_id": "dialogue.town_galerich_training_36",
+        "next": "town galerich training 37"
+    },
+    "town galerich training 37": {
+        "text_id": "dialogue.town_galerich_training_37",
+        "next": "town galerich training 38"
+    },
+    "town galerich training 38": {
+        "text_id": "dialogue.town_galerich_training_38",
+        "next": "town galerich training 39"
+    },
+    "town galerich training 39": {
+        "text_id": "dialogue.town_galerich_training_39",
+        "next": "town galerich training 40",
+        "actions": [
+            {
+                "type": "set_class",
+                "target": "Trainee",
+                "value": True
+            }
+        ]
+    },
+    "town galerich training 40": {
+        "text_id": "dialogue.town_galerich_training_40",
+        "next": "town galerich training 41"
+    },
+    "town galerich training 41": {
+        "text_id": "dialogue.town_galerich_training_41",
+        "next": "town galerich training 42"
+    },
+    "town galerich training 42": {
+        "text_id": "dialogue.town_galerich_training_42",
+        "next": "town galerich training 43"
+    },
+    "town galerich training 43": {
+        "text_id": "dialogue.town_galerich_training_43",
+        "next": "town galerich training 44"
+    },
+    "town galerich training 44": {
+        "text_id": "dialogue.town_galerich_training_44",
+        "next": "town galerich training 45"
+    },
+    "town galerich training 45": {
+        "text_id": "dialogue.town_galerich_training_45",
+        "next": "town galerich training 46"
+    },
+    "town galerich training 46": {
+        "text_id": "dialogue.town_galerich_training_46",
+        "next": "town galerich training 47"
+    },
+    "town galerich training 47": {
+        "text_id": "dialogue.town_galerich_training_47",
+        "next": "town missing paladins 1"
+    },
+
+    "town missing paladins 1": {
+        "text_id": "dialogue.town_missing_paladins_1",
+        "next": "town missing paladins 2"
+    },
+    "town missing paladins 2": {
+        "text_id": "dialogue.town_missing_paladins_2",
+        "next": "town missing paladins 3"
+    },
+    "town missing paladins 3": {
+        "text_id": "dialogue.town_missing_paladins_3",
+        "next": "town missing paladins 4"
+    },
+    "town missing paladins 4": {
+        "text_id": "dialogue.town_missing_paladins_4",
+        "next": "town missing paladins 5"
+    },
+    "town missing paladins 5": {
+        "text_id": "dialogue.town_missing_paladins_5",
+        "next": "town missing paladins 6"
+    },
+    "town missing paladins 6": {
+        "text_id": "dialogue.town_missing_paladins_6",
+        "next": "town missing paladins 7"
+    },
+    "town missing paladins 7": {
+        "text_id": "dialogue.town_missing_paladins_7",
+        "next": "town missing paladins 8"
+    },
+    "town missing paladins 8": {
+        "text_id": "dialogue.town_missing_paladins_8",
+        "next": "town missing paladins 9"
+    },
+    "town missing paladins 9": {
+        "text_id": "dialogue.town_missing_paladins_9",
+        "next": "town missing paladins 10"
+    },
+    "town missing paladins 10": {
+        "text_id": "dialogue.town_missing_paladins_10",
+        "next": "town missing paladins 11"
+    },
+    "town missing paladins 11": {
+        "text_id": "dialogue.town_missing_paladins_11",
+        "next": "town missing paladins 12"
+    },
+    "town missing paladins 12": {
+        "text_id": "dialogue.town_missing_paladins_12",
+        "next": "town missing paladins 13"
+    },
+    "town missing paladins 13": {
+        "text_id": "dialogue.town_missing_paladins_13",
+        "next": "town missing paladins 14"
+    },
+    "town missing paladins 14": {
+        "text_id": "dialogue.town_missing_paladins_14",
+        "next": "town missing paladins 15"
+    },
+    "town missing paladins 15": {
+        "text_id": "dialogue.town_missing_paladins_15",
+        "next": "town missing paladins 16"
+    },
+    "town missing paladins 16": {
+        "text_id": "dialogue.town_missing_paladins_16",
+        "next": "town missing paladins 17"
+    },
+    "town missing paladins 17": {
+        "text_id": "dialogue.town_missing_paladins_17",
+        "next": "town missing paladins 18"
+    },
+    "town missing paladins 18": {
+        "text_id": "dialogue.town_missing_paladins_18",
+        "next": "town church investigation 1"
+    },
+
+    "town church investigation 1": {
+        "text_id": "dialogue.town_church_investigation_1",
+        "next": "town church investigation 2"
+    },
+    "town church investigation 2": {
+        "text_id": "dialogue.town_church_investigation_2",
+        "next": "town church investigation 3"
+    },
+    "town church investigation 3": {
+        "text_id": "dialogue.town_church_investigation_3",
+        "next": "town church investigation 4"
+    },
+    "town church investigation 4": {
+        "text_id": "dialogue.town_church_investigation_4",
+        "next": "town church investigation 5"
+    },
+    "town church investigation 5": {
+        "text_id": "dialogue.town_church_investigation_5",
+        "next": "town church investigation 6"
+    },
+    "town church investigation 6": {
+        "text_id": "dialogue.town_church_investigation_6",
+        "next": "town church investigation 7"
+    },
+    "town church investigation 7": {
+        "text_id": "dialogue.town_church_investigation_7",
+        "next": "town church investigation 8"
+    },
+    "town church investigation 8": {
+        "text_id": "dialogue.town_church_investigation_8",
+        "next": "town church investigation 9"
+    },
+    "town church investigation 9": {
+        "text_id": "dialogue.town_church_investigation_9",
+        "next": "town church investigation 10"
+    },
+    "town church investigation 10": {
+        "text_id": "dialogue.town_church_investigation_10",
+        "next": "town church investigation 11"
+    },
+    "town church investigation 11": {
+        "text_id": "dialogue.town_church_investigation_11",
+        "next": "town church investigation 12"
+    },
+    "town church investigation 12": {
+        "text_id": "dialogue.town_church_investigation_12",
+        "next": "town church investigation 13"
+    },
+    "town church investigation 13": {
+        "text_id": "dialogue.town_church_investigation_13",
+        "next": "town church investigation 14"
+    },
+    "town church investigation 14": {
+        "text_id": "dialogue.town_church_investigation_14",
+        "next": "town church investigation 15"
+    },
+    "town church investigation 15": {
+        "text_id": "dialogue.town_church_investigation_15",
+        "next": "town church investigation 16"
+    },
+    "town church investigation 16": {
+        "text_id": "dialogue.town_church_investigation_16",
+        "next": "town church investigation 17"
+    },
+    "town church investigation 17": {
+        "text_id": "dialogue.town_church_investigation_17",
+        "next": "town church investigation 18"
+    },
+    "town church investigation 18": {
+        "text_id": "dialogue.town_church_investigation_18",
+        "next": "town church investigation 19"
+    },
+    "town church investigation 19": {
+        "text_id": "dialogue.town_church_investigation_19",
+        "next": "town church investigation 20"
+    },
+    "town church investigation 20": {
+        "text_id": "dialogue.town_church_investigation_20",
+        "next": "town church investigation 21"
+    },
+    "town church investigation 21": {
+        "text_id": "dialogue.town_church_investigation_21",
+        "next": "town church investigation 22"
+    },
+    "town church investigation 22": {
+        "text_id": "dialogue.town_church_investigation_22",
+        "next": "town church investigation 23"
+    },
+    "town church investigation 23": {
+        "text_id": "dialogue.town_church_investigation_23",
+        "next": "town church investigation 24"
+    },
+    "town church investigation 24": {
+        "text_id": "dialogue.town_church_investigation_24",
+        "next": "town church investigation 25"
+    },
+    "town church investigation 25": {
+        "text_id": "dialogue.town_church_investigation_25",
+        "next": "town church investigation 26"
+    },
+    "town church investigation 26": {
+        "text_id": "dialogue.town_church_investigation_26",
+        "next": "town church investigation 27"
+    },
+    "town church investigation 27": {
+        "text_id": "dialogue.town_church_investigation_27",
+        "next": "town church investigation 28"
+    },
+    "town church investigation 28": {
+        "text_id": "dialogue.town_church_investigation_28",
+        "next": "town church investigation 29"
+    },
+    "town church investigation 29": {
+        "text_id": "dialogue.town_church_investigation_29",
+        "next": "town church investigation 30"
+    },
+    "town church investigation 30": {
+        "text_id": "dialogue.town_church_investigation_30",
+        "next": "town church investigation 31"
+    },
+    "town church investigation 31": {
+        "text_id": "dialogue.town_church_investigation_31",
+        "next": "town return galerich 1"
+    },
+
+    "town return galerich 1": {
+        "text_id": "dialogue.town_return_galerich_1",
+        "next": "town return galerich 2"
+    },
+    "town return galerich 2": {
+        "text_id": "dialogue.town_return_galerich_2",
+        "next": "town return galerich 3"
+    },
+    "town return galerich 3": {
+        "text_id": "dialogue.town_return_galerich_3",
+        "next": "town return galerich 4"
+    },
+    "town return galerich 4": {
+        "text_id": "dialogue.town_return_galerich_4",
+        "next": "town return galerich 5"
+    },
+    "town return galerich 5": {
+        "text_id": "dialogue.town_return_galerich_5",
+        "next": "town return galerich 6"
+    },
+    "town return galerich 6": {
+        "text_id": "dialogue.town_return_galerich_6",
+        "next": "town return galerich 7"
+    },
+    "town return galerich 7": {
+        "text_id": "dialogue.town_return_galerich_7",
+        "next": "town return galerich 8"
+    },
+    "town return galerich 8": {
+        "text_id": "dialogue.town_return_galerich_8",
+        "next": "town return galerich 9"
+    },
+    "town return galerich 9": {
+        "text_id": "dialogue.town_return_galerich_9",
+        "next": "town return galerich 10"
+    },
+    "town return galerich 10": {
+        "text_id": "dialogue.town_return_galerich_10",
+        "next": "town return galerich 11"
+    },
+    "town return galerich 11": {
+        "text_id": "dialogue.town_return_galerich_11",
+        "next": "town return galerich 12"
+    },
+    "town return galerich 12": {
+        "text_id": "dialogue.town_return_galerich_12",
+        "next": "town return galerich 13"
+    },
+    "town return galerich 13": {
+        "text_id": "dialogue.town_return_galerich_13",
+        "next": "town return galerich 14"
+    },
+    "town return galerich 14": {
+        "text_id": "dialogue.town_return_galerich_14",
+        "next": "town return galerich 15"
+    },
+    "town return galerich 15": {
+        "text_id": "dialogue.town_return_galerich_15",
+        "next": "town return galerich 16"
+    },
+    "town return galerich 16": {
+        "text_id": "dialogue.town_return_galerich_16",
+        "next": "town return galerich 17"
+    },
+    "town return galerich 17": {
+        "text_id": "dialogue.town_return_galerich_17",
+        "next": "town return galerich 18"
+    },
+    "town return galerich 18": {
+        "text_id": "dialogue.town_return_galerich_18",
+        "next": "town return galerich 19"
+    },
+    "town return galerich 19": {
+        "text_id": "dialogue.town_return_galerich_19",
+        "next": "town return galerich 20"
+    },
+    "town return galerich 20": {
+        "text_id": "dialogue.town_return_galerich_20",
+        "next": "town return galerich 21"
+    },
+    "town return galerich 21": {
+        "text_id": "dialogue.town_return_galerich_21",
+        "next": "town return galerich 22"
+    },
+    "town return galerich 22": {
+        "text_id": "dialogue.town_return_galerich_22",
+        "next": "town return galerich 23"
+    },
+    "town return galerich 23": {
+        "text_id": "dialogue.town_return_galerich_23",
+        "next": "town return galerich 24"
+    },
+    "town return galerich 24": {
+        "text_id": "dialogue.town_return_galerich_24",
+        "next": "town return galerich 25"
+    },
+    "town return galerich 25": {
+        "text_id": "dialogue.town_return_galerich_25",
+        "next": "town return galerich 26"
+    },
+    "town return galerich 26": {
+        "text_id": "dialogue.town_return_galerich_26",
+        "next": "town return galerich 27"
+    },
+    "town return galerich 27": {
+        "text_id": "dialogue.town_return_galerich_27",
+        "next": "town return galerich 28"
+    },
+    "town return galerich 28": {
+        "text_id": "dialogue.town_return_galerich_28",
+        "next": "town return galerich 29"
+    },
+    "town return galerich 29": {
+        "text_id": "dialogue.town_return_galerich_29",
+        "next": "town return galerich 30"
+    },
+    "town return galerich 30": {
+        "text_id": "dialogue.town_return_galerich_30",
+        "next": "town return galerich 31"
+    },
+    "town return galerich 31": {
+        "text_id": "dialogue.town_return_galerich_31",
+        "next": "town return galerich 32"
+    },
+    "town return galerich 32": {
+        "text_id": "dialogue.town_return_galerich_32",
+        "next": "town return galerich 33"
+    },
+    "town return galerich 33": {
+        "text_id": "dialogue.town_return_galerich_33",
+        "next": "town return galerich 34"
+    },
+    "town return galerich 34": {
+        "text_id": "dialogue.town_return_galerich_34",
+        "next": "town return galerich 35"
+    },
+    "town return galerich 35": {
+        "text_id": "dialogue.town_return_galerich_35",
+        "next": "town return galerich 36"
+    },
+    "town return galerich 36": {
+        "text_id": "dialogue.town_return_galerich_36",
+        "next": "town return galerich 37"
+    },
+    "town return galerich 37": {
+        "text_id": "dialogue.town_return_galerich_37",
+        "next": "town return galerich 38"
+    },
+    "town return galerich 38": {
+        "text_id": "dialogue.town_return_galerich_38",
+        "next": "town return galerich 39"
+    },
+    "town return galerich 39": {
+        "text_id": "dialogue.town_return_galerich_39",
+        "next": "town return galerich 40"
+    },
+    "town return galerich 40": {
+        "text_id": "dialogue.town_return_galerich_40",
+        "next": "town return galerich 41"
+    },
+    "town return galerich 41": {
+        "text_id": "dialogue.town_return_galerich_41",
+        "next": "town return galerich 42"
+    },
+    "town return galerich 42": {
+        "text_id": "dialogue.town_return_galerich_42",
+        "next": "town return galerich 43"
+    },
+    "town return galerich 43": {
+        "text_id": "dialogue.town_return_galerich_43",
+        "next": "town return galerich 44"
+    },
+    "town return galerich 44": {
+        "text_id": "dialogue.town_return_galerich_44",
+        "next": "town return galerich 45"
+    },
+    "town return galerich 45": {
+        "text_id": "dialogue.town_return_galerich_45",
+        "next": "town return galerich 46"
+    },
+    "town return galerich 46": {
+        "text_id": "dialogue.town_return_galerich_46",
+        "next": "town return galerich 47"
+    },
+    "town return galerich 47": {
+        "text_id": "dialogue.town_return_galerich_47",
+        "next": "town return galerich 48"
+    },
+    "town return galerich 48": {
+        "text_id": "dialogue.town_return_galerich_48",
+        "next": "town return galerich 49"
+    },
+    "town return galerich 49": {
+        "text_id": "dialogue.town_return_galerich_49",
+        "next": "town return galerich 50"
+    },
+    "town return galerich 50": {
+        "text_id": "dialogue.town_return_galerich_50",
+        "next": "town return galerich 51"
+    },
+    "town return galerich 51": {
+        "text_id": "dialogue.town_return_galerich_51",
+        "next": "town return galerich 52"
+    },
+    "town return galerich 52": {
+        "text_id": "dialogue.town_return_galerich_52",
+        "next": "town return galerich 53"
+    },
+    "town return galerich 53": {
+        "text_id": "dialogue.town_return_galerich_53",
+        "next": "town return galerich 54"
+    },
+    "town return galerich 54": {
+        "text_id": "dialogue.town_return_galerich_54",
+        "next": "enter crypt 1"
+    },
 
 
 

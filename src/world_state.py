@@ -28,6 +28,7 @@ class WorldState():
             "basement_crate_empty": False,
             "basement_key_found": False,
             "basement_door_unlocked": False,
+            "tunnel_1_invader_slain": False,
             "tunnel_1_empty": False,
             "tunnel_rope_placed": False,
             "tunnel_2_empty": False,
