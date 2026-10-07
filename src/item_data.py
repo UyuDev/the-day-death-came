@@ -1689,6 +1689,13 @@ ITEMS = {
         "value": 1,
         "sellable": True,
     },
+    "Old Junk": {
+        "name_id": "item.old_junk",
+        "power": 0,
+        "slot": None,
+        "value": 20,
+        "sellable": True,
+    },
     "Sharpening Stone": {
         "name_id": "item.sharpening_stone",
         "power": 0,

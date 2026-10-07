@@ -267,6 +267,8 @@
     "dialogue.tunnel_1_reaction_1": "*Damn. He went through a lot.*",
     "dialogue.tunnel_1_reaction_2": "*I guess I need to find a rope.*",
     "dialogue.tunnel_1_reaction_3": "You put the note away and continue deeper into the tunnel.",
+    "dialogue.tunnel_armor": "You remove the fallen invader's armor, wipe it off and put it on.",
+    "dialogue.tunnel_bag": "You fasten the bag to your belt, giving yourself more room to carry supplies.",
     "dialogue.tunnel_1_choice": "What would you like to do?",
     "dialogue.option.tunnel_1_explore": "Explore the cave for treasure",
     "dialogue.option.tunnel_1_enemies": "Explore the cave for enemies",
@@ -832,16 +834,16 @@
     "dialogue.town_return_galerich_50": "Galerich: \"Do not engage.\"",
     "dialogue.town_return_galerich_51": "You nod.",
     "dialogue.town_return_galerich_52": "\"Understood.\"",
-    "dialogue.town_return_galerich_53": "Galerich gives you directions to the old crypt entrance.",
-    "dialogue.town_return_galerich_54": "You leave the Black Market and head toward the crypts.",
+    "dialogue.town_return_galerich_53": "Galerich: \"And make sure you're prepared before you go. There's no telling what you'll find down there.\"",
+    "dialogue.town_return_galerich_54": "Galerich gives you directions to the old crypt entrance. You leave him to rest.",
 
 
 
     "dialogue.town_choice": "What would you like to do?",
     "dialogue.option.town_vendors": "Visit the merchants",
     "dialogue.option.town_inn": "Go to the inn",
-    "dialogue.option.town_continue": "Seek out the church",
-    "dialogue.option.sewer_secret_return": "Find a way back",
+    "dialogue.option.town_continue": "Investigate the crypts",
+    "dialogue.option.sewer_secret_return": "Enter the sewers",
     "dialogue.town_vendors_choice": "Whom would you like to visit?",
     "dialogue.option.merchant": "Visit the black market",
     "dialogue.option.blacksmith": "Visit the blacksmith",
@@ -851,6 +853,7 @@
     "dialogue.town_black_market_choice": "Who would you like to visit?",
     "dialogue.option.town_black_market_fence": "Fence",
     "dialogue.option.town_black_market_witch": "Witch",
+    "dialogue.option.town_black_market_galerich": "Galerich",
     "dialogue.option.town_black_market_return": "Return",
 
     "dialogue.town_fence_1": "Fence: \"New customer, eh? Welcome to my market.\"",
@@ -896,6 +899,12 @@
     "dialogue.town_witch_bones_2": "She whispers something under her breath. The Bones begin to crumble.",
     "dialogue.town_witch_bones_3": "A strange warmth passes through your body.",
     "dialogue.town_witch_goodbye": "Witch: \"I hope you enjoyed. Come again soon!\"",
+
+    "dialogue.galerich_busy_1": "You knock on the door, but Galerich does not answer. He must still be resting.",
+    "dialogue.galerich_return_1": "[WIP]",
+
+
+
 
     "dialogue.town_blacksmith_1": "You enter the smithy.",
     "dialogue.town_blacksmith_2": "Blacksmith: \"A new customer! I'm sorry, but the shop is closed.\"",
@@ -1053,13 +1062,11 @@
     "dialogue.town_specialty_4": "Specialty Merchant: \"Pleasure doing business with you.\"",
 
 
-    "dialogue.town_sewer_1": "You search the town for a way back to the tunnels.",  
-    "dialogue.town_sewer_2": "You find an entrance to the sewers and sneak inside.",
-    "dialogue.town_3": "After helping the townspeople, you set your sights on the church.",
-    "dialogue.town_4": "Approaching the church, you find it sealed. You remember there is an old crypt that leads to it.",
-    "dialogue.town_5": "You approach the crypt entrance and slowly walk down.",
-    "dialogue.return_to_sewer_2": "You use the secret entrance to return to the sewers.",
+    "dialogue.town_sewer_1": "You make your way toward the old sewer entrance.",  
+    "dialogue.town_sewer_2": "You slip inside, hoping the tunnels will lead you back home.",
+    "dialogue.return_to_sewer_2": "You descend into the sewers.",
 
+    "dialogue.town_to_crypt": "You leave town and pass through the graveyard to the crypt.",
     "dialogue.enter_crypt_1": "You pass through the crypt doors and descend the dark stairs.",
     "dialogue.crypt_1_intro": "As you reach the bottom of the stairs, you can hear chants echo in the halls.",
     "dialogue.crypt_1_intro_b": "You return to the crypt.",
@@ -1434,6 +1441,7 @@
     "item.old_tome": "Old Tome",
     "item.stale_bread": "Stale Bread",
     "item.bread": "Bread",
+    "item.old_junk": "Old Artefact",
     "item.sharpening_stone": "Sharpening Stone",
     "item.strange_relic": "Strange Relic",
     "item.ranger_traps": "Ranger Traps",

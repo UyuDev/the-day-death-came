@@ -1949,8 +1949,8 @@ DIALOGUE = {
     },
 
     "tunnel 1 encounter 2": {
-        "text_id": "dialogue.tunnel_1_reaction_1",
-        "next": "read cryptic note 1",
+        "text_id": "dialogue.tunnel_armor",
+        "next": "tunnel 1 encounter 3",
         "actions": [
             {   
                 "type": "encounter",
@@ -1959,6 +1959,10 @@ DIALOGUE = {
         ]
     },
 
+    "tunnel 1 encounter 3": {
+        "text_id": "dialogue.tunnel_bag",
+        "next": "read cryptic note 1"
+    },
 
     "read cryptic note 1": {
         "text_id": "dialogue.cryptic_note_1",
@@ -4794,7 +4798,7 @@ DIALOGUE = {
     },
     "town return galerich 54": {
         "text_id": "dialogue.town_return_galerich_54",
-        "next": "enter crypt 1"
+        "next": "town black market"
     },
 
 
@@ -4812,7 +4816,7 @@ DIALOGUE = {
             },
             3: {
                 "text_id": "dialogue.option.town_continue",
-                "next": "town 3"
+                "next": "town to crypt"
             },
             4: {
                 "text_id": "dialogue.option.sewer_secret_return",
@@ -5072,8 +5076,8 @@ DIALOGUE = {
                 "next": "town witch check",
             },
             3: {
-                "text_id": "dialogue.option.empty",
-                "next": "town black market",
+                "text_id": "dialogue.option.town_black_market_galerich",
+                "next": "town galerich check 1",
             },
             4: {
                 "text_id": "dialogue.option.town_black_market_return",
@@ -5497,6 +5501,31 @@ DIALOGUE = {
         "next": "town witch choice",
     },
 
+
+    # Galerich / Blademaster
+
+    "town galerich check 1": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "graye_secret_revealed",
+                "value": True,
+                "if_pass": "galerich return 1",
+                "if_fail": "galerich busy 1",
+            }
+        ],
+    },
+
+    "galerich busy 1": {
+        "text_id": "dialogue.galerich_busy_1",
+        "next": "town black market",
+    },
+
+    "galerich return 1": {
+        "text_id": "dialogue.galerich_return_1",
+        "next": "town black market",
+    },
 
 
     # BS
@@ -6544,20 +6573,11 @@ DIALOGUE = {
     },
 
 
-    "town 3": {
-        "text_id": "dialogue.town_3",
-        "next": "town 4"
-    },
-
-    "town 4": {
-        "text_id": "dialogue.town_4",
-        "next": "town 5"
-    },
-
-    "town 5": {
-        "text_id": "dialogue.town_5",
+    "town to crypt": {
+        "text_id": "dialogue.town_to_crypt",
         "next": "enter crypt 1"
     },
+
 
     "enter crypt 1": {
         "text_id": "dialogue.enter_crypt_1",

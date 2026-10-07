@@ -55,6 +55,7 @@ class WorldState():
             "amulet_known": False,
             "paladin_chest_looted": False,
             "reaper_knowledge": False,
+            "graye_secret_revealed": False,
             "lord_resolved": False,
             "reaper_choice_made": False,
             "accepted_deal": False,

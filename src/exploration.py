@@ -163,8 +163,8 @@ SEARCH_AREAS = {
                 "text_id": "exploration.crate_1",
                 "image": "crate",
                 "encounter": "tunnel_2_ambush",
-                "loot": ["Strange Herb"],
-                "coins": 0
+                "loot": ["Old Junk"],
+                "coins": 20
             },
             {
                 "type": "chest",
@@ -183,8 +183,8 @@ SEARCH_AREAS = {
                 "text_id": "exploration.crates_1",
                 "image": "crates",
                 "encounter": "sewer_ambush",
-                "loot": ["Strange Herb", "Strange Herb"],
-                "coins": 0
+                "loot": ["Old Junk", "Old Junk"],
+                "coins": 20
             },
             {
                 "type": "chest",
@@ -203,8 +203,8 @@ SEARCH_AREAS = {
                 "text_id": "exploration.crates_1",
                 "image": "crates",
                 "encounter": "dungeon_ambush",
-                "loot": ["Strange Herb", "Rare Ingredient"],
-                "coins": 0
+                "loot": ["Old Junk", "Old Junk"],
+                "coins": 20
             },
             {
                 "type": "chest",
@@ -225,6 +225,14 @@ SEARCH_AREAS = {
                 "encounter": "crypt_1_ambush",
                 "loot": ["Dark Crystal", "Old Journal Page"],
                 "coins": 0
+            },
+            {
+                "type": "chest",
+                "text_id": "exploration.chest_1",
+                "image": "chest",
+                "encounter": "crypt_1_ambush",
+                "loot": ["Strange Herb", "Strange Herb"],
+                "coins": 0
             }
         ]
     },
@@ -236,6 +244,14 @@ SEARCH_AREAS = {
                 "image": "chest",
                 "encounter": "crypt_2_ambush",
                 "loot": ["Old Amulet"],
+                "coins": 0
+            },
+            {
+                "type": "chest",
+                "text_id": "exploration.chest_1",
+                "image": "chest",
+                "encounter": "crypt_2_ambush",
+                "loot": ["Strange Herb", "Rare Ingredient"],
                 "coins": 0
             }
         ]
@@ -484,7 +500,7 @@ class Exploration():
             # win
             else:
                 exp, loot, coins = result
-                node = TEXT_NODES["win"].copy()
+                node = TEXT_NODES["win"].copy()                 
                 node["variables"] = {
                     "enemy": self.language_data[enemy.name]
                 }
