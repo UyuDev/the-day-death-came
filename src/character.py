@@ -35,7 +35,7 @@ equipment_slots = {
 LOCALIZATION_LOOKUP = {
     "Nicholas": "name.player",
 
-    "Invading Ambusher": "enemy.invading_ambusher",
+    "Injured Invader": "enemy.invading_ambusher",
     "Giant Rat": "enemy.giant_rat",
     "Cave Goblin": "enemy.cave_goblin",
     "Invading Rogue": "enemy.invading_rogue",

@@ -85,7 +85,7 @@ ENCOUNTERS = {
         "text_id": "exploration.dungeon_enemies"
     },
     "dungeon_exit_encounter": {
-        "enemies": ["dungeon_rogue", "dungeon_rogue", "dungeon_rogue"],
+        "enemies": ["town_rogue", "town_warrior", "town_ranger"],
         "text_id": "exploration.dungeon_exit_encounter"
     },
     "town_encounter_1": {
