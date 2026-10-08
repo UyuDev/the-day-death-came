@@ -6624,7 +6624,7 @@ DIALOGUE = {
         "options": {
             1: {
                 "text_id": "dialogue.option.crypt_1_explore",
-                "next": "crypt 1 explore 1"
+                "next": "crypt 1 altar check"
             },
             2: {
                 "text_id": "dialogue.option.crypt_1_enemies",
@@ -6641,22 +6641,45 @@ DIALOGUE = {
         }
     },
 
-    "crypt 1 explore 1": {
-        "text_id": "dialogue.crypt_1_explore_1",
+    "crypt 1 altar check": {
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
                 "target": "crypt_1_empty",
-                "value": False,
-                "if_pass": "crypt 1 explore start",
-                "if_fail": "reaper knowledge check",
+                "value": True,
+                "if_pass": "crypt 1 approach altar",
+                "if_fail": "crypt 1 explore choice",
             }
         ]
     },
 
 
+    "crypt 1 explore choice": {
+        "text_id": "dialogue.crypt_1_explore_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.crypt_1_search_containers",
+                "next": "crypt 1 explore start"
+            },
+            2: {
+                "text_id": "dialogue.option.crypt_1_altar",
+                "next": "crypt 1 approach altar"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "crypt 1 explore choice"
+            },
+            4: {
+                "text_id": "dialogue.previous_options",
+                "next": "crypt 1 choice"
+            }
+        }
+    },    
+
+
     "crypt 1 explore start": {
-        "text_id": "dialogue.crypt_1_explore_2",
+        "text_id": "dialogue.crypt_1_explore_3",
         "next": "crypt 1 choice",
         "actions": [
             {
@@ -6671,7 +6694,26 @@ DIALOGUE = {
         ]
     },
 
-    # check reaper_knowledge
+
+    "crypt 1 approach altar": {
+        "text_id": "dialogue.crypt_1_explore_1",
+        "next": "crypt 1 ritual check",
+    },
+
+    "crypt 1 ritual check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "crypt_1_ritual_disrupted",
+                "value": True,
+                "if_pass": "reaper knowledge check",
+                "if_fail": "crypt 1 ritual inspect",
+            }
+        ]
+    },
+
+    # check reaper_knowledge after checking if disrupted
     "reaper knowledge check": {
         "text_id": "dialogue.empty",
         "actions": [
@@ -6680,19 +6722,14 @@ DIALOGUE = {
                 "target": "reaper_knowledge",
                 "value": True,
                 "if_pass": "reaper choice check",
-                "if_fail": "crypt 1 explore empty",
+                "if_fail": "crypt 1 ritual ruined",
             }
         ]
     },
 
 
-    "crypt 1 explore empty": {
-        "text_id": "dialogue.crypt_1_explore_empty",
-        "next": "crypt 1 choice",
-    },
-
     # reaper path
-
+    
     "reaper choice check": {
         "text_id": "dialogue.empty",
         "actions": [
@@ -6705,6 +6742,7 @@ DIALOGUE = {
             }
         ]
     },
+
 
     "reaper deal check": {
         "text_id": "dialogue.empty",
@@ -6735,7 +6773,7 @@ DIALOGUE = {
 
     "reaper lord alive": {
         "text_id": "dialogue.reaper_lord_alive",
-        "next": "crypt 1 explore",
+        "next": "crypt 1 choice",
     },
 
     "reaper reward check": {
@@ -6751,10 +6789,56 @@ DIALOGUE = {
         ]
     },
 
+    # new 
+
+
+    "crypt 1 ritual inspect": {
+        "text_id": "dialogue.crypt_1_ritual_inspect",
+        "next": "crypt 1 ritual choice",
+    },
+
+    "crypt 1 ritual choice": {
+        "text_id": "dialogue.crypt_1_ritual_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.crypt_1_ritual_disrupt",
+                "next": "crypt 1 ritual disrupt"
+            },
+            2: {
+                "text_id": "dialogue.option.crypt_1_ritual_leave",
+                "next": "crypt 1 choice"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "crypt 1 ritual choice"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "crypt 1 ritual choice"
+            }
+        }
+    }, 
+
+    "crypt 1 ritual disrupt": {
+        "text_id": "dialogue.crypt_1_ritual_disrupt",
+        "next": "crypt 1 choice",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "crypt_1_ritual_disrupted",
+                "value": True
+            }
+        ]
+    },
+
+    "crypt 1 ritual ruined": {
+        "text_id": "dialogue.crypt_1_ritual_ruined",
+        "next": "crypt 1 choice",
+    },
 
     "reaper no response": {
         "text_id": "dialogue.reaper_no_response",
-        "next": "crypt 1 explore",
+        "next": "crypt 1 choice",
     },
 
     "reaper lord reward": {
@@ -6803,15 +6887,38 @@ DIALOGUE = {
 
     "reaper intro 3": {
         "text_id": "dialogue.reaper_intro_3",
-        "next": "reaper paladin class check",
+        "next": "reaper intro 4",
     },
 
-    # check if paladin or not
+    "reaper intro 4": {
+        "text_id": "dialogue.reaper_intro_4",
+        "next": "reaper intro 5",
+    },
+
+    "reaper intro 5": {
+        "text_id": "dialogue.reaper_intro_5",
+        "next": "reaper offer 1",
+    },
+
+    "reaper offer 1": {
+        "text_id": "dialogue.reaper_offer_1",
+        "next": "reaper offer 2",
+    },
+
+    "reaper offer 2": {
+        "text_id": "dialogue.reaper_offer_2",
+        "next": "reaper offer 3",
+    },
+
+    "reaper offer 3": {
+        "text_id": "dialogue.reaper_offer_3",
+        "next": "reaper paladin class check",
+    },
 
     "reaper paladin class check": {
         "text_id": "dialogue.empty",
         "actions": [
-            {   
+            {
                 "type": "check_class",
                 "target": "Paladin",
                 "if_pass": "reaper decline paladin",
@@ -6819,8 +6926,6 @@ DIALOGUE = {
             }
         ]
     },
-
-    # choice accept or decline
 
     "reaper make choice": {
         "text_id": "dialogue.reaper_make_choice",
@@ -6844,7 +6949,8 @@ DIALOGUE = {
         }
     },
 
-    # accept 
+    # Accept Sceadus's bargain
+
     "reaper accept 1": {
         "text_id": "dialogue.reaper_accept_1",
         "next": "reaper accept 2",
@@ -6864,7 +6970,7 @@ DIALOGUE = {
 
     "reaper accept 2": {
         "text_id": "dialogue.reaper_accept_2",
-        "next": "reaper accept 3"
+        "next": "reaper accept 3",
     },
 
     "reaper accept 3": {
@@ -6881,12 +6987,11 @@ DIALOGUE = {
 
     "reaper accept 4": {
         "text_id": "dialogue.reaper_accept_4",
-        "next": "crypt 1 choice"
+        "next": "crypt 1 choice",
     },
 
-    # consider adding more choices for backstory
+    # Paladin automatically refuses
 
-    # decline paladin
     "reaper decline paladin": {
         "text_id": "dialogue.reaper_decline_paladin",
         "next": "reaper decline 2",
@@ -6904,7 +7009,8 @@ DIALOGUE = {
         ]
     },
 
-    # decline
+    # Trainee refuses
+
     "reaper decline 1": {
         "text_id": "dialogue.reaper_decline_1",
         "next": "reaper decline 2",
@@ -6924,17 +7030,17 @@ DIALOGUE = {
 
     "reaper decline 2": {
         "text_id": "dialogue.reaper_decline_2",
-        "next": "reaper decline 3"
+        "next": "reaper decline 3",
     },
 
     "reaper decline 3": {
         "text_id": "dialogue.reaper_decline_3",
-        "next": "reaper decline 4"
+        "next": "reaper decline 4",
     },
 
     "reaper decline 4": {
         "text_id": "dialogue.reaper_decline_4",
-        "next": "reaper boss choice"
+        "next": "reaper boss choice",
     },
 
     "reaper boss choice": {
