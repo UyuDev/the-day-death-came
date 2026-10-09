@@ -223,7 +223,7 @@ SEARCH_AREAS = {
                 "text_id": "exploration.chest_1",
                 "image": "chest",
                 "encounter": "crypt_1_ambush",
-                "loot": ["Dark Crystal", "Old Journal Page"],
+                "loot": ["Old Journal Page"],
                 "coins": 0
             },
             {

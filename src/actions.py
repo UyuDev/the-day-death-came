@@ -149,3 +149,5 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
             result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
             if result is not None:
                 return result
+    elif action["type"] == "check_level":
+        return player.level >= action["target"]

@@ -958,72 +958,117 @@ DIALOGUE = {
     },
 
 
+    # Front door checks
     "door check": {
         "text_id": "dialogue.empty",
         "actions": [
-            {   
+            {
                 "type": "check_flag",
                 "target": "door_boss_defeated",
                 "value": True,
                 "if_pass": "outro choice",
-                "if_fail": "door check 2",
+                "if_fail": "door class check"
             }
         ]
     },
-
-    "door check 2": {
+    "door class check": {
         "text_id": "dialogue.empty",
         "actions": [
-            {   
+            {
+                "type": "check_class",
+                "target": "Reaper",
+                "if_pass": "reaper door check",
+                "if_fail": "door check 2"
+            }
+        ]
+    },
+    "reaper door check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
                 "type": "check_flag",
                 "target": "front_door_encountered",
                 "value": True,
                 "if_pass": "door",
-                "if_fail": "door check 3",
+                "if_fail": "reaper prepare 1"
             }
         ]
     },
-
-
-
+    "door check 2": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "front_door_encountered",
+                "value": True,
+                "if_pass": "door",
+                "if_fail": "door check 3"
+            }
+        ]
+    },
     "door check 3": {
         "text_id": "dialogue.empty",
         "actions": [
-            {   
+            {
                 "type": "check_flag",
                 "target": "church_info_obtained",
                 "value": True,
                 "if_pass": "prepare to leave b",
-                "if_fail": "prepare to leave",
-            }
+                "if_fail": "prepare to leave"
+        }
         ]
     },
-
+    # Ordinary departure
     "prepare to leave": {
         "text_id": "dialogue.door_1",
         "next": "prepare to leave 2"
     },
-
     "prepare to leave 2": {
         "text_id": "dialogue.door_2",
-        "next": "go outside",        
+        "next": "go outside",
         "actions": [
             {
                 "type": "set_flag",
                 "target": "front_door_encountered",
                 "value": True
-            }
+        }
         ]
     },
-
     "prepare to leave b": {
         "text_id": "dialogue.door_b1",
         "next": "prepare to leave b2"
     },
-
     "prepare to leave b2": {
         "text_id": "dialogue.door_b2",
-        "next": "go outside",        
+        "next": "prepare to leave b3"
+    },
+    "prepare to leave b3": {
+        "text_id": "dialogue.door_b3",
+        "next": "go outside",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "front_door_encountered",
+                "value": True
+        }
+        ]
+    },
+    # Reaper departure
+    "reaper prepare 1": {
+        "text_id": "dialogue.reaper_prepare_1",
+        "next": "reaper prepare 2"
+    },
+    "reaper prepare 2": {
+        "text_id": "dialogue.reaper_prepare_2",
+        "next": "reaper prepare 3"
+    },
+    "reaper prepare 3": {
+        "text_id": "dialogue.reaper_prepare_3",
+        "next": "reaper prepare 4"
+    },
+    "reaper prepare 4": {
+        "text_id": "dialogue.reaper_prepare_4",
+        "next": "go outside",
         "actions": [
             {
                 "type": "set_flag",
@@ -1033,10 +1078,10 @@ DIALOGUE = {
         ]
     },
 
-
+    # Shared door and map transition
     "door": {
         "text_id": "dialogue.leave_door",
-        "next": "go outside",        
+        "next": "go outside",
         "actions": [
             {
                 "type": "set_flag",
@@ -1045,107 +1090,459 @@ DIALOGUE = {
             }
         ]
     },
-
     "go outside": {
         "text_id": "dialogue.go_outside",
         "next": "door encounter",
         "actions": [
-            {   
+            {
                 "type": "map",
                 "target": "farm outside"
-            },
+            }
         ]
     },
-
-
+    # Initial invader encounter
     "door encounter": {
         "text_id": "dialogue.door_encounter",
-        "next": "door encounter boss",
+        "next": "door ambush class check",
         "actions": [
-            {   
+            {
                 "type": "encounter",
                 "target": "door_encounter"
             }
         ]
     },
-
+    "door ambush class check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_class",
+                "target": "Reaper",
+                "if_pass": "reaper ambush 1",
+                "if_fail": "door encounter boss"
+            }
+        ]
+    },
+    "reaper ambush 1": {
+        "text_id": "dialogue.reaper_ambush_1",
+        "next": "reaper ambush 2"
+    },
+    "reaper ambush 2": {
+        "text_id": "dialogue.reaper_ambush_2",
+        "next": "door encounter boss"
+    },
+    # Captain Hravna appears
     "door encounter boss": {
         "text_id": "dialogue.door_boss",
         "next": "door encounter boss 2"
     },
-
-
     "door encounter boss 2": {
         "text_id": "dialogue.door_boss_2",
-        "next": "door encounter boss 3"
+        "next": "door boss class check"
     },
-
+    "door boss class check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_class",
+                "target": "Reaper",
+                "if_pass": "reaper captain 1",
+                "if_fail": "door encounter boss 3"
+            }
+        ]
+    },
+    # Ordinary Captain confrontation
     "door encounter boss 3": {
         "text_id": "dialogue.door_boss_3",
         "next": "door encounter boss 4"
     },
-
     "door encounter boss 4": {
         "text_id": "dialogue.door_boss_4",
         "next": "door encounter boss 5"
     },
-
     "door encounter boss 5": {
         "text_id": "dialogue.door_boss_5",
         "next": "door encounter boss 6"
     },
-
     "door encounter boss 6": {
         "text_id": "dialogue.door_boss_6",
         "next": "farm saved 1",
         "actions": [
-            {   
+            {
                 "type": "encounter",
                 "target": "door_encounter_boss"
             }
         ]
     },
-
+    # Reaper confrontation with Captain Hravna
+    "reaper captain 1": {
+        "text_id": "dialogue.reaper_captain_1",
+        "next": "reaper captain 2"
+    },
+    "reaper captain 2": {
+        "text_id": "dialogue.reaper_captain_2",
+        "next": "reaper captain 3"
+    },
+    "reaper captain 3": {
+        "text_id": "dialogue.reaper_captain_3",
+        "next": "reaper captain 4"
+    },
+    "reaper captain 4": {
+        "text_id": "dialogue.reaper_captain_4",
+        "next": "reaper captain 5"
+    },
+    "reaper captain 5": {
+        "text_id": "dialogue.reaper_captain_5",
+        "next": "reaper captain 6"
+    },
+    "reaper captain 6": {
+        "text_id": "dialogue.reaper_captain_6",
+        "next": "reaper captain 7"
+    },
+    "reaper captain 7": {
+        "text_id": "dialogue.reaper_captain_7",
+        "next": "reaper captain 8"
+    },
+    "reaper captain 8": {
+        "text_id": "dialogue.reaper_captain_8",
+        "next": "reaper captain 9"
+    },
+    "reaper captain 9": {
+        "text_id": "dialogue.reaper_captain_9",
+        "next": "reaper captain 10"
+    },
+    "reaper captain 10": {
+        "text_id": "dialogue.reaper_captain_10",
+        "next": "reaper captain encounter"
+    },
+    "reaper captain encounter": {
+        "text_id": "dialogue.reaper_captain_victory",
+        "next": "farm saved 1",
+        "actions": [
+            {
+                "type": "encounter",
+                "target": "door_encounter_boss"
+            }
+        ]
+    },
+    
+    # Door death scenes
     "door death 1": {
         "text_id": "dialogue.door_death_1",
         "next": "You collapse on the floor",
         "actions": [
-            {   
+            {
                 "type": "show_scene",
                 "target": "door death spear"
-            }
+        }
         ]
     },
-
     "door death 2": {
         "text_id": "dialogue.door_death_2",
         "next": "You collapse on the floor",
         "actions": [
-            {   
+            {
                 "type": "show_scene",
                 "target": "door death arrow"
             }
         ]
     },
-
     "door death 3": {
         "text_id": "dialogue.door_death_3",
         "next": "You collapse on the floor",
         "actions": [
-            {   
+            {
                 "type": "show_scene",
                 "target": "door death leg"
             }
         ]
     },
-
     "door death 4": {
         "text_id": "dialogue.door_death_4",
         "next": "You collapse on the floor",
         "actions": [
-            {   
+            {
                 "type": "show_scene",
                 "target": "door death mind"
+        }
+        ]
+    },
+    # Shared family rescue entry
+    "farm saved 1": {
+        "text_id": "dialogue.farm_saved_1",
+        "next": "farm reunion class check",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "door_boss_defeated",
+                "value": True
+            }
+        ]
+    },
+    "farm reunion class check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_class",
+                "target": "Reaper",
+                "if_pass": "reaper family 1",
+                "if_fail": "farm saved 2"
+            }
+        ]
+    },
+    # Ordinary family reunion
+    "farm saved 2": {
+        "text_id": "dialogue.farm_saved_2",
+        "next": "farm saved 3"
+    },
+    "farm saved 3": {
+        "text_id": "dialogue.farm_saved_3",
+        "next": "farm saved 4"
+    },
+    "farm saved 4": {
+        "text_id": "dialogue.farm_saved_4",
+        "next": "good ending 1"
+    },
+
+    "good ending 1": {
+        "text_id": "dialogue.good_ending_1",
+        "next": "good ending 2"
+    },
+    "good ending 2": {
+        "text_id": "dialogue.good_ending_2",
+        "next": "good ending 3"
+    },
+    "good ending 3": {
+        "text_id": "dialogue.good_ending_3",
+        "next": "good ending 4"
+    },
+    "good ending 4": {
+        "text_id": "dialogue.good_ending_4",
+        "next": "good ending 5"
+    },
+    "good ending 5": {
+        "text_id": "dialogue.good_ending_5",
+        "next": "good ending 6"
+    },
+    "good ending 6": {
+        "text_id": "dialogue.good_ending_6",
+        "next": "good ending 7"
+    },
+    "good ending 7": {
+        "text_id": "dialogue.good_ending_7",
+        "next": "good ending 8"
+    },
+    "good ending 8": {
+        "text_id": "dialogue.good_ending_8",
+        "next": "good ending 9"
+    },
+    "good ending 9": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_class",
+                "target": "Paladin",
+                "if_pass": "good ending 9 paladin",
+                "if_fail": "good ending 9 classless"
+            }
+        ]
+    },
+    "good ending 9 paladin": {
+        "text_id": "dialogue.good_ending_9_paladin",
+        "next": "good ending 10"
+    },
+    "good ending 9 classless": {
+        "text_id": "dialogue.good_ending_9_classless",
+        "next": "good ending 10"
+    },
+    "good ending 10": {
+        "text_id": "dialogue.good_ending_10",
+        "next": "good ending 11"
+    },
+    "good ending 11": {
+        "text_id": "dialogue.good_ending_11",
+        "next": "good ending 12"
+    },
+    "good ending 12": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "galerich_reported",
+                "value": True,
+                "if_pass": "good ending 12 reported",
+                "if_fail": "good ending 12 unreported"
+            }
+        ]
+    },
+    "good ending 12 reported": {
+        "text_id": "dialogue.good_ending_12_reported",
+        "next": "good ending 13"
+    },
+    "good ending 12 unreported": {
+        "text_id": "dialogue.good_ending_12_unreported",
+        "next": "good ending 13"
+    },
+    "good ending 13": {
+        "text_id": "dialogue.good_ending_13",
+        "next": "good ending 14"
+    },
+    "good ending 14": {
+        "text_id": "dialogue.good_ending_14",
+        "next": "good ending 15"
+    },
+    "good ending 15": {
+        "text_id": "dialogue.good_ending_15",
+        "next": "good ending 16"
+    },
+    "good ending 16": {
+        "text_id": "dialogue.good_ending_16",
+        "next": "good ending 17"
+    },
+    "good ending 17": {
+        "text_id": "dialogue.good_ending_17",
+        "next": "save game 2"
+    },
+
+    # Reaper family ending
+    "reaper family 1": {
+        "text_id": "dialogue.reaper_family_1",
+        "next": "reaper family 2"
+    },
+    "reaper family 2": {
+        "text_id": "dialogue.reaper_family_2",
+        "next": "reaper family 3"
+    },
+    "reaper family 3": {
+        "text_id": "dialogue.reaper_family_3",
+        "next": "reaper family 4"
+    },
+    "reaper family 4": {
+        "text_id": "dialogue.reaper_family_4",
+        "next": "reaper family 5"
+    },
+    "reaper family 5": {
+        "text_id": "dialogue.reaper_family_5",
+        "next": "reaper family 6"
+    },
+    "reaper family 6": {
+        "text_id": "dialogue.reaper_family_6",
+        "next": "reaper family 7"
+    },
+    "reaper family 7": {
+        "text_id": "dialogue.reaper_family_7",
+        "next": "reaper family 8"
+    },
+    "reaper family 8": {
+        "text_id": "dialogue.reaper_family_8",
+        "next": "reaper family 9"
+    },
+    "reaper family 9": {
+        "text_id": "dialogue.reaper_family_9",
+        "next": "reaper family 10"
+    },
+    "reaper family 10": {
+        "text_id": "dialogue.reaper_family_10",
+        "next": "reaper family 11"
+    },
+    "reaper family 11": {
+        "text_id": "dialogue.reaper_family_11",
+        "next": "reaper family 12"
+    },
+    "reaper family 12": {
+        "text_id": "dialogue.reaper_family_12",
+        "next": "reaper family 13"
+    },
+    "reaper family 13": {
+        "text_id": "dialogue.reaper_family_13",
+        "next": "reaper family 14"
+    },
+    "reaper family 14": {
+        "text_id": "dialogue.reaper_family_14",
+        "next": "reaper family 15"
+    },
+    "reaper family 15": {
+        "text_id": "dialogue.reaper_family_15",
+        "next": "reaper family 16"
+    },
+    "reaper family 16": {
+        "text_id": "dialogue.reaper_family_16",
+        "next": "reaper family 17"
+    },
+    "reaper family 17": {
+        "text_id": "dialogue.reaper_family_17",
+        "next": "reaper family 18"
+    },
+    "reaper family 18": {
+        "text_id": "dialogue.reaper_family_18",
+        "next": "reaper family 19"
+    },
+    "reaper family 19": {
+        "text_id": "dialogue.reaper_family_19",
+        "next": "reaper family 20"
+    },
+    "reaper family 20": {
+        "text_id": "dialogue.reaper_family_20",
+        "next": "reaper family 21"
+    },
+    "reaper family 21": {
+        "text_id": "dialogue.reaper_family_21",
+        "next": "reaper family 22"
+    },
+    "reaper family 22": {
+        "text_id": "dialogue.reaper_family_22",
+        "next": "reaper family 23"
+    },
+    "reaper family 23": {
+        "text_id": "dialogue.reaper_family_23",
+        "next": "reaper family 24"
+    },
+    "reaper family 24": {
+        "text_id": "dialogue.reaper_family_24",
+        "next": "reaper family 25"
+    },
+    "reaper family 25": {
+        "text_id": "dialogue.reaper_family_25",
+        "next": "reaper ending 1"
+    },
+    "reaper ending 1": {
+        "text_id": "dialogue.reaper_ending_1",
+        "next": "reaper ending 2"
+    },
+    "reaper ending 2": {
+        "text_id": "dialogue.reaper_ending_2",
+        "next": "save game 2"
+    },
+
+    # Shared save choice
+    "save game 2": {
+        "text_id": "dialogue.save_game_2",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.save_game_yes_2",
+                "next": "save game yes"
+            },
+            2: {
+                "text_id": "dialogue.option.save_game_no_2",
+                "next": "return to house"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "save game 2"
+            },
+            4: {
+                "text_id": "dialogue.option.main_menu",
+                "next": "main menu yes"
+            }
+        }
+    },
+
+    "return to house": {
+        "text_id": "dialogue.return_to_house",
+        "next": "look around downstairs",
+        "actions": [
+            {
+                "type": "map",
+                "target": "house"
             }
         ]
     },
@@ -1196,6 +1593,7 @@ DIALOGUE = {
         ]
     },
 
+
     # save choice
     "save game 2": {
         "text_id": "dialogue.save_game_2",
@@ -1214,7 +1612,7 @@ DIALOGUE = {
             },
             4: {
                 "text_id": "dialogue.option.main_menu",
-                "next": "main menu"
+                "next": "main menu yes"
             }
         }
     },
@@ -1228,6 +1626,116 @@ DIALOGUE = {
                 "target": "house"
             }
         ]
+    },
+
+
+    "outro choice": {
+        "text_id": "dialogue.outro_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.view_outro",
+                "next": "outro class check"
+            },
+            2: {
+                "text_id": "dialogue.option.return_to_house",
+                "next": "return to house"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "outro choice"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "outro choice"
+            }
+        }
+    },
+    
+    "outro class check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_class",
+                "target": "Reaper",
+                "if_pass": "reaper outro 1",
+                "if_fail": "outro 1"
+            }
+        ]
+    },
+
+    "outro 1": {
+        "text_id": "dialogue.outro_1",
+        "next": "outro 2"
+    },
+    "outro 2": {
+        "text_id": "dialogue.outro_2",
+        "next": "outro 3"
+    },
+    "outro 3": {
+        "text_id": "dialogue.outro_3",
+        "next": "outro 4"
+    },
+    "outro 4": {
+        "text_id": "dialogue.outro_4",
+        "next": "outro 5"
+    },
+    "outro 5": {
+        "text_id": "dialogue.outro_5",
+        "next": "outro 6"
+    },
+    "outro 6": {
+        "text_id": "dialogue.outro_6",
+        "next": "outro end choice"
+    },
+    "reaper outro 1": {
+        "text_id": "dialogue.reaper_outro_1",
+        "next": "reaper outro 2"
+    },
+    "reaper outro 2": {
+        "text_id": "dialogue.reaper_outro_2",
+        "next": "reaper outro 3"
+    },
+    "reaper outro 3": {
+        "text_id": "dialogue.reaper_outro_3",
+        "next": "reaper outro 4"
+    },
+    "reaper outro 4": {
+        "text_id": "dialogue.reaper_outro_4",
+        "next": "reaper outro 5"
+    },
+    "reaper outro 5": {
+        "text_id": "dialogue.reaper_outro_5",
+        "next": "reaper outro 6"
+    },
+    "reaper outro 6": {
+        "text_id": "dialogue.reaper_outro_6",
+        "next": "reaper outro 7"
+    },
+    "reaper outro 7": {
+        "text_id": "dialogue.reaper_outro_7",
+        "next": "outro end choice"
+    },
+
+    "outro end choice": {
+        "text_id": "dialogue.outro_end_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.return_to_house",
+                "next": "return to house"
+            },
+            2: {
+                "text_id": "dialogue.option.main_menu",
+                "next": "main menu yes"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "outro end choice"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "outro end choice"
+            }
+        }
     },
 
 
@@ -1270,10 +1778,17 @@ DIALOGUE = {
     },
 
 
+
     "You died": {
         "text_id": "dialogue.died",
         "next": "reload after death"
     },
+
+    "Game Over": {
+        "text_id": "dialogue.game_over",
+        "next": "reload after death"
+    },
+
 
     "reload after death": {
         "text_id": "dialogue.empty",
@@ -5504,7 +6019,36 @@ DIALOGUE = {
 
     # Galerich / Blademaster
 
+    # Galerich / Blademaster
+
     "town galerich check 1": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_class",
+                "target": "Reaper",
+                "if_pass": "galerich reaper repeat check",
+                "if_fail": "town galerich check 2"
+            }
+        ]
+    },
+    "galerich reaper repeat check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "galerich_reaper_confronted",
+                "value": True,
+                "if_pass": "galerich reaper repeat",
+                "if_fail": "galerich reaper 1"
+            }
+        ]
+    },
+    "galerich reaper repeat": {
+        "text_id": "dialogue.galerich_reaper_repeat",
+        "next": "town black market"
+    },
+    "town galerich check 2": {
         "text_id": "dialogue.empty",
         "actions": [
             {
@@ -5512,9 +6056,9 @@ DIALOGUE = {
                 "target": "graye_secret_revealed",
                 "value": True,
                 "if_pass": "galerich return 1",
-                "if_fail": "galerich busy 1",
+                "if_fail": "galerich busy 1"
             }
-        ],
+        ]
     },
 
     "galerich busy 1": {
@@ -5523,10 +6067,538 @@ DIALOGUE = {
     },
 
     "galerich return 1": {
-        "text_id": "dialogue.galerich_return_1",
-        "next": "town black market",
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "galerich_reported",
+                "value": True,
+                "if_pass": "galerich repeat",
+                "if_fail": "galerich report check"
+            }
+        ]
+    },
+    "galerich report check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "lord_resolved",
+                "value": True,
+                "if_pass": "galerich solo report 1",
+                "if_fail": "galerich discovery report 1"
+            }
+        ]
+    },
+    "galerich repeat": {
+        "text_id": "dialogue.galerich_repeat",
+        "next": "town black market"
     },
 
+    # Nicholas obeyed Galerich and returned without intervening
+    "galerich discovery report 1": {
+        "text_id": "dialogue.galerich_discovery_report_1",
+        "next": "galerich discovery report 2"
+    },
+    "galerich discovery report 2": {
+        "text_id": "dialogue.galerich_discovery_report_2",
+        "next": "galerich discovery report 3"
+    },
+    "galerich discovery report 3": {
+        "text_id": "dialogue.galerich_discovery_report_3",
+        "next": "galerich discovery report 4"
+    },
+    "galerich discovery report 4": {
+        "text_id": "dialogue.galerich_discovery_report_4",
+        "next": "galerich discovery report 5"
+    },
+    "galerich discovery report 5": {
+        "text_id": "dialogue.galerich_discovery_report_5",
+        "next": "galerich discovery report 6"
+    },
+    "galerich discovery report 6": {
+        "text_id": "dialogue.galerich_discovery_report_6",
+        "next": "galerich discovery report 7"
+    },
+    "galerich discovery report 7": {
+        "text_id": "dialogue.galerich_discovery_report_7",
+        "next": "galerich discovery report 8"
+    },
+    "galerich discovery report 8": {
+        "text_id": "dialogue.galerich_discovery_report_8",
+        "next": "galerich discovery report 9"
+    },
+    "galerich discovery report 9": {
+        "text_id": "dialogue.galerich_discovery_report_9",
+        "next": "galerich discovery report 10"
+    },
+    "galerich discovery report 10": {
+        "text_id": "dialogue.galerich_discovery_report_10",
+        "next": "galerich discovery report 11"
+    },
+    "galerich discovery report 11": {
+        "text_id": "dialogue.galerich_discovery_report_11",
+        "next": "galerich crypt 1 entry",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "galerich_accompanying",
+                "value": True
+            }
+        ]
+    },
+
+    # Nicholas confronted Graye alone
+    "galerich solo report 1": {
+        "text_id": "dialogue.galerich_solo_report_1",
+        "next": "galerich solo report 2"
+    },
+    "galerich solo report 2": {
+        "text_id": "dialogue.galerich_solo_report_2",
+        "next": "galerich solo report 3"
+    },
+    "galerich solo report 3": {
+        "text_id": "dialogue.galerich_solo_report_3",
+        "next": "galerich solo report 4"
+    },
+    "galerich solo report 4": {
+        "text_id": "dialogue.galerich_solo_report_4",
+        "next": "galerich solo report 5"
+    },
+    "galerich solo report 5": {
+        "text_id": "dialogue.galerich_solo_report_5",
+        "next": "galerich solo report 6"
+    },
+    "galerich solo report 6": {
+        "text_id": "dialogue.galerich_solo_report_6",
+        "next": "galerich solo report 7"
+    },
+    "galerich solo report 7": {
+        "text_id": "dialogue.galerich_solo_report_7",
+        "next": "galerich solo report 8"
+    },
+    "galerich solo report 8": {
+        "text_id": "dialogue.galerich_solo_report_8",
+        "next": "galerich solo report 9"
+    },
+    "galerich solo report 9": {
+        "text_id": "dialogue.galerich_solo_report_9",
+        "next": "galerich solo report 10"
+    },
+    "galerich solo report 10": {
+        "text_id": "dialogue.galerich_solo_report_10",
+        "next": "galerich solo report 11"
+    },
+    "galerich solo report 11": {
+        "text_id": "dialogue.galerich_solo_report_11",
+        "next": "galerich solo report 12"
+    },
+    "galerich solo report 12": {
+        "text_id": "dialogue.galerich_solo_report_12",
+        "next": "galerich solo report 13"
+    },
+    "galerich solo report 13": {
+        "text_id": "dialogue.galerich_solo_report_13",
+        "next": "town black market",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "galerich_reported",
+                "value": True
+            }
+        ]
+    },
+
+
+    # Galerich and Nicholas enter Crypt 1
+    "galerich crypt 1 entry": {
+        "text_id": "dialogue.galerich_crypt_1_entry",
+        "next": "galerich crypt 1 combat",
+        "actions": [
+            {
+                "type": "map",
+                "target": "crypt 1"
+            }
+        ]
+    },
+    "galerich crypt 1 combat": {
+        "text_id": "dialogue.galerich_crypt_1_combat",
+        "next": "galerich crypt 1 altar check"
+    },
+
+    # Check whether Nicholas already disrupted the ritual
+    "galerich crypt 1 altar check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "crypt_1_ritual_disrupted",
+                "value": True,
+                "if_pass": "galerich crypt 1 disrupted 1",
+                "if_fail": "galerich crypt 1 intact 1"
+            }
+        ]
+    },
+
+    # Nicholas already removed the dark crystal
+    "galerich crypt 1 disrupted 1": {
+        "text_id": "dialogue.galerich_crypt_1_disrupted_1",
+        "next": "galerich crypt 1 disrupted 2"
+    },
+    "galerich crypt 1 disrupted 2": {
+        "text_id": "dialogue.galerich_crypt_1_disrupted_2",
+        "next": "galerich crypt 1 disrupted 3"
+    },
+    "galerich crypt 1 disrupted 3": {
+        "text_id": "dialogue.galerich_crypt_1_disrupted_3",
+        "next": "galerich crypt 1 disrupted 4"
+    },
+    "galerich crypt 1 disrupted 4": {
+        "text_id": "dialogue.galerich_crypt_1_disrupted_4",
+        "next": "galerich crypt 1 continue"
+    },
+
+    # Galerich removes the crystal himself
+    "galerich crypt 1 intact 1": {
+        "text_id": "dialogue.galerich_crypt_1_intact_1",
+        "next": "galerich crypt 1 intact 2"
+    },
+    "galerich crypt 1 intact 2": {
+        "text_id": "dialogue.galerich_crypt_1_intact_2",
+        "next": "galerich crypt 1 intact 3"
+    },
+    "galerich crypt 1 intact 3": {
+        "text_id": "dialogue.galerich_crypt_1_intact_3",
+        "next": "galerich crypt 1 intact 4"
+    },
+    "galerich crypt 1 intact 4": {
+        "text_id": "dialogue.galerich_crypt_1_intact_4",
+        "next": "galerich crypt 1 continue",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "crypt_1_ritual_disrupted",
+                "value": True
+            }
+        ]
+    },
+
+    # Both branches continue toward Crypt 3
+    "galerich crypt 1 continue": {
+        "text_id": "dialogue.galerich_crypt_1_continue",
+        "next": "galerich crypt 3 entry"
+    },
+    "galerich crypt 3 entry": {
+        "text_id": "dialogue.galerich_crypt_3_entry",
+        "next": "crypt 3 secret check",
+        "actions": [
+            {
+                "type": "map",
+                "target": "crypt 3"
+            }
+        ]
+    },
+
+    # Galerich confronts Lord Graye
+    "crypt 3 galerich confrontation 1": {
+        "text_id": "dialogue.galerich_confrontation_1",
+        "next": "crypt 3 galerich confrontation 2"
+    },
+    "crypt 3 galerich confrontation 2": {
+        "text_id": "dialogue.galerich_confrontation_2",
+        "next": "crypt 3 galerich confrontation 3"
+    },
+    "crypt 3 galerich confrontation 3": {
+        "text_id": "dialogue.galerich_confrontation_3",
+        "next": "crypt 3 galerich confrontation 4"
+    },
+    "crypt 3 galerich confrontation 4": {
+        "text_id": "dialogue.galerich_confrontation_4",
+        "next": "crypt 3 galerich confrontation 5"
+    },
+    "crypt 3 galerich confrontation 5": {
+        "text_id": "dialogue.galerich_confrontation_5",
+        "next": "crypt 3 galerich confrontation 6"
+    },
+    "crypt 3 galerich confrontation 6": {
+        "text_id": "dialogue.galerich_confrontation_6",
+        "next": "crypt 3 galerich confrontation 7"
+    },
+    "crypt 3 galerich confrontation 7": {
+        "text_id": "dialogue.galerich_confrontation_7",
+        "next": "crypt 3 galerich confrontation 8"
+    },
+    "crypt 3 galerich confrontation 8": {
+        "text_id": "dialogue.galerich_confrontation_8",
+        "next": "crypt 3 galerich confrontation 9"
+    },
+    "crypt 3 galerich confrontation 9": {
+        "text_id": "dialogue.galerich_confrontation_9",
+        "next": "crypt 3 galerich confrontation 10"
+    },
+    "crypt 3 galerich confrontation 10": {
+        "text_id": "dialogue.galerich_confrontation_10",
+        "next": "crypt 3 galerich confrontation 11"
+    },
+    "crypt 3 galerich confrontation 11": {
+        "text_id": "dialogue.galerich_confrontation_11",
+        "next": "crypt 3 galerich confrontation 12"
+    },
+    "crypt 3 galerich confrontation 12": {
+        "text_id": "dialogue.galerich_confrontation_12",
+        "next": "crypt 3 galerich confrontation 13"
+    },
+    "crypt 3 galerich confrontation 13": {
+        "text_id": "dialogue.galerich_confrontation_13",
+        "next": "crypt 3 galerich confrontation 14"
+    },
+    "crypt 3 galerich confrontation 14": {
+        "text_id": "dialogue.galerich_confrontation_14",
+        "next": "crypt 3 galerich confrontation 15"
+    },
+    "crypt 3 galerich confrontation 15": {
+        "text_id": "dialogue.galerich_confrontation_15",
+        "next": "galerich farm 1",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "lord_resolved",
+                "value": True
+            }
+        ]
+    },
+
+    # Galerich instructs Nicholas to rescue his family
+    "galerich farm 1": {
+        "text_id": "dialogue.galerich_farm_1",
+        "next": "galerich farm 2"
+    },
+    "galerich farm 2": {
+        "text_id": "dialogue.galerich_farm_2",
+        "next": "galerich farm 3"
+    },
+    "galerich farm 3": {
+        "text_id": "dialogue.galerich_farm_3",
+        "next": "galerich farm 4"
+    },
+    "galerich farm 4": {
+        "text_id": "dialogue.galerich_farm_4",
+        "next": "galerich farm 5"
+    },
+    "galerich farm 5": {
+        "text_id": "dialogue.galerich_farm_5",
+        "next": "galerich farm 6"
+    },
+    "galerich farm 6": {
+        "text_id": "dialogue.galerich_farm_6",
+        "next": "galerich farm 7"
+    },
+    "galerich farm 7": {
+        "text_id": "dialogue.galerich_farm_7",
+        "next": "galerich farm 8"
+    },
+    "galerich farm 8": {
+        "text_id": "dialogue.galerich_farm_8",
+        "next": "galerich farm 9",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "galerich_accompanying",
+                "value": False
+            }
+        ]
+    },
+    "galerich farm 9": {
+        "text_id": "dialogue.galerich_farm_9",
+        "next": "town black market",
+        "actions": [
+            {
+                "type": "map",
+                "target": "town"
+            }
+        ]
+    },
+
+    # Reaper Dialogue
+    "galerich reaper 1": {
+        "text_id": "dialogue.galerich_reaper_1",
+        "next": "galerich reaper 2",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "galerich_reaper_confronted",
+                "value": True
+            }
+        ]
+    },
+
+    "galerich reaper 2": {
+        "text_id": "dialogue.galerich_reaper_2",
+        "next": "galerich reaper 3"
+    },
+    "galerich reaper 3": {
+        "text_id": "dialogue.galerich_reaper_3",
+        "next": "galerich reaper 4"
+    },
+    "galerich reaper 4": {
+        "text_id": "dialogue.galerich_reaper_4",
+        "next": "galerich reaper 5"
+    },
+    "galerich reaper 5": {
+        "text_id": "dialogue.galerich_reaper_5",
+        "next": "galerich reaper 6"
+    },
+    "galerich reaper 6": {
+        "text_id": "dialogue.galerich_reaper_6",
+        "next": "galerich reaper 7"
+    },
+    "galerich reaper 7": {
+        "text_id": "dialogue.galerich_reaper_7",
+        "next": "galerich reaper 8"
+    },
+    "galerich reaper 8": {
+        "text_id": "dialogue.galerich_reaper_8",
+        "next": "galerich reaper 9"
+    },
+    "galerich reaper 9": {
+        "text_id": "dialogue.galerich_reaper_9",
+        "next": "galerich reaper 10"
+    },
+    "galerich reaper 10": {
+        "text_id": "dialogue.galerich_reaper_10",
+        "next": "galerich reaper 11"
+    },
+    "galerich reaper 11": {
+        "text_id": "dialogue.galerich_reaper_11",
+        "next": "galerich reaper choice"
+    },
+    "galerich reaper choice": {
+        "text_id": "dialogue.galerich_reaper_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.galerich_reaper_leave",
+                "next": "galerich reaper leave 1"
+            },
+            2: {
+                "text_id": "dialogue.option.galerich_reaper_fight",
+                "next": "galerich reaper fight 1"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "galerich reaper choice"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "galerich reaper choice"
+            }
+        }
+    },
+
+    "galerich reaper leave 1": {
+        "text_id": "dialogue.galerich_reaper_leave_1",
+        "next": "galerich reaper leave 2"
+    },
+    "galerich reaper leave 2": {
+        "text_id": "dialogue.galerich_reaper_leave_2",
+        "next": "galerich reaper leave 3"
+    },
+    "galerich reaper leave 3": {
+        "text_id": "dialogue.galerich_reaper_leave_3",
+        "next": "town black market"
+    },
+    "galerich reaper fight 1": {
+        "text_id": "dialogue.galerich_reaper_fight_1",
+        "next": "galerich reaper fight 2"
+    },
+    "galerich reaper fight 2": {
+        "text_id": "dialogue.galerich_reaper_fight_2",
+        "next": "galerich reaper fight 3"
+    },
+    "galerich reaper fight 3": {
+        "text_id": "dialogue.galerich_reaper_fight_3",
+        "next": "galerich reaper level check"
+    },
+    "galerich reaper level check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_level",
+                "target": 250,
+                "if_pass": "galerich reaper victory 1",
+                "if_fail": "galerich reaper defeat 1"
+            }
+        ]
+    },
+    # Level 249 or below
+    "galerich reaper defeat 1": {
+        "text_id": "dialogue.galerich_reaper_defeat_1",
+        "next": "galerich reaper defeat 2"
+    },
+    "galerich reaper defeat 2": {
+        "text_id": "dialogue.galerich_reaper_defeat_2",
+        "next": "galerich reaper defeat 3"
+    },
+    "galerich reaper defeat 3": {
+        "text_id": "dialogue.galerich_reaper_defeat_3",
+        "next": "galerich reaper defeat 4"
+    },
+    "galerich reaper defeat 4": {
+        "text_id": "dialogue.galerich_reaper_defeat_4",
+        "next": "galerich reaper defeat 5"
+    },
+    "galerich reaper defeat 5": {
+        "text_id": "dialogue.galerich_reaper_defeat_5",
+        "next": "galerich reaper defeat 6"
+    },
+    "galerich reaper defeat 6": {
+        "text_id": "dialogue.galerich_reaper_defeat_6",
+        "next": "galerich reaper death"
+    },
+    "galerich reaper death": {
+        "text_id": "dialogue.galerich_reaper_death",
+        "next": "You died"
+    },
+    # Level 250 or above
+    "galerich reaper victory 1": {
+        "text_id": "dialogue.galerich_reaper_victory_1",
+        "next": "galerich reaper victory 2"
+    },
+    "galerich reaper victory 2": {
+        "text_id": "dialogue.galerich_reaper_victory_2",
+        "next": "galerich reaper victory 3"
+    },
+    "galerich reaper victory 3": {
+        "text_id": "dialogue.galerich_reaper_victory_3",
+        "next": "galerich reaper victory 4"
+    },
+    "galerich reaper victory 4": {
+        "text_id": "dialogue.galerich_reaper_victory_4",
+        "next": "galerich reaper victory 5"
+    },
+    "galerich reaper victory 5": {
+        "text_id": "dialogue.galerich_reaper_victory_5",
+        "next": "galerich reaper victory 6"
+    },
+    "galerich reaper victory 6": {
+        "text_id": "dialogue.galerich_reaper_victory_6",
+        "next": "galerich reaper victory 7"
+    },
+    "galerich reaper victory 7": {
+        "text_id": "dialogue.galerich_reaper_victory_7",
+        "next": "galerich reaper victory 8"
+    },
+    "galerich reaper victory 8": {
+        "text_id": "dialogue.galerich_reaper_victory_8",
+        "next": "galerich reaper victory 9"
+    },
+    "galerich reaper victory 9": {
+        "text_id": "dialogue.galerich_reaper_victory_9",
+        "next": "galerich reaper victory 10"
+    },
+    "galerich reaper victory 10": {
+        "text_id": "dialogue.galerich_reaper_victory_10",
+        "next": "town black market"
+    },
 
     # BS
 
@@ -6771,32 +7843,26 @@ DIALOGUE = {
         ]
     },
 
+    # Sceadus checks whether Graye is still alive
     "reaper lord alive": {
         "text_id": "dialogue.reaper_lord_alive",
-        "next": "crypt 1 choice",
+        "next": "crypt 1 choice"
     },
-
     "reaper reward check": {
         "text_id": "dialogue.empty",
-        "actions": [
-            {   
-                "type": "check_flag",
-                "target": "reaper_reward_given",
-                "value": False,
-                "if_pass": "reaper lord reward",
-                "if_fail": "reaper no response",
-            }
-        ]
+        "actions": [{
+            "type": "check_flag",
+            "target": "reaper_reward_given",
+            "value": False,
+            "if_pass": "reaper lord reward",
+            "if_fail": "reaper no response"
+        }]
     },
-
-    # new 
-
-
+    # Crypt 1 altar interactions
     "crypt 1 ritual inspect": {
         "text_id": "dialogue.crypt_1_ritual_inspect",
-        "next": "crypt 1 ritual choice",
+        "next": "crypt 1 ritual choice"
     },
-
     "crypt 1 ritual choice": {
         "text_id": "dialogue.crypt_1_ritual_choice",
         "options": {
@@ -6817,8 +7883,7 @@ DIALOGUE = {
                 "next": "crypt 1 ritual choice"
             }
         }
-    }, 
-
+    },
     "crypt 1 ritual disrupt": {
         "text_id": "dialogue.crypt_1_ritual_disrupt",
         "next": "crypt 1 choice",
@@ -6830,17 +7895,15 @@ DIALOGUE = {
             }
         ]
     },
-
     "crypt 1 ritual ruined": {
         "text_id": "dialogue.crypt_1_ritual_ruined",
-        "next": "crypt 1 choice",
+        "next": "crypt 1 choice"
     },
-
     "reaper no response": {
         "text_id": "dialogue.reaper_no_response",
-        "next": "crypt 1 choice",
+        "next": "crypt 1 choice"
     },
-
+    # Graye has been slain, Sceadus acknowledges the pact
     "reaper lord reward": {
         "text_id": "dialogue.reaper_lord_reward_1",
         "next": "reaper lord reward 2",
@@ -6849,72 +7912,117 @@ DIALOGUE = {
                 "type": "set_flag",
                 "target": "reaper_reward_given",
                 "value": True
-            },
-            {   
-                "type": "equip",
-                "target": "Ring of Death",
-                "slot": "ring",
-                "value": 1
-            }            
+            }
         ]
     },
-
     "reaper lord reward 2": {
         "text_id": "dialogue.reaper_lord_reward_2",
-        "next": "crypt 1 choice",
+        "next": "reaper lord reward 3"
     },
-
-
+    "reaper lord reward 3": {
+        "text_id": "dialogue.reaper_lord_reward_3",
+        "next": "reaper lord reward 4"
+    },
+    "reaper lord reward 4": {
+        "text_id": "dialogue.reaper_lord_reward_4",
+        "next": "reaper lord reward 5"
+    },
+    "reaper lord reward 5": {
+        "text_id": "dialogue.reaper_lord_reward_5",
+        "next": "reaper lord reward 6"
+    },
+    "reaper lord reward 6": {
+        "text_id": "dialogue.reaper_lord_reward_6",
+        "next": "crypt 1 choice"
+    },
+    # Restore the altar ritual
     "reaper ritual 1": {
         "text_id": "dialogue.reaper_ritual_1",
-        "next": "reaper ritual 2",
+        "next": "reaper ritual 2"
     },
-
     "reaper ritual 2": {
         "text_id": "dialogue.reaper_ritual_2",
-        "next": "reaper intro 1",
+        "next": "reaper ritual 3"
     },
-
+    "reaper ritual 3": {
+        "text_id": "dialogue.reaper_ritual_3",
+        "next": "reaper ritual 4"
+    },
+    "reaper ritual 4": {
+        "text_id": "dialogue.reaper_ritual_4",
+        "next": "reaper ritual 5"
+    },
+    "reaper ritual 5": {
+        "text_id": "dialogue.reaper_ritual_5",
+        "next": "reaper intro 1"
+    },
+    # Sceadus introduces himself
     "reaper intro 1": {
         "text_id": "dialogue.reaper_intro_1",
-        "next": "reaper intro 2",
+        "next": "reaper intro 2"
     },
-
     "reaper intro 2": {
         "text_id": "dialogue.reaper_intro_2",
-        "next": "reaper intro 3",
+        "next": "reaper intro 3"
     },
-
     "reaper intro 3": {
         "text_id": "dialogue.reaper_intro_3",
-        "next": "reaper intro 4",
+        "next": "reaper intro 4"
     },
-
     "reaper intro 4": {
         "text_id": "dialogue.reaper_intro_4",
-        "next": "reaper intro 5",
+        "next": "reaper intro 5"
     },
-
     "reaper intro 5": {
         "text_id": "dialogue.reaper_intro_5",
-        "next": "reaper offer 1",
+        "next": "reaper intro 6"
     },
-
+    "reaper intro 6": {
+        "text_id": "dialogue.reaper_intro_6",
+        "next": "reaper intro 7"
+    },
+    "reaper intro 7": {
+        "text_id": "dialogue.reaper_intro_7",
+        "next": "reaper intro 8"
+    },
+    "reaper intro 8": {
+        "text_id": "dialogue.reaper_intro_8",
+        "next": "reaper offer 1"
+    },
+    # Sceadus offers Nicholas the Reaper class
     "reaper offer 1": {
         "text_id": "dialogue.reaper_offer_1",
-        "next": "reaper offer 2",
+        "next": "reaper offer 2"
     },
-
     "reaper offer 2": {
         "text_id": "dialogue.reaper_offer_2",
-        "next": "reaper offer 3",
+        "next": "reaper offer 3"
     },
-
     "reaper offer 3": {
         "text_id": "dialogue.reaper_offer_3",
-        "next": "reaper paladin class check",
+        "next": "reaper offer 4"
     },
-
+    "reaper offer 4": {
+        "text_id": "dialogue.reaper_offer_4",
+        "next": "reaper offer 5"
+    },
+    "reaper offer 5": {
+        "text_id": "dialogue.reaper_offer_5",
+        "next": "reaper offer 6"
+    },
+    "reaper offer 6": {
+        "text_id": "dialogue.reaper_offer_6",
+        "next": "reaper offer 7"
+    },
+    "reaper offer 7": {
+        "text_id": "dialogue.reaper_offer_7",
+        "next": "reaper offer 8"
+    },
+    "reaper offer 8": {
+        "text_id": "dialogue.reaper_offer_8",
+        "next": "reaper paladin class check"
+    },
+    # Paladins cannot accept the bargain
     "reaper paladin class check": {
         "text_id": "dialogue.empty",
         "actions": [
@@ -6922,11 +8030,10 @@ DIALOGUE = {
                 "type": "check_class",
                 "target": "Paladin",
                 "if_pass": "reaper decline paladin",
-                "if_fail": "reaper make choice",
+                "if_fail": "reaper make choice"
             }
         ]
     },
-
     "reaper make choice": {
         "text_id": "dialogue.reaper_make_choice",
         "options": {
@@ -6948,9 +8055,7 @@ DIALOGUE = {
             }
         }
     },
-
     # Accept Sceadus's bargain
-
     "reaper accept 1": {
         "text_id": "dialogue.reaper_accept_1",
         "next": "reaper accept 2",
@@ -6967,15 +8072,25 @@ DIALOGUE = {
             }
         ]
     },
-
     "reaper accept 2": {
         "text_id": "dialogue.reaper_accept_2",
-        "next": "reaper accept 3",
+        "next": "reaper accept 3"
     },
-
     "reaper accept 3": {
         "text_id": "dialogue.reaper_accept_3",
-        "next": "reaper accept 4",
+        "next": "reaper accept 4"
+    },
+    "reaper accept 4": {
+        "text_id": "dialogue.reaper_accept_4",
+        "next": "reaper accept 5"
+    },
+    "reaper accept 5": {
+        "text_id": "dialogue.reaper_accept_5",
+        "next": "reaper accept 6"
+    },
+    "reaper accept 6": {
+        "text_id": "dialogue.reaper_accept_6",
+        "next": "reaper accept 7",
         "actions": [
             {
                 "type": "set_class",
@@ -6984,14 +8099,11 @@ DIALOGUE = {
             }
         ]
     },
-
-    "reaper accept 4": {
-        "text_id": "dialogue.reaper_accept_4",
-        "next": "crypt 1 choice",
+    "reaper accept 7": {
+        "text_id": "dialogue.reaper_accept_7",
+        "next": "crypt 1 choice"
     },
-
     # Paladin automatically refuses
-
     "reaper decline paladin": {
         "text_id": "dialogue.reaper_decline_paladin",
         "next": "reaper decline 2",
@@ -7008,9 +8120,7 @@ DIALOGUE = {
             }
         ]
     },
-
     # Trainee refuses
-
     "reaper decline 1": {
         "text_id": "dialogue.reaper_decline_1",
         "next": "reaper decline 2",
@@ -7027,22 +8137,31 @@ DIALOGUE = {
             }
         ]
     },
-
     "reaper decline 2": {
         "text_id": "dialogue.reaper_decline_2",
-        "next": "reaper decline 3",
+        "next": "reaper decline 3"
     },
-
     "reaper decline 3": {
         "text_id": "dialogue.reaper_decline_3",
-        "next": "reaper decline 4",
+        "next": "reaper decline 4"
     },
-
     "reaper decline 4": {
         "text_id": "dialogue.reaper_decline_4",
-        "next": "reaper boss choice",
+        "next": "reaper decline 5"
     },
-
+    "reaper decline 5": {
+        "text_id": "dialogue.reaper_decline_5",
+        "next": "reaper decline 6"
+    },
+    "reaper decline 6": {
+        "text_id": "dialogue.reaper_decline_6",
+        "next": "reaper decline 7"
+    },
+    "reaper decline 7": {
+        "text_id": "dialogue.reaper_decline_7",
+        "next": "reaper boss choice"
+    },
+    # Choose how much of Sceadus's power to manifest
     "reaper boss choice": {
         "text_id": "dialogue.reaper_boss_choice",
         "options": {
@@ -7064,53 +8183,54 @@ DIALOGUE = {
             }
         }
     },
-
+    # Sceadus boss encounters
     "reaper boss 1": {
         "text_id": "dialogue.reaper_boss_victory",
         "next": "reaper boss victory",
         "actions": [
-            {   
+            {
                 "type": "encounter",
-                "target": "reaper_boss_1",
+                "target": "reaper_boss_1"
             }
         ]
     },
-
     "reaper boss 2": {
         "text_id": "dialogue.reaper_boss_victory",
         "next": "reaper boss victory",
         "actions": [
-            {   
+            {
                 "type": "encounter",
-                "target": "reaper_boss_2",
+                "target": "reaper_boss_2"
             }
         ]
     },
-
     "reaper boss 3": {
         "text_id": "dialogue.reaper_boss_victory",
         "next": "reaper boss victory",
         "actions": [
-            {   
+            {
                 "type": "encounter",
-                "target": "reaper_boss_3",
+                "target": "reaper_boss_3"
             }
         ]
     },
-
     "reaper boss 4": {
         "text_id": "dialogue.reaper_boss_victory",
         "next": "reaper boss victory",
         "actions": [
-            {   
+            {
                 "type": "encounter",
-                "target": "reaper_boss_4",
+                "target": "reaper_boss_4"
             }
         ]
     },
-
+    # Sceadus has been banished
     "reaper boss victory": {
         "text_id": "dialogue.reaper_boss_victory_2",
+        "next": "reaper boss victory 2"
+    },
+    "reaper boss victory 2": {
+        "text_id": "dialogue.reaper_boss_victory_3",
         "next": "crypt 1 choice"
     },
 
@@ -7270,7 +8390,7 @@ DIALOGUE = {
                 "target": "crypt_2_empty",
                 "value": True,
                 "if_pass": "crypt 2 intro B",
-                "if_fail": "crypt 2 intro",
+                "if_fail": "crypt 2 cont",
             }
         ]
     },
@@ -7660,15 +8780,31 @@ DIALOGUE = {
     "crypt 3 inspect forbidden": {
         "text_id": "dialogue.empty",
         "actions": [
-            {   
+            {
+                "type": "check_flag",
+                "target": "reaper_knowledge",
+                "value": True,
+                "if_pass": "crypt 3 forbidden summary",
+                "if_fail": "crypt 3 forbidden amulet check"
+            }
+        ]
+    },
+    "crypt 3 forbidden amulet check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
                 "type": "check_flag",
                 "target": "amulet_known",
                 "value": True,
                 "if_pass": "crypt 3 forbidden 2",
-                "if_fail": "crypt 3 forbidden warning",
+                "if_fail": "crypt 3 forbidden warning"
             }
         ]
-    },   
+    },
+    "crypt 3 forbidden summary": {
+        "text_id": "dialogue.crypt_3_forbidden_summary",
+        "next": "crypt 3 items choice"
+    },
 
     # puts on amulet
     "crypt 3 forbidden 2": {
@@ -7778,6 +8914,374 @@ DIALOGUE = {
     },
 
     # WIP
+
+    "crypt 3 secret check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "graye_secret_revealed",
+                "value": True,
+                "if_pass": "crypt 3 intervention check",
+                "if_fail": "crypt 3 eavesdrop 1"
+            }
+        ]
+    },
+
+
+    "crypt 3 intervention check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "lord_resolved",
+                "value": True,
+                "if_pass": "crypt 3 paladin chest check",
+                "if_fail": "crypt 3 slain check"
+            }
+        ]
+    },
+
+    "crypt 3 slain check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "lord_defeated",
+                "value": True,
+                "if_pass": "crypt 3 bodies",
+                "if_fail": "crypt 3 galerich check"
+            }
+        ]
+    },
+
+    "crypt 3 galerich check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "galerich_accompanying",
+                "value": True,
+                "if_pass": "crypt 3 galerich confrontation 1",
+                "if_fail": "crypt 3 eavesdrop choice"
+            }
+        ]
+    },
+
+
+    # Eavesdrop on Graye and the cultists
+
+    "crypt 3 eavesdrop 1": {
+        "text_id": "dialogue.crypt_3_eavesdrop_1",
+        "next": "crypt 3 eavesdrop 2",
+    },
+
+    "crypt 3 eavesdrop 2": {
+        "text_id": "dialogue.crypt_3_eavesdrop_2",
+        "next": "crypt 3 eavesdrop 3",
+    },
+
+    "crypt 3 eavesdrop 3": {
+        "text_id": "dialogue.crypt_3_eavesdrop_3",
+        "next": "crypt 3 eavesdrop 4",
+    },
+
+    "crypt 3 eavesdrop 4": {
+        "text_id": "dialogue.crypt_3_eavesdrop_4",
+        "next": "crypt 3 eavesdrop 5",
+    },
+
+    "crypt 3 eavesdrop 5": {
+        "text_id": "dialogue.crypt_3_eavesdrop_5",
+        "next": "crypt 3 eavesdrop 6",
+    },
+
+    "crypt 3 eavesdrop 6": {
+        "text_id": "dialogue.crypt_3_eavesdrop_6",
+        "next": "crypt 3 eavesdrop 7",
+    },
+
+    "crypt 3 eavesdrop 7": {
+        "text_id": "dialogue.crypt_3_eavesdrop_7",
+        "next": "crypt 3 eavesdrop 8",
+    },
+
+    "crypt 3 eavesdrop 8": {
+        "text_id": "dialogue.crypt_3_eavesdrop_8",
+        "next": "crypt 3 eavesdrop 9",
+    },
+
+    "crypt 3 eavesdrop 9": {
+        "text_id": "dialogue.crypt_3_eavesdrop_9",
+        "next": "crypt 3 eavesdrop 10",
+    },
+
+    "crypt 3 eavesdrop 10": {
+        "text_id": "dialogue.crypt_3_eavesdrop_10",
+        "next": "crypt 3 eavesdrop 11",
+    },
+
+    "crypt 3 eavesdrop 11": {
+        "text_id": "dialogue.crypt_3_eavesdrop_11",
+        "next": "crypt 3 eavesdrop 12",
+    },
+
+    "crypt 3 eavesdrop 12": {
+        "text_id": "dialogue.crypt_3_eavesdrop_12",
+        "next": "crypt 3 eavesdrop choice",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "graye_secret_revealed",
+                "value": True
+            }
+        ]
+    },
+
+    "crypt 3 eavesdrop choice": {
+        "text_id": "dialogue.crypt_3_eavesdrop_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.crypt_3_intervene",
+                "next": "crypt 3 ritual check"
+            },
+            2: {
+                "text_id": "dialogue.option.crypt_3_report",
+                "next": "crypt 3 report return"
+            },
+            3: {
+                "text_id": "dialogue.option.empty",
+                "next": "crypt 3 eavesdrop choice"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "crypt 3 eavesdrop choice"
+            }
+        }
+    },
+
+    # Check whether Nicholas disrupted the ritual in Crypt 1
+
+    "crypt 3 ritual check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "crypt_1_ritual_disrupted",
+                "value": True,
+                "if_pass": "crypt 3 approach people check",
+                "if_fail": "crypt 3 ritual failure"
+            }
+        ]
+    },
+
+    # Placeholder for the return to Galerich
+
+    "crypt 3 report return": {
+        "text_id": "dialogue.crypt_3_report_return",
+        "next": "town black market"
+    },
+
+
+    # ritual disrupted = False, reaper summon dialogue here
+    "crypt 3 ritual failure": {
+        "text_id": "dialogue.crypt_3_ritual_failure_1",
+        "next": "crypt 3 ritual failure 2"
+    },
+
+    "crypt 3 ritual failure 2": {
+        "text_id": "dialogue.crypt_3_ritual_failure_2",
+        "next": "crypt 3 ritual failure 3"
+    },
+
+    "crypt 3 ritual failure 3": {
+        "text_id": "dialogue.crypt_3_ritual_failure_3",
+        "next": "crypt 3 ritual failure 4"
+    },
+
+    "crypt 3 ritual failure 4": {
+        "text_id": "dialogue.crypt_3_ritual_failure_4",
+        "next": "crypt 3 ritual failure 5"
+    },
+
+    "crypt 3 ritual failure 5": {
+        "text_id": "dialogue.crypt_3_ritual_failure_5",
+        "next": "crypt 3 honor guards encounter"
+    },
+
+    "crypt 3 honor guards encounter": {
+        "text_id": "dialogue.crypt_3_honor_guards_victory",
+        "next": "crypt 3 ritual failure 6",
+        "actions": [
+            {
+                "type": "encounter",
+                "target": "crypt_3_honor_guards_encounter"
+            }
+        ]
+    },
+
+    "crypt 3 ritual failure 6": {
+        "text_id": "dialogue.crypt_3_ritual_failure_6",
+        "next": "crypt 3 ritual failure 7"
+    },
+
+    "crypt 3 ritual failure 7": {
+        "text_id": "dialogue.crypt_3_ritual_failure_7",
+        "next": "crypt 3 ritual failure 8"
+    },
+
+    "crypt 3 ritual failure 8": {
+        "text_id": "dialogue.crypt_3_ritual_failure_8",
+        "next": "crypt 3 ritual failure 9"
+    },
+
+    "crypt 3 ritual failure 9": {
+        "text_id": "dialogue.crypt_3_ritual_failure_9",
+        "next": "crypt 3 ritual failure 10"
+    },
+
+    "crypt 3 ritual failure 10": {
+        "text_id": "dialogue.crypt_3_ritual_failure_10",
+        "next": "crypt 3 ritual failure 11"
+    },
+
+    "crypt 3 ritual failure 11": {
+        "text_id": "dialogue.crypt_3_ritual_failure_11",
+        "next": "crypt 3 ritual failure 12"
+    },
+
+    "crypt 3 ritual failure 12": {
+        "text_id": "dialogue.crypt_3_ritual_failure_12",
+        "next": "crypt 3 ritual failure 13"
+    },
+
+    "crypt 3 ritual failure 13": {
+        "text_id": "dialogue.crypt_3_ritual_failure_13",
+        "next": "crypt 3 ritual failure 14"
+    },
+
+    "crypt 3 ritual failure 14": {
+        "text_id": "dialogue.crypt_3_ritual_failure_14",
+        "next": "crypt 3 ritual failure 15"
+    },
+
+    "crypt 3 ritual failure 15": {
+        "text_id": "dialogue.crypt_3_ritual_failure_15",
+        "next": "crypt 3 ritual failure 16"
+    },
+
+    "crypt 3 ritual failure 16": {
+        "text_id": "dialogue.crypt_3_ritual_failure_16",
+        "next": "crypt 3 ritual failure 17"
+    },
+
+    "crypt 3 ritual failure 17": {
+        "text_id": "dialogue.crypt_3_ritual_failure_17",
+        "next": "crypt 3 ritual failure 18"
+    },
+
+    "crypt 3 ritual failure 18": {
+        "text_id": "dialogue.crypt_3_ritual_failure_18",
+        "next": "crypt 3 ritual failure 19"
+    },
+
+    "crypt 3 ritual failure 19": {
+        "text_id": "dialogue.crypt_3_ritual_failure_19",
+        "next": "crypt 3 ritual failure 20"
+    },
+
+    "crypt 3 ritual failure 20": {
+        "text_id": "dialogue.crypt_3_ritual_failure_20",
+        "next": "crypt 3 ritual failure 21"
+    },
+
+    "crypt 3 ritual failure 21": {
+        "text_id": "dialogue.crypt_3_ritual_failure_21",
+        "next": "crypt 3 ritual failure 22"
+    },
+
+    "crypt 3 ritual failure 22": {
+        "text_id": "dialogue.crypt_3_ritual_failure_22",
+        "next": "crypt 3 ritual failure 23"
+    },
+
+    "crypt 3 ritual failure 23": {
+        "text_id": "dialogue.crypt_3_ritual_failure_23",
+        "next": "crypt 3 sceadus encounter"
+    },
+
+    "crypt 3 sceadus encounter": {
+        "text_id": "dialogue.crypt_3_sceadus_victory",
+        "next": "crypt 3 demigod 1",
+        "actions": [
+            {
+                "type": "encounter",
+                "target": "reaper_boss_4"
+            }
+        ]
+    },
+
+    "crypt 3 demigod 1": {
+        "text_id": "dialogue.crypt_3_demigod_1",
+        "next": "crypt 3 demigod 2"
+    },
+
+    "crypt 3 demigod 2": {
+        "text_id": "dialogue.crypt_3_demigod_2",
+        "next": "crypt 3 demigod 3"
+    },
+
+    "crypt 3 demigod 3": {
+        "text_id": "dialogue.crypt_3_demigod_3",
+        "next": "crypt 3 demigod 4"
+    },
+
+    "crypt 3 demigod 4": {
+        "text_id": "dialogue.crypt_3_demigod_4",
+        "next": "crypt 3 demigod 5"
+    },
+
+    "crypt 3 demigod 5": {
+        "text_id": "dialogue.crypt_3_demigod_5",
+        "next": "crypt 3 demigod ending" 
+    },
+
+    "crypt 3 demigod ending": {
+        "text_id": "dialogue.crypt_3_demigod_ending_1",
+        "next": "crypt 3 demigod ending 2"
+    },
+
+    "crypt 3 demigod ending 2": {
+        "text_id": "dialogue.crypt_3_demigod_ending_2",
+        "next": "crypt 3 demigod ending 3"
+    },
+
+    "crypt 3 demigod ending 3": {
+        "text_id": "dialogue.crypt_3_demigod_ending_3",
+        "next": "crypt 3 demigod ending 4"
+    },
+
+    "crypt 3 demigod ending 4": {
+        "text_id": "dialogue.crypt_3_demigod_ending_4",
+        "next": "crypt 3 demigod ending 5"
+    },
+
+    "crypt 3 demigod ending 5": {
+        "text_id": "dialogue.crypt_3_demigod_ending_5",
+        "next": "crypt 3 demigod ending 6"
+    },
+
+    "crypt 3 demigod ending 6": {
+        "text_id": "dialogue.crypt_3_demigod_ending_6",
+        "next": "crypt 3 demigod ending 7"
+    },
+
+    "crypt 3 demigod ending 7": {
+        "text_id": "dialogue.crypt_3_demigod_ending_7",
+        "next": "Game Over"
+    },
+
+
     # check if lord resolved: true: empty room, false: check if slain
     "crypt 3 approach people check": {
         "text_id": "dialogue.empty",
@@ -7941,22 +9445,54 @@ DIALOGUE = {
     # regular convo node
     "crypt 3 conversation 1": {
         "text_id": "dialogue.crypt_3_conversation_1",
-        "next": "crypt 3 conversation 2",
+        "next": "crypt 3 conversation 2"
     },
-
     "crypt 3 conversation 2": {
         "text_id": "dialogue.crypt_3_conversation_2",
-        "next": "crypt 3 conversation 3",
+        "next": "crypt 3 conversation 3"
     },
-
     "crypt 3 conversation 3": {
         "text_id": "dialogue.crypt_3_conversation_3",
-        "next": "crypt 3 conversation 4",
+        "next": "crypt 3 conversation 4"
     },
-
-    # set resolved to true
     "crypt 3 conversation 4": {
         "text_id": "dialogue.crypt_3_conversation_4",
+        "next": "crypt 3 conversation 5"
+    },
+    "crypt 3 conversation 5": {
+        "text_id": "dialogue.crypt_3_conversation_5",
+        "next": "crypt 3 conversation 6"
+    },
+    "crypt 3 conversation 6": {
+        "text_id": "dialogue.crypt_3_conversation_6",
+        "next": "crypt 3 conversation 7"
+    },
+    "crypt 3 conversation 7": {
+        "text_id": "dialogue.crypt_3_conversation_7",
+        "next": "crypt 3 conversation 8"
+    },
+    "crypt 3 conversation 8": {
+        "text_id": "dialogue.crypt_3_conversation_8",
+        "next": "crypt 3 conversation 9"
+    },
+    "crypt 3 conversation 9": {
+        "text_id": "dialogue.crypt_3_conversation_9",
+        "next": "crypt 3 conversation 10"
+    },
+    "crypt 3 conversation 10": {
+        "text_id": "dialogue.crypt_3_conversation_10",
+        "next": "crypt 3 conversation 11"
+    },
+    "crypt 3 conversation 11": {
+        "text_id": "dialogue.crypt_3_conversation_11",
+        "next": "crypt 3 conversation 12"
+    },
+    "crypt 3 conversation 12": {
+        "text_id": "dialogue.crypt_3_conversation_12",
+        "next": "crypt 3 conversation 13"
+    },
+    "crypt 3 conversation 13": {
+        "text_id": "dialogue.crypt_3_conversation_13",
         "next": "crypt 3 choice",
         "actions": [
             {
@@ -7968,38 +9504,99 @@ DIALOGUE = {
     },
 
     # conversation leading to combat
+    # Reaper confrontation with Lord Graye
     "crypt 3 combat 1": {
         "text_id": "dialogue.crypt_3_combat_1",
-        "next": "crypt 3 combat 2",
+        "next": "crypt 3 combat 2"
     },
-
     "crypt 3 combat 2": {
         "text_id": "dialogue.crypt_3_combat_2",
-        "next": "crypt 3 combat 3",
+        "next": "crypt 3 combat 3"
     },
-
     "crypt 3 combat 3": {
         "text_id": "dialogue.crypt_3_combat_3",
-        "next": "crypt 3 lord encounter",
+        "next": "crypt 3 combat death check"
     },
-
-    # encounter
+    # Nicholas's response depends on whether he has died
+    "crypt 3 combat death check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "has_died",
+                "value": True,
+                "if_pass": "crypt 3 combat died",
+                "if_fail": "crypt 3 combat survived"
+            }
+        ]
+    },
+    "crypt 3 combat died": {
+        "text_id": "dialogue.crypt_3_combat_died",
+        "next": "crypt 3 combat 4"
+    },
+    "crypt 3 combat survived": {
+        "text_id": "dialogue.crypt_3_combat_survived",
+        "next": "crypt 3 combat 4"
+    },
+    "crypt 3 combat 4": {
+        "text_id": "dialogue.crypt_3_combat_4",
+        "next": "crypt 3 combat 5"
+    },
+    "crypt 3 combat 5": {
+        "text_id": "dialogue.crypt_3_combat_5",
+        "next": "crypt 3 combat 6"
+    },
+    "crypt 3 combat 6": {
+        "text_id": "dialogue.crypt_3_combat_6",
+        "next": "crypt 3 combat 7"
+    },
+    "crypt 3 combat 7": {
+        "text_id": "dialogue.crypt_3_combat_7",
+        "next": "crypt 3 combat 8"
+    },
+    "crypt 3 combat 8": {
+        "text_id": "dialogue.crypt_3_combat_8",
+        "next": "crypt 3 combat 9"
+    },
+    "crypt 3 combat 9": {
+        "text_id": "dialogue.crypt_3_combat_9",
+        "next": "crypt 3 combat 10"
+    },
+    "crypt 3 combat 10": {
+        "text_id": "dialogue.crypt_3_combat_10",
+        "next": "crypt 3 combat 11"
+    },
+    "crypt 3 combat 11": {
+        "text_id": "dialogue.crypt_3_combat_11",
+        "next": "crypt 3 combat 12"
+    },
+    "crypt 3 combat 12": {
+        "text_id": "dialogue.crypt_3_combat_12",
+        "next": "crypt 3 combat 13"
+    },
+    "crypt 3 combat 13": {
+        "text_id": "dialogue.crypt_3_combat_13",
+        "next": "crypt 3 combat 14"
+    },
+    "crypt 3 combat 14": {
+        "text_id": "dialogue.crypt_3_combat_14",
+        "next": "crypt 3 lord encounter"
+    },
+    # Encounter text displays after combat
     "crypt 3 lord encounter": {
         "text_id": "dialogue.crypt_3_lord_encounter",
         "next": "crypt 3 combat final",
         "actions": [
-            {   
+            {
                 "type": "encounter",
-                "target": "crypt_3_graye_encounter",
+                "target": "crypt_3_graye_encounter"
             }
         ]
     },
-
-
-    # set slain to true
+    # Mark Graye as defeated
     "crypt 3 combat final": {
         "text_id": "dialogue.crypt_3_combat_final",
-        "next": "crypt 3 choice",
+        "next": "crypt 3 combat sceadus",
         "actions": [
             {
                 "type": "set_flag",
@@ -8007,6 +9604,10 @@ DIALOGUE = {
                 "value": True
             }
         ]
+    },
+    "crypt 3 combat sceadus": {
+        "text_id": "dialogue.crypt_3_combat_sceadus",
+        "next": "crypt 3 choice"
     },
 
 

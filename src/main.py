@@ -209,6 +209,7 @@ def main():
                                     renderer,
                                     dialogue
                                 )
+                                world_state.flags["has_died"] = True
                         game_state = "INTRO"
                     
 
