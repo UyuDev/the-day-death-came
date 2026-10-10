@@ -1,5 +1,24 @@
 
 
+SLOT_NAME_IDS = {
+        "head": "inventory.slot.head",
+        "neck": "inventory.slot.neck",
+        "shirt": "inventory.slot.shirt",
+        "torso": "inventory.slot.torso",
+        "hands": "inventory.slot.hands",
+        "arms": "inventory.slot.arms",
+        "waist": "inventory.slot.waist",
+        "pants": "inventory.slot.pants",
+        "leg armor": "inventory.slot.leg_armor",
+        "feet": "inventory.slot.feet",
+        "shoes": "inventory.slot.shoes",
+        "cloak": "inventory.slot.cloak",
+        "ring": "inventory.slot.ring",
+        "bag": "inventory.slot.bag",
+        "main weapon": "inventory.slot.main",
+        "secondary weapon": "inventory.slot.secondary"
+    }
+
 EQUIPMENT_TEMPLATES = {
     "None": {
         "head": None,

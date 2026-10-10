@@ -78,6 +78,7 @@ def main():
                             menu.language_data = language_data
                             dialogue.language_data = language_data
                             save_menu.language_data = language_data
+                            inventory.language_data = language_data
                         if choice == 2:
                             print("Hardcore mode is now implemented!")
                         if choice == 3:
@@ -134,9 +135,13 @@ def main():
             elif game_state == "DIALOGUE":
                 choice = None
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_b:
-                    game_state = "INVENTORY"
+                    if player.inventory_unlocked():
+                        inventory.prepare_data(player)
+                        game_state = "INVENTORY"
                 elif event.type == pygame.KEYDOWN and event.key == pygame.K_c:
-                    game_state = "INVENTORY"
+                    if player.inventory_unlocked():
+                        inventory.prepare_data(player)
+                        game_state = "INVENTORY"
                 elif dialogue.has_options():
                     choice = dialogue.handle_input(event)
                 else:

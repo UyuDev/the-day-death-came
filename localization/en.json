@@ -1806,9 +1806,42 @@
     "item.crimson_ritual_cloak": "Crimson Ritual Cloak",    
 
     "inventory.wip": "[WIP]",
-    "inventory.summary": "unique items: {unique_items}, equipment power: {equipped_power}, empty equipment slots {empty_slots}",
+    "inventory.empty_inventory": "Inventory is empty.",
+    "inventory.empty_slot": "Empty Slot",
+    "inventory.slot.head": "Head",
+    "inventory.slot.neck": "Neck",
+    "inventory.slot.shirt": "Shirt",
+    "inventory.slot.torso": "Torso",
+    "inventory.slot.hands": "Hands",
+    "inventory.slot.arms": "Arms",
+    "inventory.slot.waist": "Waist",
+    "inventory.slot.pants": "Pants",
+    "inventory.slot.leg_armor": "Leg Armor",
+    "inventory.slot.feet": "Feet",
+    "inventory.slot.shoes": "Shoes",
+    "inventory.slot.cloak": "Cloak",
+    "inventory.slot.ring": "Ring",
+    "inventory.slot.bag": "Bag",
+    "inventory.slot.main": "Main Weapon",
+    "inventory.slot.secondary": "Secondary Weapon",
+
+    "inventory.sellable": "Sellable",
+    "inventory.not_sellable": "Not Sellable",
+
+    "inventory.summary": "Unique items: {unique_items}, Equipment power: {equipped_power}, Empty equipment slots: {empty_slots}",
+    "inventory.items": "{name} | Quantity: {count} | {sellable} | Value: {value} | Total value: {total_value}",
+    "inventory.equipment": "{slot} | {name} | Power: {power}",
+
+    "inventory.option.empty": "...",
     "inventory.option.view_items": "View items",
     "inventory.option.view_equipment": "View equipment",
+    "inventory.option.next_item": "Next item",
+    "inventory.option.previous_item": "Previous item",
+    "inventory.option.next_slot": "Next slot",
+    "inventory.option.previous_slot": "Previous slot",
+    "inventory.option.summary": "Return to summary",
+
+
     
     "exploration.combat_engage": "{player} (Level {player_level}, {player_class}) engages in combat with {enemy} (Level {enemy_level}, {enemy_class}).",
     "exploration.win": "You defeated {enemy}!",

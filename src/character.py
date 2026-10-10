@@ -1,7 +1,7 @@
 import pygame
 import math
 from game_classes import GAME_CLASSES
-from item_data import ITEMS, EQUIPMENT_TEMPLATES
+from item_data import ITEMS, EQUIPMENT_TEMPLATES, SLOT_NAME_IDS
 
 stats = {
     "strength": 1,
@@ -127,6 +127,49 @@ class Character:
             self.inventory.append(item)
             print(f"Current remaining inventory space after looting: {self.capacity - len(self.inventory)}")
 
+    def inventory_unlocked(self):
+        return self.capacity > 0
+
+    def inventory_data(self):
+        unique_items = {}
+        for item in self.inventory:
+            if item not in unique_items:
+                unique_items[item] = 0
+            unique_items[item] += 1
+        item_counts = sorted(unique_items.items())
+        inventory_entries = []
+        for name, count in item_counts:
+            name_id = ITEMS[name]["name_id"]
+            value = ITEMS[name]["value"]
+            total_value = count * value
+            sellable = ITEMS[name]["sellable"]
+            if sellable:
+                is_sellable = "inventory.sellable"
+            else:
+                is_sellable = "inventory.not_sellable"
+            inventory_entries.append((name_id, count, is_sellable, value, total_value))
+        return inventory_entries
+
+
+    def equipment_data(self):
+        equipment_entries = []
+        for slot, item in self.equipped.items():
+            slot_name = SLOT_NAME_IDS[slot]
+            if item is not None and slot != "bag":
+                name_id = ITEMS[item]["name_id"]                
+                equipment_entries.append((slot_name, name_id, ITEMS[item]["power"]))
+            elif slot == "bag":
+                name_id = ITEMS[item]["name_id"]                
+            else:
+                equipment_entries.append((slot_name, "inventory.empty_slot", 0))
+        return equipment_entries
+
+    def calc_empty_slots(self):
+        count = 0
+        for slot, item in self.equipped.items():
+            if item is None:
+                count += 1
+        return count  
 
     def equip_helper(self, new_item):
         if new_item == "Nicholas' Satchel":
