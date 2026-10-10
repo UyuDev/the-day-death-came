@@ -662,8 +662,8 @@ DIALOGUE = {
                 "next": "inspect downstairs chest"
             },
             2: {
-                "text_id": "dialogue.option.empty",
-                "next": "look around downstairs 3"
+                "text_id": "dialogue.option.test_coins", # remove later
+                "next": "TEST add coins"
             },
             3: {
                 "text_id": "dialogue.option.empty",
@@ -676,6 +676,28 @@ DIALOGUE = {
         }
     },
 
+
+    "TEST add coins": {
+        "text_id": "dialogue.test_add_coins",
+        "next": "TEST remove coins",
+        "actions": [
+            {
+                "type": "earn_coins",
+                "value": 1,
+            }
+        ]
+    },
+
+    "TEST remove coins": {
+        "text_id": "dialogue.test_rm_coins",
+        "next": "look around downstairs 3",
+        "actions": [
+            {
+                "type": "spend_coins",
+                "value": 1,
+            }
+        ]
+    },
 
     "check by door": {
         "text_id": "dialogue.check_by_door",

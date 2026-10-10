@@ -290,7 +290,6 @@ class Exploration():
         self.area = None
         self.text = None
         self.options = None
-        self.option_page = 0
         self.nodes = []
         self.current_index = 0
         self.result = None

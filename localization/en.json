@@ -33,6 +33,9 @@
     "stats.level": "Level",
     "stats.power": "Power",
 
+    "dialogue.option.test_coins": "Test coins",
+    "dialogue.test_add_coins": "Testing adding coins.",
+    "dialogue.test_rm_coins": "Testing removing coins.",
     "dialogue.empty": "...",    
     "dialogue.intro_1": "*...Was I dreaming?*",
     "dialogue.intro_2": "*Ugh... I overslept.*",
@@ -1802,7 +1805,11 @@
     "item.crimson_cultist_robes": "Crimson Cultist Robes",
     "item.crimson_ritual_cloak": "Crimson Ritual Cloak",    
 
-
+    "inventory.wip": "[WIP]",
+    "inventory.summary": "unique items: {unique_items}, equipment power: {equipped_power}, empty equipment slots {empty_slots}",
+    "inventory.option.view_items": "View items",
+    "inventory.option.view_equipment": "View equipment",
+    
     "exploration.combat_engage": "{player} (Level {player_level}, {player_class}) engages in combat with {enemy} (Level {enemy_level}, {enemy_class}).",
     "exploration.win": "You defeated {enemy}!",
     "exploration.loss": "You have been slain by {enemy}!",

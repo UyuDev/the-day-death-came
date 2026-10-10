@@ -6,6 +6,7 @@ from assets import load_assets
 from menu import Menu
 from save import SaveMenu, load_save, can_save, save_game, apply_save, SAVE_LOCATIONS, reload_current_save
 from dialogue import Dialogue
+from inventory import Inventory
 from settings import load_settings, save_settings, edit_settings, load_language
 from character import Character
 from actions import handle_action
@@ -34,6 +35,7 @@ def main():
     exploration = Exploration(language_data, assets)
     player = Character()
     player.create("Nicholas", 1, "Classless", None, 0, None)
+    inventory = Inventory(language_data, assets)
     world_state = WorldState()
     game_state = "MENU"
     #update with game loop
@@ -55,7 +57,7 @@ def main():
                     player.create("Nicholas", 1, "Classless", None, 0, None)
                     world_state = WorldState()
                     dialogue.set_current("intro")
-                    game_state = "INTRO"
+                    game_state = "DIALOGUE"
                 elif choice == 2:
                     game_state = "SAVE MENU"
                 elif choice == 3:
@@ -97,13 +99,13 @@ def main():
                         player.create("Nicholas", 1, "Classless", None, 0, None)
                         world_state = WorldState()
                         dialogue.set_current("intro")
-                        game_state = "INTRO"
+                        game_state = "DIALOGUE"
                     elif choice == "load_game":
                         checkpoint = SAVE_LOCATIONS[world_state.save_location]
 
                         renderer.load_map(checkpoint["map"])
                         dialogue.set_current(checkpoint["dialogue"])
-                        game_state = "INTRO"
+                        game_state = "DIALOGUE"
                     elif choice == 4:
                         game_state = "MENU"
                     elif choice == 3:
@@ -129,16 +131,12 @@ def main():
                             apply_save(save_data, player, world_state)
 
 
-            elif game_state == "INTRO":
+            elif game_state == "DIALOGUE":
                 choice = None
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_b:
-                    print("Inventory:")
-                    print(player.inventory)
-                    print("Keyring:")
-                    print(player.keyring)
+                    game_state = "INVENTORY"
                 elif event.type == pygame.KEYDOWN and event.key == pygame.K_c:
-                    print("Equipment:")
-                    print(player.equipped)
+                    game_state = "INVENTORY"
                 elif dialogue.has_options():
                     choice = dialogue.handle_input(event)
                 else:
@@ -156,7 +154,7 @@ def main():
                                 world_state = WorldState()
                                 renderer.load_map("house_upstairs")
                                 dialogue.set_current("hardcore death reset")
-                                game_state = "INTRO"
+                                game_state = "DIALOGUE"
                                 save_game(
                                     player,
                                     world_state.flags,
@@ -169,14 +167,30 @@ def main():
                                 game_state = result
                                 break
 
-            elif game_state == "EXPLORATION":
+
+            elif game_state == "INVENTORY":
                 choice = None
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_b:
+                    game_state = "DIALOGUE"
+                elif event.type == pygame.KEYDOWN and event.key == pygame.K_c:
+                    game_state = "DIALOGUE"
+                elif inventory.has_options():
+                    choice = inventory.handle_input(event)
+                else:
+                    choice = inventory.handle_input_continue(event)
+                # ignore random events so only keypressed are passed 
+                if choice is not None:
+                    inventory.advance(choice)
+
+
+            elif game_state == "EXPLORATION":
+                choice = None
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_b: # Keeping this for debugging
                     print("Inventory:")
                     print(player.inventory)
                     print("Keyring:")
                     print(player.keyring)
-                elif event.type == pygame.KEYDOWN and event.key == pygame.K_c:
+                elif event.type == pygame.KEYDOWN and event.key == pygame.K_c: # Keeping this for debugging
                     print("Equipment:")
                     print(player.equipped)
                 else:
@@ -193,7 +207,7 @@ def main():
                                 world_state = WorldState()
                                 renderer.load_map("house_upstairs")
                                 dialogue.set_current("hardcore death reset")
-                                game_state = "INTRO"
+                                game_state = "DIALOGUE"
                                 save_game(
                                     player,
                                     world_state.flags,
@@ -210,7 +224,7 @@ def main():
                                     dialogue
                                 )
                                 world_state.flags["has_died"] = True
-                        game_state = "INTRO"
+                        game_state = "DIALOGUE"
                     
 
 
@@ -227,9 +241,13 @@ def main():
         elif game_state == "SAVE MENU":
             save_menu.draw_options(screen, title_font, ui_font)
 
-        elif game_state == "INTRO":
+        elif game_state == "DIALOGUE":
             renderer.draw(screen)
             dialogue.draw(screen, ui_font, player)
+
+        elif game_state == "INVENTORY":
+            renderer.draw(screen)
+            inventory.draw(screen, ui_font, player)
 
         elif game_state == "EXPLORATION":
             # renderer.draw(screen)
