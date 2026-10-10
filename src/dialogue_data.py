@@ -662,8 +662,8 @@ DIALOGUE = {
                 "next": "inspect downstairs chest"
             },
             2: {
-                "text_id": "dialogue.option.test_coins", # remove later
-                "next": "TEST add coins"
+                "text_id": "dialogue.option.empty", # replace this with "TEST add coins" if needed
+                "next": "look around downstairs 3"
             },
             3: {
                 "text_id": "dialogue.option.empty",
