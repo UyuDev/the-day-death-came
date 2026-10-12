@@ -14,15 +14,15 @@ from world_state import WorldState
 from exploration import Exploration
 
 def main():
-    print(f"Starting Fantasy RPG with pygame version: {pygame.version.ver}")
+    print(f"Starting game with pygame version: {pygame.version.ver}")
     print(f"Screen width: {SCREEN_WIDTH}\nScreen height: {SCREEN_HEIGHT}")
     pygame.init()
     settings = load_settings()
     language_data = load_language(settings["language"])
-    print("Video driver:", pygame.display.get_driver())
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    print("Resizable:", bool(screen.get_flags() & pygame.RESIZABLE))
-    print("Window size:", screen.get_size())
+    pygame.display.set_caption(language_data["menu.title"])
+    icon = pygame.image.load("assets/wood_door_3.png")
+    pygame.display.set_icon(icon)
     assets = load_assets()
     clock = pygame.time.Clock()
     ui_font = pygame.font.Font("assets/fonts/Rockboxcond12.ttf", 24)
@@ -43,15 +43,12 @@ def main():
     game_state = "MENU"
     #update with game loop
     while True:
-        #log if implemented
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
 
-            
-            #draw map
-            
-            #draw objects
+        
             if game_state == "MENU":
                 choice = menu.handle_input(event)
                 if choice == 1:
@@ -64,7 +61,6 @@ def main():
                 elif choice == 2:
                     game_state = "SAVE MENU"
                 elif choice == 3:
-                    # settings
                     game_state = "SETTINGS"
                 elif choice == 4:
                     return
@@ -92,7 +88,7 @@ def main():
                         save_settings(result)
                     # if result:
                         # some other action
-            # WIP
+
             elif game_state == "SAVE MENU":
                 choice = save_menu.handle_input(event)
                 # ignore random events so only keypressed are passed 
