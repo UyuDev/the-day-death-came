@@ -66,7 +66,21 @@ class TileColors(Enum):
     BRAZIER = "black"
     ALTAR = "black"
     ORNATE_TOMB = "black"
+    # Town walls
+    TOWN_WALL_TL = "black"
+    TOWN_WALL_H = "black"
+    TOWN_WALL_TR = "black"
+    TOWN_WALL_V = "black"
+    TOWN_WALL_BL = "black"
+    TOWN_WALL_BR = "black"
 
+    # Church
+    CHURCH_2 = "black"
+    CHURCH_3 = "black"
+    CHURCH_4 = "black"
+
+    # Crypt
+    CRYPT_EXTRA = "black"
 
 
 
@@ -133,6 +147,21 @@ TILE_MAPPING = {
     "z": TileColors.BRAZIER,
     "A": TileColors.ALTAR,
     "M": TileColors.ORNATE_TOMB,
+    # Town walls
+    "4": TileColors.TOWN_WALL_TL,
+    "5": TileColors.TOWN_WALL_H,
+    "6": TileColors.TOWN_WALL_TR,
+    "7": TileColors.TOWN_WALL_V,
+    "8": TileColors.TOWN_WALL_BL,
+    "a": TileColors.TOWN_WALL_BR,
+
+    # Church
+    "k": TileColors.CHURCH_2,
+    "n": TileColors.CHURCH_3,
+    "o": TileColors.CHURCH_4,
+
+    # Crypt
+    "p": TileColors.CRYPT_EXTRA,
 }
 
 

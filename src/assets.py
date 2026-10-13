@@ -141,5 +141,20 @@ def load_assets():
     "z": pygame.image.load("assets/crypt_fire.png").convert_alpha(),  # brazier
     "A": pygame.image.load("assets/crypt_altar.png").convert_alpha(),  # altar
     "M": pygame.image.load("assets/crypt_tomb_2.png").convert_alpha(),  # ornate tomb
+    # Town walls
+    "4": pygame.image.load("assets/town_wall_tl.png").convert_alpha(),  # top-left
+    "5": pygame.image.load("assets/town_wall_h.png").convert_alpha(),   # horizontal
+    "6": pygame.image.load("assets/town_wall_tr.png").convert_alpha(),  # top-right
+    "7": pygame.image.load("assets/town_wall_v.png").convert_alpha(),   # vertical
+    "8": pygame.image.load("assets/town_wall_bl.png").convert_alpha(),  # bottom-left
+    "a": pygame.image.load("assets/town_wall_br.png").convert_alpha(),  # bottom-right
+
+    # Additional church tiles
+    "k": pygame.image.load("assets/church_2.png").convert_alpha(),
+    "n": pygame.image.load("assets/church_3.png").convert_alpha(),
+    "o": pygame.image.load("assets/church_4.png").convert_alpha(),
+
+    # Additional crypt tile
+    "p": pygame.image.load("assets/crypt_ext.png").convert_alpha(),
 }
 
