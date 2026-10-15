@@ -7,6 +7,7 @@ class WorldState():
         self.flags = {
             "has_died": False,
             "front_door_encountered": False,
+            "trapdoor_warning_seen": False,
             "church_info_obtained": False,
             "door_boss_defeated": False,
             "basement_unlocked": False,

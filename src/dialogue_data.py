@@ -25,55 +25,79 @@ DIALOGUE = {
         },
 
     "intro 3": {
-            "text_id": "dialogue.intro_3",
-            "next": "look around upstairs"
-        },
+        "text_id": "dialogue.intro_3",
+        "next": "intro 4"
+    },
 
+    "intro 4": {
+        "text_id": "dialogue.intro_4",
+        "next": "look around upstairs"
+    },
 
     "resurrect 1": {
-            "text_id": "dialogue.resurrect_1",
-            "next": "resurrect 2"
-        },
+        "text_id": "dialogue.resurrect_1",
+        "next": "resurrect 2"
+    },
 
     "resurrect 2": {
-            "text_id": "dialogue.resurrect_2",
-            "next": "resurrect 3"
-        },
+        "text_id": "dialogue.resurrect_2",
+        "next": "resurrect 3"
+    },
 
     "resurrect 3": {
-            "text_id": "dialogue.resurrect_3",
-            "next": "resurrect 4"
-        },
+        "text_id": "dialogue.resurrect_3",
+        "next": "resurrect 4"
+    },
 
     "resurrect 4": {
-            "text_id": "dialogue.resurrect_4",
-            "next": "resurrect 5"
-        },
+        "text_id": "dialogue.resurrect_4",
+        "next": "resurrect 5"
+    },
 
     "resurrect 5": {
-            "text_id": "dialogue.resurrect_5",
-            "next": "resurrect 6"
-        },
+        "text_id": "dialogue.resurrect_5",
+        "next": "resurrect 6"
+    },
 
     "resurrect 6": {
-            "text_id": "dialogue.resurrect_6",
-            "next": "resurrect 7"
-        },
+        "text_id": "dialogue.resurrect_6",
+        "next": "resurrect 7"
+    },
 
     "resurrect 7": {
-            "text_id": "dialogue.resurrect_7",
-            "next": "resurrect 8"
-        },
+        "text_id": "dialogue.resurrect_7",
+        "next": "resurrect 8"
+    },
 
     "resurrect 8": {
-            "text_id": "dialogue.resurrect_8",
-            "next": "resurrect 9"
-        },
+        "text_id": "dialogue.resurrect_8",
+        "next": "resurrect 9"
+    },
 
     "resurrect 9": {
-            "text_id": "dialogue.resurrect_9",
-            "next": "look around upstairs"
-        },
+        "text_id": "dialogue.resurrect_9",
+        "next": "resurrect 10"
+    },
+
+    "resurrect 10": {
+        "text_id": "dialogue.resurrect_10",
+        "next": "resurrect 11"
+    },
+
+    "resurrect 11": {
+        "text_id": "dialogue.resurrect_11",
+        "next": "resurrect 12"
+    },
+
+    "resurrect 12": {
+        "text_id": "dialogue.resurrect_12",
+        "next": "resurrect 13"
+    },
+
+    "resurrect 13": {
+        "text_id": "dialogue.resurrect_13",
+        "next": "look around upstairs"
+    },
 
     "intro wake": {
         "text_id": "dialogue.intro_wake",
@@ -209,16 +233,17 @@ DIALOGUE = {
         },
 
     "bed chest 6": {
-            "text_id": "dialogue.bed_chest_6",
-            "next": "look around upstairs",
-            "actions": [
-                {
-                   "type": "set_flag",
-                    "target": "inventory_unlocked",
-                    "value": True 
-                }
-            ]
-        },
+        "text_id": "dialogue.bed_chest_6",
+        "next": "look around upstairs",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "inventory_unlocked",
+                "value": True
+            }
+        ]
+    },
+
 
 
     "bed": {
@@ -373,7 +398,7 @@ DIALOGUE = {
     },
 
     "left bookshelf check empty": {
-        "text_id": "dialogue.left_bookshelf",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -397,6 +422,16 @@ DIALOGUE = {
 
     "tome open": {
         "text_id": "dialogue.tome_open_1",
+        "next": "tome open 2"
+    },
+
+    "tome open 2": {
+        "text_id": "dialogue.tome_open_2",
+        "next": "tome open 3"
+    },
+
+    "tome open 3": {
+        "text_id": "dialogue.tome_open_3",
         "next": "tome read 1"
     },
 
@@ -407,35 +442,71 @@ DIALOGUE = {
 
     "tome read 2": {
         "text_id": "dialogue.tome_read_2",
-        "next": "tome unlock incantation"
+        "next": "tome read 3"
     },
 
-    "tome unlock incantation": {
-        "text_id": "dialogue.tome_unlock_incant",
-        "next": "tome close",
+    "tome read 3": {
+        "text_id": "dialogue.tome_read_3",
+        "next": "tome read 4"
+    },
+
+    "tome read 4": {
+        "text_id": "dialogue.tome_read_4",
+        "next": "tome blessing 1"
+    },
+
+    "tome blessing 1": {
+        "text_id": "dialogue.tome_blessing_1",
+        "next": "tome blessing 2"
+    },
+
+    "tome blessing 2": {
+        "text_id": "dialogue.tome_blessing_2",
+        "next": "tome blessing 3"
+    },
+
+    "tome blessing 3": {
+        "text_id": "dialogue.tome_blessing_3",
+        "next": "tome blessing 4",
         "actions": [
-            {   
+            {
                 "type": "set_flag",
-                "target": "left_bookshelf_empty",
-                "value": True
-            },
-            {   
-                "type": "item",
-                "target": "Old Tome",
-                "value": 1
-            },
-            {   
-                "type": "set_flag",
-                "target": "basement_unlocked",
+                "target": "resurrection_blessing",
                 "value": True
             }
         ]
     },
 
-    
-    "tome close": {
+    "tome blessing 4": {
+        "text_id": "dialogue.tome_blessing_4",
+        "next": "tome blessing 5"
+    },
+
+    "tome blessing 5": {
+        "text_id": "dialogue.tome_blessing_5",
+        "next": "tome blessing 6"
+    },
+
+    "tome blessing 6": {
+        "text_id": "dialogue.tome_blessing_6",
+        "next": "tome unlock incantation"
+    },
+
+    "tome unlock incantation": {
         "text_id": "dialogue.tome_close",
-        "next": "look around upstairs"
+        "next": "look around upstairs",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "left_bookshelf_empty",
+                "value": True
+            },
+            {
+                "type": "item",
+                "target": "Old Tome",
+                "value": 1
+            }
+        ]
     },
 
 
@@ -760,7 +831,7 @@ DIALOGUE = {
 
     "open downstairs chest": {
         "text_id": "dialogue.open_downstairs_chest",
-        "next": "take hunting sword",
+        "next": "downstairs chest choice",
     },
 
     "downstairs chest choice": {
@@ -835,11 +906,80 @@ DIALOGUE = {
 
     "trapdoor": {
         "text_id": "dialogue.trapdoor",
-        "next": "trapdoor choice",
+        "next": "trapdoor warning check"
+    },
 
+    "trapdoor warning check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "trapdoor_warning_seen",
+                "value": True,
+                "if_pass": "trapdoor choice check",
+                "if_fail": "trapdoor warning 1"
+            }
+        ]
+    },
+
+    "trapdoor warning 1": {
+        "text_id": "dialogue.trapdoor_warning_1",
+        "next": "trapdoor warning 2"
+    },
+
+    "trapdoor warning 2": {
+        "text_id": "dialogue.trapdoor_warning_2",
+        "next": "trapdoor warning 3"
+    },
+
+    "trapdoor warning 3": {
+        "text_id": "dialogue.trapdoor_warning_3",
+        "next": "trapdoor choice check",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "trapdoor_warning_seen",
+                "value": True
+            }
+        ]
+    },
+
+    "trapdoor choice check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "basement_unlocked",
+                "value": True,
+                "if_pass": "trapdoor choice learned",
+                "if_fail": "trapdoor choice"
+            }
+        ]
     },
 
     "trapdoor choice": {
+        "text_id": "dialogue.trapdoor_choice",
+        "options": {
+            1: {
+                "text_id": "dialogue.option.trapdoor_read_tome",
+                "next": "trapdoor tome check"
+            },
+            2: {
+                "text_id": "dialogue.option.trapdoor_go_down",
+                "next": "trapdoor climb down"
+            },
+            3: {
+                "text_id": "dialogue.option.trapdoor_step_away",
+                "next": "trapdoor walk away"
+            },
+            4: {
+                "text_id": "dialogue.option.empty",
+                "next": "trapdoor choice"
+            }
+        }
+    },
+
+    "trapdoor choice learned": {
         "text_id": "dialogue.trapdoor_choice",
         "options": {
             1: {
@@ -852,13 +992,58 @@ DIALOGUE = {
             },
             3: {
                 "text_id": "dialogue.option.empty",
-                "next": "trapdoor choice"
+                "next": "trapdoor choice learned"
             },
             4: {
                 "text_id": "dialogue.option.empty",
-                "next": "trapdoor choice"
-            },
+                "next": "trapdoor choice learned"
+            }
         }
+    },
+
+    "trapdoor tome check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "left_bookshelf_empty",
+                "value": True,
+                "if_pass": "trapdoor tome 1",
+                "if_fail": "trapdoor no tome"
+            }
+        ]
+    },
+
+    "trapdoor no tome": {
+        "text_id": "dialogue.trapdoor_no_tome",
+        "next": "trapdoor choice"
+    },
+
+    "trapdoor tome 1": {
+        "text_id": "dialogue.trapdoor_tome_1",
+        "next": "trapdoor tome 2"
+    },
+
+    "trapdoor tome 2": {
+        "text_id": "dialogue.trapdoor_tome_2",
+        "next": "trapdoor tome 3"
+    },
+
+    "trapdoor tome 3": {
+        "text_id": "dialogue.trapdoor_tome_3",
+        "next": "trapdoor tome 4"
+    },
+
+    "trapdoor tome 4": {
+        "text_id": "dialogue.trapdoor_tome_4",
+        "next": "trapdoor choice learned",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "basement_unlocked",
+                "value": True
+            }
+        ]
     },
 
     "trapdoor walk away": {
@@ -1012,7 +1197,7 @@ DIALOGUE = {
                 "target": "front_door_encountered",
                 "value": True,
                 "if_pass": "door",
-                "if_fail": "reaper prepare 1"
+                "if_fail": "door blessing check"
             }
         ]
     },
@@ -1028,7 +1213,46 @@ DIALOGUE = {
             }
         ]
     },
+    "reaper door check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "front_door_encountered",
+                "value": True,
+                "if_pass": "door",
+                "if_fail": "door blessing check"
+            }
+        ]
+    },
+
+    "door blessing check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "left_bookshelf_empty",
+                "value": True,
+                "if_pass": "reaper prepare 1",
+                "if_fail": "door missing prayer"
+            }
+        ]
+    },
+
     "door check 3": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "left_bookshelf_empty",
+                "value": True,
+                "if_pass": "door check 3 ready",
+                "if_fail": "door missing prayer"
+            }
+        ]
+    },
+
+    "door check 3 ready": {
         "text_id": "dialogue.empty",
         "actions": [
             {
@@ -1037,9 +1261,25 @@ DIALOGUE = {
                 "value": True,
                 "if_pass": "prepare to leave b",
                 "if_fail": "prepare to leave"
-        }
+            }
         ]
     },
+
+    "door missing prayer": {
+        "text_id": "dialogue.prayer_1",
+        "next": "door missing prayer 2"
+    },
+
+    "door missing prayer 2": {
+        "text_id": "dialogue.prayer_2",
+        "next": "door missing prayer 3"
+    },
+
+    "door missing prayer 3": {
+        "text_id": "dialogue.prayer_3",
+        "next": "stairs upward"
+    },
+
     # Ordinary departure
     "prepare to leave": {
         "text_id": "dialogue.door_1",
@@ -1779,13 +2019,7 @@ DIALOGUE = {
 
     "You collapse on the floor 3": {
         "text_id": "dialogue.collapse_floor_3",
-        "next": "You died",
-        "actions": [
-            {   
-                "type": "show_map",
-                "target": "pitch black"
-            }
-        ]
+        "next": "You died"
     },
 
     "You collapse on the floor book": {
@@ -1817,11 +2051,7 @@ DIALOGUE = {
         "actions": [
             {
                 "type": "death"
-            },
-            {   
-                "type": "show_map",
-                "target": "pitch black"
-            }      
+            }
         ]
     },
 
