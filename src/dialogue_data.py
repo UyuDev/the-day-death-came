@@ -2037,7 +2037,12 @@ DIALOGUE = {
 
     "You died": {
         "text_id": "dialogue.died",
-        "next": "reload after death"
+        "next": "reload after death",
+        "actions": [
+            {
+                "type": "clear_scene"
+            }
+        ]
     },
 
     "Game Over": {

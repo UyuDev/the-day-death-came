@@ -153,6 +153,7 @@ def main():
                         result = handle_action(action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
                         if result is not None:
                             if result == "HARDCORE_DEATH":
+                                print("HARDCORE RESET REACHED")
                                 player = Character()
                                 player.create("Nicholas", 1, "Classless", None, 0, None)
                                 world_state = WorldState()
@@ -169,6 +170,7 @@ def main():
                                 break
                             else:
                                 game_state = result
+                                print("game_state", game_state)
                                 break
 
 
