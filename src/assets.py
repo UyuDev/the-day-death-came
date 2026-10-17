@@ -9,14 +9,14 @@ def load_assets():
     "ui_image": pygame.image.load("assets/UI_temp_2.png").convert_alpha(),
 
     # art deaths
-    "trapdoor death": pygame.image.load("assets/trapdoor_burn_temp.png").convert_alpha(), 
-    "collapse book": pygame.image.load("assets/collapse_book_temp.png").convert_alpha(),
-    "door death spear": pygame.image.load("assets/door_death_spear_temp.png").convert_alpha(),
-    "door death arrow": pygame.image.load("assets/door_death_arrow_temp.png").convert_alpha(), 
-    "door death leg": pygame.image.load("assets/door_death_leg_temp.png").convert_alpha(),
-    "door death mind": pygame.image.load("assets/door_death_mind_temp.png").convert_alpha(),
-    "door death collapse": pygame.image.load("assets/door_death_collapse_temp.png").convert_alpha(),
-    "good ending 1": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "trapdoor death": pygame.image.load("assets/black_map.png").convert_alpha(), 
+    "collapse book": pygame.image.load("assets/black_map.png").convert_alpha(),
+    "door death spear": pygame.image.load("assets/black_map.png").convert_alpha(),
+    "door death arrow": pygame.image.load("assets/black_map.png").convert_alpha(), 
+    "door death leg": pygame.image.load("assets/black_map.png").convert_alpha(),
+    "door death mind": pygame.image.load("assets/black_map.png").convert_alpha(),
+    "door death collapse": pygame.image.load("assets/black_map.png").convert_alpha(),
+    "good ending 1": pygame.image.load("assets/black_map.png").convert_alpha(),
 
     # art items
     "small_chest": pygame.image.load("assets/chest_temp.png").convert_alpha(),
@@ -149,6 +149,20 @@ def load_assets():
     "8": pygame.image.load("assets/town_wall_bl.png").convert_alpha(),  # bottom-left
     "a": pygame.image.load("assets/town_wall_br.png").convert_alpha(),  # bottom-right
 
+    # Town ground
+    "!": pygame.image.load("assets/placeholder.png").convert_alpha(),  # green grass
+    "@": pygame.image.load("assets/placeholder.png").convert_alpha(),  # dead cemetery grass
+    "#": pygame.image.load("assets/placeholder.png").convert_alpha(),  # flowering grass
+    "%": pygame.image.load("assets/placeholder.png").convert_alpha(),  # flowering grass variation
+    "(": pygame.image.load("assets/placeholder.png").convert_alpha(),  # green grass variation
+    ")": pygame.image.load("assets/placeholder.png").convert_alpha(),  # dead grass variation
+
+    # Reserved town decorations
+    "[": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "]": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    ":": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    ";": pygame.image.load("assets/placeholder.png").convert_alpha(),
+
     # Additional church tiles
     "k": pygame.image.load("assets/church_2.png").convert_alpha(),
     "n": pygame.image.load("assets/church_3.png").convert_alpha(),
@@ -156,5 +170,7 @@ def load_assets():
 
     # Additional crypt tile
     "p": pygame.image.load("assets/crypt_ext.png").convert_alpha(),
+
+
 }
 

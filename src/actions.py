@@ -47,7 +47,9 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
         return "MENU"
     
     elif action["type"] == "show_scene":
-        renderer.show_scene(action["target"])
+        # TODO V2: Re-enable scene illustrations.
+        print(f"[WIP] Scene disabled: {action['target']}")
+        # renderer.show_scene(action["target"])
 
     elif action["type"] == "clear_scene":
         renderer.clear_scene()
