@@ -113,15 +113,15 @@ def load_assets():
     "<": pygame.image.load("assets/tunnel_steps_2.png").convert_alpha(),  # tunnel steps 2
 
     # Town
-    "V": pygame.image.load("assets/wattle_wall.png").convert_alpha(),  # wattle-and-daub wall
-    "U": pygame.image.load("assets/wattle_wall_2.png").convert_alpha(),  # wattle-and-daub wall 2
-    "X": pygame.image.load("assets/wattle_wall_3.png").convert_alpha(),  # wattle-and-daub wall 3
-    "x": pygame.image.load("assets/wattle_wall_4.png").convert_alpha(),  # wattle-and-daub wall 4
-    "J": pygame.image.load("assets/wattle_wall_5.png").convert_alpha(),  # wattle-and-daub wall 5   
+    "V": pygame.image.load("assets/wattle_wall_1b.png").convert_alpha(),  # wattle-and-daub wall
+    "U": pygame.image.load("assets/wattle_wall_2b.png").convert_alpha(),  # wattle-and-daub wall 2
+    "X": pygame.image.load("assets/wattle_wall_3b.png").convert_alpha(),  # wattle-and-daub wall 3
+    "x": pygame.image.load("assets/wattle_wall_4b.png").convert_alpha(),  # wattle-and-daub wall 4
+    "J": pygame.image.load("assets/wattle_wall_5b.png").convert_alpha(),  # wattle-and-daub wall 5   
     "?": pygame.image.load("assets/wattle_wall_close.png").convert_alpha(),  # wattle-and-daub wall closeup   
     "^": pygame.image.load("assets/roof.png").convert_alpha(),  # roof
-    "G": pygame.image.load("assets/graves_1.png").convert_alpha(),  # gravestone
-    "Q": pygame.image.load("assets/graves_2.png").convert_alpha(),  # gravestone 2
+    "G": pygame.image.load("assets/graves_1b.png").convert_alpha(),  # gravestone
+    "Q": pygame.image.load("assets/graves_2b.png").convert_alpha(),  # gravestone 2
     "I": pygame.image.load("assets/stone_wall.png").convert_alpha(),  # stone wall
     "j": pygame.image.load("assets/stone_road_2.png").convert_alpha(),  # dirt road
     "_": pygame.image.load("assets/dirt_road_2.png").convert_alpha(),  # dirt road 2
@@ -142,15 +142,18 @@ def load_assets():
     "A": pygame.image.load("assets/crypt_altar.png").convert_alpha(),  # altar
     "M": pygame.image.load("assets/crypt_tomb_2.png").convert_alpha(),  # ornate tomb
     # Town walls
-    "4": pygame.image.load("assets/town_wall_tl.png").convert_alpha(),  # top-left
+    "4": pygame.image.load("assets/town_wall_tl2.png").convert_alpha(),  # top-left
     "5": pygame.image.load("assets/town_wall_h.png").convert_alpha(),   # horizontal
-    "6": pygame.image.load("assets/town_wall_tr.png").convert_alpha(),  # top-right
-    "7": pygame.image.load("assets/town_wall_v.png").convert_alpha(),   # vertical
-    "8": pygame.image.load("assets/town_wall_bl.png").convert_alpha(),  # bottom-left
-    "a": pygame.image.load("assets/town_wall_br.png").convert_alpha(),  # bottom-right
+    "6": pygame.image.load("assets/town_wall_tr2.png").convert_alpha(),  # top-right
+    "7": pygame.image.load("assets/town_gate.png").convert_alpha(),   # vertical gate
+    "8": pygame.image.load("assets/town_wall_bl2.png").convert_alpha(),  # bottom-left
+    "a": pygame.image.load("assets/town_wall_br2.png").convert_alpha(),  # bottom-right
+    "k": pygame.image.load("assets/town_wall_vc.png").convert_alpha(), # wall left
+    "n": pygame.image.load("assets/town_wall_vb.png").convert_alpha(), # wall right
+    "o": pygame.image.load("assets/town_wall_hb.png").convert_alpha(), # wall top
 
     # Town ground
-    "!": pygame.image.load("assets/grass_green_1.png").convert_alpha(),  # green grass
+    "!": pygame.image.load("assets/grass_green_2.png").convert_alpha(),  # green grass
     "@": pygame.image.load("assets/grass_dead_1.png").convert_alpha(),  # dead cemetery grass
     "#": pygame.image.load("assets/grass_flowers_1.png").convert_alpha(),  # flowering grass
     "%": pygame.image.load("assets/grass_flowers_2.png").convert_alpha(),  # flowering grass variation
@@ -158,15 +161,16 @@ def load_assets():
     ")": pygame.image.load("assets/grass_dead_2.png").convert_alpha(),  # dead grass variation
 
     # Reserved town decorations
-    "[": pygame.image.load("assets/placeholder.png").convert_alpha(),
-    "]": pygame.image.load("assets/placeholder.png").convert_alpha(), # bridge
-    ":": pygame.image.load("assets/placeholder.png").convert_alpha(), # water
-    ";": pygame.image.load("assets/placeholder.png").convert_alpha(), # fountain
+    "[": pygame.image.load("assets/roof_2.png").convert_alpha(), # roof 2
+    "]": pygame.image.load("assets/town_bridge_1.png").convert_alpha(), # bridge
+    ":": pygame.image.load("assets/town_water_1.png").convert_alpha(), # water
+    ";": pygame.image.load("assets/town_fountain_1.png").convert_alpha(), # fountain
 
     # Additional church tiles
-    "k": pygame.image.load("assets/church_2.png").convert_alpha(),
-    "n": pygame.image.load("assets/church_3.png").convert_alpha(),
-    "o": pygame.image.load("assets/church_4.png").convert_alpha(),
+    "~": pygame.image.load("assets/church_2.png").convert_alpha(),
+    "{": pygame.image.load("assets/church_3.png").convert_alpha(),
+    "}": pygame.image.load("assets/church_4.png").convert_alpha(),
+
 
     # Additional crypt tile
     "p": pygame.image.load("assets/crypt_ext.png").convert_alpha(),
