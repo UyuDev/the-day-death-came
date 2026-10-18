@@ -127,10 +127,9 @@ def load_assets():
     "_": pygame.image.load("assets/dirt_road_2.png").convert_alpha(),  # dirt road 2
     "$": pygame.image.load("assets/dirt_road_3.png").convert_alpha(),  # dirt road 3
     "&": pygame.image.load("assets/dirt_road_4.png").convert_alpha(),  # dirt road 4
-    "O": pygame.image.load("assets/church_1.png").convert_alpha(),  # church
-    "N": pygame.image.load("assets/fort_1.png").convert_alpha(),  # fortress / keep
-    "l": pygame.image.load("assets/fort_2.png").convert_alpha(),  # fortress / keep   
-    "Z": pygame.image.load("assets/fort_3.png").convert_alpha(),  # fortress / keep
+    "N": pygame.image.load("assets/fort_1b.png").convert_alpha(),  # fortress / keep
+    "l": pygame.image.load("assets/fort_2b.png").convert_alpha(),  # fortress / keep   
+    "Z": pygame.image.load("assets/fort_3b.png").convert_alpha(),  # fortress / keep
 
     # Crypt
     "q": pygame.image.load("assets/crypt_1.png").convert_alpha(),  # crypt floor 1
@@ -161,19 +160,20 @@ def load_assets():
     ")": pygame.image.load("assets/grass_dead_2.png").convert_alpha(),  # dead grass variation
 
     # Reserved town decorations
-    "[": pygame.image.load("assets/roof_2.png").convert_alpha(), # roof 2
+    "[": pygame.image.load("assets/roof_3.png").convert_alpha(), # roof 2
     "]": pygame.image.load("assets/town_bridge_1.png").convert_alpha(), # bridge
     ":": pygame.image.load("assets/town_water_1.png").convert_alpha(), # water
     ";": pygame.image.load("assets/town_fountain_1.png").convert_alpha(), # fountain
 
-    # Additional church tiles
-    "~": pygame.image.load("assets/church_2.png").convert_alpha(),
-    "{": pygame.image.load("assets/church_3.png").convert_alpha(),
-    "}": pygame.image.load("assets/church_4.png").convert_alpha(),
-
+    # Church tiles
+    "O": pygame.image.load("assets/church_1b.png").convert_alpha(),  # church
+    "~": pygame.image.load("assets/church_5.png").convert_alpha(), #church roof 1
+    "{": pygame.image.load("assets/church_3b.png").convert_alpha(),
+    "}": pygame.image.load("assets/church_4b.png").convert_alpha(),
+    "|": pygame.image.load("assets/church_2b.png").convert_alpha(),  # church roof 2
 
     # Additional crypt tile
-    "p": pygame.image.load("assets/crypt_ext.png").convert_alpha(),
+    "p": pygame.image.load("assets/crypt_ext2.png").convert_alpha(),
 
 
 }
