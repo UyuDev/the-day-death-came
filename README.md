@@ -1,6 +1,8 @@
-# fantasy-rpg
+# The Day Death Came
 
-A text-heavy fantasy RPG built in Python with Pygame. Explore a hand-drawn world, fight enemies, make story choices, develop Nicholas into different classes, and uncover the cause of an attack on his home. The game features branching dialogue, multiple endings, save files, character progression, two visual styles, and English/Korean localization.
+A text-heavy fantasy RPG built in Python with Pygame. Explore a handcrafted pixel-art world, fight enemies, make story choices, develop Nicholas into different classes, collect and upgrade equipment, and uncover the cause of an attack on his home.
+
+The game features branching dialogue, multiple endings, save files, character progression, inventory and equipment management, and English/Korean localization.
 
 ## Installation
 
@@ -49,8 +51,20 @@ Refer to the explanation below to understand how to navigate the menu.
 
 - **Space / Enter:** Advance dialogue
 - **1–4:** Select dialogue or menu options
-- **B:** Print the player's full inventory to the terminal. This is intended for players running the game from source and may not display anything when using the packaged executable.
-- **C:** Print the player's currently equipped items to the terminal. This is intended for players running the game from source and may not display anything when using the packaged executable.
+- **B:** Open the in-game inventory interface to view and browse collected items.
+- **C:** Open the equipment interface to inspect currently equipped gear.
+
+### Inventory and Equipment
+
+The game features an inventory and equipment system with dedicated in-game interfaces for browsing collected items and inspecting equipped gear.
+
+Items are collected automatically during exploration and combat. When acquiring equipment, the game compares its power against the player's currently equipped gear and automatically equips upgrades. Replaced equipment is returned to the inventory.
+
+Inventory space is limited, but larger bags increase carrying capacity. Quest-related key items are stored separately on a keyring and do not occupy regular inventory slots.
+
+The inventory interface displays collected items and available space, while the equipment interface shows currently equipped gear and its power.
+
+Inventory contents, equipment, carrying capacity, and key items are preserved when saving and loading the game.
 
 ### Save Slots
 
@@ -75,14 +89,11 @@ Developer's note:
 I wrote the English and had it reviewed by AI.
 The Korean was machine translated and each line was reviewed by me.
 
-### Art Style:
+### Art Style
 
-The two options are Tiles and Illustrations. 
+The game uses handcrafted pixel-art tiles displayed on a grid. Each environment was designed and iterated on individually, including the buildings, terrain, and environmental details.
 
-Tiles: hand drawn pixel art tiles overlayed onto a grid. Each map was handcrafted by myself and iterated over.
-Illustrations: hand drawn art matching the style of the combat illustrations.
-
-Regardless of the choice, the game does include illustrations for key moments.
+The game also features hand-drawn artwork for the main menu and selected story moments.
 
 
 ## Developer's notes
