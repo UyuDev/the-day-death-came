@@ -150,18 +150,18 @@ def load_assets():
     "a": pygame.image.load("assets/town_wall_br.png").convert_alpha(),  # bottom-right
 
     # Town ground
-    "!": pygame.image.load("assets/placeholder.png").convert_alpha(),  # green grass
-    "@": pygame.image.load("assets/placeholder.png").convert_alpha(),  # dead cemetery grass
-    "#": pygame.image.load("assets/placeholder.png").convert_alpha(),  # flowering grass
-    "%": pygame.image.load("assets/placeholder.png").convert_alpha(),  # flowering grass variation
-    "(": pygame.image.load("assets/placeholder.png").convert_alpha(),  # green grass variation
-    ")": pygame.image.load("assets/placeholder.png").convert_alpha(),  # dead grass variation
+    "!": pygame.image.load("assets/grass_green_1.png").convert_alpha(),  # green grass
+    "@": pygame.image.load("assets/grass_dead_1.png").convert_alpha(),  # dead cemetery grass
+    "#": pygame.image.load("assets/grass_flowers_1.png").convert_alpha(),  # flowering grass
+    "%": pygame.image.load("assets/grass_flowers_2.png").convert_alpha(),  # flowering grass variation
+    "(": pygame.image.load("assets/grass_green_2.png").convert_alpha(),  # green grass variation
+    ")": pygame.image.load("assets/grass_dead_2.png").convert_alpha(),  # dead grass variation
 
     # Reserved town decorations
     "[": pygame.image.load("assets/placeholder.png").convert_alpha(),
-    "]": pygame.image.load("assets/placeholder.png").convert_alpha(),
-    ":": pygame.image.load("assets/placeholder.png").convert_alpha(),
-    ";": pygame.image.load("assets/placeholder.png").convert_alpha(),
+    "]": pygame.image.load("assets/placeholder.png").convert_alpha(), # bridge
+    ":": pygame.image.load("assets/placeholder.png").convert_alpha(), # water
+    ";": pygame.image.load("assets/placeholder.png").convert_alpha(), # fountain
 
     # Additional church tiles
     "k": pygame.image.load("assets/church_2.png").convert_alpha(),
