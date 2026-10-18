@@ -20,10 +20,11 @@ def edit_settings(settings, choice):
         else:
             settings["hardcore"] = True
     elif choice == 3:
-        if settings["art"] == "tiles":
-            settings["art"] = "illustrations"
-        else:
-            settings["art"] = "tiles"
+        pass # Disabled for V1
+        # if settings["art"] == "tiles":
+        #     settings["art"] = "illustrations"
+        # else:
+        #     settings["art"] = "tiles"
     return settings
 
 def load_language(language):

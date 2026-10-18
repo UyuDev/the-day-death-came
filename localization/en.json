@@ -17,6 +17,7 @@
     "settings.change_language": "Change Language",
     "settings.toggle_hardcore": "Toggle Hardcore",
     "settings.change_graphics": "Change visual style",
+    "settings.change_graphics_DISABLED": "...",
     "settings.main_menu": "Main Menu",
     "settings.part_1": "Settings - Difficulty: ",
     "settings.difficulty_hard": "Hardcore",

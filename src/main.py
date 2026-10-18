@@ -28,10 +28,11 @@ def main():
     ui_font = pygame.font.Font("assets/fonts/Rockboxcond12.ttf", 24)
     title_font = pygame.font.Font("assets/fonts/Bitfantasy.ttf", 48)
     #create grid
-    if settings["art"] == "tiles":
-        renderer = Grid(assets)
-    else:
-        renderer = Scene(assets)
+    renderer = Grid(assets) # Grid only for V1
+    # if settings["art"] == "tiles":
+    #     renderer = Grid(assets)
+    # else:
+    #     renderer = Scene(assets)
     menu = Menu(language_data, assets)
     save_menu = SaveMenu(language_data, assets)
     dialogue = Dialogue(language_data, assets)
@@ -41,7 +42,7 @@ def main():
     inventory = Inventory(language_data, assets)
     world_state = WorldState()
     game_state = "MENU"
-    #update with game loop
+
     while True:
 
         for event in pygame.event.get():
@@ -66,7 +67,7 @@ def main():
                     return
             elif game_state == "SETTINGS":
                 choice = menu.handle_input(event)
-                # ignore random events so only keypressed are passed 
+                # Ignore random events so only keypressed are passed 
                 if choice is not None:
                     if choice == 4:
                         game_state = "MENU"
@@ -81,17 +82,18 @@ def main():
                         if choice == 2:
                             print("Hardcore mode is now implemented!")
                         if choice == 3:
-                            if settings["art"] == "tiles":
-                                renderer = Grid(assets)
-                            else:
-                                renderer = Scene(assets)
+                            pass  # Visual style switching disabled for V1 - check settings.py and menu.py for other disabled code.
+                            # if settings["art"] == "tiles":
+                            #     renderer = Grid(assets)
+                            # else:
+                            #     renderer = Scene(assets)
                         save_settings(result)
                     # if result:
                         # some other action
 
             elif game_state == "SAVE MENU":
                 choice = save_menu.handle_input(event)
-                # ignore random events so only keypressed are passed 
+
                 if choice is not None:
                     if choice == "new_game":
                         renderer.load_map("house_upstairs")
@@ -145,7 +147,7 @@ def main():
                     choice = dialogue.handle_input(event)
                 else:
                     choice = dialogue.handle_input_continue(event)
-                # ignore random events so only keypressed are passed 
+
                 if choice is not None:
                     dialogue.advance(choice)
                     actions = dialogue.get_actions()
@@ -184,7 +186,7 @@ def main():
                     choice = inventory.handle_input(event)
                 else:
                     choice = inventory.handle_input_continue(event)
-                # ignore random events so only keypressed are passed 
+
                 if choice is not None:
                     inventory.advance(choice)
 
@@ -201,7 +203,7 @@ def main():
                     print(player.equipped)
                 else:
                     choice = exploration.handle_input_continue(event)
-                # ignore random events so only keypressed are passed 
+
                 if choice is not None:
                     result = exploration.advance(choice)
                     if result is not None:

@@ -24,7 +24,7 @@ class Menu():
         self.settings = {
             1: "settings.change_language",
             2: "settings.toggle_hardcore",
-            3: "settings.change_graphics",
+            3: "settings.change_graphics_DISABLED",
             4: "settings.main_menu"
         }
 
@@ -77,7 +77,8 @@ class Menu():
         text_2 = self.language_data["settings.part_2"]
         text_3 = self.language_data["settings.part_3"]
         text_last = self.language_data["settings.part_final"]
-        title = title_font.render(f"{text_1}{difficulty}{text_2}{language}{text_3}{art}{text_last}", True, "Yellow")
+        # title = title_font.render(f"{text_1}{difficulty}{text_2}{language}{text_3}{art}{text_last}", True, "Yellow")
+        title = title_font.render(f"{text_1}{difficulty}{text_2}{language}{text_last}", True, "Yellow")
         rect = title.get_rect(center=(SCREEN_WIDTH // 2, 100))
         screen.blit(self.menu_art, (0, 0))
         screen.blit(self.ui, (0, 0))
