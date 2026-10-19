@@ -112,8 +112,8 @@ def load_assets():
     "F": pygame.image.load("assets/stone_floor.png").convert_alpha(),  # stone floor
     "P": pygame.image.load("assets/prison_cell.png").convert_alpha(),  # prison cell
     "u": pygame.image.load("assets/wood_table_1.png").convert_alpha(),  # wood table
-    ">": pygame.image.load("assets/tunnel_steps.png").convert_alpha(),  # tunnel steps
-    "<": pygame.image.load("assets/tunnel_steps_2.png").convert_alpha(),  # tunnel steps 2
+    ">": pygame.image.load("assets/tunnel_steps_b.png").convert_alpha(),  # tunnel steps
+    "<": pygame.image.load("assets/tunnel_steps_2b.png").convert_alpha(),  # tunnel steps 2
 
     # Town
     "V": pygame.image.load("assets/wattle_wall_1b.png").convert_alpha(),  # wattle-and-daub wall
@@ -122,7 +122,6 @@ def load_assets():
     "x": pygame.image.load("assets/wattle_wall_4b.png").convert_alpha(),  # wattle-and-daub wall 4
     "J": pygame.image.load("assets/wattle_wall_5b.png").convert_alpha(),  # wattle-and-daub wall 5   
     "^": pygame.image.load("assets/roof.png").convert_alpha(),  # roof
-    "I": pygame.image.load("assets/stone_wall.png").convert_alpha(),  # stone wall
     "j": pygame.image.load("assets/stone_road_2.png").convert_alpha(),  # dirt road
     "_": pygame.image.load("assets/dirt_road_2.png").convert_alpha(),  # dirt road 2
     "$": pygame.image.load("assets/dirt_road_3.png").convert_alpha(),  # dirt road 3
@@ -171,14 +170,15 @@ def load_assets():
     "e": pygame.image.load("assets/crypt_1.png").convert_alpha(),  # crypt floor 2
     "i": pygame.image.load("assets/crypt_1.png").convert_alpha(),  # crypt floor 3
     "K": pygame.image.load("assets/crypt_1.png").convert_alpha(),  # crypt wall
-    "m": pygame.image.load("assets/crypt_tomb.png").convert_alpha(),  # sarcophagus
-    "z": pygame.image.load("assets/crypt_fire.png").convert_alpha(),  # brazier
-    "A": pygame.image.load("assets/crypt_altar.png").convert_alpha(),  # altar
-    "M": pygame.image.load("assets/crypt_tomb_2.png").convert_alpha(),  # ornate tomb
+    "m": pygame.image.load("assets/crypt_tomb_1b.png").convert_alpha(),  # sarcophagus
+    "z": pygame.image.load("assets/crypt_fire_c.png").convert_alpha(),  # brazier
+    "A": pygame.image.load("assets/crypt_altar_b.png").convert_alpha(),  # altar
+    "M": pygame.image.load("assets/crypt_tomb_2b.png").convert_alpha(),  # ornate tomb
+    ".": pygame.image.load("assets/crypt_pillar_1a.png").convert_alpha(), # pillar    
+    "I": pygame.image.load("assets/stone_road_1.png").convert_alpha(),  # stone floor
 
 
 
 
-    ".": pygame.image.load("assets/placeholder.png").convert_alpha(),
 }
 
