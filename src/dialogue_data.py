@@ -160,7 +160,7 @@ DIALOGUE = {
 
 
     "bed chest": {
-            "text_id": "dialogue.bed_chest_1",
+            "text_id": "dialogue.empty",
             "next": "bed chest 2",
             "actions": [
                 {   
@@ -385,7 +385,7 @@ DIALOGUE = {
 
 
     "left bookshelf": {
-        "text_id": "dialogue.left_bookshelf",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -512,7 +512,7 @@ DIALOGUE = {
 
 
     "right bookshelf": {
-        "text_id": "dialogue.right_bookshelf",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -526,7 +526,7 @@ DIALOGUE = {
 
 
     "right bookshelf check treatise": {
-        "text_id": "dialogue.right_bookshelf",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -539,7 +539,7 @@ DIALOGUE = {
     },
 
     "right bookshelf check forbidden": {
-        "text_id": "dialogue.right_bookshelf",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -771,7 +771,7 @@ DIALOGUE = {
     },
 
     "check by door": {
-        "text_id": "dialogue.check_by_door",
+        "text_id": "dialogue.empty",
         "next": "boots by door",
         "actions": [
             {   
@@ -817,7 +817,7 @@ DIALOGUE = {
     },
 
     "inspect downstairs chest": {
-        "text_id": "dialogue.inspect_downstairs_chest",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -1052,7 +1052,7 @@ DIALOGUE = {
     },
 
     "trapdoor climb down": {
-        "text_id": "dialogue.trapdoor_climb_down",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -1065,7 +1065,7 @@ DIALOGUE = {
     },
 
     "trapdoor climb down 2": {
-        "text_id": "dialogue.trapdoor_climb_down",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -1106,7 +1106,7 @@ DIALOGUE = {
     },
 
     "trapdoor pass 1": {
-        "text_id": "dialogue.trapdoor_pass_1",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "map",
@@ -2061,7 +2061,7 @@ DIALOGUE = {
     },
 
     "table": {
-        "text_id": "dialogue.table",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -2074,7 +2074,7 @@ DIALOGUE = {
     },
 
     "table check inventory": {
-        "text_id": "dialogue.table",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -2315,7 +2315,7 @@ DIALOGUE = {
 
 
     "inspect tools": {
-        "text_id": "dialogue.inspect_tools",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -2411,7 +2411,7 @@ DIALOGUE = {
     },
 
     "inspect left wall": {
-        "text_id": "dialogue.inspect_left_wall",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -2429,7 +2429,7 @@ DIALOGUE = {
     },
 
     "inspect top wall": {
-        "text_id": "dialogue.inspect_top_wall",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -2457,7 +2457,7 @@ DIALOGUE = {
     },
 
     "right wall loose bricks": {
-        "text_id": "dialogue.right_wall_loose",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -2470,7 +2470,7 @@ DIALOGUE = {
     },
 
     "bottom wall loose bricks": {
-        "text_id": "dialogue.bottom_wall_loose",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -2561,7 +2561,7 @@ DIALOGUE = {
 
 
     "basement door key check": {
-        "text_id": "dialogue.basement_door_inspect",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -2692,7 +2692,7 @@ DIALOGUE = {
     },
 
     "tunnel 1 intro check": {
-        "text_id": "dialogue.tunnel_1_intro",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -2900,7 +2900,7 @@ DIALOGUE = {
     },
 
     "tunnel 1 explore 1": {
-        "text_id": "dialogue.tunnel_1_explore_1",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -2993,7 +2993,7 @@ DIALOGUE = {
 
 
     "tunnel 1 continue check": {
-        "text_id": "dialogue.tunnel_1_continue_check",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -3006,7 +3006,7 @@ DIALOGUE = {
     },
 
     "tunnel 1 rope looted check": {
-        "text_id": "dialogue.tunnel_1_continue_check",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -3107,7 +3107,7 @@ DIALOGUE = {
     },
 
     "tunnel 2 explore 1": {
-        "text_id": "dialogue.tunnel_2_explore_1",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -3200,7 +3200,7 @@ DIALOGUE = {
 
 
     "tunnel 2 continue check": {
-        "text_id": "dialogue.tunnel_2_continue_check",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -3213,7 +3213,7 @@ DIALOGUE = {
     },
 
     "tunnel 2 sewer key check": {
-        "text_id": "dialogue.tunnel_2_continue_check",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -3315,7 +3315,7 @@ DIALOGUE = {
     },
 
     "sewer explore 1": {
-        "text_id": "dialogue.sewer_explore_1",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -3408,7 +3408,7 @@ DIALOGUE = {
 
 
     "sewer continue check": {
-        "text_id": "dialogue.sewer_continue_check",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -3421,7 +3421,7 @@ DIALOGUE = {
     },
 
     "sewer dungeon key check": {
-        "text_id": "dialogue.sewer_continue_check",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -3519,7 +3519,7 @@ DIALOGUE = {
     },
 
     "dungeon explore 1": {
-        "text_id": "dialogue.dungeon_explore_1",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -3612,7 +3612,7 @@ DIALOGUE = {
 
 
     "dungeon continue check": {
-        "text_id": "dialogue.dungeon_continue_check",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
@@ -3625,7 +3625,7 @@ DIALOGUE = {
     },
 
     "dungeon town key check": {
-        "text_id": "dialogue.dungeon_continue_check",
+        "text_id": "dialogue.empty",
         "actions": [
             {   
                 "type": "check_flag",
