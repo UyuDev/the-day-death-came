@@ -25,8 +25,12 @@ def main():
     pygame.display.set_icon(icon)
     assets = load_assets()
     clock = pygame.time.Clock()
-    ui_font = pygame.font.Font("assets/fonts/Rockboxcond12.ttf", 24)
-    title_font = pygame.font.Font("assets/fonts/Bitfantasy.ttf", 48)
+    if settings["language"] == "ko":
+        ui_font = pygame.font.Font("assets/fonts/Mulmaru.ttf", 24)
+        title_font = pygame.font.Font("assets/fonts/Mulmaru.ttf", 48)
+    else:
+        ui_font = pygame.font.Font("assets/fonts/Rockboxcond12.ttf", 24)
+        title_font = pygame.font.Font("assets/fonts/Bitfantasy.ttf", 48)
     #create grid
     renderer = Grid(assets) # Grid only for V1
     # if settings["art"] == "tiles":
@@ -75,10 +79,17 @@ def main():
                         result = edit_settings(settings, choice)
                         if choice == 1:
                             language_data = load_language(settings["language"])
+                            if settings["language"] == "ko":
+                                ui_font = pygame.font.Font("assets/fonts/Mulmaru.ttf", 24)
+                                title_font = pygame.font.Font("assets/fonts/Mulmaru.ttf", 48)
+                            else:
+                                ui_font = pygame.font.Font("assets/fonts/Rockboxcond12.ttf", 24)
+                                title_font = pygame.font.Font("assets/fonts/Bitfantasy.ttf", 48)
                             menu.language_data = language_data
                             dialogue.language_data = language_data
                             save_menu.language_data = language_data
                             inventory.language_data = language_data
+                            exploration.language_data = language_data
                         if choice == 2:
                             print("Hardcore mode is now implemented!")
                         if choice == 3:
