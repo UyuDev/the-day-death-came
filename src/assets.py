@@ -36,7 +36,7 @@ def load_assets():
     "invader_warlock": pygame.image.load("assets/invader_warlock_1.png").convert_alpha(),
     "invader_reaver": pygame.image.load("assets/invader_reaver_2.png").convert_alpha(),
     "giant_rat": pygame.image.load("assets/rat_temp_2.png").convert_alpha(),
-    "cave_goblin": pygame.image.load("assets/goblin_2.png").convert_alpha(),
+    "cave_goblin": pygame.image.load("assets/goblin_3.png").convert_alpha(),
     "skeleton": pygame.image.load("assets/skeleton_1.png").convert_alpha(),
     "zombie": pygame.image.load("assets/zombie_1.png").convert_alpha(),
     "skeleton_warrior": pygame.image.load("assets/skeleton_warr_1.png").convert_alpha(),
@@ -47,10 +47,10 @@ def load_assets():
     "honor_guard": pygame.image.load("assets/honor_guard_1.png").convert_alpha(),
     "lord_graye": pygame.image.load("assets/lord_graye_1.png").convert_alpha(),
     "reaper_boss_spawn": pygame.image.load("assets/reaper_spawn_v2.png").convert_alpha(),
-    "reaper_boss_1": pygame.image.load("assets/reaper_boss_v2_1.png").convert_alpha(),
-    "reaper_boss_2": pygame.image.load("assets/reaper_boss_v2_2.png").convert_alpha(),
-    "reaper_boss_3": pygame.image.load("assets/reaper_boss_v2_3.png").convert_alpha(),
-    "reaper_boss_4": pygame.image.load("assets/reaper_boss_v2_4.png").convert_alpha(),
+    "reaper_boss_1": pygame.image.load("assets/reaper_boss_v3_1.png").convert_alpha(),
+    "reaper_boss_2": pygame.image.load("assets/reaper_boss_v3_2.png").convert_alpha(),
+    "reaper_boss_3": pygame.image.load("assets/reaper_boss_v3_3.png").convert_alpha(),
+    "reaper_boss_4": pygame.image.load("assets/reaper_boss_v3_4.png").convert_alpha(),
 
     # maps
     "house": pygame.image.load("assets/home_map.png").convert_alpha(),
