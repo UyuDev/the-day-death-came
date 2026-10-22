@@ -609,12 +609,12 @@ DIALOGUE = {
     },
 
     "forbidden covered": {
-        "text_id": "dialogue.forbidden covered",
+        "text_id": "dialogue.forbidden_covered",
         "next": "forbidden covered 2"
     },
 
     "forbidden covered 2": {
-        "text_id": "dialogue.forbidden covered 2",
+        "text_id": "dialogue.forbidden_covered_2",
         "next": "forbidden react"
     },
 
@@ -1419,6 +1419,14 @@ DIALOGUE = {
     },
     "door encounter boss 4": {
         "text_id": "dialogue.door_boss_4",
+        "next": "door encounter boss 4b"
+    },
+    "door encounter boss 4b": {
+        "text_id": "dialogue.door_boss_4b",
+        "next": "door encounter boss 4c"
+    },
+    "door encounter boss 4c": {
+        "text_id": "dialogue.door_boss_4c",
         "next": "door encounter boss 5"
     },
     "door encounter boss 5": {
