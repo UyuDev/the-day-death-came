@@ -69,7 +69,7 @@ def load_assets():
     "farm outside": pygame.image.load("assets/farm_map.png").convert_alpha(),
 
     # tiles
-    "f": pygame.image.load("assets/stone_floor.png").convert_alpha(),
+    "f": pygame.image.load("assets/tunnel_steps_2c.png").convert_alpha(), # basement floor
     "d": pygame.image.load("assets/wood_door_3.png").convert_alpha(),
     "b": pygame.image.load("assets/bed.png").convert_alpha(),
     "D": pygame.image.load("assets/wood_dungeon_1.png").convert_alpha(),

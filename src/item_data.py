@@ -321,7 +321,7 @@ EQUIPMENT_TEMPLATES = {
         "feet": "Refined Stockings",
         "shoes": "Steel Sabatons",
         "cloak": "Paladin's Cloak",
-        "ring": "Aldren Family's Signet Ring",
+        "ring": "Ancestral Signet Ring",
         "bag": "Large Leather Satchel",
         "main weapon": "Master Alden's Warhammer",
         "secondary weapon": "Master Alden's Tome"
@@ -1124,8 +1124,8 @@ ITEMS = {
         "value": 0,
         "sellable": False,
     },
-    "Aldren Family's Signet Ring": {
-        "name_id": "item.aldren_familys_signet_ring",
+    "Ancestral Signet Ring": {
+        "name_id": "item.ancestral_signet_ring",
         "power": 1.5,
         "slot": "ring",
         "value": 0,
