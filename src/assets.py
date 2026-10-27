@@ -5,7 +5,7 @@ import pygame
 
 def load_assets():
     return {
-    "menuscreen_art": pygame.image.load("assets/menu_art_1.png").convert_alpha(),
+    "menuscreen_art": pygame.image.load("assets/menu_art_2.png").convert_alpha(),
     "ui_image": pygame.image.load("assets/UI_temp_2.png").convert_alpha(),
 
     # art deaths
@@ -37,13 +37,13 @@ def load_assets():
     "invader_reaver": pygame.image.load("assets/invader_reaver_2.png").convert_alpha(),
     "giant_rat": pygame.image.load("assets/rat_temp_2.png").convert_alpha(),
     "cave_goblin": pygame.image.load("assets/goblin_3.png").convert_alpha(),
-    "skeleton": pygame.image.load("assets/skeleton_1.png").convert_alpha(),
-    "zombie": pygame.image.load("assets/zombie_1.png").convert_alpha(),
-    "skeleton_warrior": pygame.image.load("assets/skeleton_warr_1.png").convert_alpha(),
-    "skeleton_knight": pygame.image.load("assets/skeleton_knight_1.png").convert_alpha(),
+    "skeleton": pygame.image.load("assets/skeleton_2.png").convert_alpha(),
+    "zombie": pygame.image.load("assets/zombie_2.png").convert_alpha(),
+    "skeleton_warrior": pygame.image.load("assets/skeleton_warr_2.png").convert_alpha(),
+    "skeleton_knight": pygame.image.load("assets/skeleton_knight_2.png").convert_alpha(),
     "cultist_acolyte": pygame.image.load("assets/cultist_2.png").convert_alpha(),
-    "skeleton_mage": pygame.image.load("assets/skeleton_mage_1.png").convert_alpha(),
-    "skeleton_warlock": pygame.image.load("assets/skeleton_darkmaster_1.png").convert_alpha(),
+    "skeleton_mage": pygame.image.load("assets/skeleton_mage_3.png").convert_alpha(),
+    "skeleton_warlock": pygame.image.load("assets/skeleton_darkmaster_2.png").convert_alpha(),
     "honor_guard": pygame.image.load("assets/honor_guard_1.png").convert_alpha(),
     "lord_graye": pygame.image.load("assets/lord_graye_1.png").convert_alpha(),
     "reaper_boss_spawn": pygame.image.load("assets/reaper_spawn_v2.png").convert_alpha(),
