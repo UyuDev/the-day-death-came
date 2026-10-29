@@ -5,7 +5,7 @@ import pygame
 
 def load_assets():
     return {
-    "menuscreen_art": pygame.image.load("assets/menu_art_2.png").convert_alpha(),
+    "menuscreen_art": pygame.image.load("assets/menu_art_3.png").convert_alpha(),
     "ui_image": pygame.image.load("assets/UI_temp_2.png").convert_alpha(),
 
     # art deaths
