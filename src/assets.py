@@ -69,21 +69,32 @@ def load_assets():
     "farm outside": pygame.image.load("assets/farm_map.png").convert_alpha(),
 
     # tiles
-    "f": pygame.image.load("assets/tunnel_steps_2c.png").convert_alpha(), # basement floor
-    "d": pygame.image.load("assets/wood_door_3.png").convert_alpha(),
+    "f": pygame.image.load("assets/red_brick_floor.png").convert_alpha(), # basement floor
+    "d": pygame.image.load("assets/house_interior_door.png").convert_alpha(),
     "b": pygame.image.load("assets/bed.png").convert_alpha(),
-    "D": pygame.image.load("assets/wood_dungeon_1.png").convert_alpha(),
+    "D": pygame.image.load("assets/red_brick_trapdoor.png").convert_alpha(),
     "S": pygame.image.load("assets/wood_stairs_2.png").convert_alpha(), # wood stairs
     "9": pygame.image.load("assets/wood_stairs_1.png").convert_alpha(), # wood stairs
     "t": pygame.image.load("assets/wood_table_1.png").convert_alpha(), # wood table
-    "1": pygame.image.load("assets/wood_wall_4.png").convert_alpha(),
-    "T": pygame.image.load("assets/tools.png").convert_alpha(),
-    "E": pygame.image.load("assets/dungeon_door.png").convert_alpha(),
-    "C": pygame.image.load("assets/chest_tile.png").convert_alpha(),
-    "L": pygame.image.load("assets/ladder.png").convert_alpha(),
+    "1": pygame.image.load("assets/house_interior_wall.png").convert_alpha(),
+    "T": pygame.image.load("assets/red_brick_tools.png").convert_alpha(),
+    "E": pygame.image.load("assets/red_brick_dungeon.png").convert_alpha(),
+    "C": pygame.image.load("assets/chest_asset_2.png").convert_alpha(),
+    "L": pygame.image.load("assets/red_brick_ladder.png").convert_alpha(),
     "B": pygame.image.load("assets/bookshelf.png").convert_alpha(),
     "W": pygame.image.load("assets/wood_wall_4.png").convert_alpha(), # wood floor
-    "R": pygame.image.load("assets/crate.png").convert_alpha(),  # crate
+    "R": pygame.image.load("assets/crate_2.png").convert_alpha(),  # crate
+
+    # new house
+
+    "ㅂ": pygame.image.load("assets/house_interior_partition.png").convert_alpha(), # part wall
+    "ㅁ": pygame.image.load("assets/house_interior_partition_door.png").convert_alpha(), # part door
+    "ㄹ": pygame.image.load("assets/house_interior_range.png").convert_alpha(), # kitchen
+    "ㅎ": pygame.image.load("assets/house_interior_hearth.png").convert_alpha(), # fireplace
+    "ㅊ": pygame.image.load("assets/red_brick_chest_narrow.png").convert_alpha(), # hunting chest
+    "ㅈ": pygame.image.load("assets/red_brick_chair.png").convert_alpha(), # chair
+    "ㄷ": pygame.image.load("assets/house_interior_window.png").convert_alpha(), # window
+
     # Farm
     "r": pygame.image.load("assets/farm_ground_b.png").convert_alpha(),
     "v": pygame.image.load("assets/farm_fence_b.png").convert_alpha(),  # fence
