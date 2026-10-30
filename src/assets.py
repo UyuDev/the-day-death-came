@@ -107,16 +107,19 @@ def load_assets():
     ",": pygame.image.load("assets/farm_treeline_1.png").convert_alpha(), # treeline trunks
 
     # Cave
-    "c": pygame.image.load("assets/cave_1.png").convert_alpha(),
-    "y": pygame.image.load("assets/cave_2.png").convert_alpha(),
-    "Y": pygame.image.load("assets/cave_3.png").convert_alpha(),
+    "c": pygame.image.load("assets/cave_1b.png").convert_alpha(),
+    "y": pygame.image.load("assets/cave_2c.png").convert_alpha(),
+    "Y": pygame.image.load("assets/cave_3c.png").convert_alpha(),
+    "H": pygame.image.load("assets/metal_stone_door.png").convert_alpha(),  # heavy door
+    "ㅏ": pygame.image.load("assets/cave_tent.png").convert_alpha(), # cave tent
+    "ㅓ": pygame.image.load("assets/cave_crevice.png").convert_alpha(), # cave crevice
+
 
     # Sewer
     "s": pygame.image.load("assets/sewer_1.png").convert_alpha(),  # sewer wall
     "h": pygame.image.load("assets/sewer_bed.png").convert_alpha(),  # straw bed
     "g": pygame.image.load("assets/sewer_1.png").convert_alpha(),  # stone ground
     "w": pygame.image.load("assets/sewer_water.png").convert_alpha(),  # water
-    "H": pygame.image.load("assets/sewer_door.png").convert_alpha(),  # heavy door
     "=": pygame.image.load("assets/sewer_bridge.png").convert_alpha(),  # stone bridge
 
     # Dungeon
