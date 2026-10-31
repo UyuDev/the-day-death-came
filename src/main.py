@@ -21,7 +21,7 @@ def main():
     language_data = load_language(settings["language"])
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption(language_data["menu.title"])
-    icon = pygame.image.load("assets/wood_door_3.png")
+    icon = pygame.image.load("assets/house_entrance.png")
     pygame.display.set_icon(icon)
     assets = load_assets()
     clock = pygame.time.Clock()

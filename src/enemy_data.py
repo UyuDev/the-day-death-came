@@ -168,7 +168,7 @@ ENEMIES = {
         "image": "skeleton_warrior"
     },
     "skeleton_mage": {
-        "name": "Skeleton mage",
+        "name": "Skeleton Mage",
         "level": 20,
         "game_class": "Mage",
         "inventory": ["Bones", "Magic Ashes"],
