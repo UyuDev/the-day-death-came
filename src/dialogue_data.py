@@ -167,7 +167,7 @@ DIALOGUE = {
                     "type": "check_flag",
                     "target": "inventory_unlocked",
                     "value": False,
-                    "if_pass": "bed chest 2",
+                    "if_pass": "bed chest 1",
                     "if_fail": "bed chest empty",
                 }
             ]
@@ -176,6 +176,12 @@ DIALOGUE = {
     "bed chest empty": {
             "text_id": "dialogue.bed_chest_empty",
             "next": "look around upstairs"
+        },
+
+
+    "bed chest 1": {
+            "text_id": "dialogue.bed_chest_1",
+            "next": "bed chest 2"
         },
 
     "bed chest 2": {
@@ -404,7 +410,7 @@ DIALOGUE = {
                 "type": "check_flag",
                 "target": "left_bookshelf_empty",
                 "value": False,
-                "if_pass": "tome open",
+                "if_pass": "left bookshelf search",
                 "if_fail": "left bookshelf empty",
             }
         ]
@@ -418,6 +424,12 @@ DIALOGUE = {
     "no inventory": {
         "text_id": "dialogue.no_inventory",
         "next": "look around upstairs"
+    },
+
+
+    "left bookshelf search": {
+        "text_id": "dialogue.left_bookshelf",
+        "next": "tome open"
     },
 
     "tome open": {
@@ -532,7 +544,7 @@ DIALOGUE = {
                 "type": "check_flag",
                 "target": "combat_treatise_taken",
                 "value": False,
-                "if_pass": "treatise choice",
+                "if_pass": "right bookshelf interact",
                 "if_fail": "right bookshelf check forbidden",
             }
         ]
@@ -557,9 +569,13 @@ DIALOGUE = {
         "next": "look around upstairs"
     },
 
+    "right bookshelf interact": {
+        "text_id": "dialogue.right_bookshelf",
+        "next": "treatise choice"
+    },
 
     "treatise choice": {
-        "text_id": "dialogue.treatise_choice",
+        "text_id": "dialogue.look_around_upstairs",
         "options": {
             1: {
                 "text_id": "dialogue.option.treatise_read",
@@ -1907,8 +1923,8 @@ DIALOGUE = {
                 "next": "outro class check"
             },
             2: {
-                "text_id": "dialogue.option.return_to_house",
-                "next": "return to house"
+                "text_id": "dialogue.option.do_nothing",
+                "next": "look around downstairs"
             },
             3: {
                 "text_id": "dialogue.option.empty",
@@ -2041,32 +2057,56 @@ DIALOGUE = {
         ]
     },
 
-
+    # testing if this combination node prevents the double ... error
+    # removed clear_scene
 
     "You died": {
         "text_id": "dialogue.died",
-        "next": "reload after death",
-        "actions": [
-            {
-                "type": "clear_scene"
-            }
-        ]
-    },
-
-    "Game Over": {
-        "text_id": "dialogue.game_over",
-        "next": "reload after death"
-    },
-
-
-    "reload after death": {
-        "text_id": "dialogue.empty",
         "actions": [
             {
                 "type": "death"
             }
         ]
     },
+
+
+
+    "Game Over": {
+        "text_id": "dialogue.game_over",
+        "actions": [
+            {
+                "type": "death"
+            }
+        ]
+    },
+
+    # original nodes
+     
+    # "You died": {
+    #     "text_id": "dialogue.died",
+    #     "next": "reload after death",
+    #     "actions": [
+    #         {
+    #             "type": "clear_scene"
+    #         }
+    #     ]
+    # },
+
+
+    # "Game Over": {
+    #     "text_id": "dialogue.game_over",
+    #     "next": "reload after death"
+    # },
+
+
+    # "reload after death": {
+    #     "text_id": "dialogue.empty",
+    #     "actions": [
+    #         {
+    #             "type": "death"
+    #         }
+    #     ]
+    # },
 
     "table": {
         "text_id": "dialogue.empty",
@@ -2088,7 +2128,7 @@ DIALOGUE = {
                 "type": "check_flag",
                 "target": "inventory_unlocked",
                 "value": True,
-                "if_pass": "inspect table",
+                "if_pass": "table approach",
                 "if_fail": "no inventory",
             }
         ]
@@ -2097,6 +2137,12 @@ DIALOGUE = {
     "table empty": {
         "text_id": "dialogue.table_empty",
         "next": "look around downstairs"
+    },
+
+
+    "table approach": {
+        "text_id": "dialogue.table",
+        "next": "inspect table"
     },
 
     "inspect table": {
@@ -6313,7 +6359,7 @@ DIALOGUE = {
         "text_id": "dialogue.galerich_absent",
         "next": "town black market"
     },
-    
+
     "galerich reaper repeat check": {
         "text_id": "dialogue.empty",
         "actions": [
@@ -8182,7 +8228,7 @@ DIALOGUE = {
     },
     "crypt 1 ritual disrupt": {
         "text_id": "dialogue.crypt_1_ritual_disrupt",
-        "next": "crypt 1 choice",
+        "next": "crypt 1 ritual disrupt 2",
         "actions": [
             {
                 "type": "set_flag",
@@ -8191,6 +8237,11 @@ DIALOGUE = {
             }
         ]
     },
+    "crypt 1 ritual disrupt 2": {
+        "text_id": "dialogue.crypt_1_ritual_disrupt_2",
+        "next": "crypt 1 choice"
+    },
+
     "crypt 1 ritual ruined": {
         "text_id": "dialogue.crypt_1_ritual_ruined",
         "next": "crypt 1 choice"

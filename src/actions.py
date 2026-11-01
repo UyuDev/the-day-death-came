@@ -91,7 +91,7 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
         if front_door_encountered:
             world_state.flags["front_door_encountered"] = True
             print("front_door_encountered:", world_state.flags["front_door_encountered"])
-        dialogue.set_current("intro")
+        dialogue.set_current("resurrect 1")
         renderer.load_map("house_upstairs")
         return "DIALOGUE"
     
@@ -180,5 +180,6 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
             result = handle_action(new_action, player, renderer, dialogue, world_state, save_menu, settings, exploration)
             if result is not None:
                 return result
+            
     elif action["type"] == "check_level":
         return player.level >= action["target"]
