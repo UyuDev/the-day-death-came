@@ -183,8 +183,8 @@
     "dialogue.trapdoor_warning_2": "*이유는 한 번도 말씀해 주시지 않았지만.*",
     "dialogue.trapdoor_warning_3": "*하지만 다른 길로 나가야 해.*",
 
-    "dialogue.option.trapdoor_read_tome": "낡은 고서 살펴보기",
-    "dialogue.trapdoor_no_tome": "*책을 안 가져왔네.*",
+    "dialogue.option.trapdoor_read_tome": "소지품 확인",
+    "dialogue.trapdoor_no_tome": "*쓸 만한 물건이 없네.*",
 
     "dialogue.trapdoor_tome_1": "*그 낡은 책에 뭔가 있을지도 몰라.*",
     "dialogue.trapdoor_tome_2": "당신은 '불과 화염에 맞서'라는 제목의 구절을 발견한다.",
@@ -391,8 +391,8 @@
     "dialogue.enter_tunnel_1": "[터널에 들어간다]",
     "dialogue.tunnel_1_intro": "당신은 마법으로 밝혀진 주변 벽들을 살펴본다.",
     "dialogue.tunnel_1_cont_b": "당신은 침입자의 시신을 지나 숨겨진 통로를 따라 계속 나아간다.",
-    "dialogue.tunnel_1_cont": "동굴을 지나던 중, 누군가 다가오는 발소리가 들린다.",
-    "dialogue.tunnel_1_encounter": "당신은 몸을 옆으로 피하며 얼굴을 향해 날아온 검격을 가까스로 피한다.",
+    "dialogue.tunnel_1_cont": "동굴을 지나던 중, 불규칙한 발소리가 가까워진다.",
+    "dialogue.tunnel_1_encounter": "부상당한 도적이 양손에 단검을 쥔 채 나타난다. 그가 달려들자, 당신은 가까스로 공격을 피한다.",
     "dialogue.cryptic_note_1": "당신은 가쁜 숨을 몰아쉬며 시신에서 한 걸음 물러난다.",
     "dialogue.cryptic_note_2": "당신은 손에 묻은 피를 닦아내고 발견한 쪽지를 펼친다.",
     "dialogue.cryptic_note_3": "\"터널을 발견했다. 하수도에 뚫린 구멍으로 진입할 수 있다.\"",

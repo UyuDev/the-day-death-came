@@ -179,8 +179,8 @@
     "dialogue.trapdoor_warning_2": "*He never said why.*",
     "dialogue.trapdoor_warning_3": "*But I need another way out.*",
 
-    "dialogue.option.trapdoor_read_tome": "Examine the old tome",
-    "dialogue.trapdoor_no_tome": "*I don't have the book with me.*",
+    "dialogue.option.trapdoor_read_tome": "Check your items",
+    "dialogue.trapdoor_no_tome": "*I don't have anything useful.*",
 
     "dialogue.trapdoor_tome_1": "*Perhaps there's something in that old book.*",
     "dialogue.trapdoor_tome_2": "You find a passage titled 'Against Fire and Flame'.",
@@ -387,8 +387,8 @@
     "dialogue.enter_tunnel_1": "[You enter the tunnel]",
     "dialogue.tunnel_1_intro": "You look around at the walls illuminated by your spell.",
     "dialogue.tunnel_1_cont_b": "You step past the corpse of the invader and continue down the hidden passage.",
-    "dialogue.tunnel_1_cont": "As you make your way through the caves, you hear footsteps approaching.",
-    "dialogue.tunnel_1_encounter": "You sidestep, narrowly avoiding a sword strike aimed at your face.",
+    "dialogue.tunnel_1_cont": "As you make your way through the caves, you hear uneven footsteps approaching.",
+    "dialogue.tunnel_1_encounter": "An injured rogue emerges, a dagger in each hand. He lunges at you, but you narrowly dodge his strike.",
     "dialogue.cryptic_note_1": "You step back from the body, your breath shallow.",
     "dialogue.cryptic_note_2": "You wipe the blood from your hands and unfold the note you found.",
     "dialogue.cryptic_note_3": "\"We found the tunnels. A breach in the sewers revealed the way.\"",
