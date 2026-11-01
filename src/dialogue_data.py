@@ -1190,6 +1190,18 @@ DIALOGUE = {
                 "target": "door_boss_defeated",
                 "value": True,
                 "if_pass": "outro choice",
+                "if_fail": "door family check"
+            }
+        ]
+    },
+    "door family check": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "galerich_helping_town",
+                "value": True,
+                "if_pass": "prepare to leave b",
                 "if_fail": "door class check"
             }
         ]
@@ -6735,7 +6747,7 @@ DIALOGUE = {
             {
                 "type": "set_flag",
                 "target": "galerich_helping_town",
-                "value": False
+                "value": True
             }
         ]
     },
