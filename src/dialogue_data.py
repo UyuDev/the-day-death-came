@@ -2987,22 +2987,22 @@ DIALOGUE = {
         "next": "tunnel 1 choice",
     },
 
-
+    # testing moving the actions down a node.
     "tunnel 1 enemies 1": {
         "text_id": "dialogue.tunnel_1_enemies_1",
-        "next": "tunnel 1 enemies 2",
-        "actions": [
-            {   
-                "type": "encounter",
-                "target": "tunnel_1",
-            }
-        ]
+        "next": "tunnel 1 enemies 2"
     },
 
 
     "tunnel 1 enemies 2": {
         "text_id": "dialogue.tunnel_1_enemies_2",
         "next": "tunnel 1 choice",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "tunnel_1",
+            }
+        ]
     },
 
 
@@ -3197,19 +3197,19 @@ DIALOGUE = {
 
     "tunnel 2 enemies 1": {
         "text_id": "dialogue.tunnel_2_enemies_1",
-        "next": "tunnel 2 enemies 2",
-        "actions": [
-            {   
-                "type": "encounter",
-                "target": "tunnel_2",
-            }
-        ]
+        "next": "tunnel 2 enemies 2"
     },
 
 
     "tunnel 2 enemies 2": {
         "text_id": "dialogue.tunnel_2_enemies_2",
         "next": "tunnel 2 choice",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "tunnel_2",
+            }
+        ]
     },
 
 
@@ -3405,19 +3405,19 @@ DIALOGUE = {
 
     "sewer enemies 1": {
         "text_id": "dialogue.sewer_enemies_1",
-        "next": "sewer enemies 2",
-        "actions": [
-            {   
-                "type": "encounter",
-                "target": "sewer",
-            }
-        ]
+        "next": "sewer enemies 2"
     },
 
 
     "sewer enemies 2": {
         "text_id": "dialogue.sewer_enemies_2",
         "next": "sewer choice",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "sewer",
+            }
+        ]
     },
 
 
@@ -3609,19 +3609,19 @@ DIALOGUE = {
 
     "dungeon enemies 1": {
         "text_id": "dialogue.dungeon_enemies_1",
-        "next": "dungeon enemies 2",
-        "actions": [
-            {   
-                "type": "encounter",
-                "target": "dungeon",
-            }
-        ]
+        "next": "dungeon enemies 2"
     },
 
 
     "dungeon enemies 2": {
         "text_id": "dialogue.dungeon_enemies_2",
         "next": "dungeon choice",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "dungeon",
+            }
+        ]
     },
 
 
@@ -8608,7 +8608,13 @@ DIALOGUE = {
 
     "crypt 1 enemies 1": {
         "text_id": "dialogue.crypt_1_enemies_1",
-        "next": "crypt 1 enemies 1 cont",
+        "next": "crypt 1 enemies 1 cont"
+    },
+
+
+    "crypt 1 enemies 1 cont": {
+        "text_id": "dialogue.crypt_1_enemies_1_cont",
+        "next": "crypt 1 choice",
         "actions": [
             {   
                 "type": "encounter",
@@ -8618,27 +8624,21 @@ DIALOGUE = {
     },
 
 
-    "crypt 1 enemies 1 cont": {
-        "text_id": "dialogue.crypt_1_enemies_1_cont",
-        "next": "crypt 1 choice",
-    },
-
-
     "crypt 1 enemies 2": {
         "text_id": "dialogue.crypt_1_enemies_2",
-        "next": "crypt 1 enemies 2 cont",
-        "actions": [
-            {   
-                "type": "encounter",
-                "target": "crypt_1_enemies_2",
-            }
-        ]
+        "next": "crypt 1 enemies 2 cont"
     },
 
 
     "crypt 1 enemies 2 cont": {
         "text_id": "dialogue.crypt_1_enemies_2_cont",
         "next": "crypt 1 choice",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "crypt_1_enemies_2",
+            }
+        ]
     },
 
 
@@ -8835,10 +8835,16 @@ DIALOGUE = {
 
 
 
-    # new nodes
+ 
     "crypt 2 enemies 1": {
         "text_id": "dialogue.crypt_2_enemies_1",
-        "next": "crypt 2 enemies 1 cont",
+        "next": "crypt 2 enemies 1 cont"
+    },
+
+
+    "crypt 2 enemies 1 cont": {
+        "text_id": "dialogue.crypt_2_enemies_1_cont",
+        "next": "crypt 2 choice",
         "actions": [
             {   
                 "type": "encounter",
@@ -8848,27 +8854,21 @@ DIALOGUE = {
     },
 
 
-    "crypt 2 enemies 1 cont": {
-        "text_id": "dialogue.crypt_2_enemies_1_cont",
-        "next": "crypt 2 choice",
-    },
-
-
     "crypt 2 enemies 2": {
         "text_id": "dialogue.crypt_2_enemies_2",
-        "next": "crypt 2 enemies 2 cont",
-        "actions": [
-            {   
-                "type": "encounter",
-                "target": "crypt_2_enemies_2",
-            }
-        ]
+        "next": "crypt 2 enemies 2 cont"
     },
 
 
     "crypt 2 enemies 2 cont": {
         "text_id": "dialogue.crypt_2_enemies_2_cont",
         "next": "crypt 2 choice",
+        "actions": [
+            {   
+                "type": "encounter",
+                "target": "crypt_2_enemies_2",
+            }
+        ]
     },
 
 

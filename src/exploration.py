@@ -77,7 +77,7 @@ ENCOUNTERS = {
         "text_id": "exploration.sewer_enemies"
     },
     "dungeon": {
-        "enemies": ["dungeon_inmate", "dungeon_inmate", "dungeon_invader_warlock", "dungeon_invader_warrior", "dungeon_invader_warlock", "dungeon_invader_warrior"],
+        "enemies": ["dungeon_invader_warlock", "dungeon_inmate", "dungeon_invader_warrior", "dungeon_inmate", "dungeon_invader_warlock", "dungeon_invader_warrior"],
         "text_id": "exploration.dungeon_enemies"
     },
     "dungeon_ambush": {
@@ -90,7 +90,7 @@ ENCOUNTERS = {
     },
     "town_encounter_1": {
         "enemies": ["town_rogue", "town_warrior", "town_ranger"],
-        "text_id": "exploration.dungeon_exit_encounter"
+        "text_id": "exploration.town_encounter"
     },
     "town_encounter_2": {
         "enemies": ["town_warlock", "town_rogue", "town_warrior", "town_ranger"],
@@ -101,7 +101,7 @@ ENCOUNTERS = {
         "text_id": "exploration.crypt_1_enemies_1"
     },
     "crypt_1_enemies_2": {
-        "enemies": ["skeleton", "cultist_acolyte", "skeleton", "cultist_acolyte"],
+        "enemies": ["cultist_acolyte", "skeleton", "cultist_acolyte", "skeleton"],
         "text_id": "exploration.crypt_1_enemies_2"
     },
     "crypt_1_ambush": {
