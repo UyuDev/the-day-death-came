@@ -6282,11 +6282,22 @@ DIALOGUE = {
     },
 
 
-    # Galerich / Blademaster
-
-    # Galerich / Blademaster
+    # Galerich
 
     "town galerich check 1": {
+        "text_id": "dialogue.empty",
+        "actions": [
+            {
+                "type": "check_flag",
+                "target": "galerich_helping_town",
+                "value": True,
+                "if_pass": "galerich absent",
+                "if_fail": "town galerich class check"
+            }
+        ]
+    },
+
+    "town galerich class check": {
         "text_id": "dialogue.empty",
         "actions": [
             {
@@ -6297,6 +6308,12 @@ DIALOGUE = {
             }
         ]
     },
+
+    "galerich absent": {
+        "text_id": "dialogue.galerich_absent",
+        "next": "town black market"
+    },
+    
     "galerich reaper repeat check": {
         "text_id": "dialogue.empty",
         "actions": [
@@ -6363,7 +6380,14 @@ DIALOGUE = {
     # Nicholas obeyed Galerich and returned without intervening
     "galerich discovery report 1": {
         "text_id": "dialogue.galerich_discovery_report_1",
-        "next": "galerich discovery report 2"
+        "next": "galerich discovery report 2",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "galerich_reported",
+                "value": True
+            }
+        ]
     },
     "galerich discovery report 2": {
         "text_id": "dialogue.galerich_discovery_report_2",
@@ -6660,7 +6684,14 @@ DIALOGUE = {
     },
     "galerich farm 7": {
         "text_id": "dialogue.galerich_farm_7",
-        "next": "galerich farm 8"
+        "next": "galerich farm 8",
+        "actions": [
+            {
+                "type": "set_flag",
+                "target": "galerich_helping_town",
+                "value": False
+            }
+        ]
     },
     "galerich farm 8": {
         "text_id": "dialogue.galerich_farm_8",
@@ -8909,7 +8940,7 @@ DIALOGUE = {
             },
             3: {
                 "text_id": "dialogue.option.crypt_3_approach_people",
-                "next": "crypt 3 approach people check"
+                "next": "crypt 3 secret check"
             },
             4: {
                 "text_id": "dialogue.option.crypt_3_return",
@@ -9344,7 +9375,13 @@ DIALOGUE = {
 
     "crypt 3 report return": {
         "text_id": "dialogue.crypt_3_report_return",
-        "next": "town black market"
+        "next": "town black market",
+        "actions": [
+            {
+                "type": "map",
+                "target": "town"
+            }
+        ]
     },
 
 

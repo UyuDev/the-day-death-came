@@ -179,8 +179,8 @@ def load_assets():
     "p": pygame.image.load("assets/crypt_entrance.png").convert_alpha(),
 
     # Crypt
-    ">": pygame.image.load("assets/stone_stairs_v.png").convert_alpha(),  # stone steps vertical
-    "<": pygame.image.load("assets/stone_stairs_h.png").convert_alpha(),  # stone steps horizontal
+    "<": pygame.image.load("assets/stone_stairs_v.png").convert_alpha(),  # stone steps vertical
+    ">": pygame.image.load("assets/stone_stairs_h.png").convert_alpha(),  # stone steps horizontal
     "q": pygame.image.load("assets/crypt_floor.png").convert_alpha(),  # crypt floor 1
     "m": pygame.image.load("assets/crypt_tomb.png").convert_alpha(),  # sarcophagus
     "z": pygame.image.load("assets/crypt_brazier.png").convert_alpha(),  # brazier

@@ -1052,6 +1052,7 @@
     "dialogue.town_witch_goodbye": "마녀: \"도움이 됐길 바라. 또 오렴!\"",
 
     "dialogue.galerich_busy_1": "문을 두드리지만 갈레리치는 대답이 없다. 아직 쉬고 있는 모양이다.",
+    "dialogue.galerich_absent": "갈레리치의 문을 두드려도 대답이 없다. 아직 마을 방비를 지휘하고 있는 모양이다.",
     "dialogue.galerich_return_1": "[작업 중]",
     "dialogue.galerich_repeat": "갈레리치: \"이미 이야기했잖나, 니콜라스. 생각할 게 많네.\"",
     "dialogue.galerich_discovery_report_1": "갈레리치: \"니콜라스? 돌아왔군. 뭘 알아냈나?\"",

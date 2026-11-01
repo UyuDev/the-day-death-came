@@ -48,7 +48,7 @@ LOCALIZATION_LOOKUP = {
     "Skeleton Fighter": "enemy.skeleton_fighter",
     "Cultist Acolyte": "enemy.cultist_acolyte",
     "Skeleton Warrior": "enemy.skeleton_warrior",
-    "Skeleton mage": "enemy.skeleton_mage",
+    "Skeleton Mage": "enemy.skeleton_mage",
     "Skeleton Knight": "enemy.skeleton_knight",
     "Skeleton Darkmaster": "enemy.skeleton_darkmaster",
     "Reaver Captain": "enemy.reaver_captain",

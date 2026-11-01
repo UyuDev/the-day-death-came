@@ -1050,6 +1050,7 @@
     "dialogue.town_witch_goodbye": "Witch: \"I hope that helped. Come again soon!\"",
 
     "dialogue.galerich_busy_1": "You knock on the door, but Galerich does not answer. He must still be resting.",
+    "dialogue.galerich_absent": "You knock on Galerich's door, but there is no answer. He must still be organizing the town's defenses.",
     "dialogue.galerich_return_1": "[WIP]",
     "dialogue.galerich_repeat": "Galerich: \"We've discussed this, Nicholas. There is much to consider.\"",
     "dialogue.galerich_discovery_report_1": "Galerich: \"Nicholas? You're back. What did you find?\"",

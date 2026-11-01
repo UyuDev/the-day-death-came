@@ -57,6 +57,7 @@ class WorldState():
             "paladin_chest_looted": False,
             "reaper_knowledge": False,
             "graye_secret_revealed": False,
+            "galerich_helping_town": False,
             "galerich_accompanying": False,
             "galerich_reported": False,
             "galerich_reaper_confronted": False,
