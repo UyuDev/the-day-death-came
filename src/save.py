@@ -21,6 +21,8 @@ def can_save(settings, player):
     return True
 
 def save_game(player, flags, save_location, slot, language_data):
+    Path("saves").mkdir(exist_ok=True)
+
     player_data = player.to_dict()
     save_data = {
         "save_name": f"{language_data[player.name]} - {language_data[SAVE_LOCATIONS[save_location]["name_id"]]} - {language_data["save.level"]} {player.level}",
