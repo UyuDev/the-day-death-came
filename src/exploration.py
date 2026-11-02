@@ -181,7 +181,7 @@ SEARCH_AREAS = {
             {
                 "type": "crates",
                 "text_id": "exploration.crates_1",
-                "image": "crates",
+                "image": "crate",
                 "encounter": "sewer_ambush",
                 "loot": ["Old Junk", "Old Junk"],
                 "coins": 20
@@ -201,7 +201,7 @@ SEARCH_AREAS = {
             {
                 "type": "crates",
                 "text_id": "exploration.crates_1",
-                "image": "crates",
+                "image": "crate",
                 "encounter": "dungeon_ambush",
                 "loot": ["Old Junk", "Old Junk"],
                 "coins": 20
@@ -256,12 +256,12 @@ SEARCH_AREAS = {
             }
         ]
     },
-    "crypt_3": {
+    "crypt_3": { # unused - I ended up just making a flag and dialogue to skip this as there are no enemies in crypt 3 in the final version.
         "containers": [
             {
                 "type": "Small Chest",
                 "text_id": "exploration.small_chest",
-                "image": "small chest",
+                "image": "chest",
                 "encounter": "crypt_3_ambush",
                 "loot": ["Shiny Key"],
                 "coins": 0
@@ -276,7 +276,7 @@ class Exploration():
     def __init__(self, language_data, assets):
         self.current = "intro"
         self.assets = assets
-        for key in ["unknown_enemy", "dungeon_inmate", "invader_rogue", "invader_ranger", "invader_warrior", "invader_warlock", "invader_reaver", "cave_goblin", "giant_rat", "cultist_acolyte", "skeleton_warrior", "skeleton_knight", "zombie", "skeleton", "skeleton_mage", "skeleton_warlock", "honor_guard", "lord_graye", "reaper_boss_1", "reaper_boss_spawn", "reaper_boss_2", "reaper_boss_3", "reaper_boss_4", "chest", "crate", "crates", "tomb", "small_chest", "altar"]:
+        for key in ["unknown_enemy", "dungeon_inmate", "invader_rogue", "invader_ranger", "invader_warrior", "invader_warlock", "invader_reaver", "cave_goblin", "giant_rat", "cultist_acolyte", "skeleton_warrior", "skeleton_knight", "zombie", "skeleton", "skeleton_mage", "skeleton_warlock", "honor_guard", "lord_graye", "reaper_boss_1", "reaper_boss_spawn", "reaper_boss_2", "reaper_boss_3", "reaper_boss_4", "chest", "crate"]:
             self.assets[key] = pygame.transform.scale(
                 self.assets[key],
                 (SCREEN_WIDTH, MAP_HEIGHT)

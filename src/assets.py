@@ -19,12 +19,9 @@ def load_assets():
     # "good ending 1": pygame.image.load("assets/black_map.png").convert_alpha(),
 
     # Container illustrations
-    "small_chest": pygame.image.load("assets/chest_container.png").convert_alpha(),
-    "tomb": pygame.image.load("assets/chest_container.png").convert_alpha(), # I ended up not creating separate assets to save development time
     "chest": pygame.image.load("assets/chest_container.png").convert_alpha(),
-    "crate": pygame.image.load("assets/chest_container.png").convert_alpha(),
-    "crates": pygame.image.load("assets/chest_container.png").convert_alpha(),
-    "altar": pygame.image.load("assets/chest_container.png").convert_alpha(),
+    "crate": pygame.image.load("assets/crate_container.png").convert_alpha(),
+    # "crates": pygame.image.load("assets/crate_container.png").convert_alpha(),
 
     # Enemy illustrations
     "unknown_enemy": pygame.image.load("assets/unknown_enemy.png").convert_alpha(),
