@@ -28,5 +28,5 @@ def edit_settings(settings, choice):
     return settings
 
 def load_language(language):
-    with open(f"localization/{language}.json", "r") as file:
+    with open(f"localization/{language}.json", "r", encoding="utf-8") as file:
         return json.load(file)

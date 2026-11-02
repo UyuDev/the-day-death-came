@@ -78,13 +78,15 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
         front_door_encountered = world_state.flags["front_door_encountered"]
         if settings["hardcore"]:
             return "HARDCORE_DEATH"
-        reload_current_save(
+        loaded = reload_current_save(
             player,
             world_state,
             save_menu,
             renderer,
             dialogue
         )
+        if not loaded:
+            return "NO_SAVE_DEATH"
         print("Current dialogue after reload:", dialogue.current)
         world_state.flags["has_died"] = True
         print("has_died:", world_state.flags["has_died"])

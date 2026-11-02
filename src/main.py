@@ -181,6 +181,23 @@ def main():
                                     dialogue.language_data
                                 )
                                 break
+
+                            elif result == "NO_SAVE_DEATH":
+                                front_door_encountered = world_state.flags["front_door_encountered"]
+
+                                player = Character()
+                                player.create("Nicholas", 1, "Classless", None, 0, None)
+
+                                world_state = WorldState()
+                                world_state.flags["has_died"] = True
+
+                                if front_door_encountered:
+                                    world_state.flags["front_door_encountered"] = True
+
+                                renderer.load_map("house_upstairs")
+                                dialogue.set_current("resurrect 1")
+                                game_state = "DIALOGUE"
+                                break
                             else:
                                 game_state = result
                                 print("game_state", game_state)
@@ -234,6 +251,8 @@ def main():
                                     save_menu.current_slot,
                                     exploration.language_data
                                 )
+
+                                
                             else:
                                 reload_current_save(
                                     player,
@@ -244,6 +263,8 @@ def main():
                                 )
                                 world_state.flags["has_died"] = True
                         game_state = "DIALOGUE"
+
+
                     
 
 

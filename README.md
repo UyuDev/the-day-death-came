@@ -79,7 +79,7 @@ Progress is saved by sleeping in a bed. Saving overwrites the data in the curren
 
 ### Settings
 
-This game supports text localization and has two separate art styles.
+This game supports text localization and has an optional Hardcore mode.
 
 #### Localization:
 
@@ -89,11 +89,18 @@ Developer's note:
 I wrote the English and had it reviewed by AI.
 The Korean was machine translated and each line was reviewed by me.
 
+### Game Difficulty:
+
+Normal Mode: Death returns you to your last saved checkpoint. Progress made since saving is lost.
+
+Hardcore Mode: Death resets your character and world progress, replacing your current save with a fresh game.
+
+
 ### Art Style
 
 The game uses handcrafted pixel-art tiles displayed on a grid. Each environment was designed and iterated on individually, including the buildings, terrain, and environmental details.
 
-The game also features hand-drawn artwork for the main menu and selected story moments.
+The game also features hand-drawn artwork for the main menu, enemies and lootable containers.
 
 
 ## Developer's notes

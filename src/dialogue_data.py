@@ -1224,7 +1224,7 @@ DIALOGUE = {
                 "type": "check_flag",
                 "target": "front_door_encountered",
                 "value": True,
-                "if_pass": "door",
+                "if_pass": "reaper prepare 1",
                 "if_fail": "door blessing check"
             }
         ]
@@ -1238,18 +1238,6 @@ DIALOGUE = {
                 "value": True,
                 "if_pass": "door",
                 "if_fail": "door check 3"
-            }
-        ]
-    },
-    "reaper door check": {
-        "text_id": "dialogue.empty",
-        "actions": [
-            {
-                "type": "check_flag",
-                "target": "front_door_encountered",
-                "value": True,
-                "if_pass": "door",
-                "if_fail": "door blessing check"
             }
         ]
     },
@@ -1846,85 +1834,6 @@ DIALOGUE = {
     },
 
 
-    # ending path
-    # rush to shed
-    "farm saved 1": {
-        "text_id": "dialogue.farm_saved_1",
-        "next": "farm saved 2",        
-        "actions": [
-            {
-                "type": "set_flag",
-                "target": "door_boss_defeated",
-                "value": True
-            }
-        ]
-    },
-
-    # call out to family
-    "farm saved 2": {
-        "text_id": "dialogue.farm_saved_2",
-        "next": "farm saved 3"
-    },
-
-    # hear them open
-    "farm saved 3": {
-        "text_id": "dialogue.farm_saved_3",
-        "next": "farm saved 4"
-    },
-
-    # reunited
-    "farm saved 4": {
-        "text_id": "dialogue.farm_saved_4",
-        "next": "good ending 1"
-    },
-
-
-    # happy ending
-    "good ending 1": {
-        "text_id": "dialogue.good_ending_1",
-        "next": "save game 2",
-        "actions": [
-            {   
-                "type": "show_scene",
-                "target": "good ending 1"
-            }
-        ]
-    },
-
-
-    # save choice
-    "save game 2": {
-        "text_id": "dialogue.save_game_2",
-        "options": {
-            1: {
-                "text_id": "dialogue.option.save_game_yes_2",
-                "next": "save game yes"
-            },
-            2: {
-                "text_id": "dialogue.option.save_game_no_2",
-                "next": "return to house"
-            },
-            3: {
-                "text_id": "dialogue.option.empty",
-                "next": "save game 2"
-            },
-            4: {
-                "text_id": "dialogue.option.main_menu",
-                "next": "main menu yes"
-            }
-        }
-    },
-
-    "return to house": {
-        "text_id": "dialogue.return_to_house",
-        "next": "look around downstairs",
-        "actions": [
-            {   
-                "type": "map",
-                "target": "house"
-            }
-        ]
-    },
 
 
     "outro choice": {
@@ -1963,7 +1872,13 @@ DIALOGUE = {
 
     "outro 1": {
         "text_id": "dialogue.outro_1",
-        "next": "outro 2"
+        "next": "outro 2",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "pitch black"
+            }
+        ]
     },
     "outro 2": {
         "text_id": "dialogue.outro_2",
@@ -1987,7 +1902,13 @@ DIALOGUE = {
     },
     "reaper outro 1": {
         "text_id": "dialogue.reaper_outro_1",
-        "next": "reaper outro 2"
+        "next": "reaper outro 2",
+        "actions": [
+            {   
+                "type": "map",
+                "target": "pitch black"
+            }
+        ]
     },
     "reaper outro 2": {
         "text_id": "dialogue.reaper_outro_2",
