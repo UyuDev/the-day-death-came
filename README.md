@@ -6,39 +6,43 @@ The game features branching dialogue, multiple endings, save files, character pr
 
 ## Installation
 
-### V1 Release - recommended 
+### V1 Release — Windows Only
 
-The easiest way to play the game is through the packaged release.
+The easiest way to play the game is through the packaged Windows release.
 
-1. Download the latest V1 release from the Releases page.
-2. Extract the downloaded folder to your desired location.
-3. Run the executable to start the game.
+1. Download the latest V1 release from the [Releases](https://github.com/UyuDev/the-day-death-came/releases) page.
+2. Extract the downloaded ZIP file to your desired location.
+3. Run `TheDayDeathCame.exe` to start the game.
 4. See the Controls section below for information on how to play.
 
 ### Running from Source
 
 Running from source is primarily intended for developers or anyone interested in viewing or modifying the code.
 
-Requirements
-
-Python 3.13
-
-uv
+**Requirements**
+- Python 3.13
+- [uv](https://docs.astral.sh/uv/)
 
 Clone the repository and enter the project directory:
 
-git clone <repository-url>
-cd fantasy-rpg
+```bash
+git clone https://github.com/UyuDev/the-day-death-came
+cd the-day-death-came
+```
 
 Install the project's dependencies:
 
+```bash
 uv sync
+```
 
 Run the game:
 
+```bash
 ./main.sh
+```
 
-The project was developed and tested using WSL/Linux. Running directly on Windows may require launching the Python entry point manually rather than using main.sh.
+The project was developed primarily using WSL/Linux. The V1 packaged release was tested on Windows. Running directly from source on Windows may require launching the Python entry point manually rather than using `main.sh`.
 
 
 ## Main menu
@@ -51,8 +55,8 @@ Refer to the explanation below to understand how to navigate the menu.
 
 - **Space / Enter:** Advance dialogue
 - **1–4:** Select dialogue or menu options
-- **B:** Open the in-game inventory interface to view and browse collected items.
-- **C:** Open the equipment interface to inspect currently equipped gear.
+- **B/C:** Open the in-game inventory interface to view and browse collected items or currently equipped gear.
+
 
 ### Inventory and Equipment
 
@@ -86,8 +90,8 @@ This game supports text localization and has an optional Hardcore mode.
 Currently this game supports English and Korean. 
 
 Developer's note:
-I wrote the English and had it reviewed by AI.
-The Korean was machine translated and each line was reviewed by me.
+The English dialogue was written by me and reviewed with AI assistance. The Korean localization was initially machine-translated, then reviewed line by line by me.
+
 
 ### Game Difficulty:
 
@@ -103,35 +107,43 @@ The game uses handcrafted pixel-art tiles displayed on a grid. Each environment 
 The game also features hand-drawn artwork for the main menu, enemies and lootable containers.
 
 
-## Developer's notes
+## Developer's Notes
 
 ### Summary
 
-I initially wanted to build a text-based RPG to be able to play as one of my OCs in their world. 
+I initially wanted to build a text-based RPG so I could play as one of my original characters (OCs) in their world.
+
 The scope quickly grew as I decided to make it not just a programming project, but an art, writing, and localization project as well.
 
 ### Worldbuilding
 
-The fantasy world was created years ago, combining the observations and stories I collected over my years gaming since 7 years old.
-If you wish to learn more about the lore and other stories of my world, watch this space. I may add a link to more information.
+I began creating this fantasy world years ago, drawing on the stories, ideas, and observations I collected through my experiences with games over the years.
+
+If you wish to learn more about the lore and other stories set in my world, watch this space. I may add a link to more information in the future.
 
 ### Story
 
-Despite wanting to play as one of my OCs, I ended up making a new character for this story. For more details read the "How I built this" section.
+Despite originally wanting to play as one of my OCs, I ended up creating a new character for this story. For more details, read the "How I Built This" section.
 
-### How I built this
+### How I Built This
 
 I wanted to design and implement the game's systems myself rather than have AI generate solutions for me. When I encountered unfamiliar problems, I generally designed an approach first and used AI as a reviewer and debugging aid. If an approach was viable, I deliberately continued with my own design rather than replacing it with an AI-generated implementation.
 
-Naturally, I had some issues as I have 0 experience with main menus, save systems or gamdev in general. I started off attempting to design a system and then I would get AI to check if it would be usable or not. If it was unusable, I would stop there and figure out how to make it work. If it was viable, I stuck to it and avoided having AI give me the best solution. Due to this choice, I had to later go back and redesign a lot of systems to enable their proper interaction.
+Naturally, I ran into problems because I had no prior experience implementing main menus, save systems, or game development systems in general. I would first attempt to design a system and then ask AI to evaluate whether my approach was workable. If it wasn't, I would reconsider the design and figure out how to make it work. If it was viable, I stuck with it rather than asking for the optimal solution. As a result, I eventually had to go back and redesign several systems to allow them to interact properly.
 
-I started off building a small demo using a house to test interaction with objects and to see if I could get a dialogue system to work. I eventually added more objects, but I needed a way to prevent dead ends and to test death mechanics, so I made almost all choices result in death. I kept this up and treated death and resurrection as part of the story progresison. As I added more features I realized I never even decided on what OC was going to be my protagonist. I eventually decided on making a new character and using a simple backstory: a farmer's son. As I continued desigining the game I found a solid place in my world's lore for this character and was able to write the first draft of the story's plot. 
+I started by building a small demo set inside a house to test interactions with objects and see whether I could get a dialogue system working. I eventually added more objects, but I needed a way to prevent dead ends and test the death mechanics, so I made almost every choice result in death. I continued with this approach, treating death and resurrection as part of the story's progression.
 
-#### Warning: Spoilers below: skip to the next section if desired.
+As I added more features, I realized I hadn't even decided which OC would be the protagonist. I eventually chose to create a new character with a simple backstory: a farmer's son. As I continued designing the game, I found a suitable place for this character in my world's lore and was able to write the first draft of the story's plot.
 
-The Town section was added late into production. I originally had the player transition from the dungeon to the crypts, but it felt really forced. As I designed the town, the proximity to the reaper boss made me want to add more features to support an RTS-style boss farming gameplay, so I added the merchants and inn. I then in one of the final passes added the Blademaster character and fleshed out the main story and Nicholas' goals.
+#### Warning: Spoilers below. Skip to the next section if desired.
+
+The town section was added late in development. Originally, the player transitioned directly from the dungeon to the crypts, but this felt forced. As I designed the town, its proximity to the Reaper boss inspired me to introduce a repeatable boss-farming loop, so I added merchants and an inn to support character progression between encounters. During one of the final development passes, I also introduced the character who would eventually become Galerich and fleshed out the main story and Nicholas's goals.
 
 #### End of spoilers
 
-Over a month in as I had to do a lot of writing, I found myself with almost a hundred lines as a time I needed to create dialogue nodes for. I realized then that I should have made a node generator that automates the node creation, naming, localization key generation and actions. With bugtesting I quickly learned that I also should have made a file validator to see that all my dialogue had no dead ends or unused flags. As this is my first time experimenting with gamedev I am not surprised that I had such huge oversights. I take this experience as a huge lesson for future projects.
+More than a month into development, I found myself writing almost a hundred lines of dialogue at a time, all of which needed corresponding dialogue nodes. I realized that I should have created a node generator to automate node creation, naming, localization key generation, and actions.
+
+During bug testing, I also realized that I should have built a validator to identify dead ends, missing dialogue references, and unused flags.
+
+Since this was my first experience with game development, I'm not surprised that I made such significant oversights. I've taken these experiences as valuable lessons for future projects.
 
