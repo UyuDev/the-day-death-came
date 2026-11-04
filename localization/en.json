@@ -44,6 +44,7 @@
     "dialogue.intro_4": "*I should get dressed.*",  
     "dialogue.intro_5": "Your eyes spring open and you get out of bed.",
     "dialogue.intro_wake": "After some rest, you get out of bed.",
+    "dialogue.death_wake": "You jolt awake in your bed, your heart pounding. The memory of your death is still painfully vivid.",
     "dialogue.hardcore_death_reset": "[Hardcore Mode: Death has reset your progress.]",
     "dialogue.hardcore_death_reset_2": "You jolt awake in bed, drenched in sweat. For a moment, the nightmare feels disturbingly real.",
 
@@ -106,9 +107,9 @@
     "dialogue.main_menu_no": "[Returning to previous options]",
     "dialogue.stairs_downward": "You go down the stairs...",
     "dialogue.no_inventory": "*I should get dressed before I mess with things.*",
+
     "dialogue.left_bookshelf": "You search through the books.",
     "dialogue.left_bookshelf_empty": "There is nothing else of interest.",
-
     "dialogue.tome_open_1": "You find an old leather-bound tome.",
     "dialogue.tome_open_2": "*Great-grandfather's book...*",
     "dialogue.tome_open_3": "*I'd almost forgotten about this.*",
@@ -1582,6 +1583,7 @@
     "dialogue.crypt_3_combat_12": "\"I've heard enough men justify their actions. They all sound the same in the end.\"",
     "dialogue.crypt_3_combat_13": "Graye: \"You dare judge me? I am the lord of these lands!\"",
     "dialogue.crypt_3_combat_14": "\"And I'm tired of dying for them.\"",
+    "dialogue.crypt_3_guards_defeated": "As the last guard falls, you hear more footsteps approaching from deeper within the crypt.",
     "dialogue.crypt_3_lord_encounter": "Graye and his honor guards lie motionless upon the chamber floor.",
     "dialogue.crypt_3_combat_final": "Cold laughter echoes through the chamber.",
     "dialogue.crypt_3_combat_sceadus": "Sceadus: \"So falls the lord who sought to master me. How fitting.\"",
@@ -1921,6 +1923,7 @@
     "exploration.crypt_1_enemies_2": "You discover cultists moving among the skeletons.",
     "exploration.crypt_2_enemies_1": "Skeleton warriors and mages emerge from the darkness.",
     "exploration.crypt_2_enemies_2": "Deeper in the crypt, more powerful undead stand in your path.",
+    "exploration.crypt_3_honor_guards_encounter": "Four of Lord Graye's honor guards step forward, weapons drawn, blocking your path.",
     "exploration.crypt_3_graye_encounter": "Lord Graye and his remaining guards approach you.",
     "exploration.reaper_boss_1": "A dark shadow rises from the ground and appears before you.",
     "exploration.reaper_boss_2": "A dark shadow rises from the ground and appears before you.",

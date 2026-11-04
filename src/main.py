@@ -259,7 +259,8 @@ def main():
                                     world_state,
                                     save_menu,
                                     renderer,
-                                    dialogue
+                                    dialogue,
+                                    died=True
                                 )
                                 world_state.flags["has_died"] = True
                         game_state = "DIALOGUE"

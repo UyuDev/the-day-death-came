@@ -120,6 +120,10 @@ ENCOUNTERS = {
         "enemies": ["skeleton_knight", "skeleton_darkmaster"],
         "text_id": "exploration.crypt_2_enemies_2"
     },
+    "crypt_3_honor_guards_encounter": {
+        "enemies": ["honor_guard", "honor_guard", "honor_guard", "honor_guard"],
+        "text_id": "exploration.crypt_3_graye_encounter"
+    },
     "crypt_3_graye_encounter": {
         "enemies": ["honor_guard", "honor_guard", "honor_guard", "honor_guard", "lord_graye"],
         "text_id": "exploration.crypt_3_graye_encounter"

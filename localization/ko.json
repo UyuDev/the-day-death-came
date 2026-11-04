@@ -47,7 +47,7 @@
     "dialogue.intro_4": "*옷부터 입어야겠다.*",
     "dialogue.intro_5": "눈이 번쩍 떠지고, 당신은 침대에서 일어난다.",
     "dialogue.intro_wake": "당신은 갑자기 잠에서 깨어 침대에서 일어난다.",
-
+    "dialogue.death_wake": "당신은 심장이 세차게 뛰는 채로 침대에서 벌떡 깨어난다. 죽음의 기억이 아직도 생생하다.",
     "dialogue.hardcore_death_reset": "[하드코어 모드: 사망으로 인해 진행 상황이 초기화되었습니다.]",
     "dialogue.hardcore_death_reset_2": "당신은 식은땀에 흠뻑 젖은 채 침대에서 벌떡 깨어난다. 잠시 동안 악몽이 섬뜩할 정도로 생생하게 느껴진다.",
 
@@ -1581,6 +1581,7 @@
     "dialogue.crypt_3_combat_12": "\"자기 행동을 정당화하는 사람들은 많이 봤습니다. 결국 다 똑같은 소리를 하더군요.\"",
     "dialogue.crypt_3_combat_13": "그레이: \"감히 나를 심판하려 드는 것이오? 나는 이 땅의 영주요!\"",
     "dialogue.crypt_3_combat_14": "\"그리고 저는 이 땅을 위해 죽는 데 지쳤습니다.\"",
+    "dialogue.crypt_3_guards_defeated": "마지막 경비병이 쓰러지자, 지하 묘지 깊은 곳에서 또 다른 발소리가 다가오는 것이 들린다.",
     "dialogue.crypt_3_lord_encounter": "그레이와 그의 친위대가 방바닥에 쓰러진 채 움직이지 않는다.",
     "dialogue.crypt_3_combat_final": "차가운 웃음소리가 방 안에 울려 퍼진다.",
     "dialogue.crypt_3_combat_sceadus": "샤두스: \"나를 지배하려던 영주가 이렇게 쓰러지는군. 참으로 어울리는 최후다.\"",
@@ -1915,6 +1916,7 @@
     "exploration.crypt_1_enemies_2": "해골들 사이를 돌아다니는 광신도들을 발견한다.",
     "exploration.crypt_2_enemies_1": "어둠 속에서 해골 전사들과 해골 마법사들이 나타난다.",
     "exploration.crypt_2_enemies_2": "지하 묘실 깊은 곳에서 더욱 강력한 언데드들이 길을 가로막는다.",
+    "exploration.crypt_3_honor_guards_encounter": "그레이 경의 정예 경비병 네 명이 무기를 뽑아 들고 앞으로 나서며 당신의 앞길을 막는다.",
     "exploration.crypt_3_graye_encounter": "그레이 영주와 남은 호위병들이 당신에게 다가온다.",
     "exploration.reaper_boss_1": "검은 그림자가 땅에서 솟아올라 당신 앞에 나타난다.",
     "exploration.reaper_boss_2": "검은 그림자가 땅에서 솟아올라 당신 앞에 나타난다.",

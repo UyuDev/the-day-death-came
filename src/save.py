@@ -44,16 +44,18 @@ SAVE_LOCATIONS = {
     "farmhouse_bed": {
         "map": "house_upstairs",
         "name_id": "save.upstairs_bed",
-        "dialogue": "intro wake"
+        "dialogue": "intro wake",
+        "death_dialogue": "farmhouse death wake"
     },
-    "inn_bed": { 
+    "inn_bed": {
         "map": "town",
         "name_id": "save.inn_bed",
-        "dialogue": "inn wake"
+        "dialogue": "inn wake",
+        "death_dialogue": "inn death wake"
     }
 }
 
-def reload_current_save(player, world_state, save_menu, renderer, dialogue):
+def reload_current_save(player, world_state, save_menu, renderer, dialogue, died=False):
     save_data = load_save(save_menu.current_slot)
 
     if save_data is None:
@@ -63,7 +65,10 @@ def reload_current_save(player, world_state, save_menu, renderer, dialogue):
 
     checkpoint = SAVE_LOCATIONS[world_state.save_location]
     renderer.load_map(checkpoint["map"])
-    dialogue.set_current(checkpoint["dialogue"])
+
+    dialogue_key = "death_dialogue" if died else "dialogue"
+    dialogue.set_current(checkpoint[dialogue_key])
+
     player.health = 100
     return True
 

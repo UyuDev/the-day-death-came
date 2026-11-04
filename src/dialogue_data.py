@@ -104,6 +104,12 @@ DIALOGUE = {
         "next": "look around upstairs"
     },
 
+    "farmhouse death wake": {
+        "text_id": "dialogue.death_wake",
+        "next": "look around upstairs"
+    },
+
+
     "hardcore death reset": {
         "text_id": "dialogue.hardcore_death_reset",
         "next": "hardcore death reset 2"
@@ -288,6 +294,7 @@ DIALOGUE = {
         "text_id": "dialogue.rest_bed",
         "next": "restore bed"
     },
+
 
     "restore bed": {
         "text_id": "dialogue.restore_bed",
@@ -5745,6 +5752,11 @@ DIALOGUE = {
         "next": "town choice",
     },
 
+    "inn death wake": {
+        "text_id": "dialogue.death_wake",
+        "next": "town choice"
+    },
+
     "inn save game": {
         "text_id": "dialogue.save_game",
         "options": {
@@ -9392,10 +9404,10 @@ DIALOGUE = {
 
     "crypt 3 ritual failure 5": {
         "text_id": "dialogue.crypt_3_ritual_failure_5",
-        "next": "crypt 3 honor guards encounter"
+        "next": "crypt 3 ritual failure encounter"
     },
 
-    "crypt 3 honor guards encounter": {
+    "crypt 3 ritual failure encounter": {
         "text_id": "dialogue.crypt_3_honor_guards_victory",
         "next": "crypt 3 ritual failure 6",
         "actions": [
@@ -9866,9 +9878,21 @@ DIALOGUE = {
     },
     "crypt 3 combat 14": {
         "text_id": "dialogue.crypt_3_combat_14",
-        "next": "crypt 3 lord encounter"
+        "next": "crypt 3 honor guards encounter"
     },
     # Encounter text displays after combat
+
+    "crypt 3 honor guards encounter": {
+        "text_id": "dialogue.crypt_3_guards_defeated",
+        "next": "crypt 3 lord encounter",
+        "actions": [
+            {
+                "type": "encounter",
+                "target": "crypt_3_honor_guards_encounter"
+            }
+        ]
+    },
+
     "crypt 3 lord encounter": {
         "text_id": "dialogue.crypt_3_lord_encounter",
         "next": "crypt 3 combat final",
