@@ -90,11 +90,11 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
         print("Current dialogue after reload:", dialogue.current)
         world_state.flags["has_died"] = True
         print("has_died:", world_state.flags["has_died"])
-        if front_door_encountered:
+        if front_door_encountered and world_state.flags["room_rented"] == False:
             world_state.flags["front_door_encountered"] = True
             print("front_door_encountered:", world_state.flags["front_door_encountered"])
-        dialogue.set_current("resurrect 1")
-        renderer.load_map("house_upstairs")
+            dialogue.set_current("resurrect 1")
+            renderer.load_map("house_upstairs")
         return "DIALOGUE"
     
     elif action["type"] == "exit_exploration":
@@ -184,4 +184,7 @@ def handle_action(action, player, renderer, dialogue, world_state, save_menu, se
                 return result
             
     elif action["type"] == "check_level":
-        return player.level >= action["target"]
+        if player.level >= action["target"]:
+            dialogue.set_current(action["if_pass"])
+        else:
+            dialogue.set_current(action["if_fail"])
